@@ -1,0 +1,19 @@
+{
+  "llvm-target": "alphaev6-unknown-linux-gnu",
+  "data-layout": "e-m:e-i64:64-n32:64",
+  "arch": "alpha",
+  "target-endian": "little",
+  "target-pointer-width": 64,
+  "os": "linux",
+  "env": "gnu",
+  "vendor": "unknown",
+  "linker-flavor": "gcc",
+  "linker": "alphaev6-unknown-linux-gnu-gcc",
+  "executables": true,
+  "dynamic-linking": true,
+  "panic-strategy": "abort",
+  "disable-redzone": true,
+  "features": "",
+  "relocation-model": "pic",
+  "position-independent-executables": true 
+}
