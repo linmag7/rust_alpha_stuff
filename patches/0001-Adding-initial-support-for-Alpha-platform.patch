@@ -1,0 +1,505 @@
+From f75335cc8c5d1e3d9aca3876deeb5479a5cf16ec Mon Sep 17 00:00:00 2001
+From: Magnus Lindholm <linmag7@gmail.com>
+Date: Sat, 10 Jan 2026 22:32:07 +0100
+Subject: [PATCH] Adding initial support for Alpha platform.
+
+This is to be used as prof-of-concept only and need to
+be reworked in order to be usefull. Some debug printout
+should also be removed.
+
+Signed-off-by: Magnus Lindholm <linmag7@gmail.com>
+---
+ compiler/rustc_codegen_llvm/src/llvm_util.rs  |   3 +
+ .../rustc_codegen_ssa/src/mir/intrinsic.rs    |  45 ++++++--
+ compiler/rustc_feature/src/unstable.rs        |   1 +
+ compiler/rustc_span/src/symbol.rs             |   2 +
+ compiler/rustc_target/src/asm/mod.rs          |   8 +-
+ compiler/rustc_target/src/callconv/alpha.rs   | 104 ++++++++++++++++++
+ compiler/rustc_target/src/callconv/mod.rs     |   2 +
+ compiler/rustc_target/src/spec/mod.rs         |   6 +-
+ .../targets/alphaev6_unknown_linux_gnu.rs     |  63 +++++++++++
+ compiler/rustc_target/src/target_features.rs  |   9 ++
+ library/core/src/mem/maybe_uninit.rs          |   3 +-
+ src/tools/miri/src/shims/alloc.rs             |   1 +
+ 12 files changed, 233 insertions(+), 14 deletions(-)
+ create mode 100644 compiler/rustc_target/src/callconv/alpha.rs
+ create mode 100644 compiler/rustc_target/src/spec/targets/alphaev6_unknown_linux_gnu.rs
+
+diff --git a/compiler/rustc_codegen_llvm/src/llvm_util.rs b/compiler/rustc_codegen_llvm/src/llvm_util.rs
+index 682484595a8..3f9722bc7e4 100644
+--- a/compiler/rustc_codegen_llvm/src/llvm_util.rs
++++ b/compiler/rustc_codegen_llvm/src/llvm_util.rs
+@@ -381,6 +381,7 @@ fn update_target_reliable_float_cfg(sess: &Session, cfg: &mut TargetConfig) {
+         (Arch::Hexagon, _) if lt_21_0_0 => false, // (fixed in llvm21)
+         (Arch::PowerPC | Arch::PowerPC64, _) => false,
+         (Arch::Sparc | Arch::Sparc64, _) => false,
++        (Arch::Alpha, _) => false,
+         (Arch::Wasm32 | Arch::Wasm64, _) => false,
+         // `f16` support only requires that symbols converting to and from `f32` are available. We
+         // provide these in `compiler-builtins`, so `f16` should be available on all platforms that
+@@ -403,6 +404,8 @@ fn update_target_reliable_float_cfg(sess: &Session, cfg: &mut TargetConfig) {
+         (Arch::PowerPC | Arch::PowerPC64, _) => false,
+         // ABI unsupported  <https://github.com/llvm/llvm-project/issues/41838>
+         (Arch::Sparc, _) => false,
++        // Alpha: f128 lowering currently triggers GCC Alpha backend ICE via libgccjit
++        (Arch::Alpha, _) => false,
+         // Stack alignment bug <https://github.com/llvm/llvm-project/issues/77401>. NB: tests may
+         // not fail if our compiler-builtins is linked. (fixed in llvm21)
+         (Arch::X86, _) if lt_21_0_0 => false,
+diff --git a/compiler/rustc_codegen_ssa/src/mir/intrinsic.rs b/compiler/rustc_codegen_ssa/src/mir/intrinsic.rs
+index aeb74011823..04346563168 100644
+--- a/compiler/rustc_codegen_ssa/src/mir/intrinsic.rs
++++ b/compiler/rustc_codegen_ssa/src/mir/intrinsic.rs
+@@ -241,17 +241,40 @@ pub fn codegen_intrinsic_call(
+                 );
+                 return Ok(());
+             }
+-            sym::volatile_set_memory => {
+-                memset_intrinsic(
+-                    bx,
+-                    true,
+-                    fn_args.type_at(0),
+-                    args[0].immediate(),
+-                    args[1].immediate(),
+-                    args[2].immediate(),
+-                );
+-                return Ok(());
+-            }
++
++sym::volatile_set_memory => {
++    if args.len() == 3 {
++        memset_intrinsic(
++            bx,
++            true,
++            fn_args.type_at(0),
++            args[0].immediate(),
++            args[1].immediate(),
++            args[2].immediate(),
++        );
++        return Ok(());
++    }
++
++    if args.len() == 1 {
++        // rust-call / tuple-packed form: arg0 is (dst, val, count)
++        let tup = args[0].immediate();
++
++        // Adjust these method names if needed for your rustc version:
++        let dst   = bx.extract_value(tup, 0);
++        let val   = bx.extract_value(tup, 1);
++        let count = bx.extract_value(tup, 2);
++
++        memset_intrinsic(bx, true, fn_args.type_at(0), dst, val, count);
++        return Ok(());
++    }
++
++    span_bug!(
++        span,
++        "volatile_set_memory: expected 3 args (or 1 tuple arg), got {}",
++        args.len()
++    );
++}
++
+             sym::volatile_store => {
+                 let dst = args[0].deref(bx.cx());
+                 args[1].val.volatile_store(bx, dst);
+diff --git a/compiler/rustc_feature/src/unstable.rs b/compiler/rustc_feature/src/unstable.rs
+index f0a1f141685..f68b8ab2496 100644
+--- a/compiler/rustc_feature/src/unstable.rs
++++ b/compiler/rustc_feature/src/unstable.rs
+@@ -336,6 +336,7 @@ pub fn internal(&self, feature: Symbol) -> bool {
+     (unstable, hexagon_target_feature, "1.27.0", Some(44839)),
+     (unstable, lahfsahf_target_feature, "1.78.0", Some(44839)),
+     (unstable, loongarch_target_feature, "1.73.0", Some(44839)),
++    (unstable, alpha_target_feature, "1.70.0", Some(44839)),
+     (unstable, m68k_target_feature, "1.85.0", Some(134328)),
+     (unstable, mips_target_feature, "1.27.0", Some(44839)),
+     (unstable, movrs_target_feature, "1.88.0", Some(137976)),
+diff --git a/compiler/rustc_span/src/symbol.rs b/compiler/rustc_span/src/symbol.rs
+index 0e30abccb62..5158ae5925c 100644
+--- a/compiler/rustc_span/src/symbol.rs
++++ b/compiler/rustc_span/src/symbol.rs
+@@ -406,6 +406,7 @@
+         aarch64,
+         aarch64_target_feature,
+         aarch64_unstable_target_feature,
++        alpha_target_feature,
+         aarch64_ver_target_feature,
+         abi,
+         abi_amdgpu_kernel,
+@@ -1372,6 +1373,7 @@
+         lr,
+         lt,
+         m68k,
++        alpha,
+         m68k_target_feature,
+         macro_at_most_once_rep,
+         macro_attr,
+diff --git a/compiler/rustc_target/src/asm/mod.rs b/compiler/rustc_target/src/asm/mod.rs
+index 05b24d71094..8618792fe76 100644
+--- a/compiler/rustc_target/src/asm/mod.rs
++++ b/compiler/rustc_target/src/asm/mod.rs
+@@ -194,6 +194,7 @@ macro_rules! types {
+ mod spirv;
+ mod wasm;
+ mod x86;
++//mod alpha;
+ 
+ pub use aarch64::{AArch64InlineAsmReg, AArch64InlineAsmRegClass};
+ pub use arm::{ArmInlineAsmReg, ArmInlineAsmRegClass};
+@@ -203,6 +204,7 @@ macro_rules! types {
+ pub use hexagon::{HexagonInlineAsmReg, HexagonInlineAsmRegClass};
+ pub use loongarch::{LoongArchInlineAsmReg, LoongArchInlineAsmRegClass};
+ pub use m68k::{M68kInlineAsmReg, M68kInlineAsmRegClass};
++//pub use alpha::{AlphaInlineAsmReg, AlphakInlineAsmRegClass};
+ pub use mips::{MipsInlineAsmReg, MipsInlineAsmRegClass};
+ pub use msp430::{Msp430InlineAsmReg, Msp430InlineAsmRegClass};
+ pub use nvptx::{NvptxInlineAsmReg, NvptxInlineAsmRegClass};
+@@ -241,6 +243,7 @@ pub enum InlineAsmArch {
+     Avr,
+     Msp430,
+     M68k,
++//    Alpha,
+     CSKY,
+ }
+ 
+@@ -272,8 +275,9 @@ pub fn from_arch(arch: &Arch) -> Option<Self> {
+             Arch::Avr => Some(Self::Avr),
+             Arch::Msp430 => Some(Self::Msp430),
+             Arch::M68k => Some(Self::M68k),
++//            Arch::Alpha => Some(Self::Alpha),
+             Arch::CSky => Some(Self::CSKY),
+-            Arch::AmdGpu | Arch::Xtensa | Arch::Other(_) => None,
++            Arch::AmdGpu | Arch::Xtensa | Arch::Alpha | Arch::Other(_) => None,
+         }
+     }
+ }
+@@ -298,6 +302,7 @@ pub enum InlineAsmReg {
+     Avr(AvrInlineAsmReg),
+     Msp430(Msp430InlineAsmReg),
+     M68k(M68kInlineAsmReg),
++//    Alpha(AlphaInlineAsmReg),
+     CSKY(CSKYInlineAsmReg),
+     // Placeholder for invalid register constraints for the current target
+     Err,
+@@ -320,6 +325,7 @@ pub fn name(self) -> &'static str {
+             Self::Avr(r) => r.name(),
+             Self::Msp430(r) => r.name(),
+             Self::M68k(r) => r.name(),
++//            Self::Alpha(r) => r.name(),
+             Self::CSKY(r) => r.name(),
+             Self::Err => "<reg>",
+         }
+diff --git a/compiler/rustc_target/src/callconv/alpha.rs b/compiler/rustc_target/src/callconv/alpha.rs
+new file mode 100644
+index 00000000000..84efb553f1d
+--- /dev/null
++++ b/compiler/rustc_target/src/callconv/alpha.rs
+@@ -0,0 +1,104 @@
++use rustc_abi::{BackendRepr, HasDataLayout, Primitive, Reg, Size, TyAbiInterface};
++use crate::callconv::{ArgAbi, ArgExtension, FnAbi, PassMode, Uniform};
++
++fn extend_int_to_64_if_needed<Ty>(arg: &mut ArgAbi<'_, Ty>) {
++    let BackendRepr::Scalar(s) = arg.layout.backend_repr else { return };
++    let Primitive::Int(_, _) = s.primitive() else { return };
++    arg.extend_integer_width_to(64);
++}
++
++// Alpha ABI (C ABI): 32-bit integer “argument items” are carried sign-extended in 64-bit regs.
++// Only apply if no ext was chosen earlier (avoids Sext/Zext conflicts/panics).
++fn fix_i32_ext_alpha<Ty>(arg: &mut ArgAbi<'_, Ty>) {
++    let BackendRepr::Scalar(s) = arg.layout.backend_repr else { return };
++    let Primitive::Int(i, _signed) = s.primitive() else { return };
++    if i.size().bits() != 32 {
++        return;
++    }
++
++    let PassMode::Direct(ref mut attrs) = arg.mode else { return };
++
++    // Don’t fight earlier decisions (e.g., some compiler-builtins paths may set Zext already).
++    if attrs.arg_ext != ArgExtension::None {
++        return;
++    }
++
++    attrs.ext(ArgExtension::Sext);
++}
++
++fn classify_ret<'a, Ty, C>(cx: &C, ret: &mut ArgAbi<'a, Ty>, offset: &mut Size)
++where
++    Ty: TyAbiInterface<'a, C> + Copy,
++    C: HasDataLayout,
++{
++    if !ret.layout.is_sized() {
++        return;
++    }
++
++    if !ret.layout.is_aggregate() {
++        extend_int_to_64_if_needed(ret);
++        fix_i32_ext_alpha(ret);
++        return;
++    }
++
++    let size = ret.layout.size;
++    if size.bits() <= 128 && !ret.layout.is_unsized() {
++        // Return small aggregates in 1–2 i64 regs.
++        ret.cast_to(Uniform::new(Reg::i64(), size));
++    } else {
++        ret.make_indirect();
++        *offset += cx.data_layout().pointer_size();
++    }
++}
++
++fn classify_arg<'a, Ty, C>(cx: &C, arg: &mut ArgAbi<'a, Ty>, offset: &mut Size)
++where
++    Ty: TyAbiInterface<'a, C> + Copy,
++    C: HasDataLayout,
++{
++    if !arg.layout.is_sized() {
++        return;
++    }
++
++    if arg.layout.pass_indirectly_in_non_rustic_abis(cx) {
++        arg.make_indirect();
++        return;
++    }
++
++    if !arg.layout.is_aggregate() {
++        extend_int_to_64_if_needed(arg);
++        fix_i32_ext_alpha(arg);
++    } else {
++        let size = arg.layout.size;
++        if size.bits() <= 128 {
++            // Pass small aggregates directly as i64 chunks.
++            arg.cast_to(Uniform::new(Reg::i64(), size));
++        } else {
++            arg.make_indirect();
++        }
++    }
++
++    // Minimal offset accounting; note pointer_align is a method on your rustc.
++    let palign = cx.data_layout().pointer_align().abi;
++    *offset += arg.layout.size.align_to(palign);
++}
++
++pub(crate) fn compute_abi_info<'a, Ty, C>(cx: &C, fn_abi: &mut FnAbi<'a, Ty>)
++where
++    Ty: TyAbiInterface<'a, C> + Copy,
++    C: HasDataLayout,
++{
++    let mut offset = Size::ZERO;
++
++    if !fn_abi.ret.is_ignore() {
++        classify_ret(cx, &mut fn_abi.ret, &mut offset);
++    }
++
++    for arg in fn_abi.args.iter_mut() {
++        if arg.is_ignore() {
++            continue;
++        }
++        classify_arg(cx, arg, &mut offset);
++    }
++}
++
+diff --git a/compiler/rustc_target/src/callconv/mod.rs b/compiler/rustc_target/src/callconv/mod.rs
+index 092d99e9111..837583aec96 100644
+--- a/compiler/rustc_target/src/callconv/mod.rs
++++ b/compiler/rustc_target/src/callconv/mod.rs
+@@ -9,6 +9,7 @@
+ pub use crate::spec::AbiMap;
+ use crate::spec::{Arch, HasTargetSpec, HasX86AbiOpt};
+ 
++mod alpha;
+ mod aarch64;
+ mod amdgpu;
+ mod arm;
+@@ -685,6 +686,7 @@ pub fn adjust_for_foreign_abi<C>(&mut self, cx: &C, abi: ExternAbi)
+             Arch::CSky => csky::compute_abi_info(cx, self),
+             Arch::Mips | Arch::Mips32r6 => mips::compute_abi_info(cx, self),
+             Arch::Mips64 | Arch::Mips64r6 => mips64::compute_abi_info(cx, self),
++            Arch::Alpha => alpha::compute_abi_info(cx, self),
+             Arch::PowerPC => powerpc::compute_abi_info(cx, self),
+             Arch::PowerPC64 => powerpc64::compute_abi_info(cx, self),
+             Arch::S390x => s390x::compute_abi_info(cx, self),
+diff --git a/compiler/rustc_target/src/spec/mod.rs b/compiler/rustc_target/src/spec/mod.rs
+index 3d500694c97..93d993afece 100644
+--- a/compiler/rustc_target/src/spec/mod.rs
++++ b/compiler/rustc_target/src/spec/mod.rs
+@@ -1439,6 +1439,7 @@ fn $module() {
+     ("loongarch64-unknown-linux-gnu", loongarch64_unknown_linux_gnu),
+     ("loongarch64-unknown-linux-musl", loongarch64_unknown_linux_musl),
+     ("m68k-unknown-linux-gnu", m68k_unknown_linux_gnu),
++    ("alphaev6-unknown-linux-gnu", alphaev6_unknown_linux_gnu),
+     ("m68k-unknown-none-elf", m68k_unknown_none_elf),
+     ("csky-unknown-linux-gnuabiv2", csky_unknown_linux_gnuabiv2),
+     ("csky-unknown-linux-gnuabiv2hf", csky_unknown_linux_gnuabiv2hf),
+@@ -1865,6 +1866,7 @@ pub enum Arch {
+         LoongArch32 = "loongarch32",
+         LoongArch64 = "loongarch64",
+         M68k = "m68k",
++        Alpha = "alpha",
+         Mips = "mips",
+         Mips32r6 = "mips32r6",
+         Mips64 = "mips64",
+@@ -1903,6 +1905,7 @@ pub fn desc_symbol(&self) -> Symbol {
+             Self::LoongArch32 => sym::loongarch32,
+             Self::LoongArch64 => sym::loongarch64,
+             Self::M68k => sym::m68k,
++            Self::Alpha => sym::alpha,
+             Self::Mips => sym::mips,
+             Self::Mips32r6 => sym::mips32r6,
+             Self::Mips64 => sym::mips64,
+@@ -1941,7 +1944,7 @@ pub fn supports_c_variadic_definitions(&self) -> bool {
+             AArch64 | AmdGpu | Arm | Arm64EC | Avr | CSky | Hexagon | LoongArch32 | LoongArch64
+             | M68k | Mips | Mips32r6 | Mips64 | Mips64r6 | Msp430 | Nvptx64 | PowerPC
+             | PowerPC64 | PowerPC64LE | RiscV32 | RiscV64 | S390x | Sparc | Sparc64 | Wasm32
+-            | Wasm64 | X86 | X86_64 | Xtensa => true,
++            | Wasm64 | X86 | X86_64 | Xtensa | Alpha => true,
+         }
+     }
+ }
+@@ -3441,6 +3444,7 @@ pub fn object_architecture(
+             | Arch::SpirV
+             | Arch::Wasm32
+             | Arch::Wasm64
++            | Arch::Alpha
+             | Arch::Other(_) => return None,
+         })
+     }
+diff --git a/compiler/rustc_target/src/spec/targets/alphaev6_unknown_linux_gnu.rs b/compiler/rustc_target/src/spec/targets/alphaev6_unknown_linux_gnu.rs
+new file mode 100644
+index 00000000000..40e593d0e43
+--- /dev/null
++++ b/compiler/rustc_target/src/spec/targets/alphaev6_unknown_linux_gnu.rs
+@@ -0,0 +1,63 @@
++use rustc_abi::Endian;
++
++use crate::spec::{Arch, LinkSelfContainedDefault, Target, TargetMetadata, TargetOptions, base};
++
++pub(crate) fn target() -> Target {
++    let mut base = base::linux_gnu::opts();
++
++    // Alpha Linux is commonly targeted as "alphaev6" in toolchains.
++    base.cpu = "ev6".into();
++
++    // Alpha has 64-bit atomics in the ISA model typically used on Linux.
++    base.max_atomic_width = Some(64);
++
++    Target {
++        // Use a triple that LLVM's Alpha backend recognizes.
++        llvm_target: "alphaev6-unknown-linux-gnu".into(),
++        metadata: TargetMetadata {
++            description: Some("DEC Alpha Linux (ev6)".into()),
++            tier: Some(3),
++            host_tools: Some(false),
++            // Set to false until you have libc/std/unwind story sorted.
++            std: Some(false),
++        },
++        pointer_width: 64,
++
++        // This layout is taken from LLVM Alpha CodeGen tests for alphaev6 Linux.
++        // Key quirks:
++        //  - i64 has ABI align 32, pref align 64 (i64:32:64)
++        //  - f128 is 128-bit aligned
++        //  - aggregates are 64-bit aligned
++        data_layout: concat!(
++            "e-m:e-",
++            "p:64:64:64-",
++            "i1:8:8-",
++            "i8:8:8-",
++            "i16:16:16-",
++            "i32:32:32-",
++            "i64:32:64-",
++            "f32:32:32-",
++            "f64:64:64-",
++            "f128:128:128-",
++            "v64:64:64-",
++            "v128:128:128-",
++            "a:0:64-",
++            "n8:16:32:64-",
++            "S128"
++        )
++        .into(),
++
++        arch: Arch::Alpha,
++
++        options: TargetOptions {
++            endian: Endian::Little,
++            mcount: "_mcount".into(),
++
++            // LLD generally doesn't support Alpha well; use system binutils linker.
++            link_self_contained: LinkSelfContainedDefault::False,
++
++            ..base
++        },
++    }
++}
++
+diff --git a/compiler/rustc_target/src/target_features.rs b/compiler/rustc_target/src/target_features.rs
+index e516a31d1e6..b50def3e017 100644
+--- a/compiler/rustc_target/src/target_features.rs
++++ b/compiler/rustc_target/src/target_features.rs
+@@ -869,6 +869,12 @@ pub fn toggle_allowed(&self) -> Result<(), &'static str> {
+     // tidy-alphabetical-end
+ ];
+ 
++const ALPHA_FEATURES: &[(&str, Stability, ImpliedFeatures)] = &[
++    // tidy-alphabetical-start
++    ("ev6", Unstable(sym::alpha_target_feature), &[]),
++    // tidy-alphabetical-end
++];
++
+ static M68K_FEATURES: &[(&str, Stability, ImpliedFeatures)] = &[
+     // tidy-alphabetical-start
+     ("isa-68000", Unstable(sym::m68k_target_feature), &[]),
+@@ -903,6 +909,7 @@ pub fn all_rust_features() -> impl Iterator<Item = (&'static str, Stability)> {
+         .chain(LOONGARCH_FEATURES)
+         .chain(IBMZ_FEATURES)
+         .chain(SPARC_FEATURES)
++        .chain(ALPHA_FEATURES)
+         .chain(M68K_FEATURES)
+         .cloned()
+         .map(|(f, s, _)| (f, s))
+@@ -981,6 +988,7 @@ pub fn rust_target_features(&self) -> &'static [(&'static str, Stability, Implie
+             Arch::S390x => IBMZ_FEATURES,
+             Arch::Sparc | Arch::Sparc64 => SPARC_FEATURES,
+             Arch::M68k => M68K_FEATURES,
++            Arch::Alpha => ALPHA_FEATURES,
+             Arch::AmdGpu
+             | Arch::Avr
+             | Arch::Msp430
+@@ -1018,6 +1026,7 @@ pub fn features_for_correct_fixed_length_vector_abi(&self) -> &'static [(u64, &'
+             | Arch::PowerPC64LE
+             | Arch::SpirV
+             | Arch::Xtensa
++            | Arch::Alpha
+             | Arch::Other(_) => &[],
+         }
+     }
+diff --git a/library/core/src/mem/maybe_uninit.rs b/library/core/src/mem/maybe_uninit.rs
+index 1f066697fa4..1bfb63bee4d 100644
+--- a/library/core/src/mem/maybe_uninit.rs
++++ b/library/core/src/mem/maybe_uninit.rs
+@@ -776,7 +776,8 @@ pub const fn as_mut_ptr(&mut self) -> *mut T {
+         // SAFETY: the caller must guarantee that `self` is initialized.
+         // Reading from `self.as_ptr()` is safe since `self` should be initialized.
+         unsafe {
+-            intrinsics::assert_inhabited::<T>();
++            //intrinsics::assert_inhabited::<T>();
++            const { intrinsics::assert_inhabited::<T>(); }
+             self.as_ptr().read()
+         }
+     }
+diff --git a/src/tools/miri/src/shims/alloc.rs b/src/tools/miri/src/shims/alloc.rs
+index 94649dde473..759a33fc063 100644
+--- a/src/tools/miri/src/shims/alloc.rs
++++ b/src/tools/miri/src/shims/alloc.rs
+@@ -54,6 +54,7 @@ fn malloc_align(&self, size: u64) -> Align {
+             | Arch::Nvptx64
+             | Arch::PowerPC64LE
+             | Arch::SpirV
++            | Arch::Alpha
+             | Arch::Other(_)) => bug!("unsupported target architecture for malloc: `{arch}`"),
+         };
+         // The C standard only requires sufficient alignment for any *type* with size less than or
+-- 
+2.43.0
+
