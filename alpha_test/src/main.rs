@@ -1,6 +1,8 @@
 #![no_std]
 #![no_main]
 
+#![feature(asm_experimental_arch)]
+
 #[repr(C)]
 #[derive(Copy, Clone)]
 struct PairU64 {
@@ -34,6 +36,139 @@ fn panic(_info: &PanicInfo) -> ! {
     print(b"PANIC\n");
     unsafe { _exit(111) }
 }
+
+use core::arch::asm;
+
+
+static mut GLOB: u64 = 0;
+
+#[inline(never)]
+fn inline_asm_complex_test() {
+    print(b"\n== inline asm complex ==\n");
+
+    // ------------------------------------------------------------
+    // 1) FP registers: compute (x + y) in f64 using addt
+    // ------------------------------------------------------------
+    let x: f64 = 1.25;
+    let y: f64 = 2.5;
+    let mut z: f64 = 0.0;
+
+    unsafe {
+        // z = x + y  (IEEE double add)
+        asm!(
+            "addt {x}, {y}, {z}",
+            x = in(freg) x,
+            y = in(freg) y,
+            z = lateout(freg) z,
+            options(nomem, nostack),
+        );
+    }
+
+    print(b"f64 z bits = "); print_u64_hex(z.to_bits()); print_nl();
+    let expz = (x + y).to_bits();
+    print(b"exp bits   = "); print_u64_hex(expz); print_nl();
+    print(b"ok? "); print(&[if z.to_bits() == expz { b'1' } else { b'0' }]); print_nl();
+
+    // ------------------------------------------------------------
+    // 2) Clobber test: smash a call-clobbered integer reg explicitly
+    //    and prove Rust values survive because compiler knows clobbers.
+    // ------------------------------------------------------------
+    let before: u64 = 0x0123_4567_89ab_cdef;
+    let after: u64 = before;
+
+    unsafe {
+        asm!(
+            // Write a recognizable constant into some register chosen by compiler,
+            // but declare it as a clobber via `out(reg) _`.
+            "lda {tmp}, 0x1234({zero})",
+            tmp = out(reg) _,         // tmp is clobbered
+            zero = in(reg) 31u64,     // not used; see note below
+            options(nomem, nostack),
+        );
+    }
+
+    // If clobbers are respected, `after` is unchanged.
+    print(b"after = "); print_u64_hex(after); print_nl();
+    print(b"ok? "); print(&[if after == before { b'1' } else { b'0' }]); print_nl();
+
+
+    // ------------------------------------------------------------
+    // 3) Memory clobber / barrier test:
+    //    store to a global via asm, then load in Rust, with "memory" clobber.
+    // ------------------------------------------------------------
+    unsafe { GLOB = 0; }
+    let val: u64 = 0xdead_beef_cafe_f00d;
+
+    unsafe {
+        let p = core::ptr::addr_of_mut!(GLOB) as *mut u64;
+
+        // Store through pointer in asm
+        asm!(
+            "stq {v}, 0({p})",
+            p = in(reg) p,
+            v = in(reg) val,
+            // no nomem: this writes memory.
+            options(nostack),
+        );
+
+        // Compiler barrier: tell Rust "memory may have changed".
+        asm!("", options(nostack, preserves_flags));
+    }
+
+    let seen = unsafe { GLOB };
+    print(b"GLOB = "); print_u64_hex(seen); print_nl();
+    print(b"ok? "); print(&[if seen == val { b'1' } else { b'0' }]); print_nl();
+}
+
+
+#[inline(never)]
+fn inline_asm_smoke_test() {
+    print(b"\n== inline asm smoke ==\n");
+
+    // 1) Pure register op: addq
+    let a: u64 = 0x1111_2222_3333_4444;
+    let b: u64 = 0x0102_0304_0506_0708;
+    let mut out: u64 = 0;
+
+    unsafe {
+        // out = a + b
+        asm!(
+            "addq {a}, {b}, {out}",
+            a = in(reg) a,
+            b = in(reg) b,
+            out = lateout(reg) out,
+            options(nomem, nostack, preserves_flags),
+        );
+    }
+
+    print(b"addq out = "); print_u64_hex(out); print_nl();
+    let exp = a.wrapping_add(b);
+    print(b"exp      = "); print_u64_hex(exp); print_nl();
+    print(b"ok? "); print(&[if out == exp { b'1' } else { b'0' }]); print_nl();
+
+    // 2) Memory + pointer operand: store then load a u64
+    let mut slot: u64 = 0;
+    let val: u64 = 0xdead_beef_cafe_f00d;
+    let p = &mut slot as *mut u64;
+    let mut loaded: u64 = 0;
+
+    unsafe {
+        asm!(
+            "stq {val}, 0({ptr})",
+            "ldq {out}, 0({ptr})",
+            ptr = in(reg) p,
+            val = in(reg) val,
+            out = lateout(reg) loaded,
+            // This touches memory pointed to by ptr:
+            options(nostack),
+        );
+    }
+
+    print(b"mem slot = "); print_u64_hex(slot); print_nl();
+    print(b"loaded   = "); print_u64_hex(loaded); print_nl();
+    print(b"ok? "); print(&[if loaded == val && slot == val { b'1' } else { b'0' }]); print_nl();
+}
+
 
 #[inline(never)]
 fn abi_stress_callee(
@@ -370,7 +505,8 @@ pub extern "C" fn _start() -> ! {
     }
     
     abi_stress_test();
-
+    inline_asm_smoke_test();
+    inline_asm_complex_test();
     unsafe {
         _exit(0);
     }

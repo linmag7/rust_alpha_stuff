@@ -1,7 +1,7 @@
 From f75335cc8c5d1e3d9aca3876deeb5479a5cf16ec Mon Sep 17 00:00:00 2001
 From: Magnus Lindholm <linmag7@gmail.com>
 Date: Sat, 10 Jan 2026 22:32:07 +0100
-Subject: [PATCH] Adding initial support for Alpha platform.
+Subject: [PATCH 1/2] Adding initial support for Alpha platform.
 
 This is to be used as prof-of-concept only and need to
 be reworked in order to be usefull. Some debug printout

@@ -1,0 +1,410 @@
+From 7249ed419949185359935372378d4fcca937e31f Mon Sep 17 00:00:00 2001
+From: Magnus Lindholm <linmag7@gmail.com>
+Date: Sun, 18 Jan 2026 20:26:07 +0100
+Subject: [PATCH 2/2] Add initial inline asm support for Alpha
+
+Signed-off-by: Magnus Lindholm <linmag7@gmail.com>
+---
+ compiler/rustc_codegen_gcc/src/asm.rs  |   5 +
+ compiler/rustc_codegen_llvm/src/asm.rs |   6 ++
+ compiler/rustc_target/src/asm/alpha.rs | 140 +++++++++++++++++++++++++
+ compiler/rustc_target/src/asm/mod.rs   |  34 ++++--
+ 4 files changed, 178 insertions(+), 7 deletions(-)
+ create mode 100644 compiler/rustc_target/src/asm/alpha.rs
+
+diff --git a/compiler/rustc_codegen_gcc/src/asm.rs b/compiler/rustc_codegen_gcc/src/asm.rs
+index ceb3dd3ffed..8fffed94787 100644
+--- a/compiler/rustc_codegen_gcc/src/asm.rs
++++ b/compiler/rustc_codegen_gcc/src/asm.rs
+@@ -697,6 +697,8 @@ fn reg_class_to_gcc(reg_class: InlineAsmRegClass) -> &'static str {
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg) => "r",
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg_addr) => "a",
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg_data) => "d",
++        InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::reg) => "r",
++        InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::freg) => "f",
+         InlineAsmRegClass::CSKY(CSKYInlineAsmRegClass::reg) => "r",
+         InlineAsmRegClass::CSKY(CSKYInlineAsmRegClass::freg) => "f",
+         InlineAsmRegClass::Mips(MipsInlineAsmRegClass::reg) => "d", // more specific than "r"
+@@ -846,6 +848,8 @@ fn dummy_output_type<'gcc, 'tcx>(cx: &CodegenCx<'gcc, 'tcx>, reg: InlineAsmRegCl
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg) => cx.type_i32(),
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg_addr) => cx.type_i32(),
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg_data) => cx.type_i32(),
++        InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::reg) => cx.type_i64(),
++        InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::freg) => cx.type_f64(),
+         InlineAsmRegClass::CSKY(CSKYInlineAsmRegClass::reg) => cx.type_i32(),
+         InlineAsmRegClass::CSKY(CSKYInlineAsmRegClass::freg) => cx.type_f32(),
+         InlineAsmRegClass::SpirV(SpirVInlineAsmRegClass::reg) => {
+@@ -1038,6 +1042,7 @@ fn modifier_to_gcc(
+         InlineAsmRegClass::Sparc(_) => None,
+         InlineAsmRegClass::Msp430(_) => None,
+         InlineAsmRegClass::M68k(_) => None,
++        InlineAsmRegClass::Alpha(_) => None,
+         InlineAsmRegClass::CSKY(_) => None,
+         InlineAsmRegClass::SpirV(SpirVInlineAsmRegClass::reg) => {
+             bug!("LLVM backend does not support SPIR-V")
+diff --git a/compiler/rustc_codegen_llvm/src/asm.rs b/compiler/rustc_codegen_llvm/src/asm.rs
+index ee1b6d45e14..8d6cecc284d 100644
+--- a/compiler/rustc_codegen_llvm/src/asm.rs
++++ b/compiler/rustc_codegen_llvm/src/asm.rs
+@@ -285,6 +285,7 @@ fn codegen_inline_asm(
+                 InlineAsmArch::M68k => {
+                     constraints.push("~{ccr}".to_string());
+                 }
++                InlineAsmArch::Alpha => {}
+                 InlineAsmArch::CSKY => {
+                     constraints.push("~{psr}".to_string());
+                 }
+@@ -704,6 +705,8 @@ fn reg_to_llvm(reg: InlineAsmRegOrRegClass, layout: Option<&TyAndLayout<'_>>) ->
+             M68k(M68kInlineAsmRegClass::reg) => "r",
+             M68k(M68kInlineAsmRegClass::reg_addr) => "a",
+             M68k(M68kInlineAsmRegClass::reg_data) => "d",
++            Alpha(AlphaInlineAsmRegClass::reg) => "r",
++            Alpha(AlphaInlineAsmRegClass::freg) => "f",
+             CSKY(CSKYInlineAsmRegClass::reg) => "r",
+             CSKY(CSKYInlineAsmRegClass::freg) => "f",
+             SpirV(SpirVInlineAsmRegClass::reg) => bug!("LLVM backend does not support SPIR-V"),
+@@ -803,6 +806,7 @@ fn modifier_to_llvm(
+         Msp430(_) => None,
+         SpirV(SpirVInlineAsmRegClass::reg) => bug!("LLVM backend does not support SPIR-V"),
+         M68k(_) => None,
++        Alpha(_) => None,
+         CSKY(_) => None,
+         Err => unreachable!(),
+     }
+@@ -880,6 +884,8 @@ fn dummy_output_type<'ll>(cx: &CodegenCx<'ll, '_>, reg: InlineAsmRegClass) -> &'
+         }
+         Sparc(SparcInlineAsmRegClass::reg) => cx.type_i32(),
+         Sparc(SparcInlineAsmRegClass::yreg) => unreachable!("clobber-only"),
++        Alpha(AlphaInlineAsmRegClass::reg) => cx.type_i64(),
++        Alpha(AlphaInlineAsmRegClass::freg) => cx.type_f64(),
+         Msp430(Msp430InlineAsmRegClass::reg) => cx.type_i16(),
+         M68k(M68kInlineAsmRegClass::reg) => cx.type_i32(),
+         M68k(M68kInlineAsmRegClass::reg_addr) => cx.type_i32(),
+diff --git a/compiler/rustc_target/src/asm/alpha.rs b/compiler/rustc_target/src/asm/alpha.rs
+new file mode 100644
+index 00000000000..6ca7c315a51
+--- /dev/null
++++ b/compiler/rustc_target/src/asm/alpha.rs
+@@ -0,0 +1,140 @@
++// compiler/rustc_target/src/asm/alpha.rs
++use std::fmt;
++
++use rustc_span::Symbol;
++
++use super::{InlineAsmArch, InlineAsmType, ModifierInfo};
++
++def_reg_class! {
++    Alpha AlphaInlineAsmRegClass {
++        reg,   // integer regs
++        freg,  // floating regs
++    }
++}
++
++impl AlphaInlineAsmRegClass {
++    pub fn valid_modifiers(self, _arch: InlineAsmArch) -> &'static [char] {
++        // Alpha doesn't use per-operand modifiers in the same way as x86.
++        &[]
++    }
++
++    pub fn suggest_class(self, _arch: InlineAsmArch, _ty: InlineAsmType) -> Option<Self> {
++        None
++    }
++
++    pub fn suggest_modifier(
++        self,
++        _arch: InlineAsmArch,
++        _ty: InlineAsmType,
++    ) -> Option<ModifierInfo> {
++        None
++    }
++
++    pub fn default_modifier(self, _arch: InlineAsmArch) -> Option<ModifierInfo> {
++        None
++    }
++
++    pub fn supported_types(self, _arch: InlineAsmArch) -> &'static [(InlineAsmType, Option<Symbol>)] {
++        match self {
++            Self::reg => types! { _: I8, I16, I32, I64; },
++            Self::freg => types! { _: F32, F64; },
++        }
++    }
++}
++def_regs! {
++    Alpha AlphaInlineAsmReg AlphaInlineAsmRegClass {
++        // --- integer regs ---
++        r0:  reg = ["$0",  "v0"],
++        r1:  reg = ["$1",  "t0"],
++        r2:  reg = ["$2",  "t1"],
++        r3:  reg = ["$3",  "t2"],
++        r4:  reg = ["$4",  "t3"],
++        r5:  reg = ["$5",  "t4"],
++        r6:  reg = ["$6",  "t5"],
++        r7:  reg = ["$7",  "t6"],
++        r8:  reg = ["$8",  "t7"],
++
++        r9:  reg = ["$9",  "s0"],
++        r10: reg = ["$10", "s1"],
++        r11: reg = ["$11", "s2"],
++        r12: reg = ["$12", "s3"],
++        r13: reg = ["$13", "s4"],
++        r14: reg = ["$14", "s5"],
++        r15: reg = ["$15", "s6"],
++
++        r16: reg = ["$16", "a0"],
++        r17: reg = ["$17", "a1"],
++        r18: reg = ["$18", "a2"],
++        r19: reg = ["$19", "a3"],
++        r20: reg = ["$20", "a4"],
++        r21: reg = ["$21", "a5"],
++
++        r22: reg = ["$22", "t8"],
++        r23: reg = ["$23", "t9"],
++        r24: reg = ["$24", "t10"],
++        r25: reg = ["$25", "t11"],
++
++        r26: reg = ["$26", "ra"],
++        r27: reg = ["$27", "pv"],
++
++        // --- floating regs ---
++        f0:  freg = ["$f0",  "f0"],
++        f1:  freg = ["$f1",  "f1"],
++        f2:  freg = ["$f2",  "f2"],
++        f3:  freg = ["$f3",  "f3"],
++        f4:  freg = ["$f4",  "f4"],
++        f5:  freg = ["$f5",  "f5"],
++        f6:  freg = ["$f6",  "f6"],
++        f7:  freg = ["$f7",  "f7"],
++        f8:  freg = ["$f8",  "f8"],
++        f9:  freg = ["$f9",  "f9"],
++        f10: freg = ["$f10", "f10"],
++        f11: freg = ["$f11", "f11"],
++        f12: freg = ["$f12", "f12"],
++        f13: freg = ["$f13", "f13"],
++        f14: freg = ["$f14", "f14"],
++        f15: freg = ["$f15", "f15"],
++        f16: freg = ["$f16", "f16"],
++        f17: freg = ["$f17", "f17"],
++        f18: freg = ["$f18", "f18"],
++        f19: freg = ["$f19", "f19"],
++        f20: freg = ["$f20", "f20"],
++        f21: freg = ["$f21", "f21"],
++        f22: freg = ["$f22", "f22"],
++        f23: freg = ["$f23", "f23"],
++        f24: freg = ["$f24", "f24"],
++        f25: freg = ["$f25", "f25"],
++        f26: freg = ["$f26", "f26"],
++        f27: freg = ["$f27", "f27"],
++        f28: freg = ["$f28", "f28"],
++        f29: freg = ["$f29", "f29"],
++        f30: freg = ["$f30", "f30"],
++        f31: freg = ["$f31", "f31"],
++
++        // --- ALL #error rules must come AFTER all regs ---
++        #error = ["fp"] =>
++            "fp is used as the frame pointer and should not be used as an explicit inline asm operand",
++
++        #error = ["$28", "at"] =>
++            "the assembler temporary register ($28 / at) cannot be used as an operand for inline asm",
++        #error = ["$29", "gp"] =>
++            "the global pointer register ($29 / gp) cannot be used as an operand for inline asm",
++        #error = ["$30", "sp"] =>
++            "the stack pointer register ($30 / sp) cannot be used as an operand for inline asm",
++        #error = ["$31", "zero"] =>
++            "the zero register ($31 / zero) cannot be used as an operand for inline asm",
++    }
++}
++
++impl AlphaInlineAsmReg {
++    pub fn emit(
++        self,
++        out: &mut dyn fmt::Write,
++        _arch: InlineAsmArch,
++        _modifier: Option<char>,
++    ) -> fmt::Result {
++        // The canonical name we chose already matches Alpha GAS ("$0", "$f0", ...).
++        out.write_str(self.name())
++    }
++}
++
+diff --git a/compiler/rustc_target/src/asm/mod.rs b/compiler/rustc_target/src/asm/mod.rs
+index 8618792fe76..da8637229c7 100644
+--- a/compiler/rustc_target/src/asm/mod.rs
++++ b/compiler/rustc_target/src/asm/mod.rs
+@@ -194,7 +194,7 @@ macro_rules! types {
+ mod spirv;
+ mod wasm;
+ mod x86;
+-//mod alpha;
++mod alpha;
+ 
+ pub use aarch64::{AArch64InlineAsmReg, AArch64InlineAsmRegClass};
+ pub use arm::{ArmInlineAsmReg, ArmInlineAsmRegClass};
+@@ -204,7 +204,7 @@ macro_rules! types {
+ pub use hexagon::{HexagonInlineAsmReg, HexagonInlineAsmRegClass};
+ pub use loongarch::{LoongArchInlineAsmReg, LoongArchInlineAsmRegClass};
+ pub use m68k::{M68kInlineAsmReg, M68kInlineAsmRegClass};
+-//pub use alpha::{AlphaInlineAsmReg, AlphakInlineAsmRegClass};
++pub use alpha::{AlphaInlineAsmReg, AlphaInlineAsmRegClass};
+ pub use mips::{MipsInlineAsmReg, MipsInlineAsmRegClass};
+ pub use msp430::{Msp430InlineAsmReg, Msp430InlineAsmRegClass};
+ pub use nvptx::{NvptxInlineAsmReg, NvptxInlineAsmRegClass};
+@@ -243,7 +243,7 @@ pub enum InlineAsmArch {
+     Avr,
+     Msp430,
+     M68k,
+-//    Alpha,
++    Alpha,
+     CSKY,
+ }
+ 
+@@ -275,9 +275,9 @@ pub fn from_arch(arch: &Arch) -> Option<Self> {
+             Arch::Avr => Some(Self::Avr),
+             Arch::Msp430 => Some(Self::Msp430),
+             Arch::M68k => Some(Self::M68k),
+-//            Arch::Alpha => Some(Self::Alpha),
++            Arch::Alpha => Some(Self::Alpha),
+             Arch::CSky => Some(Self::CSKY),
+-            Arch::AmdGpu | Arch::Xtensa | Arch::Alpha | Arch::Other(_) => None,
++            Arch::AmdGpu | Arch::Xtensa | Arch::Other(_) => None,
+         }
+     }
+ }
+@@ -302,7 +302,7 @@ pub enum InlineAsmReg {
+     Avr(AvrInlineAsmReg),
+     Msp430(Msp430InlineAsmReg),
+     M68k(M68kInlineAsmReg),
+-//    Alpha(AlphaInlineAsmReg),
++    Alpha(AlphaInlineAsmReg),
+     CSKY(CSKYInlineAsmReg),
+     // Placeholder for invalid register constraints for the current target
+     Err,
+@@ -325,7 +325,7 @@ pub fn name(self) -> &'static str {
+             Self::Avr(r) => r.name(),
+             Self::Msp430(r) => r.name(),
+             Self::M68k(r) => r.name(),
+-//            Self::Alpha(r) => r.name(),
++            Self::Alpha(r) => r.name(),
+             Self::CSKY(r) => r.name(),
+             Self::Err => "<reg>",
+         }
+@@ -343,6 +343,7 @@ pub fn reg_class(self) -> InlineAsmRegClass {
+             Self::Mips(r) => InlineAsmRegClass::Mips(r.reg_class()),
+             Self::S390x(r) => InlineAsmRegClass::S390x(r.reg_class()),
+             Self::Sparc(r) => InlineAsmRegClass::Sparc(r.reg_class()),
++            Self::Alpha(r) => InlineAsmRegClass::Alpha(r.reg_class()),
+             Self::Bpf(r) => InlineAsmRegClass::Bpf(r.reg_class()),
+             Self::Avr(r) => InlineAsmRegClass::Avr(r.reg_class()),
+             Self::Msp430(r) => InlineAsmRegClass::Msp430(r.reg_class()),
+@@ -380,6 +381,7 @@ pub fn parse(arch: InlineAsmArch, name: Symbol) -> Result<Self, &'static str> {
+             InlineAsmArch::Sparc | InlineAsmArch::Sparc64 => {
+                 Self::Sparc(SparcInlineAsmReg::parse(name)?)
+             }
++            InlineAsmArch::Alpha => Self::Alpha(AlphaInlineAsmReg::parse(name)?),
+             InlineAsmArch::SpirV => Self::SpirV(SpirVInlineAsmReg::parse(name)?),
+             InlineAsmArch::Wasm32 | InlineAsmArch::Wasm64 => {
+                 Self::Wasm(WasmInlineAsmReg::parse(name)?)
+@@ -417,6 +419,7 @@ pub fn validate(
+             Self::Avr(r) => r.validate(arch, reloc_model, target_features, target, is_clobber),
+             Self::Msp430(r) => r.validate(arch, reloc_model, target_features, target, is_clobber),
+             Self::M68k(r) => r.validate(arch, reloc_model, target_features, target, is_clobber),
++            Self::Alpha(r) => r.validate(arch, reloc_model, target_features, target, is_clobber),
+             Self::CSKY(r) => r.validate(arch, reloc_model, target_features, target, is_clobber),
+             Self::Err => unreachable!(),
+         }
+@@ -445,6 +448,7 @@ pub fn emit(
+             Self::Avr(r) => r.emit(out, arch, modifier),
+             Self::Msp430(r) => r.emit(out, arch, modifier),
+             Self::M68k(r) => r.emit(out, arch, modifier),
++            Self::Alpha(r) => r.emit(out, arch, modifier),
+             Self::CSKY(r) => r.emit(out, arch, modifier),
+             Self::Err => unreachable!("Use of InlineAsmReg::Err"),
+         }
+@@ -466,6 +470,7 @@ pub fn overlapping_regs(self, mut cb: impl FnMut(InlineAsmReg)) {
+             Self::Avr(r) => r.overlapping_regs(|r| cb(Self::Avr(r))),
+             Self::Msp430(_) => cb(self),
+             Self::M68k(_) => cb(self),
++            Self::Alpha(_) => cb(self),
+             Self::CSKY(_) => cb(self),
+             Self::Err => unreachable!("Use of InlineAsmReg::Err"),
+         }
+@@ -492,6 +497,7 @@ pub enum InlineAsmRegClass {
+     Avr(AvrInlineAsmRegClass),
+     Msp430(Msp430InlineAsmRegClass),
+     M68k(M68kInlineAsmRegClass),
++    Alpha(AlphaInlineAsmRegClass),
+     CSKY(CSKYInlineAsmRegClass),
+     // Placeholder for invalid register constraints for the current target
+     Err,
+@@ -517,6 +523,7 @@ pub fn name(self) -> Symbol {
+             Self::Avr(r) => r.name(),
+             Self::Msp430(r) => r.name(),
+             Self::M68k(r) => r.name(),
++            Self::Alpha(r) => r.name(),
+             Self::CSKY(r) => r.name(),
+             Self::Err => rustc_span::sym::reg,
+         }
+@@ -544,6 +551,7 @@ pub fn suggest_class(self, arch: InlineAsmArch, ty: InlineAsmType) -> Option<Sel
+             Self::Avr(r) => r.suggest_class(arch, ty).map(InlineAsmRegClass::Avr),
+             Self::Msp430(r) => r.suggest_class(arch, ty).map(InlineAsmRegClass::Msp430),
+             Self::M68k(r) => r.suggest_class(arch, ty).map(InlineAsmRegClass::M68k),
++            Self::Alpha(r) => r.suggest_class(arch, ty).map(InlineAsmRegClass::Alpha),
+             Self::CSKY(r) => r.suggest_class(arch, ty).map(InlineAsmRegClass::CSKY),
+             Self::Err => unreachable!("Use of InlineAsmRegClass::Err"),
+         }
+@@ -574,6 +582,7 @@ pub fn suggest_modifier(self, arch: InlineAsmArch, ty: InlineAsmType) -> Option<
+             Self::Avr(r) => r.suggest_modifier(arch, ty),
+             Self::Msp430(r) => r.suggest_modifier(arch, ty),
+             Self::M68k(r) => r.suggest_modifier(arch, ty),
++            Self::Alpha(r) => r.suggest_modifier(arch, ty),
+             Self::CSKY(r) => r.suggest_modifier(arch, ty),
+             Self::Err => unreachable!("Use of InlineAsmRegClass::Err"),
+         }
+@@ -604,6 +613,7 @@ pub fn default_modifier(self, arch: InlineAsmArch) -> Option<ModifierInfo> {
+             Self::Avr(r) => r.default_modifier(arch),
+             Self::Msp430(r) => r.default_modifier(arch),
+             Self::M68k(r) => r.default_modifier(arch),
++            Self::Alpha(r) => r.default_modifier(arch),
+             Self::CSKY(r) => r.default_modifier(arch),
+             Self::Err => unreachable!("Use of InlineAsmRegClass::Err"),
+         }
+@@ -637,6 +647,7 @@ pub fn supported_types(
+             Self::Avr(r) => r.supported_types(arch),
+             Self::Msp430(r) => r.supported_types(arch),
+             Self::M68k(r) => r.supported_types(arch),
++            Self::Alpha(r) => r.supported_types(arch),
+             Self::CSKY(r) => r.supported_types(arch),
+             Self::Err => unreachable!("Use of InlineAsmRegClass::Err"),
+         }
+@@ -677,6 +688,7 @@ pub fn parse(arch: InlineAsmArch, name: Symbol) -> Result<Self, &'static [rustc_
+             InlineAsmArch::Avr => Self::Avr(AvrInlineAsmRegClass::parse(name)?),
+             InlineAsmArch::Msp430 => Self::Msp430(Msp430InlineAsmRegClass::parse(name)?),
+             InlineAsmArch::M68k => Self::M68k(M68kInlineAsmRegClass::parse(name)?),
++            InlineAsmArch::Alpha => Self::Alpha(AlphaInlineAsmRegClass::parse(name)?),
+             InlineAsmArch::CSKY => Self::CSKY(CSKYInlineAsmRegClass::parse(name)?),
+         })
+     }
+@@ -702,6 +714,7 @@ pub fn valid_modifiers(self, arch: InlineAsmArch) -> &'static [char] {
+             Self::Avr(r) => r.valid_modifiers(arch),
+             Self::Msp430(r) => r.valid_modifiers(arch),
+             Self::M68k(r) => r.valid_modifiers(arch),
++            Self::Alpha(r) => r.valid_modifiers(arch),
+             Self::CSKY(r) => r.valid_modifiers(arch),
+             Self::Err => unreachable!("Use of InlineAsmRegClass::Err"),
+         }
+@@ -919,6 +932,13 @@ pub fn allocatable_registers(
+             m68k::fill_reg_map(arch, reloc_model, target_features, target, &mut map);
+             map
+         }
++        InlineAsmArch::Alpha => {
++            let mut map = alpha::regclass_map();
++            alpha::fill_reg_map(arch, reloc_model, target_features, target, &mut map);
++            map
++        }
++
++
+         InlineAsmArch::CSKY => {
+             let mut map = csky::regclass_map();
+             csky::fill_reg_map(arch, reloc_model, target_features, target, &mut map);
+-- 
+2.43.0
+
