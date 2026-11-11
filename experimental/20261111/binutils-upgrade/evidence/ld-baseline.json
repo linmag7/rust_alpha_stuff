@@ -1,0 +1,43 @@
+{
+  "new_failures_and_xpasses": [
+    "FAIL: --gc-sections with multiple debug sections for a function section",
+    "FAIL: Build libpr19073.so",
+    "FAIL: Build pr25458",
+    "FAIL: Build pr25458.so",
+    "FAIL: Generate undefweak-1.a",
+    "FAIL: Generate undefweak-1.o",
+    "FAIL: SHF_GNU_RETAIN 3 (keep sections referenced by retained sections)",
+    "FAIL: SHF_GNU_RETAIN 6a (pull section out of lib required by SHF_GNU_RETAIN section)",
+    "FAIL: SHF_GNU_RETAIN 6b (pull section out of lib required by SHF_GNU_RETAIN section)",
+    "FAIL: ld-elf/pr17550a",
+    "FAIL: ld-elf/pr17550b",
+    "FAIL: ld-elf/pr17550c",
+    "FAIL: ld-elf/pr17550d",
+    "FAIL: ld-ifunc/ifunc-26",
+    "FAIL: pr20995",
+    "FAIL: pr20995-2",
+    "XPASS: pr22374 function pointer initialization"
+  ],
+  "matched_in_old_run": [
+    "FAIL: --gc-sections with multiple debug sections for a function section",
+    "FAIL: Build libpr19073.so",
+    "FAIL: Build pr25458",
+    "FAIL: Build pr25458.so",
+    "FAIL: Generate undefweak-1.a",
+    "FAIL: Generate undefweak-1.o",
+    "FAIL: SHF_GNU_RETAIN 3 (keep sections referenced by retained sections)",
+    "FAIL: SHF_GNU_RETAIN 6a (pull section out of lib required by SHF_GNU_RETAIN section)",
+    "FAIL: SHF_GNU_RETAIN 6b (pull section out of lib required by SHF_GNU_RETAIN section)",
+    "FAIL: ld-elf/pr17550a",
+    "FAIL: ld-elf/pr17550b",
+    "FAIL: ld-elf/pr17550c",
+    "FAIL: ld-elf/pr17550d",
+    "FAIL: ld-ifunc/ifunc-26",
+    "FAIL: pr20995",
+    "FAIL: pr20995-2",
+    "XPASS: pr22374 function pointer initialization"
+  ],
+  "unmatched": [],
+  "baseline_run_complete": false,
+  "baseline_stop_reason": "All current FAIL/XPASS results reproduced; stopped old-tools run while ld-scripts/pr33265-1 linker remained running for over 90 seconds. Baseline also lacks built test plugin; not a clean full-suite baseline."
+}

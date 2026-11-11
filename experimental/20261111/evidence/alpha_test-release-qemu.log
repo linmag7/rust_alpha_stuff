@@ -1,0 +1,56 @@
+alpha no_std rust test
+page size = 8192
+
+== integer math ==
+dec test 4096 = 4096
+dec test 1234567890 = 1234567890
+a      = 0x123456789abcdef0
+b      = 0xeeeeddddccccbbbc
+a+b    = 0x0123345667899aac
+a-b    = 0x2345789acdf02334
+a*7    = 0x7f6e5d4c3b2a1890
+a/3    = 437256155821263440  rem 0
+a/3 (hex) = 0x0611722833944a50
+a%3 (hex) = 0x0000000000000000
+recomposed = 0x123456789abcdef0
+orig       = 0x123456789abcdef0
+u&v    = 0x0000000000000000
+u|v    = 0xffffffffffffffff
+u^v    = 0xffffffffffffffff
+u<<13  = 0x97530eca86420000
+u>>17  = 0x00007f6e5d4c3b2a
+
+== float math (f64) ==
+x*y bits        = 0x3fd3333333333334
+x+x+x bits      = 0x3fd3333333333334
+(z*z)/z bits     = 0x5f138d352e5096af
+(1e16+1)-1e16    = 0x0000000000000000
+z bits          = 0x5f138d352e5096af
+(z*z)/z == z ?  1
++0 bits         = 0x0000000000000000
+-0 bits         = 0x8000000000000000
+Box value = 0x0000000012345678
+allocation and alignment: PASS
+
+== ABI stress ==
+got = {a=0x2e7b87c3a6c91efa, b=0xfceb9c312a5fd6b1}
+exp = {a=0x2e7b87c3a6c91efa, b=0xfceb9c312a5fd6b1}
+abi ok? 1
+
+== inline asm smoke ==
+addq out = 0x1213252638394b4c
+exp      = 0x1213252638394b4c
+ok? 1
+mem slot = 0xdeadbeefcafef00d
+loaded   = 0xdeadbeefcafef00d
+ok? 1
+
+== inline asm complex ==
+f64 z bits = 0x400e000000000000
+exp bits   = 0x400e000000000000
+ok? 1
+after = 0x0123456789abcdef
+ok? 1
+GLOB = 0xdeadbeefcafef00d
+ok? 1
+alpha smoke: PASS

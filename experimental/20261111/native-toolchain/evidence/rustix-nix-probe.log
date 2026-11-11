@@ -1,0 +1,70 @@
+warning: ignoring `hints.mostly-unused`
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix/Cargo.toml:292:1
+    |
+292 | mostly-unused = true
+    | ^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: pass `-Zprofile-hint-mostly-unused` to enable it
+warning: `rustix` (manifest) generated 1 warning
+    Updating crates.io index
+     Locking 4 packages to highest Rust 1.102.0-dev compatible versions
+      Adding cfg-if v1.0.5
+      Adding cfg_aliases v0.2.2
+      Adding nix v0.30.1 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1)
+      Adding nix v0.31.3 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.31.3)
+    Updating crates.io index
+warning: patch `rustix v1.1.4 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+   Compiling nix v0.30.1 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1)
+   Compiling nix v0.31.3 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.31.3)
+   Compiling cfg-if v1.0.5
+   Compiling rustix v1.1.4 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix)
+warning: function pointer comparisons do not produce meaningful results since their addresses are not guaranteed to be unique
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1/src/sys/signal.rs:763:13
+    |
+756 | #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+    |                                        --------- in this derive macro expansion
+...
+763 |     Handler(extern "C" fn(libc::c_int)),
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: the address of the same function can vary between different codegen units
+    = note: furthermore, different functions could have the same address after being merged together
+    = note: for more information visit <https://doc.rust-lang.org/nightly/core/ptr/fn.fn_addr_eq.html>
+    = note: `#[warn(unpredictable_function_pointer_comparisons)]` on by default
+
+warning: function pointer comparisons do not produce meaningful results since their addresses are not guaranteed to be unique
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1/src/sys/signal.rs:767:15
+    |
+756 | #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+    |                                        --------- in this derive macro expansion
+...
+767 |     SigAction(extern "C" fn(libc::c_int, *mut libc::siginfo_t, *mut libc::c_void))
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: the address of the same function can vary between different codegen units
+    = note: furthermore, different functions could have the same address after being merged together
+    = note: for more information visit <https://doc.rust-lang.org/nightly/core/ptr/fn.fn_addr_eq.html>
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1/src/sys/signalfd.rs:149:14
+    |
+149 |     fn as_fd(&self) -> BorrowedFd {
+    |              ^^^^^     ^^^^^^^^^^ the same lifetime is hidden here
+    |              |
+    |              the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+    |
+149 |     fn as_fd(&self) -> BorrowedFd<'_> {
+    |                                  ++++
+
+warning: `nix` (lib) generated 3 warnings (run `cargo fix --lib -p nix` to apply 1 suggestion)
+   Compiling native-alpha-rustix-probe v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/tests/rustix-probe)
+    Finished `release` profile [optimized] target(s) in 9.32s
+Alpha ioctl C/Rust comparison, SYS_open Rustix open/fstat and Nix signal checks: PASS

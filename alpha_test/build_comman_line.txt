@@ -1,3 +1,9 @@
-ALPHA_SYSROOT=$HOME/x-tools/alphaev6-unknown-linux-gnu/alphaev6-unknown-linux-gnu/sysroot
+# From rust_alpha_stuff/ (uses the preserved matching rustc/backend/libgccjit):
+./scripts/alpha-build.sh
+./scripts/alpha-run.sh
 
-RUSTFLAGS="-Zcodegen-backend=$HOME/ctng-alpha/rustc_codegen_gcc/target/release/librustc_codegen_gcc.so --sysroot $HOME/ctng-alpha/rustc_codegen_gcc/build/build_sysroot/sysroot -C linker=alphaev6-unknown-linux-gnu-gcc  -C link-arg=--sysroot=$ALPHA_SYSROOT -C link-arg=-nostdlib -C link-arg=-nostartfiles -C link-arg=-lc" cargo build   -Z build-std=core,alloc,compiler_builtins   -Z build-std-features=compiler-builtins-no-f16-f128  -vv --target $HOME/ctng-alpha/rustc_codegen_gcc/target_specs/alphaev6-unknown-linux-gnu.json
+# Both debug and release, plus C ABI probes (currently reports known ABI failures):
+./scripts/alpha-check.sh
+
+# Paths, toolchain versions, hardware results and known limitations: README.md
+# All new caches, temporary files and build products live in ../work/.

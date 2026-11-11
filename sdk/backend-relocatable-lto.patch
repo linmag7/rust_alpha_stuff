@@ -1,0 +1,15 @@
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -254,7 +254,11 @@
+ 
+         #[cfg(feature = "master")]
+         {
+-            let lto_supported = gccjit::is_lto_supported();
++            // Packaged toolchains can override libgccjit's compiled-in LTO path.
++            let lto_supported = std::env::var_os("CG_GCC_LTO1").map_or_else(
++                gccjit::is_lto_supported,
++                |path| std::path::Path::new(&path).is_file(),
++            );
+             LTO_SUPPORTED.store(lto_supported, Ordering::SeqCst);
+             self.lto_supported.store(lto_supported, Ordering::SeqCst);
+ 

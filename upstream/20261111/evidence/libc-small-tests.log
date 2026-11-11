@@ -1,0 +1,23 @@
+   Compiling libc-test v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/upstream-20261111/libc/libc-test)
+warning: libc-test@0.1.0: detected versions: Versions { linux: Some((7, 1)), glibc: Some((2, 41)), dragonfly: None, freebsd: None, openbsd: None, netbsd: None, apple: None, emscripten: None, wasi_sdk: None, android: None }
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 53.79s
+     Running tests/linux_elf.rs (work/upstream-20261111/libc-target/alphaev6-unknown-linux-gnu/debug/deps/linux_elf-bd7860bf8fcf764a)
+RUNNING ALL TESTS
+PASSED 52 tests
+     Running tests/linux_fcntl.rs (work/upstream-20261111/libc-target/alphaev6-unknown-linux-gnu/debug/deps/linux_fcntl-77de317eb794b6e0)
+RUNNING ALL TESTS
+PASSED 7 tests
+     Running tests/linux_if_arp.rs (work/upstream-20261111/libc-target/alphaev6-unknown-linux-gnu/debug/deps/linux_if_arp-c4bb823c65a8e13a)
+RUNNING ALL TESTS
+PASSED 1 tests
+     Running tests/linux_ipv6.rs (work/upstream-20261111/libc-target/alphaev6-unknown-linux-gnu/debug/deps/linux_ipv6-ba8f90ceac3d1db0)
+RUNNING ALL TESTS
+PASSED 5 tests
+     Running tests/linux_strerror_r.rs (work/upstream-20261111/libc-target/alphaev6-unknown-linux-gnu/debug/deps/linux_strerror_r-4e365a311fd1eb8b)
+RUNNING ALL TESTS
+PASSED 1 tests
+     Running tests/linux_termios.rs (work/upstream-20261111/libc-target/alphaev6-unknown-linux-gnu/debug/deps/linux_termios-dcf125bd7dc8d410)
+RUNNING ALL TESTS
+PASSED 34 tests
+     Running tests/semver.rs (work/upstream-20261111/libc-target/alphaev6-unknown-linux-gnu/debug/deps/semver-3e6890118ccc1e94)
+PASSED 1 tests

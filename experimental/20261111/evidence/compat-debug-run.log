@@ -1,0 +1,35 @@
+    Updating crates.io index
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.27
+   Compiling quote v1.0.47
+   Compiling serde_core v1.0.228
+   Compiling shlex v1.3.0
+   Compiling serde v1.0.228
+   Compiling heck v0.5.0
+   Compiling serde_json v1.0.145
+   Compiling memchr v2.8.3
+   Compiling utf8parse v0.2.2
+   Compiling is_terminal_polyfill v1.70.2
+   Compiling anstyle v1.0.14
+   Compiling anstyle-query v1.1.5
+   Compiling colorchoice v1.0.5
+   Compiling regex-syntax v0.8.11
+   Compiling clap_lex v0.7.7
+   Compiling strsim v0.11.1
+   Compiling ryu v1.0.23
+   Compiling itoa v1.0.19
+   Compiling anstyle-parse v0.2.7
+   Compiling cc v1.2.28
+   Compiling anstream v0.6.21
+   Compiling clap_builder v4.5.20
+   Compiling aho-corasick v1.1.5
+   Compiling syn v2.0.119
+   Compiling alpha_sdk_compat v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/probes/compat)
+   Compiling regex-automata v0.4.18
+   Compiling serde_derive v1.0.228
+   Compiling clap_derive v4.5.18
+   Compiling regex v1.12.2
+   Compiling clap v4.5.20
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 20.98s
+     Running `/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/bin/alpha-runner work/experimental-20261111/target/ddb0c065314fd2fa/alphaev6-unknown-linux-gnu/debug/alpha_sdk_compat --name fresh-stack`
+SDK compatibility: PASS; hello fresh-stack

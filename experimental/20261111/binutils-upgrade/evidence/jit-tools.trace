@@ -1,0 +1,5 @@
+634909 execve("work/binutils-20261111/jit-tools", ["work/binutils-20261111/jit-tools", "/media/lindholm/545a6254-41a9-48"...], 0x7ffc5b6843d0 /* 88 vars */) = 0
+634915 execve("/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-as", ["/media/lindholm/545a6254-41a9-48"..., "--traditional-format", "-mev6", "-o", "/media/lindholm/545a6254-41a9-48"..., "/media/lindholm/545a6254-41a9-48"...], 0x6405fe9cc8f0 /* 91 vars */) = 0
+634915 +++ exited with 0 +++
+634909 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=634915, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+634909 +++ exited with 0 +++

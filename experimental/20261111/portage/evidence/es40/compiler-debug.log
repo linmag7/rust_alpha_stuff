@@ -1,0 +1,157 @@
+[DEBUG] Using selector: EpollSelector
+myaction None
+myopts {'--debug': True, '--ignore-default-opts': True, '--pretend': True, '--regex-search-auto': 'y'}
+
+
+myparams {'recurse': True, 'binpkg_respect_use': 'auto', 'autounmask': True, 'autounmask_keep_use': False, 'autounmask_keep_license': True, 'autounmask_keep_keywords': True, 'autounmask_keep_masks': True, 'bdeps': 'auto', 'ignore_soname_deps': 'y', 'dynamic_deps': True, 'implicit_system_deps': True, 'binpkg_changed_deps': 'auto'}
+
+
+These are the packages that would be merged, in order:
+
+
+
+      Arg: dev-lang/rust-alpha-bin::rust-alpha
+     Atom: dev-lang/rust-alpha-bin::rust-alpha
+   ebuild: dev-lang/rust-alpha-bin-1.102.0_pre20261111::rust-alpha
+
+Child:         (dev-lang/rust-alpha-bin-1.102.0_pre20261111:0/0::rust-alpha, ebuild scheduled for merge) USE=""
+Parent Dep:    dev-lang/rust-alpha-bin::rust-alpha
+
+Parent:    (dev-lang/rust-alpha-bin-1.102.0_pre20261111:0/0::rust-alpha, ebuild scheduled for merge)
+Depstring: >=sys-libs/glibc-2.41
+Priority:  runtime
+
+Parent:    (dev-lang/rust-alpha-bin-1.102.0_pre20261111:0/0::rust-alpha, ebuild scheduled for merge)
+Depstring: >=sys-libs/glibc-2.41
+Priority:  runtime
+Candidates: ['>=sys-libs/glibc-2.41']
+
+
+backtracking due to unsatisfied dep:
+    parent: (dev-lang/rust-alpha-bin-1.102.0_pre20261111:0/0::rust-alpha, ebuild scheduled for merge)
+  priority: runtime
+      root: /
+      atom: >=sys-libs/glibc-2.41
+
+
+
+backtracking try 1 
+
+forced reinstall atoms:
+
+
+slot operator dependencies:
+
+
+forced rebuilds:
+
+
+
+!!! All ebuilds that could satisfy ">=sys-libs/glibc-2.41" have been masked.
+!!! One of the following masked packages is required to complete your request:
+- sys-libs/glibc-9999::gentoo (masked by: package.mask, missing keyword)
+/etc/portage/package.mask/releng/glibc:
+# preemptively...
+# new glibc tends to lead to trouble with sandbox (and qemu),
+# especially for the unstable arches
+#
+
+- sys-libs/glibc-2.44.9999::gentoo (masked by: package.mask, missing keyword)
+- sys-libs/glibc-2.44-r4::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.44-r3::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.43.9999::gentoo (masked by: package.mask, missing keyword)
+- sys-libs/glibc-2.43-r6::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.43-r5::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.43-r4::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.42-r7::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.41-r10::gentoo (masked by: package.mask)
+
+(dependency required by "dev-lang/rust-alpha-bin-1.102.0_pre20261111::rust-alpha" [ebuild])
+(dependency required by "dev-lang/rust-alpha-bin::rust-alpha" [argument])
+For more information, see the MASKED PACKAGES section in the emerge
+man page or refer to the Gentoo Handbook.
+
+
+
+runtime_pkg_mask: {<Package ('ebuild', '/', 'dev-lang/rust-alpha-bin-1.102.0_pre20261111', 'merge', 'rust-alpha')>: {'missing dependency': {(<Package ('ebuild', '/', 'dev-lang/rust-alpha-bin-1.102.0_pre20261111', 'merge', 'rust-alpha')>, '/', Atom('>=sys-libs/glibc-2.41'))}}} 
+
+
+
+      Arg: dev-lang/rust-alpha-bin::rust-alpha
+     Atom: dev-lang/rust-alpha-bin::rust-alpha
+
+
+backtracking aborted after 1 tries
+
+forced reinstall atoms:
+
+
+slot operator dependencies:
+
+
+forced rebuilds:
+
+
+
+!!! All ebuilds that could satisfy "dev-lang/rust-alpha-bin::rust-alpha" have been masked.
+!!! One of the following masked packages is required to complete your request:
+- dev-lang/rust-alpha-bin-1.102.0_pre20261111::rust-alpha (masked by: backtracking: missing dependency)
+
+For more information, see the MASKED PACKAGES section in the emerge
+man page or refer to the Gentoo Handbook.
+
+
+
+      Arg: dev-lang/rust-alpha-bin::rust-alpha
+     Atom: dev-lang/rust-alpha-bin::rust-alpha
+   ebuild: dev-lang/rust-alpha-bin-1.102.0_pre20261111::rust-alpha
+
+Child:         (dev-lang/rust-alpha-bin-1.102.0_pre20261111:0/0::rust-alpha, ebuild scheduled for merge) USE=""
+Parent Dep:    dev-lang/rust-alpha-bin::rust-alpha
+
+Parent:    (dev-lang/rust-alpha-bin-1.102.0_pre20261111:0/0::rust-alpha, ebuild scheduled for merge)
+Depstring: >=sys-libs/glibc-2.41
+Priority:  runtime
+
+Parent:    (dev-lang/rust-alpha-bin-1.102.0_pre20261111:0/0::rust-alpha, ebuild scheduled for merge)
+Depstring: >=sys-libs/glibc-2.41
+Priority:  runtime
+Candidates: ['>=sys-libs/glibc-2.41']
+forced reinstall atoms:
+
+
+slot operator dependencies:
+
+
+forced rebuilds:
+
+
+
+!!! All ebuilds that could satisfy ">=sys-libs/glibc-2.41" have been masked.
+!!! One of the following masked packages is required to complete your request:
+- sys-libs/glibc-9999::gentoo (masked by: package.mask, missing keyword)
+/etc/portage/package.mask/releng/glibc:
+# preemptively...
+# new glibc tends to lead to trouble with sandbox (and qemu),
+# especially for the unstable arches
+#
+
+- sys-libs/glibc-2.44.9999::gentoo (masked by: package.mask, missing keyword)
+- sys-libs/glibc-2.44-r4::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.44-r3::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.43.9999::gentoo (masked by: package.mask, missing keyword)
+- sys-libs/glibc-2.43-r6::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.43-r5::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.43-r4::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.42-r7::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.41-r10::gentoo (masked by: package.mask)
+
+(dependency required by "dev-lang/rust-alpha-bin-1.102.0_pre20261111::rust-alpha" [ebuild])
+(dependency required by "dev-lang/rust-alpha-bin::rust-alpha" [argument])
+For more information, see the MASKED PACKAGES section in the emerge
+man page or refer to the Gentoo Handbook.
+
+
+ * IMPORTANT: 28 news items need reading for repository 'gentoo'.
+ * Use eselect news read to view new items.
+

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "rust",
+    "base": "6f1c7ee0ec0ea64802f4b7a184b63b7efb645b3b",
+    "commit": "8261531aa4cbae62e808c208f9aaece56d63bd54",
+    "repository": "linmag7/rust",
+    "branch": "alpha-experimental-20261111",
+    "patch": "review/rust.patch"
+  },
+  {
+    "name": "gcc",
+    "base": "e1c6e07b095d091177376a163da44039475e05e3",
+    "commit": "6add04af46707a971bbc828be709e7509016c9ff",
+    "repository": "linmag7/gcc",
+    "branch": "alpha-experimental-20261111",
+    "patch": "review/gcc.patch"
+  },
+  {
+    "name": "rustc_codegen_gcc",
+    "base": "f44a7221be06220f1aaa780faecc24781cba346c",
+    "commit": "94acf9990d9dabccb39c30e99560563e2743cc34",
+    "repository": "linmag7/rustc_codegen_gcc",
+    "branch": "alpha-experimental-20261111",
+    "patch": "review/rustc_codegen_gcc.patch"
+  }
+]

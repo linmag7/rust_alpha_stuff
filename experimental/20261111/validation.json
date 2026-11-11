@@ -1,0 +1,209 @@
+{
+  "toolchain_id": "ddb0c065314fd2fa",
+  "results": [
+    {
+      "check": "std_probe-debug-build",
+      "exit": 0,
+      "seconds": 53.31,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/std_probe-debug-build.log"
+    },
+    {
+      "check": "alpha_std_probe-debug-qemu",
+      "exit": 0,
+      "seconds": 0.42,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/alpha_std_probe-debug-qemu.log"
+    },
+    {
+      "check": "abi_probe-debug-build",
+      "exit": 0,
+      "seconds": 32.16,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/abi_probe-debug-build.log"
+    },
+    {
+      "check": "abi_scalars-debug-qemu",
+      "exit": 0,
+      "seconds": 0.15,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/abi_scalars-debug-qemu.log"
+    },
+    {
+      "check": "abi_pair_arg-debug-qemu",
+      "exit": 0,
+      "seconds": 0.15,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/abi_pair_arg-debug-qemu.log"
+    },
+    {
+      "check": "abi_pair_ret-debug-qemu",
+      "exit": 0,
+      "seconds": 0.19,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/abi_pair_ret-debug-qemu.log"
+    },
+    {
+      "check": "abi_triple_arg-debug-qemu",
+      "exit": 0,
+      "seconds": 0.12,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/abi_triple_arg-debug-qemu.log"
+    },
+    {
+      "check": "abi_triple_callback-debug-qemu",
+      "exit": 0,
+      "seconds": 0.24,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/abi_triple_callback-debug-qemu.log"
+    },
+    {
+      "check": "abi_extended-debug-qemu",
+      "exit": 0,
+      "seconds": 0.14,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/abi_extended-debug-qemu.log"
+    },
+    {
+      "check": "libc_probe-debug-build",
+      "exit": 0,
+      "seconds": 4.23,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/libc_probe-debug-build.log"
+    },
+    {
+      "check": "constants-debug-qemu",
+      "exit": 0,
+      "seconds": 0.17,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/constants-debug-qemu.log"
+    },
+    {
+      "check": "layouts-debug-qemu",
+      "exit": 0,
+      "seconds": 0.12,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/layouts-debug-qemu.log"
+    },
+    {
+      "check": "runtime-debug-qemu",
+      "exit": 0,
+      "seconds": 0.12,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/runtime-debug-qemu.log"
+    },
+    {
+      "check": "constants-debug-compare",
+      "exit": 0,
+      "seconds": 0.07,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/constants-debug-compare.log"
+    },
+    {
+      "check": "alpha_test-debug-build",
+      "exit": 0,
+      "seconds": 0.87,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/alpha_test-debug-build.log"
+    },
+    {
+      "check": "alpha_test-debug-qemu",
+      "exit": 0,
+      "seconds": 0.12,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/alpha_test-debug-qemu.log"
+    },
+    {
+      "check": "std_probe-release-build",
+      "exit": 0,
+      "seconds": 74.52,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/std_probe-release-build.log"
+    },
+    {
+      "check": "alpha_std_probe-release-qemu",
+      "exit": 0,
+      "seconds": 0.17,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/alpha_std_probe-release-qemu.log"
+    },
+    {
+      "check": "abi_probe-release-build",
+      "exit": 0,
+      "seconds": 38.62,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/abi_probe-release-build.log"
+    },
+    {
+      "check": "abi_scalars-release-qemu",
+      "exit": 0,
+      "seconds": 0.12,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/abi_scalars-release-qemu.log"
+    },
+    {
+      "check": "abi_pair_arg-release-qemu",
+      "exit": 0,
+      "seconds": 0.12,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/abi_pair_arg-release-qemu.log"
+    },
+    {
+      "check": "abi_pair_ret-release-qemu",
+      "exit": 0,
+      "seconds": 0.12,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/abi_pair_ret-release-qemu.log"
+    },
+    {
+      "check": "abi_triple_arg-release-qemu",
+      "exit": 0,
+      "seconds": 0.12,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/abi_triple_arg-release-qemu.log"
+    },
+    {
+      "check": "abi_triple_callback-release-qemu",
+      "exit": 0,
+      "seconds": 0.12,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/abi_triple_callback-release-qemu.log"
+    },
+    {
+      "check": "abi_extended-release-qemu",
+      "exit": 0,
+      "seconds": 0.12,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/abi_extended-release-qemu.log"
+    },
+    {
+      "check": "libc_probe-release-build",
+      "exit": 0,
+      "seconds": 6.18,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/libc_probe-release-build.log"
+    },
+    {
+      "check": "constants-release-qemu",
+      "exit": 0,
+      "seconds": 0.17,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/constants-release-qemu.log"
+    },
+    {
+      "check": "layouts-release-qemu",
+      "exit": 0,
+      "seconds": 0.12,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/layouts-release-qemu.log"
+    },
+    {
+      "check": "runtime-release-qemu",
+      "exit": 0,
+      "seconds": 0.12,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/runtime-release-qemu.log"
+    },
+    {
+      "check": "constants-release-compare",
+      "exit": 0,
+      "seconds": 0.07,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/constants-release-compare.log"
+    },
+    {
+      "check": "alpha_test-release-build",
+      "exit": 0,
+      "seconds": 0.92,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/alpha_test-release-build.log"
+    },
+    {
+      "check": "alpha_test-release-qemu",
+      "exit": 0,
+      "seconds": 0.11,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/alpha_test-release-qemu.log"
+    },
+    {
+      "check": "compat-debug-run",
+      "exit": 0,
+      "seconds": 21.67,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/compat-debug-run.log"
+    },
+    {
+      "check": "compat-debug-test",
+      "exit": 0,
+      "seconds": 62.33,
+      "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/logs/compat-debug-test.log"
+    }
+  ]
+}

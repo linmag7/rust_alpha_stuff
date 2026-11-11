@@ -1,0 +1,634 @@
+{
+  "date": "2026-11-11",
+  "scope": "private experimental Alpha Rust cross toolchain",
+  "binutils": {
+    "version": "2.47.50.20261111",
+    "origin": "https://sourceware.org/git/binutils-gdb.git",
+    "revision": "2de4446d9090b5773c863ab7bbdd95a5d4f81367",
+    "source_modified": false,
+    "target": "alphaev6-unknown-linux-gnu",
+    "install": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install",
+    "sha256": {
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-as": "898c2d4866d0bd09735a3094ab01023dec0ae0f27c7830d7f62b5c41a16bf397",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-ld": "21a5d43ddc1eb1837d2f2e55901b095ea4cb39ade53bccd3ab0f224123a7c6bb",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-ar": "940e64aec4b0785df6833cbfdfb83ca83aed18c12853100f1ead09deed19c443",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-ranlib": "e554d77e8611d5d7e718308c3791c33e01ef25c31e5350c3b58e7c4c57547350",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-nm": "088b3aa4434e47227bb3ee9e76c49937db82421b0f6a01d3d953192863cc79a2",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-objdump": "004b115548377db84c93ea7afa3bf642e2216647ac499f0e9202332ba53178bb",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-objcopy": "dd7a70fca7ede1247b147819e12a709450d5a816c2540b5e4b858a031a470d6c",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-readelf": "f51c00d10c7837506445d77aee3eaf00029a0bb65185c386e6a11bf559d2e990",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-strip": "9b8f567265d0254111f508024b5f09944df1dc3d856d952e1a088c63443617fc"
+    }
+  },
+  "integration": {
+    "cargo_wrapper": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/cargo-alpha",
+    "c_wrapper": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc",
+    "toolchain_id": "ddb0c065314fd2fa",
+    "gcc_jit_reconfigured": true,
+    "gcc_source_patch_unchanged": true,
+    "packaged_sdk_replaced": false,
+    "glibc": "2.41",
+    "compiler_and_jit_tool_selection_verified": "strace execve evidence"
+  },
+  "upstream_test_suites": {
+    "ld": {
+      "counts": {
+        "PASS": 1398,
+        "UNSUPPORTED": 378,
+        "FAIL": 16,
+        "XPASS": 1,
+        "XFAIL": 30
+      },
+      "failures": [
+        "FAIL: ld-elf/pr17550a",
+        "FAIL: ld-elf/pr17550b",
+        "FAIL: ld-elf/pr17550c",
+        "FAIL: ld-elf/pr17550d",
+        "FAIL: SHF_GNU_RETAIN 3 (keep sections referenced by retained sections)",
+        "FAIL: SHF_GNU_RETAIN 6a (pull section out of lib required by SHF_GNU_RETAIN section)",
+        "FAIL: SHF_GNU_RETAIN 6b (pull section out of lib required by SHF_GNU_RETAIN section)",
+        "FAIL: Generate undefweak-1.a",
+        "FAIL: Generate undefweak-1.o",
+        "FAIL: Build pr25458.so",
+        "FAIL: Build pr25458",
+        "FAIL: pr20995",
+        "FAIL: pr20995-2",
+        "XPASS: pr22374 function pointer initialization",
+        "FAIL: Build libpr19073.so",
+        "FAIL: --gc-sections with multiple debug sections for a function section",
+        "FAIL: ld-ifunc/ifunc-26"
+      ]
+    },
+    "gas": {
+      "counts": {
+        "PASS": 331,
+        "UNSUPPORTED": 19,
+        "FAIL": 5
+      },
+      "failures": [
+        "FAIL: ELF symbol size",
+        "FAIL: gas/elf/common5a",
+        "FAIL: gas/elf/common5b",
+        "FAIL: gas/elf/common5c",
+        "FAIL: gas/elf/common5d"
+      ]
+    },
+    "binutils": {
+      "counts": {
+        "PASS": 272,
+        "UNSUPPORTED": 11,
+        "XFAIL": 1
+      },
+      "failures": []
+    }
+  },
+  "ld_baseline_comparison": {
+    "new_failures_and_xpasses": [
+      "FAIL: --gc-sections with multiple debug sections for a function section",
+      "FAIL: Build libpr19073.so",
+      "FAIL: Build pr25458",
+      "FAIL: Build pr25458.so",
+      "FAIL: Generate undefweak-1.a",
+      "FAIL: Generate undefweak-1.o",
+      "FAIL: SHF_GNU_RETAIN 3 (keep sections referenced by retained sections)",
+      "FAIL: SHF_GNU_RETAIN 6a (pull section out of lib required by SHF_GNU_RETAIN section)",
+      "FAIL: SHF_GNU_RETAIN 6b (pull section out of lib required by SHF_GNU_RETAIN section)",
+      "FAIL: ld-elf/pr17550a",
+      "FAIL: ld-elf/pr17550b",
+      "FAIL: ld-elf/pr17550c",
+      "FAIL: ld-elf/pr17550d",
+      "FAIL: ld-ifunc/ifunc-26",
+      "FAIL: pr20995",
+      "FAIL: pr20995-2",
+      "XPASS: pr22374 function pointer initialization"
+    ],
+    "matched_in_old_run": [
+      "FAIL: --gc-sections with multiple debug sections for a function section",
+      "FAIL: Build libpr19073.so",
+      "FAIL: Build pr25458",
+      "FAIL: Build pr25458.so",
+      "FAIL: Generate undefweak-1.a",
+      "FAIL: Generate undefweak-1.o",
+      "FAIL: SHF_GNU_RETAIN 3 (keep sections referenced by retained sections)",
+      "FAIL: SHF_GNU_RETAIN 6a (pull section out of lib required by SHF_GNU_RETAIN section)",
+      "FAIL: SHF_GNU_RETAIN 6b (pull section out of lib required by SHF_GNU_RETAIN section)",
+      "FAIL: ld-elf/pr17550a",
+      "FAIL: ld-elf/pr17550b",
+      "FAIL: ld-elf/pr17550c",
+      "FAIL: ld-elf/pr17550d",
+      "FAIL: ld-ifunc/ifunc-26",
+      "FAIL: pr20995",
+      "FAIL: pr20995-2",
+      "XPASS: pr22374 function pointer initialization"
+    ],
+    "unmatched": [],
+    "baseline_run_complete": false,
+    "baseline_stop_reason": "All current FAIL/XPASS results reproduced; stopped old-tools run while ld-scripts/pr33265-1 linker remained running for over 90 seconds. Baseline also lacks built test plugin; not a clean full-suite baseline."
+  },
+  "gas_baseline_comparison": [
+    {
+      "toolchain": "old",
+      "test": "size",
+      "exit": 1,
+      "set_alias_error": true
+    },
+    {
+      "toolchain": "old",
+      "test": "common5a",
+      "exit": 1,
+      "set_alias_error": true
+    },
+    {
+      "toolchain": "old",
+      "test": "common5b",
+      "exit": 1,
+      "set_alias_error": true
+    },
+    {
+      "toolchain": "old",
+      "test": "common5c",
+      "exit": 1,
+      "set_alias_error": true
+    },
+    {
+      "toolchain": "old",
+      "test": "common5d",
+      "exit": 1,
+      "set_alias_error": true
+    },
+    {
+      "toolchain": "new",
+      "test": "size",
+      "exit": 1,
+      "set_alias_error": true
+    },
+    {
+      "toolchain": "new",
+      "test": "common5a",
+      "exit": 1,
+      "set_alias_error": true
+    },
+    {
+      "toolchain": "new",
+      "test": "common5b",
+      "exit": 1,
+      "set_alias_error": true
+    },
+    {
+      "toolchain": "new",
+      "test": "common5c",
+      "exit": 1,
+      "set_alias_error": true
+    },
+    {
+      "toolchain": "new",
+      "test": "common5d",
+      "exit": 1,
+      "set_alias_error": true
+    }
+  ],
+  "matt_turner_regressions": {
+    "old-got-realloc-a": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-as",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-realloc-a.s",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-realloc-a.o"
+      ]
+    },
+    "old-got-realloc-b": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-as",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-realloc-b.s",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-realloc-b.o"
+      ]
+    },
+    "old-got-realloc": {
+      "exit": -6,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-ld",
+        "-relax",
+        "-melf64alpha",
+        "-shared",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-realloc-a.o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-realloc-b.o",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-realloc.elf"
+      ]
+    },
+    "old-got-merge-gprel-a": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-as",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-merge-gprel-a.s",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-merge-gprel-a.o"
+      ]
+    },
+    "old-got-merge-gprel-b": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-as",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-merge-gprel-b.s",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-merge-gprel-b.o"
+      ]
+    },
+    "old-got-merge-gprel": {
+      "exit": -11,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-ld",
+        "-relax",
+        "-melf64alpha",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-merge-gprel-a.o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-merge-gprel-b.o",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-merge-gprel.elf"
+      ]
+    },
+    "old-gp-as": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-as",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/relax-gpdisp.s",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-gp.o"
+      ]
+    },
+    "old-gp-link": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-ld",
+        "-relax",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-gp.o",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-gp.elf"
+      ]
+    },
+    "old-gp-disasm": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-objdump",
+        "-dw",
+        "--no-show-raw-insn",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-gp.elf"
+      ]
+    },
+    "old-gp-reload-preserved": false,
+    "old-generic-set-alias": {
+      "exit": 1,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-as",
+        "--defsym",
+        "NO_SET=1",
+        "--defsym",
+        "ALIGN=3",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/pr17550-3.s",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-alias.o"
+      ]
+    },
+    "old-retain-as": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-as",
+        "--defsym",
+        "NO_SET=1",
+        "--defsym",
+        "ALIGN=3",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/retain3.s",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-retain.o"
+      ]
+    },
+    "old-generic-retain": {
+      "exit": 1,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-ld",
+        "-e",
+        "_start",
+        "--gc-sections",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-retain.o",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-retain.elf"
+      ]
+    },
+    "new-got-realloc-a": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-as",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-realloc-a.s",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-realloc-a.o"
+      ]
+    },
+    "new-got-realloc-b": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-as",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-realloc-b.s",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-realloc-b.o"
+      ]
+    },
+    "new-got-realloc": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-ld",
+        "-relax",
+        "-melf64alpha",
+        "-shared",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-realloc-a.o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-realloc-b.o",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-realloc.elf"
+      ]
+    },
+    "new-got-merge-gprel-a": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-as",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-merge-gprel-a.s",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-merge-gprel-a.o"
+      ]
+    },
+    "new-got-merge-gprel-b": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-as",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-merge-gprel-b.s",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-merge-gprel-b.o"
+      ]
+    },
+    "new-got-merge-gprel": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-ld",
+        "-relax",
+        "-melf64alpha",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-merge-gprel-a.o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-merge-gprel-b.o",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-merge-gprel.elf"
+      ]
+    },
+    "new-gp-as": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-as",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/relax-gpdisp.s",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-gp.o"
+      ]
+    },
+    "new-gp-link": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-ld",
+        "-relax",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-gp.o",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-gp.elf"
+      ]
+    },
+    "new-gp-disasm": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-objdump",
+        "-dw",
+        "--no-show-raw-insn",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-gp.elf"
+      ]
+    },
+    "new-gp-reload-preserved": true,
+    "new-generic-set-alias": {
+      "exit": 1,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-as",
+        "--defsym",
+        "NO_SET=1",
+        "--defsym",
+        "ALIGN=3",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/pr17550-3.s",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-alias.o"
+      ]
+    },
+    "new-retain-as": {
+      "exit": 0,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-as",
+        "--defsym",
+        "NO_SET=1",
+        "--defsym",
+        "ALIGN=3",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/retain3.s",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-retain.o"
+      ]
+    },
+    "new-generic-retain": {
+      "exit": 1,
+      "command": [
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-ld",
+        "-e",
+        "_start",
+        "--gc-sections",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-retain.o",
+        "-o",
+        "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-retain.elf"
+      ]
+    }
+  },
+  "rust_validation": {
+    "commands": 34,
+    "failures": 0,
+    "debug_release_std_abi_libc_inline_asm": "pass",
+    "constants_per_profile": 2367,
+    "cargo_compat_and_tests": "pass"
+  },
+  "small_pie": {
+    "results": [
+      {
+        "binary": "abi_scalars",
+        "profile": "debug",
+        "exit": 0,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           96 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x4a8"
+        ]
+      },
+      {
+        "binary": "abi_pair_arg",
+        "profile": "debug",
+        "exit": 0,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           96 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x4a8"
+        ]
+      },
+      {
+        "binary": "abi_pair_ret",
+        "profile": "debug",
+        "exit": 0,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           96 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x4a8"
+        ]
+      },
+      {
+        "binary": "abi_triple_arg",
+        "profile": "debug",
+        "exit": 0,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           96 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x4a8"
+        ]
+      },
+      {
+        "binary": "abi_triple_callback",
+        "profile": "debug",
+        "exit": 0,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           96 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x4a8"
+        ]
+      },
+      {
+        "binary": "abi_extended",
+        "profile": "debug",
+        "exit": 0,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           96 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x4a8"
+        ]
+      },
+      {
+        "binary": "constants",
+        "profile": "debug",
+        "exit": 0,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           72 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x450"
+        ]
+      },
+      {
+        "binary": "layouts",
+        "profile": "debug",
+        "exit": 0,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x2090"
+        ]
+      },
+      {
+        "binary": "runtime",
+        "profile": "debug",
+        "exit": 0,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           528 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x1d30"
+        ]
+      },
+      {
+        "binary": "abi_scalars",
+        "profile": "release",
+        "exit": 127,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x0"
+        ]
+      },
+      {
+        "binary": "abi_pair_arg",
+        "profile": "release",
+        "exit": 127,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x0"
+        ]
+      },
+      {
+        "binary": "abi_pair_ret",
+        "profile": "release",
+        "exit": 127,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x0"
+        ]
+      },
+      {
+        "binary": "abi_triple_arg",
+        "profile": "release",
+        "exit": 127,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x0"
+        ]
+      },
+      {
+        "binary": "abi_triple_callback",
+        "profile": "release",
+        "exit": 127,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x0"
+        ]
+      },
+      {
+        "binary": "abi_extended",
+        "profile": "release",
+        "exit": 127,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x0"
+        ]
+      },
+      {
+        "binary": "constants",
+        "profile": "release",
+        "exit": 127,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x0"
+        ]
+      },
+      {
+        "binary": "layouts",
+        "profile": "release",
+        "exit": 127,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x0"
+        ]
+      },
+      {
+        "binary": "runtime",
+        "profile": "release",
+        "exit": 127,
+        "dynamic_tags": [
+          "0x0000000000000002 (PLTRELSZ)           480 (bytes)",
+          "0x0000000000000017 (JMPREL)             0x0"
+        ]
+      }
+    ],
+    "workaround": "Keep existing -no-pie in ABI and libc probes; all 18 normal builds restored and pass",
+    "remaining_failure": "Nine release PIEs have DT_JMPREL=0 and loader exit 127; nine debug PIEs pass"
+  },
+  "native_es40": {
+    "status": "not tested",
+    "ssh_connect": "TimeoutError: timed out"
+  },
+  "limitations": [
+    "Not a clean upstream suite: 16 ld FAIL, 1 ld XPASS, 5 gas FAIL; all reproduced with old tools.",
+    "Old-tools comparison was stopped after matching all current failures; see baseline_stop_reason.",
+    "No IFUNC runtime claim: retained glibc 2.41 sysroot.",
+    "Existing panic=abort, no LTO/incremental, unreliable f128 limitations remain."
+  ],
+  "work_directory": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111"
+}

@@ -1,0 +1,6 @@
+   Compiling libc-test v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/upstream-20261111/libc/libc-test)
+warning: libc-test@0.1.0: detected versions: Versions { linux: Some((7, 1)), glibc: Some((2, 41)), dragonfly: None, freebsd: None, openbsd: None, netbsd: None, apple: None, emscripten: None, wasi_sdk: None, android: None }
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1m 05s
+     Running tests/ctest.rs (work/upstream-20261111/libc-target/alphaev6-unknown-linux-gnu/debug/deps/ctest-a1ddbcf10801709f)
+RUNNING ALL TESTS
+PASSED 2421 tests

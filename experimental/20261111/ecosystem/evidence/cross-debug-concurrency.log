@@ -1,0 +1,1 @@
+PASS rayon parallel sum, crossbeam bounded channels, parking_lot contended locks

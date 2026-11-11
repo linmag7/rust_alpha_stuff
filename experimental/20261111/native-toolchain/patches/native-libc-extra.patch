@@ -1,0 +1,10 @@
+--- a/src/unix/linux_like/linux/gnu/alpha/constants.rs
++++ b/src/unix/linux_like/linux/gnu/alpha/constants.rs
+@@ -387,6 +387,7 @@
+ pub const SYS_name_to_handle_at: c_long = 0x1f1u64 as c_long;
+ pub const SYS_nanosleep: c_long = 0x154u64 as c_long;
+ pub const SYS_nfsservctl: c_long = 0x156u64 as c_long;
++pub const SYS_open: c_long = 45;
+ pub const SYS_open_by_handle_at: c_long = 0x1f2u64 as c_long;
+ pub const SYS_open_tree: c_long = 0x21au64 as c_long;
+ pub const SYS_openat: c_long = 0x1c2u64 as c_long;

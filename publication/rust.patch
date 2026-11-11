@@ -1,0 +1,1104 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index 6a677f595..8e641679c 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -2288,8 +2288,6 @@ checksum = "803ec87c9cfb29b9d2633f20cba1f488db3fd53f2158b1024cbefb47ba05d413"
+ [[package]]
+ name = "libc"
+ version = "0.2.191"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "65cd87c9a6d60536580b316ad985726104730a5151c99845f2490428ef91240a"
+ 
+ [[package]]
+ name = "libffi"
+@@ -2611,8 +2609,6 @@ checksum = "650eef8c711430f1a879fdd01d4745a7deea475becfb90269c06775983bbf086"
+ [[package]]
+ name = "nix"
+ version = "0.30.1"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "74523f3a35e05aba87a1d978330aef40f67b0304ac79c1c00b294c9830543db6"
+ dependencies = [
+  "bitflags",
+  "cfg-if",
+@@ -2623,8 +2619,6 @@ dependencies = [
+ [[package]]
+ name = "nix"
+ version = "0.31.3"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "cf20d2fde8ff38632c426f1165ed7436270b44f199fc55284c38276f9db47c3d"
+ dependencies = [
+  "bitflags",
+  "cfg-if",
+@@ -5212,8 +5206,6 @@ dependencies = [
+ [[package]]
+ name = "rustix"
+ version = "1.1.5"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "891efababe418670775f199f0d233d84843c227a0949a883ce15b37c78d6629d"
+ dependencies = [
+  "bitflags",
+  "errno",
+@@ -7036,3 +7028,7 @@ name = "zlib-rs"
+ version = "0.6.3"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+ checksum = "3be3d40e40a133f9c916ee3f9f4fa2d9d63435b5fbe1bfc6d9dae0aa0ada1513"
++
++[[patch.unused]]
++name = "rustix"
++version = "1.1.4"
+diff --git a/compiler/rustc_codegen_gcc/Cargo.lock b/compiler/rustc_codegen_gcc/Cargo.lock
+index aec0ef270..ac7f24a73 100644
+--- a/compiler/rustc_codegen_gcc/Cargo.lock
++++ b/compiler/rustc_codegen_gcc/Cargo.lock
+@@ -117,9 +117,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "libc"
+-version = "0.2.186"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "68ab91017fe16c622486840e4c83c9a37afeff978bd239b5293d61ece587de66"
++version = "0.2.191"
+ 
+ [[package]]
+ name = "linux-raw-sys"
+@@ -196,8 +194,6 @@ dependencies = [
+ [[package]]
+ name = "rustix"
+ version = "1.1.4"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "b6fe4565b9518b83ef4f91bb47ce29620ca828bd32cb7e408f0062e9930ba190"
+ dependencies = [
+  "bitflags",
+  "errno",
+@@ -334,3 +330,15 @@ checksum = "6f42320e61fe2cfd34354ecb597f86f413484a798ba44a8ca1165c58d42da6c1"
+ dependencies = [
+  "bitflags",
+ ]
++
++[[patch.unused]]
++name = "nix"
++version = "0.30.1"
++
++[[patch.unused]]
++name = "nix"
++version = "0.31.3"
++
++[[patch.unused]]
++name = "rustix"
++version = "1.1.5"
+diff --git a/compiler/rustc_codegen_gcc/src/asm.rs b/compiler/rustc_codegen_gcc/src/asm.rs
+index aabb57af1..fe33d79b4 100644
+--- a/compiler/rustc_codegen_gcc/src/asm.rs
++++ b/compiler/rustc_codegen_gcc/src/asm.rs
+@@ -747,6 +747,8 @@ fn reg_class_to_gcc(reg_class: InlineAsmRegClass) -> &'static str {
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg) => "r",
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg_addr) => "a",
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg_data) => "d",
++        InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::reg) => "r",
++        InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::freg) => "f",
+         InlineAsmRegClass::CSKY(CSKYInlineAsmRegClass::reg) => "r",
+         InlineAsmRegClass::CSKY(CSKYInlineAsmRegClass::freg) => "f",
+         InlineAsmRegClass::Mips(MipsInlineAsmRegClass::reg) => "d", // more specific than "r"
+@@ -927,6 +929,8 @@ fn dummy_output_type<'gcc, 'tcx>(cx: &CodegenCx<'gcc, 'tcx>, reg: InlineAsmRegCl
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg) => cx.type_i32(),
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg_addr) => cx.type_i32(),
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg_data) => cx.type_i32(),
++        InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::reg) => cx.type_i64(),
++        InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::freg) => cx.type_f64(),
+         InlineAsmRegClass::CSKY(CSKYInlineAsmRegClass::reg) => cx.type_i32(),
+         InlineAsmRegClass::CSKY(CSKYInlineAsmRegClass::freg) => cx.type_f32(),
+         InlineAsmRegClass::SpirV(SpirVInlineAsmRegClass::reg) => {
+@@ -1181,6 +1185,7 @@ fn modifier_to_gcc(
+         InlineAsmRegClass::Sparc(_) => None,
+         InlineAsmRegClass::Msp430(_) => None,
+         InlineAsmRegClass::M68k(_) => None,
++        InlineAsmRegClass::Alpha(_) => None,
+         InlineAsmRegClass::CSKY(_) => None,
+         InlineAsmRegClass::SpirV(SpirVInlineAsmRegClass::reg) => {
+             bug!("LLVM backend does not support SPIR-V")
+diff --git a/compiler/rustc_codegen_gcc/src/builder.rs b/compiler/rustc_codegen_gcc/src/builder.rs
+index 531ff0da6..f986940d4 100644
+--- a/compiler/rustc_codegen_gcc/src/builder.rs
++++ b/compiler/rustc_codegen_gcc/src/builder.rs
+@@ -872,7 +872,7 @@ fn frem(&mut self, a: RValue<'gcc>, b: RValue<'gcc>) -> RValue<'gcc> {
+                 );
+                 return self.context.new_call(self.location, fmodf128, &[a, b]);
+             }
+-            Some(float @ (abi::Float::F16B | abi::Float::X87F80 | abi::Float::PpcF128)) => {
++            Some(float @ (abi::Float::F16B | abi::Float::PpcF128 | abi::Float::X87F80)) => {
+                 bug!("frem unsupported on {float:?}")
+             }
+             None => (),
+@@ -2022,7 +2022,7 @@ fn compute_clamp_bounds<F: Float>(signed: bool, int_width: u64) -> (u128, u128)
+                 abi::Float::F32 => bx.cx().const_u32(bits as u32),
+                 abi::Float::F64 => bx.cx().const_u64(bits as u64),
+                 abi::Float::F128 => bx.cx().const_u128(bits),
+-                abi::Float::F16B | abi::Float::X87F80 | abi::Float::PpcF128 => {
++                abi::Float::F16B | abi::Float::PpcF128 | abi::Float::X87F80 => {
+                     bug!("unsupported float width {float_type:?}")
+                 }
+             };
+@@ -2033,7 +2033,7 @@ fn compute_clamp_bounds<F: Float>(signed: bool, int_width: u64) -> (u128, u128)
+             abi::Float::F32 => compute_clamp_bounds::<ieee::Single>(signed, int_width),
+             abi::Float::F64 => compute_clamp_bounds::<ieee::Double>(signed, int_width),
+             abi::Float::F128 => compute_clamp_bounds::<ieee::Quad>(signed, int_width),
+-            abi::Float::F16B | abi::Float::X87F80 | abi::Float::PpcF128 => {
++            abi::Float::F16B | abi::Float::PpcF128 | abi::Float::X87F80 => {
+                 bug!("unsupported float width {float_type:?}")
+             }
+         };
+diff --git a/compiler/rustc_codegen_gcc/src/declare.rs b/compiler/rustc_codegen_gcc/src/declare.rs
+index 0044ed24f..d93c6f6f2 100644
+--- a/compiler/rustc_codegen_gcc/src/declare.rs
++++ b/compiler/rustc_codegen_gcc/src/declare.rs
+@@ -192,10 +192,30 @@ fn declare_raw_fn<'gcc>(
+             .enumerate()
+             .map(|(index, param)| cx.context.new_parameter(None, *param, format!("param{}", index))) // FIXME(antoyo): set name.
+             .collect();
++        // libgccjit rejects '@' in function names. ELF versioned imports need
++        // an ordinary identifier plus an assembler .symver alias. Keep the
++        // original symbol as the cache key, so repeated declarations reuse it.
++        let versioned_alias;
++        let gcc_name = if cx.linkage.get() == FunctionType::Extern
++            && cx.tcx.sess.target.os == rustc_target::spec::Os::Linux
++            && name.contains('@')
++        {
++            versioned_alias = cx.generate_local_symbol_name("__rustc_gcc_symver").replace('.', "_");
++            cx.context.add_top_level_asm(None, &format!(".symver {versioned_alias}, {name}"));
++            versioned_alias.as_str()
++        } else {
++            name
++        };
+         #[cfg(not(feature = "master"))]
+-        let name = &mangle_name(name);
+-        let func =
+-            cx.context.new_function(None, cx.linkage.get(), return_type, &params, name, variadic);
++        let gcc_name = &mangle_name(gcc_name);
++        let func = cx.context.new_function(
++            None,
++            cx.linkage.get(),
++            return_type,
++            &params,
++            gcc_name,
++            variadic,
++        );
+         #[cfg(feature = "master")]
+         if let Some(attribute) = callconv {
+             func.add_attribute(attribute);
+diff --git a/compiler/rustc_codegen_gcc/src/gcc_util.rs b/compiler/rustc_codegen_gcc/src/gcc_util.rs
+index b0442cdfb..9862b0dce 100644
+--- a/compiler/rustc_codegen_gcc/src/gcc_util.rs
++++ b/compiler/rustc_codegen_gcc/src/gcc_util.rs
+@@ -228,6 +228,11 @@ fn handle_native(name: &str) -> Cow<'_, str> {
+     unimplemented!();
+ }
+ 
++pub fn target_cpu_option(arch: &Arch, cpu: &str) -> String {
++    let option = if matches!(arch, Arch::Alpha) { "-mcpu" } else { "-march" };
++    format!("{option}={cpu}")
++}
++
+ pub fn target_cpu(sess: &EarlySession) -> Cow<'_, str> {
+     match sess.opts.cg.target_cpu {
+         Some(ref name) => handle_native(name),
+@@ -339,7 +344,12 @@ pub fn new_context<'gcc>(sess: &Session) -> Context<'gcc> {
+ 
+     let target_cpu = target_cpu(sess);
+     if target_cpu != "generic" {
+-        context.add_command_line_option(format!("-march={}", target_cpu));
++        context.add_command_line_option(target_cpu_option(&sess.target.arch, &target_cpu));
++        // NOTE: we use both add_command_line_option and add_driver_option because the former
++        // only reaches the compiler, while the driver is what runs the assembler: without
++        // -march there, it assembles for the CPU GCC was configured for (e.g. 68020 for
++        // m68k-linux) and can emit instructions the target CPU lacks (e.g. bra.l on a 68000).
++        context.add_driver_option(target_cpu_option(&sess.target.arch, &target_cpu));
+     }
+ 
+     if sess.opts.unstable_opts.function_sections.unwrap_or(sess.target.function_sections) {
+diff --git a/compiler/rustc_codegen_gcc/src/int.rs b/compiler/rustc_codegen_gcc/src/int.rs
+index bef1af78c..3863c4e76 100644
+--- a/compiler/rustc_codegen_gcc/src/int.rs
++++ b/compiler/rustc_codegen_gcc/src/int.rs
+@@ -986,7 +986,7 @@ fn int_to_float_cast(
+             Some(Float::F32) => "tisf",
+             Some(Float::F64) => "tidf",
+             Some(Float::F128) => "titf",
+-            None | Some(Float::F16B | Float::X87F80 | Float::PpcF128) => {
++            None | Some(Float::F16B | Float::PpcF128 | Float::X87F80) => {
+                 panic!("cannot cast a non-native integer to type {dest_typ:?}")
+             }
+         };
+@@ -1037,7 +1037,7 @@ fn float_to_int_cast(
+             Some(Float::F16 | Float::F32) => "sfti",
+             Some(Float::F64) => "dfti",
+             Some(Float::F128) => "tfti",
+-            None | Some(Float::F16B | Float::X87F80 | Float::PpcF128) => {
++            None | Some(Float::F16B | Float::PpcF128 | Float::X87F80) => {
+                 bug!("cannot cast a {value_type:?} to non-native integer")
+             }
+         };
+diff --git a/compiler/rustc_codegen_gcc/src/lib.rs b/compiler/rustc_codegen_gcc/src/lib.rs
+index fa15ec283..8e145d387 100644
+--- a/compiler/rustc_codegen_gcc/src/lib.rs
++++ b/compiler/rustc_codegen_gcc/src/lib.rs
+@@ -251,7 +251,10 @@ fn file_paths(sysroot_path: &Path, sess: &EarlySession) -> Vec<PathBuf> {
+             // Get the second TargetInfo with the correct CPU features by setting the arch.
+             let context = Context::default();
+             if target_cpu != "generic" {
+-                context.add_command_line_option(format!("-march={}", target_cpu));
++                context.add_command_line_option(gcc_util::target_cpu_option(
++                    &sess.target.arch,
++                    &target_cpu,
++                ));
+             }
+             gcc_util::add_target_info_feature_options(
+                 &context,
+@@ -515,11 +518,12 @@ fn target_config(sess: &EarlySession, target_info: &SharedTargetInfo) -> TargetC
+ 
+     let has_reliable_f16 = target_info.supports_target_dependent_type(CType::Float16);
+     let has_reliable_f16b = target_info.supports_target_dependent_type(CType::BFloat16);
+-    let has_reliable_f128 = target_info.supports_target_dependent_type(CType::Float128);
++    // Alpha exposes the type, but quad-precision comparisons currently ICE in GCC.
++    let has_reliable_f128 = sess.target.arch != rustc_target::spec::Arch::Alpha
++        && target_info.supports_target_dependent_type(CType::Float128);
+ 
+     TargetConfig {
+         internal_target_features,
+-        // There are no known bugs with GCC support for f16 or f128
+         has_reliable_f16,
+         has_reliable_f16_math: has_reliable_f16,
+         has_reliable_f16b,
+diff --git a/compiler/rustc_codegen_gcc/src/type_.rs b/compiler/rustc_codegen_gcc/src/type_.rs
+index bdebc9f46..43000bfbb 100644
+--- a/compiler/rustc_codegen_gcc/src/type_.rs
++++ b/compiler/rustc_codegen_gcc/src/type_.rs
+@@ -305,9 +305,7 @@ fn type_ppcf128(&self) -> Type<'gcc> {
+     }
+ 
+     fn type_x87_f80(&self) -> Type<'gcc> {
+-        // FIXME(x87_f80): The GCC gcc_jit_types enum (which CType is based on) does not
+-        // have __float80. It does have long double but it may not correspond to x87 f80.
+-        bug!("unsupported x87_f80 type")
++        bug!("unsupported x87 f80 type")
+     }
+ 
+     fn type_func(&self, params: &[Type<'gcc>], return_type: Type<'gcc>) -> Type<'gcc> {
+diff --git a/compiler/rustc_codegen_gcc/tests/failing-ui-tests.txt b/compiler/rustc_codegen_gcc/tests/failing-ui-tests.txt
+index e35d99162..dcd5e3ac4 100644
+--- a/compiler/rustc_codegen_gcc/tests/failing-ui-tests.txt
++++ b/compiler/rustc_codegen_gcc/tests/failing-ui-tests.txt
+@@ -1,8 +1,6 @@
+ tests/ui/asm/may_unwind.rs
+ tests/ui/asm/x86_64/may_unwind.rs
+-tests/ui/simd/issue-17170.rs
+ tests/ui/simd/issue-39720.rs
+-tests/ui/process/println-with-broken-pipe.rs
+ tests/ui/simd/repr_packed.rs
+ tests/ui/simd/simd-bitmask-notpow2.rs
+ tests/ui/codegen/StackColoring-not-blowup-stack-issue-40883.rs
+diff --git a/compiler/rustc_codegen_llvm/src/asm.rs b/compiler/rustc_codegen_llvm/src/asm.rs
+index 317dc3d55..01932148d 100644
+--- a/compiler/rustc_codegen_llvm/src/asm.rs
++++ b/compiler/rustc_codegen_llvm/src/asm.rs
+@@ -319,6 +319,7 @@ fn codegen_inline_asm(
+                 InlineAsmArch::M68k => {
+                     constraints.push("~{ccr}".to_string());
+                 }
++                InlineAsmArch::Alpha => {}
+                 InlineAsmArch::CSKY => {
+                     constraints.push("~{psr}".to_string());
+                 }
+@@ -902,6 +903,8 @@ fn reg_to_llvm(reg: InlineAsmRegOrRegClass, layout: Option<&TyAndLayout<'_>>) ->
+             M68k(M68kInlineAsmRegClass::reg) => "r",
+             M68k(M68kInlineAsmRegClass::reg_addr) => "a",
+             M68k(M68kInlineAsmRegClass::reg_data) => "d",
++            Alpha(AlphaInlineAsmRegClass::reg) => "r",
++            Alpha(AlphaInlineAsmRegClass::freg) => "f",
+             CSKY(CSKYInlineAsmRegClass::reg) => "r",
+             CSKY(CSKYInlineAsmRegClass::freg) => "f",
+             SpirV(SpirVInlineAsmRegClass::reg) => bug!("LLVM backend does not support SPIR-V"),
+@@ -1020,6 +1023,7 @@ fn modifier_to_llvm(
+         Msp430(_) => None,
+         SpirV(SpirVInlineAsmRegClass::reg) => bug!("LLVM backend does not support SPIR-V"),
+         M68k(_) => None,
++        Alpha(_) => None,
+         CSKY(_) => None,
+         Err => unreachable!(),
+     }
+@@ -1128,6 +1132,8 @@ fn dummy_output_type<'ll>(cx: &CodegenCx<'ll, '_>, reg: InlineAsmRegClass) -> Ty
+         Sparc(SparcInlineAsmRegClass::dreg) => cx.type_f64(),
+         Sparc(SparcInlineAsmRegClass::qreg) => cx.type_f128(),
+         Sparc(SparcInlineAsmRegClass::yreg) => unreachable!("clobber-only"),
++        Alpha(AlphaInlineAsmRegClass::reg) => cx.type_i64(),
++        Alpha(AlphaInlineAsmRegClass::freg) => cx.type_f64(),
+         Msp430(Msp430InlineAsmRegClass::reg) => cx.type_i16(),
+         M68k(M68kInlineAsmRegClass::reg) => cx.type_i32(),
+         M68k(M68kInlineAsmRegClass::reg_addr) => cx.type_i32(),
+diff --git a/compiler/rustc_codegen_llvm/src/llvm_util.rs b/compiler/rustc_codegen_llvm/src/llvm_util.rs
+index 09305eba0..86e403858 100644
+--- a/compiler/rustc_codegen_llvm/src/llvm_util.rs
++++ b/compiler/rustc_codegen_llvm/src/llvm_util.rs
+@@ -380,6 +380,7 @@ fn update_target_reliable_float_cfg(target: &Target, cfg: &mut TargetConfig) {
+     let (major, _, _) = version;
+ 
+     cfg.has_reliable_f16 = match (target_arch, target_os) {
++        (Arch::Alpha, _) => false,
+         // MinGW ABI bugs <https://gcc.gnu.org/bugzilla/show_bug.cgi?id=115054> resolved in GCC 16
+         // but our toolchain hasn't been updated.
+         (Arch::X86_64, Os::Windows) if *target_env == Env::Gnu && *target_abi != CfgAbi::Llvm => {
+@@ -410,6 +411,7 @@ fn update_target_reliable_float_cfg(target: &Target, cfg: &mut TargetConfig) {
+     };
+ 
+     cfg.has_reliable_f128 = match (target_arch, target_os) {
++        (Arch::Alpha, _) => false,
+         // Unsupported https://github.com/llvm/llvm-project/issues/121122
+         (Arch::AmdGpu, _) => false,
+         (Arch::Arm64EC, _) if major < 23 => false, // (fixed in llvm23)
+diff --git a/compiler/rustc_codegen_llvm/src/va_arg.rs b/compiler/rustc_codegen_llvm/src/va_arg.rs
+index 7c2c20c26..e560bdbda 100644
+--- a/compiler/rustc_codegen_llvm/src/va_arg.rs
++++ b/compiler/rustc_codegen_llvm/src/va_arg.rs
+@@ -1317,6 +1317,7 @@ pub(super) fn emit_va_arg<'ll, 'tcx>(
+             ForceRightAdjust::No,
+         ),
+ 
++        Arch::Alpha => bug!("Alpha code generation requires the GCC backend"),
+         Arch::Bpf => bug!("bpf does not support c-variadic functions"),
+         Arch::SpirV => bug!("spirv does not support c-variadic functions"),
+ 
+diff --git a/compiler/rustc_feature/src/unstable.rs b/compiler/rustc_feature/src/unstable.rs
+index 14784cefe..48716c8d5 100644
+--- a/compiler/rustc_feature/src/unstable.rs
++++ b/compiler/rustc_feature/src/unstable.rs
+@@ -621,6 +621,7 @@ pub fn internal(&self, feature: Symbol) -> bool {
+     /// Allows fused `loop`/`match` for direct intraprocedural jumps.
+     (incomplete, loop_match, "1.90.0", Some(132306)),
+     /// Target features on m68k.
++    (unstable, alpha_target_feature, "1.101.0", Some(44839)),
+     (unstable, m68k_target_feature, "1.85.0", Some(134328)),
+     /// Allow `macro_rules!` attribute rules
+     (unstable, macro_attr, "1.91.0", Some(143547)),
+diff --git a/compiler/rustc_span/src/symbol.rs b/compiler/rustc_span/src/symbol.rs
+index 34699098f..e5a036a25 100644
+--- a/compiler/rustc_span/src/symbol.rs
++++ b/compiler/rustc_span/src/symbol.rs
+@@ -383,6 +383,7 @@
+         aarch64,
+         aarch64_target_feature,
+         aarch64_unstable_target_feature,
++        alpha_target_feature,
+         aarch64_ver_target_feature,
+         abi,
+         abi_amdgpu_kernel,
+@@ -1278,6 +1279,7 @@
+         lsx,
+         lt,
+         m68k,
++        alpha,
+         m68k_target_feature,
+         mac16,
+         macho: "mach-o",
+diff --git a/compiler/rustc_target/src/asm/alpha.rs b/compiler/rustc_target/src/asm/alpha.rs
+new file mode 100644
+index 000000000..0b78a8169
+--- /dev/null
++++ b/compiler/rustc_target/src/asm/alpha.rs
+@@ -0,0 +1,142 @@
++// compiler/rustc_target/src/asm/alpha.rs
++use std::fmt;
++
++use rustc_span::Symbol;
++
++use super::{InlineAsmArch, InlineAsmType, ModifierInfo};
++
++def_reg_class! {
++    Alpha AlphaInlineAsmRegClass {
++        reg,   // integer regs
++        freg,  // floating regs
++    }
++}
++
++impl AlphaInlineAsmRegClass {
++    pub fn valid_modifiers(self, _arch: InlineAsmArch) -> &'static [char] {
++        // Alpha doesn't use per-operand modifiers in the same way as x86.
++        &[]
++    }
++
++    pub fn suggest_class(self, _arch: InlineAsmArch, _ty: InlineAsmType) -> Option<Self> {
++        None
++    }
++
++    pub fn suggest_modifier(
++        self,
++        _arch: InlineAsmArch,
++        _ty: InlineAsmType,
++    ) -> Option<ModifierInfo> {
++        None
++    }
++
++    pub fn default_modifier(self, _arch: InlineAsmArch) -> Option<ModifierInfo> {
++        None
++    }
++
++    pub fn supported_types(
++        self,
++        _arch: InlineAsmArch,
++    ) -> &'static [(InlineAsmType, Option<Symbol>)] {
++        match self {
++            Self::reg => types! { _: I8, I16, I32, I64; },
++            Self::freg => types! { _: F32, F64; },
++        }
++    }
++}
++def_regs! {
++    Alpha AlphaInlineAsmReg AlphaInlineAsmRegClass {
++        // --- integer regs ---
++        r0:  reg = ["$0",  "v0"],
++        r1:  reg = ["$1",  "t0"],
++        r2:  reg = ["$2",  "t1"],
++        r3:  reg = ["$3",  "t2"],
++        r4:  reg = ["$4",  "t3"],
++        r5:  reg = ["$5",  "t4"],
++        r6:  reg = ["$6",  "t5"],
++        r7:  reg = ["$7",  "t6"],
++        r8:  reg = ["$8",  "t7"],
++
++        r9:  reg = ["$9",  "s0"],
++        r10: reg = ["$10", "s1"],
++        r11: reg = ["$11", "s2"],
++        r12: reg = ["$12", "s3"],
++        r13: reg = ["$13", "s4"],
++        r14: reg = ["$14", "s5"],
++        r15: reg = ["$15", "s6"],
++
++        r16: reg = ["$16", "a0"],
++        r17: reg = ["$17", "a1"],
++        r18: reg = ["$18", "a2"],
++        r19: reg = ["$19", "a3"],
++        r20: reg = ["$20", "a4"],
++        r21: reg = ["$21", "a5"],
++
++        r22: reg = ["$22", "t8"],
++        r23: reg = ["$23", "t9"],
++        r24: reg = ["$24", "t10"],
++        r25: reg = ["$25", "t11"],
++
++        r26: reg = ["$26", "ra"],
++        r27: reg = ["$27", "pv"],
++
++        // --- floating regs ---
++        f0:  freg = ["$f0",  "f0"],
++        f1:  freg = ["$f1",  "f1"],
++        f2:  freg = ["$f2",  "f2"],
++        f3:  freg = ["$f3",  "f3"],
++        f4:  freg = ["$f4",  "f4"],
++        f5:  freg = ["$f5",  "f5"],
++        f6:  freg = ["$f6",  "f6"],
++        f7:  freg = ["$f7",  "f7"],
++        f8:  freg = ["$f8",  "f8"],
++        f9:  freg = ["$f9",  "f9"],
++        f10: freg = ["$f10", "f10"],
++        f11: freg = ["$f11", "f11"],
++        f12: freg = ["$f12", "f12"],
++        f13: freg = ["$f13", "f13"],
++        f14: freg = ["$f14", "f14"],
++        f15: freg = ["$f15", "f15"],
++        f16: freg = ["$f16", "f16"],
++        f17: freg = ["$f17", "f17"],
++        f18: freg = ["$f18", "f18"],
++        f19: freg = ["$f19", "f19"],
++        f20: freg = ["$f20", "f20"],
++        f21: freg = ["$f21", "f21"],
++        f22: freg = ["$f22", "f22"],
++        f23: freg = ["$f23", "f23"],
++        f24: freg = ["$f24", "f24"],
++        f25: freg = ["$f25", "f25"],
++        f26: freg = ["$f26", "f26"],
++        f27: freg = ["$f27", "f27"],
++        f28: freg = ["$f28", "f28"],
++        f29: freg = ["$f29", "f29"],
++        f30: freg = ["$f30", "f30"],
++        f31: freg = ["$f31", "f31"],
++
++        // --- ALL #error rules must come AFTER all regs ---
++        #error = ["fp"] =>
++            "fp is used as the frame pointer and should not be used as an explicit inline asm operand",
++
++        #error = ["$28", "at"] =>
++            "the assembler temporary register ($28 / at) cannot be used as an operand for inline asm",
++        #error = ["$29", "gp"] =>
++            "the global pointer register ($29 / gp) cannot be used as an operand for inline asm",
++        #error = ["$30", "sp"] =>
++            "the stack pointer register ($30 / sp) cannot be used as an operand for inline asm",
++        #error = ["$31", "zero"] =>
++            "the zero register ($31 / zero) cannot be used as an operand for inline asm",
++    }
++}
++
++impl AlphaInlineAsmReg {
++    pub fn emit(
++        self,
++        out: &mut dyn fmt::Write,
++        _arch: InlineAsmArch,
++        _modifier: Option<char>,
++    ) -> fmt::Result {
++        // The canonical name we chose already matches Alpha GAS ("$0", "$f0", ...).
++        out.write_str(self.name())
++    }
++}
+diff --git a/compiler/rustc_target/src/asm/mod.rs b/compiler/rustc_target/src/asm/mod.rs
+index 0d1ca5f85..08ad02027 100644
+--- a/compiler/rustc_target/src/asm/mod.rs
++++ b/compiler/rustc_target/src/asm/mod.rs
+@@ -177,6 +177,7 @@ macro_rules! types {
+ }
+ 
+ mod aarch64;
++mod alpha;
+ mod amdgpu;
+ mod arm;
+ mod avr;
+@@ -198,6 +199,7 @@ macro_rules! types {
+ mod xtensa;
+ 
+ pub use aarch64::{AArch64InlineAsmReg, AArch64InlineAsmRegClass};
++pub use alpha::{AlphaInlineAsmReg, AlphaInlineAsmRegClass};
+ pub use amdgpu::{AmdgpuInlineAsmReg, AmdgpuInlineAsmRegClass};
+ pub use arm::{ArmInlineAsmReg, ArmInlineAsmRegClass};
+ pub use avr::{AvrInlineAsmReg, AvrInlineAsmRegClass};
+@@ -247,6 +249,7 @@ pub enum InlineAsmArch {
+     Avr,
+     Msp430,
+     M68k,
++    Alpha,
+     CSKY,
+ }
+ 
+@@ -279,6 +282,7 @@ pub fn from_arch(arch: &Arch) -> Option<Self> {
+             Arch::Avr => Some(Self::Avr),
+             Arch::Msp430 => Some(Self::Msp430),
+             Arch::M68k => Some(Self::M68k),
++            Arch::Alpha => Some(Self::Alpha),
+             Arch::CSky => Some(Self::CSKY),
+             Arch::Xtensa => Some(Self::Xtensa),
+             Arch::Other(_) => None,
+@@ -308,6 +312,7 @@ pub enum InlineAsmReg {
+     Avr(AvrInlineAsmReg),
+     Msp430(Msp430InlineAsmReg),
+     M68k(M68kInlineAsmReg),
++    Alpha(AlphaInlineAsmReg),
+     CSKY(CSKYInlineAsmReg),
+     // Placeholder for invalid register constraints for the current target
+     Err,
+@@ -332,6 +337,7 @@ pub fn name(self) -> Cow<'static, str> {
+             Self::Avr(r) => r.name().into(),
+             Self::Msp430(r) => r.name().into(),
+             Self::M68k(r) => r.name().into(),
++            Self::Alpha(r) => r.name().into(),
+             Self::CSKY(r) => r.name().into(),
+             Self::Err => "<reg>".into(),
+         }
+@@ -355,6 +361,7 @@ pub fn reg_class(self) -> InlineAsmRegClass {
+             Self::Avr(r) => InlineAsmRegClass::Avr(r.reg_class()),
+             Self::Msp430(r) => InlineAsmRegClass::Msp430(r.reg_class()),
+             Self::M68k(r) => InlineAsmRegClass::M68k(r.reg_class()),
++            Self::Alpha(r) => InlineAsmRegClass::Alpha(r.reg_class()),
+             Self::CSKY(r) => InlineAsmRegClass::CSKY(r.reg_class()),
+             Self::Err => InlineAsmRegClass::Err,
+         }
+@@ -390,6 +397,7 @@ pub fn parse(arch: InlineAsmArch, name: Symbol) -> Result<Self, &'static str> {
+             InlineAsmArch::Sparc | InlineAsmArch::Sparc64 => {
+                 Self::Sparc(SparcInlineAsmReg::parse(name)?)
+             }
++            InlineAsmArch::Alpha => Self::Alpha(AlphaInlineAsmReg::parse(name)?),
+             InlineAsmArch::SpirV => Self::SpirV(SpirVInlineAsmReg::parse(name)?),
+             InlineAsmArch::Wasm32 | InlineAsmArch::Wasm64 => {
+                 Self::Wasm(WasmInlineAsmReg::parse(name)?)
+@@ -429,6 +437,7 @@ pub fn validate(
+             Self::Xtensa(r) => r.validate(arch, reloc_model, target_features, target, is_clobber),
+             Self::Msp430(r) => r.validate(arch, reloc_model, target_features, target, is_clobber),
+             Self::M68k(r) => r.validate(arch, reloc_model, target_features, target, is_clobber),
++            Self::Alpha(r) => r.validate(arch, reloc_model, target_features, target, is_clobber),
+             Self::CSKY(r) => r.validate(arch, reloc_model, target_features, target, is_clobber),
+             Self::Err => unreachable!(),
+         }
+@@ -459,6 +468,7 @@ pub fn emit(
+             Self::Avr(r) => r.emit(out, arch, modifier),
+             Self::Msp430(r) => r.emit(out, arch, modifier),
+             Self::M68k(r) => r.emit(out, arch, modifier),
++            Self::Alpha(r) => r.emit(out, arch, modifier),
+             Self::CSKY(r) => r.emit(out, arch, modifier),
+             Self::Err => unreachable!("Use of InlineAsmReg::Err"),
+         }
+@@ -482,6 +492,7 @@ pub fn overlapping_regs(self, mut cb: impl FnMut(InlineAsmReg)) {
+             Self::Avr(r) => r.overlapping_regs(|r| cb(Self::Avr(r))),
+             Self::Msp430(_) => cb(self),
+             Self::M68k(_) => cb(self),
++            Self::Alpha(_) => cb(self),
+             Self::CSKY(_) => cb(self),
+             Self::Err => unreachable!("Use of InlineAsmReg::Err"),
+         }
+@@ -510,6 +521,7 @@ pub enum InlineAsmRegClass {
+     Avr(AvrInlineAsmRegClass),
+     Msp430(Msp430InlineAsmRegClass),
+     M68k(M68kInlineAsmRegClass),
++    Alpha(AlphaInlineAsmRegClass),
+     CSKY(CSKYInlineAsmRegClass),
+     // Placeholder for invalid register constraints for the current target
+     Err,
+@@ -537,6 +549,7 @@ pub fn name(self) -> Symbol {
+             Self::Avr(r) => r.name(),
+             Self::Msp430(r) => r.name(),
+             Self::M68k(r) => r.name(),
++            Self::Alpha(r) => r.name(),
+             Self::CSKY(r) => r.name(),
+             Self::Err => rustc_span::sym::reg,
+         }
+@@ -566,6 +579,7 @@ pub fn suggest_class(self, arch: InlineAsmArch, ty: InlineAsmType) -> Option<Sel
+             Self::Avr(r) => r.suggest_class(arch, ty).map(InlineAsmRegClass::Avr),
+             Self::Msp430(r) => r.suggest_class(arch, ty).map(InlineAsmRegClass::Msp430),
+             Self::M68k(r) => r.suggest_class(arch, ty).map(InlineAsmRegClass::M68k),
++            Self::Alpha(r) => r.suggest_class(arch, ty).map(InlineAsmRegClass::Alpha),
+             Self::CSKY(r) => r.suggest_class(arch, ty).map(InlineAsmRegClass::CSKY),
+             Self::Err => unreachable!("Use of InlineAsmRegClass::Err"),
+         }
+@@ -598,6 +612,7 @@ pub fn suggest_modifier(self, arch: InlineAsmArch, ty: InlineAsmType) -> Option<
+             Self::Avr(r) => r.suggest_modifier(arch, ty),
+             Self::Msp430(r) => r.suggest_modifier(arch, ty),
+             Self::M68k(r) => r.suggest_modifier(arch, ty),
++            Self::Alpha(r) => r.suggest_modifier(arch, ty),
+             Self::CSKY(r) => r.suggest_modifier(arch, ty),
+             Self::Err => unreachable!("Use of InlineAsmRegClass::Err"),
+         }
+@@ -630,6 +645,7 @@ pub fn default_modifier(self, arch: InlineAsmArch) -> Option<ModifierInfo> {
+             Self::Avr(r) => r.default_modifier(arch),
+             Self::Msp430(r) => r.default_modifier(arch),
+             Self::M68k(r) => r.default_modifier(arch),
++            Self::Alpha(r) => r.default_modifier(arch),
+             Self::CSKY(r) => r.default_modifier(arch),
+             Self::Err => unreachable!("Use of InlineAsmRegClass::Err"),
+         }
+@@ -665,6 +681,7 @@ pub fn supported_types(
+             Self::Avr(r) => r.supported_types(arch).into(),
+             Self::Msp430(r) => r.supported_types(arch).into(),
+             Self::M68k(r) => r.supported_types(arch).into(),
++            Self::Alpha(r) => r.supported_types(arch).into(),
+             Self::CSKY(r) => r.supported_types(arch).into(),
+             Self::Err => unreachable!("Use of InlineAsmRegClass::Err"),
+         }
+@@ -707,6 +724,7 @@ pub fn parse(arch: InlineAsmArch, name: Symbol) -> Result<Self, &'static [rustc_
+             InlineAsmArch::Xtensa => Self::Xtensa(XtensaInlineAsmRegClass::parse(name)?),
+             InlineAsmArch::Msp430 => Self::Msp430(Msp430InlineAsmRegClass::parse(name)?),
+             InlineAsmArch::M68k => Self::M68k(M68kInlineAsmRegClass::parse(name)?),
++            InlineAsmArch::Alpha => Self::Alpha(AlphaInlineAsmRegClass::parse(name)?),
+             InlineAsmArch::CSKY => Self::CSKY(CSKYInlineAsmRegClass::parse(name)?),
+         })
+     }
+@@ -740,6 +758,7 @@ pub fn valid_modifiers(
+             Self::Avr(r) => r.valid_modifiers(arch),
+             Self::Msp430(r) => r.valid_modifiers(arch),
+             Self::M68k(r) => r.valid_modifiers(arch),
++            Self::Alpha(r) => r.valid_modifiers(arch),
+             Self::CSKY(r) => r.valid_modifiers(arch),
+             Self::Err => unreachable!("Use of InlineAsmRegClass::Err"),
+         }
+@@ -1004,6 +1023,12 @@ pub fn allocatable_registers(
+             m68k::fill_reg_map(arch, reloc_model, target_features, target, &mut map);
+             map
+         }
++        InlineAsmArch::Alpha => {
++            let mut map = alpha::regclass_map();
++            alpha::fill_reg_map(arch, reloc_model, target_features, target, &mut map);
++            map
++        }
++
+         InlineAsmArch::CSKY => {
+             let mut map = csky::regclass_map();
+             csky::fill_reg_map(arch, reloc_model, target_features, target, &mut map);
+diff --git a/compiler/rustc_target/src/callconv/alpha.rs b/compiler/rustc_target/src/callconv/alpha.rs
+new file mode 100644
+index 000000000..dc2dfd059
+--- /dev/null
++++ b/compiler/rustc_target/src/callconv/alpha.rs
+@@ -0,0 +1,46 @@
++use rustc_abi::{BackendRepr, HasDataLayout, Primitive, Reg, TyAbiInterface};
++
++use crate::callconv::{ArgAbi, ArgExtension, FnAbi, PassMode, Uniform};
++
++fn extend_integer<Ty>(arg: &mut ArgAbi<'_, Ty>) {
++    if let BackendRepr::Scalar(scalar) = arg.layout.backend_repr
++        && let Primitive::Int(integer, _) = scalar.primitive()
++        && integer.size().bits() == 32
++        && let PassMode::Direct(attrs) = &mut arg.mode
++    {
++        // The OSF ABI sign-extends both signed and unsigned 32-bit argument items.
++        attrs.arg_ext = ArgExtension::Sext;
++        return;
++    }
++    arg.extend_integer_width_to(64);
++}
++
++pub(crate) fn compute_abi_info<'a, Ty, C>(cx: &C, fn_abi: &mut FnAbi<'a, Ty>)
++where
++    Ty: TyAbiInterface<'a, C> + Copy,
++    C: HasDataLayout,
++{
++    let ret = &mut fn_abi.ret;
++    if !ret.is_ignore() && ret.layout.is_sized() {
++        // Linux follows the OSF convention: every aggregate returns in memory.
++        if ret.layout.is_aggregate() || ret.layout.size.bytes() > 8 {
++            ret.make_indirect();
++        } else {
++            extend_integer(ret);
++        }
++    }
++    for arg in &mut fn_abi.args {
++        if arg.is_ignore() || !arg.layout.is_sized() {
++            continue;
++        }
++        if arg.layout.pass_indirectly_in_non_rustic_abis(cx) {
++            arg.make_indirect();
++        } else if arg.layout.is_aggregate() {
++            // Aggregates are by value regardless of size. GCC assigns the first
++            // six argument words to registers and spills the rest onto the stack.
++            arg.cast_to(Uniform::new(Reg::i64(), arg.layout.size));
++        } else {
++            extend_integer(arg);
++        }
++    }
++}
+diff --git a/compiler/rustc_target/src/callconv/mod.rs b/compiler/rustc_target/src/callconv/mod.rs
+index 52a38f55b..6a61aaac6 100644
+--- a/compiler/rustc_target/src/callconv/mod.rs
++++ b/compiler/rustc_target/src/callconv/mod.rs
+@@ -11,6 +11,7 @@
+ use crate::spec::{Arch, HasTargetSpec, HasX86AbiOpt, RustcAbi};
+ 
+ mod aarch64;
++mod alpha;
+ mod amdgpu;
+ mod arm;
+ mod avr;
+@@ -729,6 +730,7 @@ pub fn adjust_for_foreign_abi<C>(&mut self, cx: &C, abi: ExternAbi)
+             Arch::CSky => csky::compute_abi_info(cx, self),
+             Arch::Mips | Arch::Mips32r6 => mips::compute_abi_info(cx, self),
+             Arch::Mips64 | Arch::Mips64r6 => mips64::compute_abi_info(cx, self),
++            Arch::Alpha => alpha::compute_abi_info(cx, self),
+             Arch::PowerPC => powerpc::compute_abi_info(cx, self),
+             Arch::PowerPC64 => powerpc64::compute_abi_info(cx, self),
+             Arch::S390x => s390x::compute_abi_info(cx, self),
+diff --git a/compiler/rustc_target/src/spec/mod.rs b/compiler/rustc_target/src/spec/mod.rs
+index ae17e37e2..f17e73bb3 100644
+--- a/compiler/rustc_target/src/spec/mod.rs
++++ b/compiler/rustc_target/src/spec/mod.rs
+@@ -1313,6 +1313,7 @@ fn $module() {
+     ("loongarch64-unknown-linux-gnu", loongarch64_unknown_linux_gnu),
+     ("loongarch64-unknown-linux-musl", loongarch64_unknown_linux_musl),
+     ("m68k-unknown-linux-gnu", m68k_unknown_linux_gnu),
++    ("alphaev6-unknown-linux-gnu", alphaev6_unknown_linux_gnu),
+     ("m68k-unknown-none-elf", m68k_unknown_none_elf),
+     ("csky-unknown-linux-gnuabiv2", csky_unknown_linux_gnuabiv2),
+     ("csky-unknown-linux-gnuabiv2hf", csky_unknown_linux_gnuabiv2hf),
+@@ -1772,6 +1773,7 @@ pub enum Arch {
+         LoongArch32 = "loongarch32",
+         LoongArch64 = "loongarch64",
+         M68k = "m68k",
++        Alpha = "alpha",
+         Mips = "mips",
+         Mips32r6 = "mips32r6",
+         Mips64 = "mips64",
+@@ -1809,6 +1811,7 @@ pub fn desc_symbol(&self) -> Symbol {
+             Self::LoongArch32 => sym::loongarch32,
+             Self::LoongArch64 => sym::loongarch64,
+             Self::M68k => sym::m68k,
++            Self::Alpha => sym::alpha,
+             Self::Mips => sym::mips,
+             Self::Mips32r6 => sym::mips32r6,
+             Self::Mips64 => sym::mips64,
+@@ -1841,7 +1844,7 @@ pub fn supports_scalable_vectors(&self) -> bool {
+             AmdGpu | Arm | Arm64EC | Avr | Bpf | CSky | Hexagon | LoongArch32 | LoongArch64
+             | M68k | Mips | Mips32r6 | Mips64 | Mips64r6 | Msp430 | Nvptx64 | PowerPC
+             | PowerPC64 | S390x | Sparc | Sparc64 | SpirV | Wasm32 | Wasm64 | X86 | X86_64
+-            | Xtensa | Other(_) => false,
++            | Xtensa | Alpha | Other(_) => false,
+         }
+     }
+ }
+@@ -2088,7 +2091,7 @@ pub fn supports_c_variadic_definitions(&self) -> CVariadicStatus {
+ 
+         match self.arch {
+             // These targets just inherently do not support c-variadic definitions.
+-            Bpf | SpirV => CVariadicStatus::NotSupported,
++            Alpha | Bpf | SpirV => CVariadicStatus::NotSupported,
+ 
+             // The c-variadic ABI for this target may change in the future, per this comment in
+             // clang:
+@@ -3032,6 +3035,7 @@ pub fn object_architecture(
+     ) -> Option<(object::Architecture, Option<object::SubArchitecture>)> {
+         use object::Architecture;
+         Some(match self.arch {
++            Arch::Alpha => (Architecture::Alpha, None),
+             Arch::Arm => (Architecture::Arm, None),
+             Arch::AArch64 => (
+                 if self.pointer_width == 32 {
+diff --git a/compiler/rustc_target/src/spec/targets/alphaev6_unknown_linux_gnu.rs b/compiler/rustc_target/src/spec/targets/alphaev6_unknown_linux_gnu.rs
+new file mode 100644
+index 000000000..0ec294ae1
+--- /dev/null
++++ b/compiler/rustc_target/src/spec/targets/alphaev6_unknown_linux_gnu.rs
+@@ -0,0 +1,36 @@
++use rustc_abi::Endian;
++
++use crate::spec::{
++    Arch, Cc, LinkSelfContainedDefault, LinkerFlavor, Lld, PanicStrategy, Target, TargetMetadata,
++    TargetOptions, base,
++};
++
++pub(crate) fn target() -> Target {
++    let mut base = base::linux_gnu::opts();
++    base.cpu = "ev6".into();
++    base.max_atomic_width = Some(64);
++    base.position_independent_executables = false;
++    base.static_position_independent_executables = false;
++
++    Target {
++        llvm_target: "alphaev6-unknown-linux-gnu".into(),
++        metadata: TargetMetadata {
++            description: Some("Experimental DEC Alpha Linux (EV6, GCC backend)".into()),
++            tier: None,
++            host_tools: Some(false),
++            std: Some(true),
++        },
++        pointer_width: 64,
++        data_layout: "e-m:e-i64:64-n32:64".into(),
++        arch: Arch::Alpha,
++        options: TargetOptions {
++            endian: Endian::Little,
++            mcount: "_mcount".into(),
++            panic_strategy: PanicStrategy::Abort,
++            disable_redzone: true,
++            linker_flavor: LinkerFlavor::Gnu(Cc::Yes, Lld::No),
++            link_self_contained: LinkSelfContainedDefault::False,
++            ..base
++        },
++    }
++}
+diff --git a/compiler/rustc_target/src/target_features.rs b/compiler/rustc_target/src/target_features.rs
+index 765512eb0..c5edefed3 100644
+--- a/compiler/rustc_target/src/target_features.rs
++++ b/compiler/rustc_target/src/target_features.rs
+@@ -1024,6 +1024,12 @@ pub fn toggle_allowed(&self) -> Result<(), &'static str> {
+     // tidy-alphabetical-end
+ ];
+ 
++const ALPHA_FEATURES: &[(&str, Stability, ImpliedFeatures)] = &[
++    // tidy-alphabetical-start
++    ("ev6", Unstable(sym::alpha_target_feature), &[]),
++    // tidy-alphabetical-end
++];
++
+ static M68K_FEATURES: &[(&str, Stability, ImpliedFeatures)] = &[
+     // tidy-alphabetical-start
+     ("isa-68000", Unstable(sym::m68k_target_feature), &[]),
+@@ -1125,6 +1131,7 @@ pub fn all_rust_features() -> impl Iterator<Item = (&'static str, Stability)> {
+         IBMZ_FEATURES,
+         SPARC_FEATURES,
+         M68K_FEATURES,
++        ALPHA_FEATURES,
+         AVR_FEATURES,
+     ]
+     .into_iter()
+@@ -1159,6 +1166,7 @@ macro_rules! check_arch_feats {
+     check_arch_feats!("s390x", IBMZ_FEATURES);
+     check_arch_feats!("sparc", SPARC_FEATURES);
+     check_arch_feats!("m68k", M68K_FEATURES);
++    check_arch_feats!("alpha", ALPHA_FEATURES);
+     check_arch_feats!("avr", AVR_FEATURES);
+     arches.sort();
+     arches.dedup();
+@@ -1241,6 +1249,7 @@ pub fn rust_target_features(&self) -> &'static [(&'static str, Stability, Implie
+             Arch::S390x => IBMZ_FEATURES,
+             Arch::Sparc | Arch::Sparc64 => SPARC_FEATURES,
+             Arch::M68k => M68K_FEATURES,
++            Arch::Alpha => ALPHA_FEATURES,
+             Arch::Avr => AVR_FEATURES,
+             Arch::Xtensa => XTENSA_FEATURES,
+             Arch::AmdGpu | Arch::Msp430 | Arch::SpirV | Arch::Other(_) => &[],
+@@ -1279,7 +1288,7 @@ pub fn features_for_correct_fixed_length_vector_abi(&self) -> &'static [(u64, &'
+             Arch::CSky => CSKY_FEATURES_FOR_CORRECT_FIXED_LENGTH_VECTOR_ABI,
+             // FIXME: for some tier3 targets, we are overly cautious and always give warnings
+             // when passing args in vector registers.
+-            Arch::Msp430 | Arch::SpirV | Arch::Xtensa | Arch::Other(_) => &[],
++            Arch::Alpha | Arch::Msp430 | Arch::SpirV | Arch::Xtensa | Arch::Other(_) => &[],
+         }
+     }
+ 
+diff --git a/library/Cargo.lock b/library/Cargo.lock
+index bd6314400..b0bc0b4c6 100644
+--- a/library/Cargo.lock
++++ b/library/Cargo.lock
+@@ -154,8 +154,6 @@ dependencies = [
+ [[package]]
+ name = "libc"
+ version = "0.2.191"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "65cd87c9a6d60536580b316ad985726104730a5151c99845f2490428ef91240a"
+ dependencies = [
+  "rustc-std-workspace-core",
+ ]
+@@ -463,3 +461,19 @@ dependencies = [
+  "rustc-std-workspace-alloc",
+  "rustc-std-workspace-core",
+ ]
++
++[[patch.unused]]
++name = "nix"
++version = "0.30.1"
++
++[[patch.unused]]
++name = "nix"
++version = "0.31.3"
++
++[[patch.unused]]
++name = "rustix"
++version = "1.1.5"
++
++[[patch.unused]]
++name = "rustix"
++version = "1.1.4"
+diff --git a/library/std/src/os/linux/raw.rs b/library/std/src/os/linux/raw.rs
+index 6f2da15a9..b20ca97b6 100644
+--- a/library/std/src/os/linux/raw.rs
++++ b/library/std/src/os/linux/raw.rs
+@@ -371,3 +371,21 @@ pub struct stat {
+         pub __unused: [c_long; 3],
+     }
+ }
++
++#[cfg(target_arch = "alpha")]
++mod arch {
++    #[stable(feature = "raw_ext", since = "1.1.0")]
++    pub type blkcnt_t = libc::blkcnt_t;
++    #[stable(feature = "raw_ext", since = "1.1.0")]
++    pub type blksize_t = libc::blksize_t;
++    #[stable(feature = "raw_ext", since = "1.1.0")]
++    pub type ino_t = libc::ino_t;
++    #[stable(feature = "raw_ext", since = "1.1.0")]
++    pub type nlink_t = libc::nlink_t;
++    #[stable(feature = "raw_ext", since = "1.1.0")]
++    pub type off_t = libc::off_t;
++    #[stable(feature = "raw_ext", since = "1.1.0")]
++    pub type stat = libc::stat;
++    #[stable(feature = "raw_ext", since = "1.1.0")]
++    pub type time_t = libc::time_t;
++}
+diff --git a/library/std/src/sys/alloc/mod.rs b/library/std/src/sys/alloc/mod.rs
+index 66a2c3be3..5211d62a9 100644
+--- a/library/std/src/sys/alloc/mod.rs
++++ b/library/std/src/sys/alloc/mod.rs
+@@ -31,6 +31,7 @@
+     8
+ } else if cfg!(any(
+     target_arch = "x86_64",
++    target_arch = "alpha",
+     target_arch = "aarch64",
+     target_arch = "arm64ec",
+     target_arch = "loongarch64",
+diff --git a/library/std/src/sys/personality/gcc.rs b/library/std/src/sys/personality/gcc.rs
+index b2fa38293..0e2d10e51 100644
+--- a/library/std/src/sys/personality/gcc.rs
++++ b/library/std/src/sys/personality/gcc.rs
+@@ -57,6 +57,10 @@
+ #[cfg(any(target_arch = "arm", target_arch = "aarch64"))]
+ const UNWIND_DATA_REG: (i32, i32) = (0, 1); // R0, R1 / X0, X1
+ 
++// GCC alpha.h: EH_RETURN_DATA_REGNO(0/1), with identity DWARF numbering.
++#[cfg(target_arch = "alpha")]
++const UNWIND_DATA_REG: (i32, i32) = (16, 17);
++
+ #[cfg(target_arch = "m68k")]
+ const UNWIND_DATA_REG: (i32, i32) = (0, 1); // D0, D1
+ 
+diff --git a/library/unwind/src/types.rs b/library/unwind/src/types.rs
+index d299d8e7e..834d225b0 100644
+--- a/library/unwind/src/types.rs
++++ b/library/unwind/src/types.rs
+@@ -29,7 +29,7 @@ pub enum _Unwind_Reason_Code {
+         all(target_arch = "aarch64", target_pointer_width = "64", not(target_os = "windows")) => 2,
+         all(target_arch = "aarch64", target_pointer_width = "64", target_os = "windows") => 6,
+         all(target_arch = "aarch64", target_pointer_width = "32") => 5,
+-        target_arch = "m68k" => 2,
++        any(target_arch = "m68k", target_arch = "alpha") => 2,
+         any(target_arch = "mips", target_arch = "mips32r6") => 2,
+         target_arch = "csky" => 2,
+         any(target_arch = "mips64", target_arch = "mips64r6") => 2,
+diff --git a/src/bootstrap/Cargo.lock b/src/bootstrap/Cargo.lock
+index 4d72f562a..a1751e706 100644
+--- a/src/bootstrap/Cargo.lock
++++ b/src/bootstrap/Cargo.lock
+@@ -567,8 +567,6 @@ checksum = "2b15c43186be67a4fd63bee50d0303afffcef381492ebe2c5d87f324e1b8815c"
+ [[package]]
+ name = "rustix"
+ version = "1.1.4"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "b6fe4565b9518b83ef4f91bb47ce29620ca828bd32cb7e408f0062e9930ba190"
+ dependencies = [
+  "bitflags",
+  "errno",
+@@ -1123,3 +1121,19 @@ checksum = "388c44dc09d76f1536602ead6d325eb532f5c122f17782bd57fb47baeeb767e2"
+ dependencies = [
+  "lzma-sys",
+ ]
++
++[[patch.unused]]
++name = "libc"
++version = "0.2.191"
++
++[[patch.unused]]
++name = "nix"
++version = "0.30.1"
++
++[[patch.unused]]
++name = "nix"
++version = "0.31.3"
++
++[[patch.unused]]
++name = "rustix"
++version = "1.1.5"
+diff --git a/src/bootstrap/src/core/build_steps/compile.rs b/src/bootstrap/src/core/build_steps/compile.rs
+index 3021f52d1..a1b9b8de2 100644
+--- a/src/bootstrap/src/core/build_steps/compile.rs
++++ b/src/bootstrap/src/core/build_steps/compile.rs
+@@ -812,6 +812,14 @@ fn run(self, builder: &Builder<'_>) {
+             }
+ 
+             builder.cp_link_r(&builder.initial_sysroot.join("lib"), &sysroot.join("lib"));
++            if builder.local_rebuild && target != builder.host_target {
++                add_to_sysroot(
++                    builder,
++                    &libdir,
++                    &hostdir,
++                    &build_stamp::libstd_stamp(builder, compiler, target),
++                );
++            }
+         } else {
+             if builder.download_rustc() {
+                 // Ensure there are no CI-rustc std artifacts.
+diff --git a/src/bootstrap/src/core/builder/cargo.rs b/src/bootstrap/src/core/builder/cargo.rs
+index 27de3ec60..2d8426259 100644
+--- a/src/bootstrap/src/core/builder/cargo.rs
++++ b/src/bootstrap/src/core/builder/cargo.rs
+@@ -897,6 +897,13 @@ fn cargo(
+                         .rustc_cmd(compiler)
+                         .arg("--target")
+                         .arg(target.rustc_target_arg())
++                        .args(
++                            self.config
++                                .target_config
++                                .get(&target)
++                                .map(|t| &t.rustflags)
++                                .unwrap_or(&self.config.rust_rustflags),
++                        )
+                         // FIXME(#152709): -Zunstable-options is to handle JSON targets.
+                         // Remove when JSON targets are stabilized.
+                         .arg("-Zunstable-options")

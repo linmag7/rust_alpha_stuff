@@ -1,0 +1,71 @@
+
+ * IMPORTANT: 28 news items need reading for repository 'gentoo'.
+ * Use eselect news read to view new items.
+
+Calculating dependencies ... done!
+Dependency resolution took 20.17 s (backtrack: 0/20).
+
+
+!!! The following installed packages are masked:
+- sys-libs/glibc-2.40-r11::gentoo (masked by: package.mask)
+/var/db/repos/gentoo/profiles/package.mask:
+# Andreas K. Hüttel <dilfridge@gentoo.org> (2017-05-21)
+# (and others, updated later)
+# These old versions of toolchain packages (binutils, gcc, glibc) are no
+# longer officially supported and are not suitable for general use. Using
+# these packages can result in build failures (and possible breakage) for
+# many packages, and may leave your system vulnerable to known security
+# exploits.
+# If you still use one of these old toolchain packages, please upgrade (and
+# switch the compiler / the binutils) ASAP. If you need them for a specific
+# (isolated) use case, feel free to unmask them on your system.
+
+For more information, see the MASKED PACKAGES section in the emerge
+man page or refer to the Gentoo Handbook.
+
+
+>>> Emerging binary (1 of 3) sys-apps/ripgrep-15.2.0-r1::rust-alpha
+ * ripgrep-15.2.0-r1-1.gpkg.tar MD5 SHA1 size ;-) ...                    [ ok ]
+>>> Extracting info
+>>> Extracting sys-apps/ripgrep-15.2.0-r1
+
+>>> Installing (1 of 3) sys-apps/ripgrep-15.2.0-r1::rust-alpha
+
+>>> Recording sys-apps/ripgrep::rust-alpha in "world" favorites file...
+
+>>> Completed (1 of 3) sys-apps/ripgrep-15.2.0-r1::rust-alpha
+
+>>> Emerging binary (2 of 3) sys-apps/fd-10.5.0-r1::rust-alpha
+ * fd-10.5.0-r1-1.gpkg.tar MD5 SHA1 size ;-) ...                         [ ok ]
+>>> Extracting info
+>>> Extracting sys-apps/fd-10.5.0-r1
+
+>>> Installing (2 of 3) sys-apps/fd-10.5.0-r1::rust-alpha
+
+>>> Recording sys-apps/fd::rust-alpha in "world" favorites file...
+
+>>> Completed (2 of 3) sys-apps/fd-10.5.0-r1::rust-alpha
+
+>>> Emerging binary (3 of 3) app-shells/zoxide-0.10.0-r1::rust-alpha
+ * zoxide-0.10.0-r1-1.gpkg.tar MD5 SHA1 size ;-) ...                     [ ok ]
+>>> Extracting info
+>>> Extracting app-shells/zoxide-0.10.0-r1
+
+>>> Installing (3 of 3) app-shells/zoxide-0.10.0-r1::rust-alpha
+ * waiting for lock on /var/db/.pkg.portage_lockfile ...                 [ ok ]
+
+>>> Recording app-shells/zoxide::rust-alpha in "world" favorites file...
+
+>>> Completed (3 of 3) app-shells/zoxide-0.10.0-r1::rust-alpha
+ * waiting for lock on /var/db/.pkg.portage_lockfile ...                 [ ok ]
+
+ * Regenerating GNU info directory index...
+ * Processed 124 info files.
+
+ * IMPORTANT: 2 config files in '/etc' need updating.
+ * See the CONFIGURATION FILES and CONFIGURATION FILES UPDATE TOOLS
+ * sections of the emerge man page to learn how to update config files.
+
+ * IMPORTANT: 28 news items need reading for repository 'gentoo'.
+ * Use eselect news read to view new items.
+

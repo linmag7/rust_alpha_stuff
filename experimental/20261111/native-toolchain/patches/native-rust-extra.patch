@@ -1,0 +1,62 @@
+--- a/compiler/rustc_target/src/spec/mod.rs
++++ b/compiler/rustc_target/src/spec/mod.rs
+@@ -3035,6 +3035,7 @@
+     ) -> Option<(object::Architecture, Option<object::SubArchitecture>)> {
+         use object::Architecture;
+         Some(match self.arch {
++            Arch::Alpha => (Architecture::Alpha, None),
+             Arch::Arm => (Architecture::Arm, None),
+             Arch::AArch64 => (
+                 if self.pointer_width == 32 {
+@@ -3097,7 +3098,6 @@
+             | Arch::SpirV
+             | Arch::Wasm32
+             | Arch::Wasm64
+-            | Arch::Alpha
+             | Arch::Other(_) => return None,
+         })
+     }
+--- a/compiler/rustc_target/src/spec/targets/alphaev6_unknown_linux_gnu.rs
++++ b/compiler/rustc_target/src/spec/targets/alphaev6_unknown_linux_gnu.rs
+@@ -9,6 +9,8 @@
+     let mut base = base::linux_gnu::opts();
+     base.cpu = "ev6".into();
+     base.max_atomic_width = Some(64);
++    base.position_independent_executables = false;
++    base.static_position_independent_executables = false;
+ 
+     Target {
+         llvm_target: "alphaev6-unknown-linux-gnu".into(),
+--- a/src/bootstrap/src/core/builder/cargo.rs
++++ b/src/bootstrap/src/core/builder/cargo.rs
+@@ -897,6 +897,13 @@
+                         .rustc_cmd(compiler)
+                         .arg("--target")
+                         .arg(target.rustc_target_arg())
++                        .args(
++                            self.config
++                                .target_config
++                                .get(&target)
++                                .map(|t| &t.rustflags)
++                                .unwrap_or(&self.config.rust_rustflags),
++                        )
+                         // FIXME(#152709): -Zunstable-options is to handle JSON targets.
+                         // Remove when JSON targets are stabilized.
+                         .arg("-Zunstable-options")
+--- a/src/bootstrap/src/core/build_steps/compile.rs
++++ b/src/bootstrap/src/core/build_steps/compile.rs
+@@ -812,6 +812,14 @@
+             }
+ 
+             builder.cp_link_r(&builder.initial_sysroot.join("lib"), &sysroot.join("lib"));
++            if builder.local_rebuild && target != builder.host_target {
++                add_to_sysroot(
++                    builder,
++                    &libdir,
++                    &hostdir,
++                    &build_stamp::libstd_stamp(builder, compiler, target),
++                );
++            }
+         } else {
+             if builder.download_rustc() {
+                 // Ensure there are no CI-rustc std artifacts.

@@ -1,0 +1,4 @@
+    Updating crates.io index
+serde = "1.0.229"    # A generic serialization/deserialization framework
+... and 25326 crates more (use --limit N to see more)
+note: to learn more about a package, run `cargo info <name>`

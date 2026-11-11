@@ -1,0 +1,258 @@
+{
+  "old-got-realloc-a": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-as",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-realloc-a.s",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-realloc-a.o"
+    ]
+  },
+  "old-got-realloc-b": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-as",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-realloc-b.s",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-realloc-b.o"
+    ]
+  },
+  "old-got-realloc": {
+    "exit": -6,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-ld",
+      "-relax",
+      "-melf64alpha",
+      "-shared",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-realloc-a.o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-realloc-b.o",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-realloc.elf"
+    ]
+  },
+  "old-got-merge-gprel-a": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-as",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-merge-gprel-a.s",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-merge-gprel-a.o"
+    ]
+  },
+  "old-got-merge-gprel-b": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-as",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-merge-gprel-b.s",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-merge-gprel-b.o"
+    ]
+  },
+  "old-got-merge-gprel": {
+    "exit": -11,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-ld",
+      "-relax",
+      "-melf64alpha",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-merge-gprel-a.o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-merge-gprel-b.o",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-got-merge-gprel.elf"
+    ]
+  },
+  "old-gp-as": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-as",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/relax-gpdisp.s",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-gp.o"
+    ]
+  },
+  "old-gp-link": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-ld",
+      "-relax",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-gp.o",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-gp.elf"
+    ]
+  },
+  "old-gp-disasm": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-objdump",
+      "-dw",
+      "--no-show-raw-insn",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-gp.elf"
+    ]
+  },
+  "old-gp-reload-preserved": false,
+  "old-generic-set-alias": {
+    "exit": 1,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-as",
+      "--defsym",
+      "NO_SET=1",
+      "--defsym",
+      "ALIGN=3",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/pr17550-3.s",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-alias.o"
+    ]
+  },
+  "old-retain-as": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-as",
+      "--defsym",
+      "NO_SET=1",
+      "--defsym",
+      "ALIGN=3",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/retain3.s",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-retain.o"
+    ]
+  },
+  "old-generic-retain": {
+    "exit": 1,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-ld",
+      "-e",
+      "_start",
+      "--gc-sections",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-retain.o",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/old-retain.elf"
+    ]
+  },
+  "new-got-realloc-a": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-as",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-realloc-a.s",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-realloc-a.o"
+    ]
+  },
+  "new-got-realloc-b": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-as",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-realloc-b.s",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-realloc-b.o"
+    ]
+  },
+  "new-got-realloc": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-ld",
+      "-relax",
+      "-melf64alpha",
+      "-shared",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-realloc-a.o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-realloc-b.o",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-realloc.elf"
+    ]
+  },
+  "new-got-merge-gprel-a": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-as",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-merge-gprel-a.s",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-merge-gprel-a.o"
+    ]
+  },
+  "new-got-merge-gprel-b": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-as",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-merge-gprel-b.s",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-merge-gprel-b.o"
+    ]
+  },
+  "new-got-merge-gprel": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-ld",
+      "-relax",
+      "-melf64alpha",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-merge-gprel-a.o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-merge-gprel-b.o",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-got-merge-gprel.elf"
+    ]
+  },
+  "new-gp-as": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-as",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/relax-gpdisp.s",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-gp.o"
+    ]
+  },
+  "new-gp-link": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-ld",
+      "-relax",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-gp.o",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-gp.elf"
+    ]
+  },
+  "new-gp-disasm": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-objdump",
+      "-dw",
+      "--no-show-raw-insn",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-gp.elf"
+    ]
+  },
+  "new-gp-reload-preserved": true,
+  "new-generic-set-alias": {
+    "exit": 1,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-as",
+      "--defsym",
+      "NO_SET=1",
+      "--defsym",
+      "ALIGN=3",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/pr17550-3.s",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-alias.o"
+    ]
+  },
+  "new-retain-as": {
+    "exit": 0,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-as",
+      "--defsym",
+      "NO_SET=1",
+      "--defsym",
+      "ALIGN=3",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/retain3.s",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-retain.o"
+    ]
+  },
+  "new-generic-retain": {
+    "exit": 1,
+    "command": [
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/bin/alphaev6-unknown-linux-gnu-ld",
+      "-e",
+      "_start",
+      "--gc-sections",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-retain.o",
+      "-o",
+      "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/comparisons/new-retain.elf"
+    ]
+  }
+}

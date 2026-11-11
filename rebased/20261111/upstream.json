@@ -1,0 +1,29 @@
+{
+  "rust": {
+    "url": "https://github.com/rust-lang/rust.git",
+    "base": "6f1c7ee0ec0ea64802f4b7a184b63b7efb645b3b",
+    "date": "2026-11-10T17:23:59+00:00"
+  },
+  "gcc": {
+    "url": "https://github.com/rust-lang/gcc.git",
+    "base": "e1c6e07b095d091177376a163da44039475e05e3",
+    "date": "2026-10-20T11:37:12-04:00",
+    "patch": "patches/gcc-alpha.patch",
+    "patch_sha256": "a89675e821a259240034ba5d1e5b1e09a04b59d4718fc75fd0c625e19a711e93"
+  },
+  "backend": {
+    "url": "https://github.com/rust-lang/rustc_codegen_gcc.git",
+    "base": "f44a7221be06220f1aaa780faecc24781cba346c",
+    "date": "2026-11-09T11:40:57-05:00",
+    "patch": "patches/backend-alpha.patch",
+    "patch_sha256": "68da76b7e916dc4a6ef36d6bd5e4aac155cf24b06e6626221159b03b0d6155c5"
+  },
+  "libc": {
+    "url": "https://github.com/rust-lang/libc.git",
+    "base": "ccc2ff4aaab962f7fde7b8edda7379c045b1ca12",
+    "date": "2026-10-16T22:40:33+00:00",
+    "branch": "libc-0.2",
+    "patch": "patches/libc-alpha.patch",
+    "patch_sha256": "b688d2909caa03076f9901b8bbcaa01694f40ffea0e27dc982df578105b9082f"
+  }
+}

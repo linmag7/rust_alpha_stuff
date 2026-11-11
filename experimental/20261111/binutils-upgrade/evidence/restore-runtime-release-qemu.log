@@ -1,0 +1,4 @@
+libc mmap, madvise, mprotect: PASS
+libc pipe flags and errno: PASS
+libc signal installation and delivery: PASS
+libc termios legacy baud ABI: PASS

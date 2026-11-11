@@ -1,0 +1,13 @@
+diff --git a/gcc/config/alpha/alpha.cc b/gcc/config/alpha/alpha.cc
+index 3165a1e8d..cfef37ea8 100644
+--- a/gcc/config/alpha/alpha.cc
++++ b/gcc/config/alpha/alpha.cc
+@@ -113,7 +113,7 @@ static int alpha_function_needs_gp;
+ static const char *alpha_fnname;
+ 
+ /* The next explicit relocation sequence number.  */
+-extern GTY(()) int alpha_next_sequence_number;
++extern int alpha_next_sequence_number;
+ int alpha_next_sequence_number = 1;
+ 
+ /* The literal and gpdisp sequence numbers for this insn, as printed

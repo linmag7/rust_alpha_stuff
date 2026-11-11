@@ -1,0 +1,56 @@
+Partial rebase, 2026-11-11
+
+Fresh sources are in work/rebase-20261111/src. Exact upstream revisions and patch
+checksums are in upstream.json. The previously validated stack remains intact;
+its rustc, rustc_driver, GCC backend, target JSON, and libgccjit checksums match.
+
+GCC: rust-lang/gcc e1c6e07b095d091177376a163da44039475e05e3, matching the
+fresh backend's libgccjit.version. GCC 17 and libgccjit were built and installed
+under work/rebase-20261111/install/gcc-alpha. The Alpha relocation-counter GTY
+workaround is retained. Binutils and the glibc 2.42 sysroot are reused from the
+saved cross toolchain. No system installation was replaced.
+
+GCC validation: 16 repeated libgccjit contexts, 128 exported functions, -O0/-O3,
+aggressive GCC garbage collection, external calls and global-data relocations.
+All 1,024 runtime comparisons passed under QEMU and on the ES40.
+
+libc: ported to libc-0.2 ccc2ff4aaab962f7fde7b8edda7379c045b1ca12 (0.2.191),
+the current branch compatible with Rust std. Alpha signal, socket and statvfs
+bindings follow the new source-module layout. Shared siginfo_t and kernel integer
+types are reused. Alpha socket flags and GLIBC_2.0 baud-symbol bindings are kept.
+
+libc validation uses the existing patched Rust 1.94 compiler, backend and GCC 16.
+A separate standard-library source copy updates the libc lockfile to 0.2.191 and
+backports the POSIX_SPAWN_SETSID cast already present in current Rust. This is a
+validation-only compatibility change; it is not a modification to fresh Rust.
+Debug and release passed on QEMU and ES40: 315 layout/type checks, 2,370 constants,
+ABI probes, memory mapping, pipes/errno, signals, termios, allocation, files,
+threads/TLS/atomics/locks, clocks, networking and child processes. Native ES40 C
+headers independently matched all layout values and 2,367 available constants.
+
+Backend: patches ported onto f44a7221be06220f1aaa780faecc24781cba346c, not built.
+The older backend cannot load GCC 17 because gcc_jit_type_set_packed was removed
+from the JIT API. The new Rust/backend pair must be built together. The upstream
+CPU-driver flag correction is already present and does not need a local patch.
+
+Rust: fetched 6f1c7ee0ec0ea64802f4b7a184b63b7efb645b3b; checkout is unmodified.
+Its AGENTS.md requires an explicit user statement to use the personal-use
+exemption for ABI/codegen implementation. That clarification is pending. The
+complete fresh Rust/GCC/backend stack has NOT been built or validated.
+
+Reproduce completed component checks from this directory:
+  ./build-gcc.sh
+  ./validate-gcc.sh
+  ./prepare-libc-validation.sh
+  ./validate-libc.sh
+  ./bundle-tests.sh
+These assume the pinned, patched source checkouts and existing validated stack.
+
+Logs in work/rebase-20261111/logs:
+  gcc17-jit-validation.log
+  libc-qemu-validation.log
+  es40-rebased-components.log
+  termios-symbol-versions.txt
+  baseline-integrity.log
+The ES40 bundle is work/rebase-20261111/es40-rebased-components.tar.gz and is
+unpacked at /root/rust-alpha-rebased-components-20261111 on the ES40.

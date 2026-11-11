@@ -1,0 +1,1146 @@
+Test run by lindholm on Wed Nov 11 11:40:40 2026
+Target is alphaev6-unknown-linux-gnu
+Host   is x86_64-pc-linux-gnu
+
+		=== ld tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/upstream-20261111/dejagnu/usr/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/upstream-20261111/dejagnu/usr/share/dejagnu/config/unix.exp as generic interface file for target.
+Using /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/config/default.exp as tool-and-target-specific interface file.
+Executing on host: mkdir -p tmpdir    (timeout = 300)
+spawn -ignore SIGHUP mkdir -p tmpdir
+Executing on host: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z nomemory-seal   (timeout = 300)
+spawn -ignore SIGHUP /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z nomemory-seal
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: no input files
+Executing on host: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld --no-rosegment   (timeout = 300)
+spawn -ignore SIGHUP /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld --no-rosegment
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: no input files
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -h /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -h /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           Alpha
+  Version:                           0x1
+  Entry point address:               0x120004e70
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          2197744 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         10
+  Size of section headers:           64 (bytes)
+  Number of section headers:         32
+  Section header string table index: 31
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           Alpha
+  Version:                           0x1
+  Entry point address:               0x120004e70
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          2197744 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         10
+  Size of section headers:           64 (bytes)
+  Number of section headers:         32
+  Section header string table index: 31
+
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld  --version
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld  --version 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+GNU ld (GNU Binutils) 2.47.50.20261111
+Copyright (C) 2026 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
+GNU ld (GNU Binutils) 2.47.50.20261111
+Copyright (C) 2026 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
+
+Executing on host: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -v   (timeout = 300)
+spawn -ignore SIGHUP /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -v
+Using built-in specs.
+COLLECT_GCC=/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/bin/alphaev6-unknown-linux-gnu-gcc
+COLLECT_LTO_WRAPPER=/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/lib/gcc/../../libexec/gcc/alphaev6-unknown-linux-gnu/16.0.0/lto-wrapper
+Target: alphaev6-unknown-linux-gnu
+Configured with: /home/lindholm/crosstools-ng/.build/alphaev6-unknown-linux-gnu/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=alphaev6-unknown-linux-gnu --prefix=/home/lindholm/x-tools/alphaev6-unknown-linux-gnu --exec_prefix=/home/lindholm/x-tools/alphaev6-unknown-linux-gnu --with-sysroot=/home/lindholm/x-tools/alphaev6-unknown-linux-gnu/alphaev6-unknown-linux-gnu/sysroot --enable-languages=c,jit --with-cpu=ev6 --with-tune=ev6 --with-pkgversion='crosstool-NG 1.28.0.6_620b909' --enable-__cxa_atexit --enable-cxx-flags=--enable-host-shared --disable-libmudflap --disable-libgomp --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-libsanitizer --disable-libmpx --disable-libstdcxx-verbose --disable-libstdcxx --with-gmp=/home/lindholm/crosstools-ng/.build/alphaev6-unknown-linux-gnu/buildtools --with-mpfr=/home/lindholm/crosstools-ng/.build/alphaev6-unknown-linux-gnu/buildtools --with-mpc=/home/lindholm/crosstools-ng/.build/alphaev6-unknown-linux-gnu/buildtools --with-isl=/home/lindholm/crosstools-ng/.build/alphaev6-unknown-linux-gnu/buildtools --enable-lto --enable-threads=posix --enable-target-optspace --disable-plugin --disable-nls --disable-multilib --with-local-prefix=/home/lindholm/x-tools/alphaev6-unknown-linux-gnu/alphaev6-unknown-linux-gnu/sysroot --enable-long-long --enable-host-shared
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 16.0.0 20251008 (experimental) (crosstool-NG 1.28.0.6_620b909) 
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/   -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/   -Wl,--version
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/   -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/   -Wl,--version 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+collect2 version 16.0.0 20251008 (experimental)
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/alphaev6-unknown-linux-gnu/bin/ld -plugin /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/lib/gcc/../../libexec/gcc/alphaev6-unknown-linux-gnu/16.0.0/liblto_plugin.so -plugin-opt=/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/lib/gcc/../../libexec/gcc/alphaev6-unknown-linux-gnu/16.0.0/lto-wrapper -plugin-opt=-fresolution=/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/tmp/ccCmhWK3.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/sysroot --eh-frame-hdr -m elf64alpha -O1 -dynamic-linker /lib/ld-linux.so.2 /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/sysroot/lib/crt1.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/sysroot/lib/crti.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/lib/gcc/alphaev6-unknown-linux-gnu/16.0.0/crtbegin.o -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/alphaev6-unknown-linux-gnu/bin -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/lib/gcc/alphaev6-unknown-linux-gnu/16.0.0 -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/lib/gcc -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/sysroot/lib -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/sysroot/usr/lib --version -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/lib/gcc/alphaev6-unknown-linux-gnu/16.0.0/crtend.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/sysroot/lib/crtn.o
+GNU ld (GNU Binutils) 2.47.50.20261111
+Copyright (C) 2026 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
+collect2 version 16.0.0 20251008 (experimental)
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/alphaev6-unknown-linux-gnu/bin/ld -plugin /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/lib/gcc/../../libexec/gcc/alphaev6-unknown-linux-gnu/16.0.0/liblto_plugin.so -plugin-opt=/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/lib/gcc/../../libexec/gcc/alphaev6-unknown-linux-gnu/16.0.0/lto-wrapper -plugin-opt=-fresolution=/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/tmp/ccCmhWK3.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/sysroot --eh-frame-hdr -m elf64alpha -O1 -dynamic-linker /lib/ld-linux.so.2 /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/sysroot/lib/crt1.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/sysroot/lib/crti.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/lib/gcc/alphaev6-unknown-linux-gnu/16.0.0/crtbegin.o -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/install/alphaev6-unknown-linux-gnu/bin -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/lib/gcc/alphaev6-unknown-linux-gnu/16.0.0 -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/lib/gcc -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/sysroot/lib -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/sysroot/usr/lib --version -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/lib/gcc/alphaev6-unknown-linux-gnu/16.0.0/crtend.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/sysroot/lib/crtn.o
+GNU ld (GNU Binutils) 2.47.50.20261111
+Copyright (C) 2026 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
+
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/     tmpdir/compiler798723.c -o tmpdir/compiler798723.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/     tmpdir/compiler798723.c -o tmpdir/compiler798723.out 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -c -fplt cs798723.c -o cs798723.exe
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -c -fplt cs798723.c -o cs798723.exe 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -fno-PIE -no-pie cs798723.c -o cs798723.exe
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -fno-PIE -no-pie cs798723.c -o cs798723.exe 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -mdirect-extern-access cs798723.c -o cs798723.exe
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -mdirect-extern-access cs798723.c -o cs798723.exe 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+alphaev6-unknown-linux-gnu-gcc: error: unrecognized command-line option '-mdirect-extern-access'
+alphaev6-unknown-linux-gnu-gcc: error: unrecognized command-line option '-mdirect-extern-access'
+
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -fdirect-access-external-data cs798723.c -o cs798723.exe
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -fdirect-access-external-data cs798723.c -o cs798723.exe 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+alphaev6-unknown-linux-gnu-gcc: error: unrecognized command-line option '-fdirect-access-external-data'
+alphaev6-unknown-linux-gnu-gcc: error: unrecognized command-line option '-fdirect-access-external-data'
+
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -fcf-protection=none cs798723.c -o cs798723.exe
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -fcf-protection=none cs798723.c -o cs798723.exe 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -c -mtls-dialect=gnu2 cs798723.c -o cs798723.exe
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -c -mtls-dialect=gnu2 cs798723.c -o cs798723.exe 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+alphaev6-unknown-linux-gnu-gcc: error: unrecognized command-line option '-mtls-dialect=gnu2'
+alphaev6-unknown-linux-gnu-gcc: error: unrecognized command-line option '-mtls-dialect=gnu2'
+
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -c cs798723.c -o cs798723.exe
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -c cs798723.c -o cs798723.exe 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -static cs798723.c -o cs798723.exe
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -static cs798723.c -o cs798723.exe 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -static-pie cs798723.c -o cs798723.exe
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -static-pie cs798723.c -o cs798723.exe 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -fno-sanitize=all cs798723.c -o cs798723.exe
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -fno-sanitize=all cs798723.c -o cs798723.exe 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -fno-lto cs798723.c -o cs798723.exe
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/    -fno-lto cs798723.c -o cs798723.exe 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/   --print-prog-name liblto_plugin.so
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/alpha-cc -B/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/   --print-prog-name liblto_plugin.so 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/lib/gcc/../../libexec/gcc/alphaev6-unknown-linux-gnu/16.0.0/liblto_plugin.so
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/sdk/release/alpha-sdk/gcc/lib/gcc/../../libexec/gcc/alphaev6-unknown-linux-gnu/16.0.0/liblto_plugin.so
+
+Executing on host: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld --help   (timeout = 300)
+spawn -ignore SIGHUP /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld --help
+Usage: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld [options] file...
+Options:
+  -a KEYWORD                  Shared library control for HP/UX compatibility
+  -A ARCH, --architecture ARCH
+                              Set architecture
+  -b TARGET, --format TARGET  Specify target for following input files
+  -c FILE, --mri-script FILE  Read MRI format linker script
+  -d, -dc, -dp                Force common symbols to be defined
+  --dependency-file FILE      Write dependency file
+  --force-group-allocation    Force group members out of groups
+  -e ADDRESS, --entry ADDRESS Set start address
+  -E, --export-dynamic        Export all dynamic symbols
+  --no-export-dynamic         Undo the effect of --export-dynamic
+  --enable-non-contiguous-regions
+                              Enable support of non-contiguous memory regions
+  --enable-non-contiguous-regions-warnings
+                              Enable warnings when --enable-non-contiguous-regions may cause unexpected behaviour
+  --disable-linker-version    Disable the LINKER_VERSION linker script directive
+  --enable-linker-version     Enable the LINKER_VERSION linker script directive
+  -EB                         Link big-endian objects
+  -EL                         Link little-endian objects
+  -f SHLIB, --auxiliary SHLIB Auxiliary filter for shared object symbol table
+  -F SHLIB, --filter SHLIB    Filter for shared object symbol table
+  -g                          Ignored
+  -G SIZE, --gpsize SIZE      Small data size (if no size, same as --shared)
+  -h FILENAME, -soname FILENAME
+                              Set internal name of shared library
+  -I PROGRAM, --dynamic-linker PROGRAM
+                              Set PROGRAM as the dynamic linker to use
+  --no-dynamic-linker         Produce an executable with no program interpreter header
+  -l LIBNAME, --library LIBNAME
+                              Search for library LIBNAME
+  -L DIRECTORY, --library-path DIRECTORY
+                              Add DIRECTORY to library search path
+  --sysroot=<DIRECTORY>       Override the default sysroot location
+  -m EMULATION                Set emulation
+  -M, --print-map             Print map file on standard output
+  -n, --nmagic                Do not page align data
+  -N, --omagic                Do not page align data, do not make text readonly
+  --no-omagic                 Page align data, make text readonly
+  -o FILE, --output FILE      Set output file name
+  -O LEVEL                    Optimize output file
+  --out-implib FILE           Generate import library
+  -plugin PLUGIN              Load named plugin
+  -plugin-opt ARG             Send arg to last-loaded plugin
+  -plugin-save-temps          Store plugin intermediate files permanently
+  -flto                       Ignored for GCC LTO option compatibility
+  -flto-partition=            Ignored for GCC LTO option compatibility
+  -fuse-ld=                   Ignored for GCC linker option compatibility
+  --map-whole-files           Ignored for gold option compatibility
+  --no-map-whole-files        Ignored for gold option compatibility
+  -Qy                         Ignored for SVR4 compatibility
+  -q, --emit-relocs           Generate relocations in final output
+  -r, -i, --relocatable       Generate relocatable output
+  -R FILE, --just-symbols FILE
+                              Just link symbols (if directory, same as --rpath)
+  --remap-inputs-file FILE    Provide a FILE containing input remapings
+  --remap-inputs PATTERN=FILE Remap input files matching PATTERN to FILE
+  -s, --strip-all             Strip all symbols
+  -S, --strip-debug           Strip debugging symbols
+  --strip-discarded           Strip symbols in discarded sections
+  --no-strip-discarded        Do not strip symbols in discarded sections
+  -t, --trace                 Trace file opens
+  -T FILE, --script FILE      Read linker script
+  --default-script FILE, -dT  Read default linker script
+  -u SYMBOL, --undefined SYMBOL
+                              Start with undefined reference to SYMBOL
+  --require-defined SYMBOL    Require SYMBOL be defined in the final output
+  --unique [=SECTION]         Don't merge input [SECTION | orphan] sections
+  -Ur                         Build global constructor/destructor tables
+  -v, --version               Print version information
+  -V                          Print version and emulation information
+  -x, --discard-all           Discard all local symbols
+  -X, --discard-locals        Discard temporary local symbols (default)
+  --discard-none              Don't discard any local symbols
+  -y SYMBOL, --trace-symbol SYMBOL
+                              Trace mentions of SYMBOL
+  -Y PATH                     Default search path for Solaris compatibility
+  -(, --start-group           Start a group
+  -), --end-group             End a group
+  --accept-unknown-input-arch Accept input files whose architecture cannot be determined
+  --no-accept-unknown-input-arch
+                              Reject input files whose architecture is unknown
+  --as-needed                 Only set DT_NEEDED for following dynamic libs if used
+  --no-as-needed              Always set DT_NEEDED for dynamic libraries mentioned on
+                                the command line
+  -assert KEYWORD             Ignored for SunOS compatibility
+  -Bdynamic, -dy, -call_shared
+                              Link against shared libraries
+  -Bstatic, -dn, -non_shared, -static
+                              Do not link against shared libraries
+  -Bno-symbolic               Don't bind global references locally
+  -Bsymbolic                  Bind global references locally
+  -Bsymbolic-functions        Bind global function references locally
+  --check-sections            Check section addresses for overlaps (default)
+  --no-check-sections         Do not check section addresses for overlaps
+  --copy-dt-needed-entries    Copy DT_NEEDED links mentioned inside DSOs that follow
+  --no-copy-dt-needed-entries Do not copy DT_NEEDED links mentioned inside DSOs that follow
+  --cref                      Output cross reference table
+  --defsym SYMBOL=EXPRESSION  Define a symbol
+  --demangle [=STYLE]         Demangle symbol names [using STYLE]
+  --disable-multiple-abs-defs Do not allow multiple definitions with symbols included
+                                in filename invoked by -R or --just-symbols
+  --embedded-relocs           Generate embedded relocs
+  --fatal-warnings            Treat warnings as errors
+  --no-fatal-warnings         Do not treat warnings as errors (default)
+  -fini SYMBOL                Call SYMBOL at unload-time
+  --force-exe-suffix          Force generation of file with .exe suffix
+  --gc-sections               Remove unused sections (on some targets)
+  --no-gc-sections            Don't remove unused sections (default)
+  --print-gc-sections         List removed unused sections on stderr
+  --no-print-gc-sections      Do not list removed unused sections
+  --gc-keep-exported          Keep exported symbols when removing unused sections
+  --hash-size=<NUMBER>        Set default hash table size close to <NUMBER>
+  --help                      Print option help
+  -init SYMBOL                Call SYMBOL at load-time
+  -Map FILE/DIR               Write a linker map to FILE or DIR/<outputname>.map
+  --no-define-common          Do not define Common storage
+  --no-demangle               Do not demangle symbol names
+  --no-keep-memory            Use less memory and more disk I/O
+  --no-undefined              Do not allow unresolved references in object files
+  -w, --no-warnings           Do not display any warning or error messages
+  --allow-shlib-undefined     Allow unresolved references in shared libraries
+  --no-allow-shlib-undefined  Do not allow unresolved references in shared libs
+  --allow-multiple-definition Allow multiple definitions
+  --error-handling-script SCRIPT
+                              Provide a script to help with undefined symbol errors
+  --undefined-version         Allow undefined version
+  --no-undefined-version      Disallow undefined version
+  --default-symver            Create default symbol version
+  --default-imported-symver   Create default symbol version for imported symbols
+  --no-warn-mismatch          Don't warn about mismatched input files
+  --no-warn-search-mismatch   Don't warn on finding an incompatible library
+  --no-whole-archive          Turn off --whole-archive
+  --no-link-mapless           Reject archives without a symbol map
+  --end-lib                   Treat files specified as link objects
+  --noinhibit-exec            Create an output file even if errors occur
+  -nostdlib                   Only use library directories specified on
+                                the command line
+  --oformat TARGET            Specify target of output file
+  --print-output-format       Print default output format
+  --print-sysroot             Print current sysroot
+  -qmagic                     Ignored for Linux compatibility
+  --reduce-memory-overheads   Reduce memory overheads, possibly taking much longer
+  --max-cache-size=SIZE       Set the maximum cache size to SIZE bytes
+  --relax                     Reduce code size by using target specific optimizations
+  --no-relax                  Do not use relaxation techniques to reduce code size
+  --retain-symbols-file FILE  Keep only symbols listed in FILE
+  -rpath PATH                 Set runtime shared library search path
+  -rpath-link PATH            Set link time shared library search path
+  -shared, -Bshareable        Create a shared library
+  -pie, --pic-executable      Create a position independent executable
+  -no-pie                     Create a position dependent executable (default)
+  --sort-common [=ascending|descending]
+                              Sort common symbols by alignment [in specified order]
+  --sort-section name|alignment
+                              Sort sections by name or maximum alignment
+  --section-ordering-file FILE
+                              Sort sections by statements in FILE
+  --spare-dynamic-tags COUNT  How many tags to reserve in .dynamic section
+  --split-by-file [=SIZE]     Split output sections every SIZE octets
+  --split-by-reloc [=COUNT]   Split output sections every COUNT relocs
+  --stats                     Print resource usage statistics
+  --no-stats                  Do not print resource usage statistics
+  --target-help               Display target specific options
+  --task-link SYMBOL          Do task level linking
+  --traditional-format        Use same format as native linker
+  --section-start SECTION=ADDRESS
+                              Set address of named section
+  --image-base ADDRESS        Set image base address
+  -Tbss ADDRESS               Set address of .bss section
+  -Tdata ADDRESS              Set address of .data section
+  -Ttext ADDRESS              Set address of .text section
+  -Ttext-segment ADDRESS      Set address of text segment
+  -Trodata-segment ADDRESS    Set address of rodata segment
+  -Tldata-segment ADDRESS     Set address of ldata segment
+  --unresolved-symbols=<method>
+                              How to handle unresolved symbols.  <method> is:
+                                ignore-all, report-all, ignore-in-object-files,
+                                ignore-in-shared-libs
+  --verbose [=NUMBER]         Output lots of information during link
+  --version-script FILE       Read version information script
+  --version-exports-section SYMBOL
+                              Take export symbols list from .exports, using
+                                SYMBOL as the version.
+  --dynamic-list-data         Add data symbols to dynamic list
+  --dynamic-list-cpp-new      Use C++ operator new/delete dynamic list
+  --dynamic-list-cpp-typeinfo Use C++ typeinfo dynamic list
+  --dynamic-list FILE         Read dynamic list
+  --export-dynamic-symbol SYMBOL
+                              Export the specified symbol
+  --export-dynamic-symbol-list FILE
+                              Read export dynamic symbol list
+  --warn-common               Warn about duplicate common symbols
+  --warn-constructors, --error-execstack, --no-error-execstack, --warn-execstack-objects, --warn-execstack, --no-warn-execstack, --error-rwx-segments, --no-error-rwx-segments, --warn-rwx-segments, --no-warn-rwx-segments
+                              Warn if global constructors/destructors are seen
+  --warn-multiple-gp          Warn if the multiple GP values are used
+  --warn-once                 Warn only once per undefined symbol
+  --warn-section-align        Warn if start of section changes due to alignment
+  --warn-textrel              Warn if output has DT_TEXTREL
+  --warn-alternate-em         Warn if an object has alternate ELF machine code
+  --warn-unresolved-symbols   Report unresolved symbols as warnings
+  --error-unresolved-symbols  Report unresolved symbols as errors
+  --whole-archive             Include all objects from following archives
+  --link-mapless              Accept archives without a symbol map
+  --start-lib                 Treat files specified as artificial archive members
+  --wrap SYMBOL               Use wrapper functions for SYMBOL
+  --ignore-unresolved-symbol SYMBOL
+                              Unresolved SYMBOL will not cause an error or warning
+  --push-state                Push state of flags governing input file handling
+  --pop-state                 Pop state of flags governing input file handling
+  --print-memory-usage        Report target memory usage
+  --orphan-handling =MODE     Control how orphan sections are handled.
+  --print-map-discarded       Show discarded sections in map file output (default)
+  --no-print-map-discarded    Do not show discarded sections in map file output
+  --print-map-locals          Show local symbols in map file output
+  --no-print-map-locals       Do not show local symbols in map file output (default)
+  --ctf-variables             Emit names and types of static variables in CTF
+  --no-ctf-variables          Do not emit names and types of static variables in CTF
+  --ctf-share-types=<method>  How to share CTF types between translation units.
+                                <method> is: share-unconflicted (default),
+                                             share-duplicated
+  @FILE                       Read options from FILE
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: supported targets: elf64-alpha ecoff-littlealpha elf64-little elf64-big elf32-little elf32-big srec symbolsrec verilog tekhex binary ihex plugin trad-core
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: supported emulations: elf64alpha alpha
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: emulation specific options:
+ELF emulations:
+  --build-id[=STYLE]          Generate build ID note
+                                Styles: none,md5,sha1,xx,uuid,0xHEX
+  --package-metadata[=JSON]   Generate package metadata note
+  --compress-debug-sections=[none|zlib|zlib-gnu|zlib-gabi|zstd]
+			      Compress DWARF debug sections
+                                Default: none
+  -z common-page-size=SIZE    Set common page size to SIZE
+  -z max-page-size=SIZE       Set maximum page size to SIZE
+  -z defs                     Report unresolved symbols in object files
+  -z undefs                   Ignore unresolved symbols in object files
+  -z muldefs                  Allow multiple definitions
+  -z stack-size=SIZE          Set size of stack segment
+  -z execstack                Mark executable as requiring executable stack
+  -z noexecstack              Mark executable as not requiring executable stack
+  --warn-execstack-objects    Generate a warning if an object file requests an executable stack
+  --warn-execstack            Generate a warning if creating an executable stack (default)
+  --no-warn-execstack         Do not generate a warning if creating an executable stack
+  --error-execstack           Turn warnings about executable stacks into errors
+  --no-error-execstack        Do not turn warnings about executable stacks into errors
+  --warn-rwx-segments         Generate a warning if a LOAD segment has RWX permissions (default)
+  --no-warn-rwx-segments      Do not generate a warning if a LOAD segments has RWX permissions
+  --error-rwx-segments        Turn warnings about loadable RWX segments into errors
+  --no-error-rwx-segments     Do not turn warnings about loadable RWX segments into errors
+  -z unique-symbol            Avoid duplicated local symbol names
+  -z nounique-symbol          Keep duplicated local symbol names (default)
+  -z globalaudit              Mark executable requiring global auditing
+  -z start-stop-gc            Enable garbage collection on __start/__stop
+  -z nostart-stop-gc          Don't garbage collect __start/__stop (default)
+  -z start-stop-visibility=V  Set visibility of built-in __start/__stop symbols
+                                to DEFAULT, PROTECTED, HIDDEN or INTERNAL
+  -z sectionheader            Generate section header (default)
+  -z nosectionheader          Do not generate section header
+  --audit=AUDITLIB            Specify a library to use for auditing
+  -Bgroup                     Selects group name lookup rules for DSO
+  --disable-new-dtags         Disable new dynamic tags
+  --enable-new-dtags          Enable new dynamic tags
+  --eh-frame-hdr              Create .eh_frame_hdr section
+  --no-eh-frame-hdr           Do not create .eh_frame_hdr section
+  --exclude-libs=LIBS         Make all symbols in LIBS hidden
+  --hash-style=STYLE          Set hash style to sysv/gnu/both.  Default: both
+  -P AUDITLIB, --depaudit=AUDITLIB
+                              Specify a library to use for auditing dependencies
+  -z combreloc                Merge dynamic relocs into one section and sort
+  -z nocombreloc              Don't merge dynamic relocs into one section
+  -z global                   Make symbols in DSO available for subsequently
+                                loaded objects
+  -z initfirst                Mark DSO to be initialized first at runtime
+  -z interpose                Mark object to interpose all DSOs but executable
+  -z unique                   Mark DSO to be loaded at most once by default, and only in the main namespace
+  -z nounique                 Don't mark DSO as a loadable at most once
+  -z lazy                     Mark object lazy runtime binding (default)
+  -z loadfltr                 Mark object requiring immediate process
+  -z nocopyreloc              Don't create copy relocs
+  -z nodefaultlib             Mark object not to use default search paths
+  -z nodelete                 Mark DSO non-deletable at runtime
+  -z nodlopen                 Mark DSO not available to dlopen
+  -z nodump                   Mark DSO not available to dldump
+  -z now                      Mark object non-lazy runtime binding
+  -z origin                   Mark object requiring immediate $ORIGIN
+                                processing at runtime
+  -z relro                    Create RELRO program header (default)
+  -z norelro                  Don't create RELRO program header
+  -z separate-code            Create separate code program header
+  -z noseparate-code          Don't create separate code program header (default)
+  --rosegment                 With -z separate-code, create a single read-only segment
+  --no-rosegment              With -z separate-code, creste two read-only segments (default)
+  -z common                   Generate common symbols with STT_COMMON type
+  -z nocommon                 Generate common symbols with STT_OBJECT type
+  -z text                     Treat DT_TEXTREL in output as error
+  -z notext                   Don't treat DT_TEXTREL in output as error (default)
+  -z textoff                  Don't treat DT_TEXTREL in output as error (default)
+  -z memory-seal              Mark object be memory sealed
+  -z nomemory-seal            Don't mark oject to be memory sealed (default)
+elf64alpha: 
+  --secureplt                 Force PLT in text segment
+  --no-secureplt              Force PLT in data segment
+
+Report bugs to <https://sourceware.org/bugzilla/>
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/alpha.exp ...
+Executing on host: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro   (timeout = 300)
+spawn -ignore SIGHUP /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: no input files
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/align.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/align.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/align.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/align.s 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/tlspic1.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlspic1.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/tlspic1.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlspic1.s 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/tlspic2.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlspic2.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/tlspic2.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlspic2.s 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld    -o tmpdir/libtlspic.so  -z norelro -z nomemory-seal -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha -shared -melf64alpha --hash-style=sysv tmpdir/align.o tmpdir/tlspic1.o tmpdir/tlspic2.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld    -o tmpdir/libtlspic.so  -z norelro -z nomemory-seal -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha -shared -melf64alpha --hash-style=sysv tmpdir/align.o tmpdir/tlspic1.o tmpdir/tlspic2.o  2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf -WSsrl tmpdir/libtlspic.so >dump.out 2>ld.stderr}  /dev/null  (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf -WSsrl tmpdir/libtlspic.so
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump -drj.text tmpdir/libtlspic.so >dump.out 2>ld.stderr}  /dev/null  (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump -drj.text tmpdir/libtlspic.so
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump -sj.got tmpdir/libtlspic.so >dump.out 2>ld.stderr}  /dev/null  (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump -sj.got tmpdir/libtlspic.so
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump -sj.tdata tmpdir/libtlspic.so >dump.out 2>ld.stderr}  /dev/null  (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump -sj.tdata tmpdir/libtlspic.so
+PASS: TLS -fpic -shared
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/tlslib.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlslib.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/tlslib.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlslib.s 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld    -o tmpdir/libtlslib.so  -z norelro -z nomemory-seal -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha -shared -melf64alpha tmpdir/tlslib.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld    -o tmpdir/libtlslib.so  -z norelro -z nomemory-seal -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha -shared -melf64alpha tmpdir/tlslib.o  2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+PASS: Helper shared library
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/align.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/align.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/align.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/align.s 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/tlsbinpic.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbinpic.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/tlsbinpic.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbinpic.s 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/tlsbin.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbin.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/tlsbin.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbin.s 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld    -o tmpdir/tlsbin  -z norelro -z nomemory-seal -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha -melf64alpha tmpdir/libtlslib.so --hash-style=sysv tmpdir/align.o tmpdir/tlsbinpic.o tmpdir/tlsbin.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld    -o tmpdir/tlsbin  -z norelro -z nomemory-seal -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha -melf64alpha tmpdir/libtlslib.so --hash-style=sysv tmpdir/align.o tmpdir/tlsbinpic.o tmpdir/tlsbin.o  2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf -WSsrl tmpdir/tlsbin >dump.out 2>ld.stderr}  /dev/null  (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf -WSsrl tmpdir/tlsbin
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump -drj.text tmpdir/tlsbin >dump.out 2>ld.stderr}  /dev/null  (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump -drj.text tmpdir/tlsbin
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump -sj.got tmpdir/tlsbin >dump.out 2>ld.stderr}  /dev/null  (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump -sj.got tmpdir/tlsbin
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump -sj.tdata tmpdir/tlsbin >dump.out 2>ld.stderr}  /dev/null  (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump -sj.tdata tmpdir/tlsbin
+PASS: TLS -fpic and -fno-pic exec
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/align.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/align.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/align.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/align.s 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/tlsbinpic.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbinpic.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/tlsbinpic.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbinpic.s 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/tlsbin.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbin.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/tlsbin.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbin.s 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld    -o tmpdir/tlsbinr  -z norelro -z nomemory-seal -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha -relax -melf64alpha --hash-style=sysv tmpdir/libtlslib.so tmpdir/align.o tmpdir/tlsbinpic.o tmpdir/tlsbin.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld    -o tmpdir/tlsbinr  -z norelro -z nomemory-seal -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha -relax -melf64alpha --hash-style=sysv tmpdir/libtlslib.so tmpdir/align.o tmpdir/tlsbinpic.o tmpdir/tlsbin.o  2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf -WSsrl tmpdir/tlsbinr >dump.out 2>ld.stderr}  /dev/null  (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf -WSsrl tmpdir/tlsbinr
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump -drj.text tmpdir/tlsbinr >dump.out 2>ld.stderr}  /dev/null  (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump -drj.text tmpdir/tlsbinr
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump -sj.got tmpdir/tlsbinr >dump.out 2>ld.stderr}  /dev/null  (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump -sj.got tmpdir/tlsbinr
+PASS: TLS -fpic and -fno-pic exec -relax
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/emptygot.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/emptygot.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/emptygot.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/emptygot.s 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld    -o tmpdir/emptygot  -z norelro -z nomemory-seal -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha -melf64alpha tmpdir/emptygot.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld    -o tmpdir/emptygot  -z norelro -z nomemory-seal -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha -melf64alpha tmpdir/emptygot.o  2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/nm -n tmpdir/emptygot >dump.out 2>ld.stderr}  /dev/null  (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/nm -n tmpdir/emptygot
+PASS: empty got
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/got-realloc-a.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-realloc-a.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/got-realloc-a.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-realloc-a.s 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/got-realloc-b.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-realloc-b.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/got-realloc-b.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-realloc-b.s 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld    -o tmpdir/got-realloc.so  -z norelro -z nomemory-seal -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha -shared -relax -melf64alpha tmpdir/got-realloc-a.o tmpdir/got-realloc-b.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld    -o tmpdir/got-realloc.so  -z norelro -z nomemory-seal -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha -shared -relax -melf64alpha tmpdir/got-realloc-a.o tmpdir/got-realloc-b.o  2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf -SW tmpdir/got-realloc.so >dump.out 2>ld.stderr}  /dev/null  (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf -SW tmpdir/got-realloc.so
+PASS: got realloc after relax
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/ifunc-shlib.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-shlib.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as   -I/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/ifunc-shlib.o  /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-shlib.s 2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld    -o tmpdir/libalphaifunc.so  -z norelro -z nomemory-seal -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha -shared -melf64alpha tmpdir/ifunc-shlib.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld    -o tmpdir/libalphaifunc.so  -z norelro -z nomemory-seal -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha -shared -melf64alpha tmpdir/ifunc-shlib.o  2>&1}  /dev/null ld.tmp (timeout = 300)
+spawn [open ...]
+PASS: IFUNC helper shared library
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/got-merge-gprel-a.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-merge-gprel-a.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/got-merge-gprel-a.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-merge-gprel-a.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/got-merge-gprel-b.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-merge-gprel-b.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/got-merge-gprel-b.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/got-merge-gprel-b.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -relax -melf64alpha -o tmpdir/dump tmpdir/got-merge-gprel-a.o tmpdir/got-merge-gprel-b.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -relax -melf64alpha -o tmpdir/dump tmpdir/got-merge-gprel-a.o tmpdir/got-merge-gprel-b.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -SW tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -SW tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/got-merge-gprel
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-addend-literal.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-addend-literal.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-addend-literal.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-addend-literal.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-addend-literal.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-addend-literal.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-addend-literal.o: ELF_LITERAL relocation against STT_GNU_IFUNC symbol `global_ifunc' has a non-zero addend
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed
+failed with: </media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-addend-literal.o: ELF_LITERAL relocation against STT_GNU_IFUNC symbol `global_ifunc' has a non-zero addend
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed>, expected: <\A[^\n]*: ELF_LITERAL relocation against STT_GNU_IFUNC symbol `global_ifunc' has a non-zero addend\n[^\n]*: final link failed[^\n]*\n?\Z>
+PASS: ld-alpha/ifunc-addend-literal
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-addend-refquad.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-addend-refquad.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-addend-refquad.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-addend-refquad.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-addend-refquad.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-addend-refquad.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-addend-refquad.o: REFQUAD relocation against STT_GNU_IFUNC symbol `global_ifunc' has a non-zero addend
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed
+failed with: </media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-addend-refquad.o: REFQUAD relocation against STT_GNU_IFUNC symbol `global_ifunc' has a non-zero addend
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed>, expected: <\A[^\n]*: REFQUAD relocation against STT_GNU_IFUNC symbol `global_ifunc' has a non-zero addend\n[^\n]*: final link failed[^\n]*\n?\Z>
+PASS: ld-alpha/ifunc-addend-refquad
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-addend-local.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-addend-local.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-addend-local.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-addend-local.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -shared -melf64alpha -o tmpdir/dump tmpdir/ifunc-addend-local.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -shared -melf64alpha -o tmpdir/dump tmpdir/ifunc-addend-local.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-addend-local.o: REFQUAD relocation against STT_GNU_IFUNC symbol `local_ifunc' has a non-zero addend
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed
+failed with: </media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-addend-local.o: REFQUAD relocation against STT_GNU_IFUNC symbol `local_ifunc' has a non-zero addend
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed>, expected: <\A[^\n]*: REFQUAD relocation against STT_GNU_IFUNC symbol `local_ifunc' has a non-zero addend\n[^\n]*: final link failed[^\n]*\n?\Z>
+PASS: ld-alpha/ifunc-addend-shared-local
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-addend-refquad.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-addend-refquad.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-addend-refquad.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-addend-refquad.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -shared -melf64alpha -o tmpdir/dump tmpdir/ifunc-addend-refquad.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -shared -melf64alpha -o tmpdir/dump tmpdir/ifunc-addend-refquad.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-addend-shared
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-branch.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-branch.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-branch.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-branch.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-branch.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-branch.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-branch.o: BRADDR relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-branch.o: BRSGP relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed
+failed with: </media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-branch.o: BRADDR relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-branch.o: BRSGP relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed>, expected: <\A[^\n]*: BRADDR relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported\n[^\n]*: BRSGP relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported\n[^\n]*: final link failed[^\n]*\n?\Z>
+PASS: ld-alpha/ifunc-branch
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-comdat-a.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-comdat-a.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-comdat-a.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-comdat-a.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-comdat-b.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-comdat-b.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-comdat-b.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-comdat-b.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-comdat-a.o tmpdir/ifunc-comdat-b.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-comdat-a.o tmpdir/ifunc-comdat-b.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+`local_ifunc' referenced in section `.data' of tmpdir/ifunc-comdat-b.o: defined in discarded section `.text.grp[grp]' of tmpdir/ifunc-comdat-b.o
+failed with: <`local_ifunc' referenced in section `.data' of tmpdir/ifunc-comdat-b.o: defined in discarded section `.text.grp[grp]' of tmpdir/ifunc-comdat-b.o>, expected: <\A`local_ifunc' referenced in section `\.data' of [^\n]*: defined in discarded section `\.text\.grp\[grp\]' of [^\n]*\n?\Z>
+PASS: ld-alpha/ifunc-comdat
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-discard.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-discard.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-discard.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-discard.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha --no-warn-rwx-segments -T /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-discard.ld -o tmpdir/dump tmpdir/ifunc-discard.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha --no-warn-rwx-segments -T /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-discard.ld -o tmpdir/dump tmpdir/ifunc-discard.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-discard
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-ehframe-a.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-ehframe-a.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-ehframe-a.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-ehframe-a.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-ehframe-b.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-ehframe-b.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-ehframe-b.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-ehframe-b.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-ehframe-a.o tmpdir/ifunc-ehframe-b.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-ehframe-a.o tmpdir/ifunc-ehframe-b.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-ehframe-b.o: cannot resolve STT_GNU_IFUNC symbol `global_ifunc': the place of its REFQUAD relocation in `.eh_frame' was deleted
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed
+failed with: </media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-ehframe-b.o: cannot resolve STT_GNU_IFUNC symbol `global_ifunc': the place of its REFQUAD relocation in `.eh_frame' was deleted
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed>, expected: <\A[^\n]*: cannot resolve STT_GNU_IFUNC symbol `global_ifunc': the place of its REFQUAD relocation in `\.eh_frame' was deleted\n[^\n]*: final link failed[^\n]*\n?\Z>
+PASS: ld-alpha/ifunc-ehframe
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-extern.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-extern.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-extern.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-extern.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-extern.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-extern.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-extern
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-gc-local.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-gc-local.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-gc-local.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-gc-local.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha --gc-sections -e _start -o tmpdir/dump tmpdir/ifunc-gc-local.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha --gc-sections -e _start -o tmpdir/dump tmpdir/ifunc-gc-local.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-gc-local
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-gc.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-gc.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-gc.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-gc.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha --gc-sections -e _start -o tmpdir/dump tmpdir/ifunc-gc.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha --gc-sections -e _start -o tmpdir/dump tmpdir/ifunc-gc.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-gc
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-global.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-global.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-global.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-global.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-global.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-global.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-global-dynamic
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-global.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-global.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-global.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-global.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha --export-dynamic tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-global.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha --export-dynamic tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-global.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-global-export
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-global.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-global.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-global.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-global.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -z nocombreloc -o tmpdir/dump tmpdir/ifunc-global.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -z nocombreloc -o tmpdir/dump tmpdir/ifunc-global.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-global-nocombreloc
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-global.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-global.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-global.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-global.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -pie -melf64alpha -o tmpdir/dump tmpdir/ifunc-global.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -pie -melf64alpha -o tmpdir/dump tmpdir/ifunc-global.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-global-pie
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-global.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-global.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-global.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-global.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -relax -melf64alpha -o tmpdir/dump tmpdir/ifunc-global.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -relax -melf64alpha -o tmpdir/dump tmpdir/ifunc-global.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump  -dj.text tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump  -dj.text tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-global-relax
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-global.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-global.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-global.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-global.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -shared -melf64alpha -o tmpdir/dump tmpdir/ifunc-global.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -shared -melf64alpha -o tmpdir/dump tmpdir/ifunc-global.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-global-shared
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-global.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-global.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-global.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-global.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-global.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-global.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wrs tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wrs tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-global-static
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-gprel.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-gprel.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-gprel.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-gprel.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-gprel.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-gprel.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-gprel.o: GPRELHIGH relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-gprel.o: GPRELLOW relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-gprel.o: GPREL16 relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed
+failed with: </media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-gprel.o: GPRELHIGH relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-gprel.o: GPRELLOW relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-gprel.o: GPREL16 relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed>, expected: <\A[^\n]*: GPRELHIGH relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported\n[^\n]*: GPRELLOW relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported\n[^\n]*: GPREL16 relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported\n[^\n]*: final link failed[^\n]*\n?\Z>
+PASS: ld-alpha/ifunc-gprel
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-gprel32.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-gprel32.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-gprel32.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-gprel32.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-gprel32.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-gprel32.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-gprel32.o: GPREL32 relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed
+failed with: </media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-gprel32.o: GPREL32 relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed>, expected: <\A[^\n]*: GPREL32 relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported\n[^\n]*: final link failed[^\n]*\n?\Z>
+PASS: ld-alpha/ifunc-gprel32
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-local-call.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-local-call.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-local-call.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-local-call.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -shared -melf64alpha -o tmpdir/dump tmpdir/ifunc-local-call.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -shared -melf64alpha -o tmpdir/dump tmpdir/ifunc-local-call.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-local-call-shared
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-local-call.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-local-call.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-local-call.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-local-call.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-local-call.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-local-call.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-local-call-static
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-local.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-local.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-local.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-local.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-local.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-local.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-local-dynamic
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-local.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-local.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-local.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-local.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -relax -melf64alpha -o tmpdir/dump tmpdir/ifunc-local.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -relax -melf64alpha -o tmpdir/dump tmpdir/ifunc-local.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump  -dj.text tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump  -dj.text tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-local-relax
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-local.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-local.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-local.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-local.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -shared -melf64alpha -o tmpdir/dump tmpdir/ifunc-local.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -shared -melf64alpha -o tmpdir/dump tmpdir/ifunc-local.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-local-shared
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-local.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-local.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-local.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-local.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-local.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-local.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wrs tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wrs tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-local-static
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-multi-a.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-multi-a.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-multi-a.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-multi-a.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-multi-b.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-multi-b.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-multi-b.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-multi-b.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-multi-a.o tmpdir/ifunc-multi-b.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-multi-a.o tmpdir/ifunc-multi-b.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-multi
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-none.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-none.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-none.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-none.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-none.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-none.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-none
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-reflong.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-reflong.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-reflong.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-reflong.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha --export-dynamic -o tmpdir/dump tmpdir/ifunc-reflong.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha --export-dynamic -o tmpdir/dump tmpdir/ifunc-reflong.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-reflong.o: REFLONG relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-reflong.o: REFLONG relocation against STT_GNU_IFUNC symbol `local_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed
+failed with: </media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-reflong.o: REFLONG relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-reflong.o: REFLONG relocation against STT_GNU_IFUNC symbol `local_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed>, expected: <\A[^\n]*: REFLONG relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported\n[^\n]*: REFLONG relocation against STT_GNU_IFUNC symbol `local_ifunc' is not supported\n[^\n]*: final link failed[^\n]*\n?\Z>
+PASS: ld-alpha/ifunc-reflong-dynamic
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-reflong.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-reflong.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-reflong.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-reflong.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-reflong.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-reflong.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-reflong.o: REFLONG relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-reflong.o: REFLONG relocation against STT_GNU_IFUNC symbol `local_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed
+failed with: </media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-reflong.o: REFLONG relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-reflong.o: REFLONG relocation against STT_GNU_IFUNC symbol `local_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed>, expected: <\A[^\n]*: REFLONG relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported\n[^\n]*: REFLONG relocation against STT_GNU_IFUNC symbol `local_ifunc' is not supported\n[^\n]*: final link failed[^\n]*\n?\Z>
+PASS: ld-alpha/ifunc-reflong-static
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-relax-discard.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-relax-discard.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-relax-discard.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-relax-discard.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-relax-b.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-relax-b.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-relax-b.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-relax-b.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -relax -melf64alpha --unresolved-symbols=ignore-all --no-warn-rwx-segments -T /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-discard.ld -o tmpdir/dump tmpdir/ifunc-relax-discard.o tmpdir/ifunc-relax-b.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -relax -melf64alpha --unresolved-symbols=ignore-all --no-warn-rwx-segments -T /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-discard.ld -o tmpdir/dump tmpdir/ifunc-relax-discard.o tmpdir/ifunc-relax-b.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-relax-discard
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-relax-a.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-relax-a.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-relax-a.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-relax-a.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-relax-b.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-relax-b.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-relax-b.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-relax-b.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -relax -melf64alpha --unresolved-symbols=ignore-all -o tmpdir/dump tmpdir/ifunc-relax-a.o tmpdir/ifunc-relax-b.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -relax -melf64alpha --unresolved-symbols=ignore-all -o tmpdir/dump tmpdir/ifunc-relax-a.o tmpdir/ifunc-relax-b.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-relax
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-rodata.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-rodata.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-rodata.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-rodata.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -z notext tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-rodata.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -z notext tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-rodata.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wrd tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wrd tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-rodata-dynamic
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-rodata.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-rodata.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-rodata.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-rodata.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-rodata.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-rodata.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-rodata.o: address of STT_GNU_IFUNC symbol `global_ifunc' in read-only section `.rodata' cannot be relocated in a static link
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-rodata.o: address of STT_GNU_IFUNC symbol `local_ifunc' in read-only section `.rodata' cannot be relocated in a static link
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed
+failed with: </media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-rodata.o: address of STT_GNU_IFUNC symbol `global_ifunc' in read-only section `.rodata' cannot be relocated in a static link
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-rodata.o: address of STT_GNU_IFUNC symbol `local_ifunc' in read-only section `.rodata' cannot be relocated in a static link
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed>, expected: <\A[^\n]*: address of STT_GNU_IFUNC symbol `global_ifunc' in read-only section `\.rodata' cannot be relocated in a static link\n[^\n]*: address of STT_GNU_IFUNC symbol `local_ifunc' in read-only section `\.rodata' cannot be relocated in a static link\n[^\n]*: final link failed[^\n]*\n?\Z>
+PASS: ld-alpha/ifunc-rodata-static
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-rodata.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-rodata.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-rodata.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-rodata.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -z text tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-rodata.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -z text tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-rodata.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: read-only segment has dynamic relocations
+failed with: </media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: read-only segment has dynamic relocations>, expected: <\A[^\n]*: read-only segment has dynamic relocations\n?\Z>
+PASS: ld-alpha/ifunc-rodata-ztext
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-srel.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-srel.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-srel.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-srel.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-srel.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-srel.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-srel.o: SREL16 relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-srel.o: SREL32 relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-srel.o: SREL64 relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed
+failed with: </media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-srel.o: SREL16 relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-srel.o: SREL32 relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/ifunc-srel.o: SREL64 relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed>, expected: <\A[^\n]*: SREL16 relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported\n[^\n]*: SREL32 relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported\n[^\n]*: SREL64 relocation against STT_GNU_IFUNC symbol `global_ifunc' is not supported\n[^\n]*: final link failed[^\n]*\n?\Z>
+PASS: ld-alpha/ifunc-srel
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-weak.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-weak.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-weak.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-weak.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-weak.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-weak.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-weak-dynamic
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-weak.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-weak.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-weak.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-weak.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-weak.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-weak.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-weak-static
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-weak-undef.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-weak-undef.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-weak-undef.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-weak-undef.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-weak-undef.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha tmpdir/libalphaifunc.so -o tmpdir/dump tmpdir/ifunc-weak-undef.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-weak-undef-dynamic
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-weak-undef.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-weak-undef.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/ifunc-weak-undef.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/ifunc-weak-undef.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-weak-undef.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -melf64alpha -o tmpdir/dump tmpdir/ifunc-weak-undef.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -Wr tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/ifunc-weak-undef-static
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/relax-gpdisp.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/relax-gpdisp.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/relax-gpdisp.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/relax-gpdisp.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -relax -o tmpdir/dump tmpdir/relax-gpdisp.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -relax -o tmpdir/dump tmpdir/relax-gpdisp.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump  -dw --no-show-raw-insn tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump  -dw --no-show-raw-insn tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/relax-gpdisp
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/textrel.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/textrel.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/textrel.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/textrel.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -shared -melf64alpha -z notext -o tmpdir/dump tmpdir/textrel.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -shared -melf64alpha -z notext -o tmpdir/dump tmpdir/textrel.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -d tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf  -d tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/textrel
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/tlsbin-undef.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbin-undef.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/tlsbin-undef.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbin-undef.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/dump tmpdir/tlsbin-undef.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha   -o tmpdir/dump tmpdir/tlsbin-undef.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/tlsbin-undef.o: in function `_start':
+(.text+0x0): undefined reference to `x'
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/dump: hidden symbol `x' isn't defined
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed: bad value
+failed with: </media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/tlsbin-undef.o: in function `_start':
+(.text+0x0): undefined reference to `x'
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/dump: hidden symbol `x' isn't defined
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed: bad value>, expected: <.*: undefined reference to `x'>
+PASS: ld-alpha/tlsbin-undef
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/tlsbin-weak-undef1.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbin-weak-undef1.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/tlsbin-weak-undef1.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbin-weak-undef1.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -z norelro -z nomemory-seal -o tmpdir/dump tmpdir/tlsbin-weak-undef1.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -z norelro -z nomemory-seal -o tmpdir/dump tmpdir/tlsbin-weak-undef1.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump  -dw tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump  -dw tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/tlsbin-weak-undef1
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/tlsbin-weak-undef2.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbin-weak-undef2.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/tlsbin-weak-undef2.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbin-weak-undef2.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -z norelro -z nomemory-seal -o tmpdir/dump tmpdir/tlsbin-weak-undef2.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -z norelro -z nomemory-seal -o tmpdir/dump tmpdir/tlsbin-weak-undef2.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump  -dw tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump  -dw tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/tlsbin-weak-undef2
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/tlsbin-weak-undef3.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbin-weak-undef3.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/tlsbin-weak-undef3.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbin-weak-undef3.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -z norelro -z nomemory-seal -o tmpdir/dump tmpdir/tlsbin-weak-undef3.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -z norelro -z nomemory-seal -o tmpdir/dump tmpdir/tlsbin-weak-undef3.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump  -dw tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump  -dw tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/tlsbin-weak-undef3
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/tlsbin-weak-undef4.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbin-weak-undef4.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/tlsbin-weak-undef4.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlsbin-weak-undef4.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -z norelro -z nomemory-seal -o tmpdir/dump tmpdir/tlsbin-weak-undef4.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -z norelro -z nomemory-seal -o tmpdir/dump tmpdir/tlsbin-weak-undef4.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump  -dw tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump  -dw tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/tlsbin-weak-undef4
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/tlspic-undef.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlspic-undef.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/tlspic-undef.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlspic-undef.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -shared -o tmpdir/dump tmpdir/tlspic-undef.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -shared -o tmpdir/dump tmpdir/tlspic-undef.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/tlspic-undef.o: in function `_start':
+(.text+0x0): undefined reference to `x'
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/dump: hidden symbol `x' isn't defined
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed: bad value
+failed with: </media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/tlspic-undef.o: in function `_start':
+(.text+0x0): undefined reference to `x'
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: tmpdir/dump: hidden symbol `x' isn't defined
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld: final link failed: bad value>, expected: <.*: undefined reference to `x'>
+PASS: ld-alpha/tlspic-undef
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/tlspic-weak-undef1.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlspic-weak-undef1.s
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/as     -o tmpdir/tlspic-weak-undef1.o /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/tlspic-weak-undef1.s 2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -shared -z norelro -z nomemory-seal -o tmpdir/dump tmpdir/tlspic-weak-undef1.o 
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld -z norelro -z nomemory-seal  -L/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha  -shared -z norelro -z nomemory-seal -o tmpdir/dump tmpdir/tlspic-weak-undef1.o  2>&1}  /dev/null dump.tmp (timeout = 300)
+spawn [open ...]
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump  -dw tmpdir/dump > tmpdir/dump.out
+Executing on host: sh -c {/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump  -dw tmpdir/dump > tmpdir/dump.out 2>dump.tmp}  /dev/null  (timeout = 300)
+spawn [open ...]
+PASS: ld-alpha/tlspic-weak-undef1
+testcase /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/alpha.exp completed in 18 seconds
+
+		=== ld Summary ===
+
+# of expected passes		57
+Executing on host: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld --version  /dev/null ld.version (timeout = 300)
+spawn [open ...]
+GNU ld (GNU Binutils) 2.47.50.20261111
+Copyright (C) 2026 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld 2.47.50.20261111
+
+runtest completed at Wed Nov 11 11:40:59 2026

@@ -1,0 +1,6 @@
+[patch.crates-io]
+libc = { path = "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/libc" }
+rustix = { path = "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler" }
+nix_030 = { package = "nix", path = "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1" }
+nix_031 = { package = "nix", path = "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.31.3" }
+rustix_114 = { package = "rustix", path = "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix" }

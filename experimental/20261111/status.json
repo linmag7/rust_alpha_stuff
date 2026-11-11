@@ -1,0 +1,78 @@
+{
+  "scope": "private_experiment_and_proof_of_concept",
+  "upstream_submission_authorized": false,
+  "llm_generated_changes": true,
+  "date": "2026-11-11",
+  "components": {
+    "rust": "6f1c7ee0ec0ea64802f4b7a184b63b7efb645b3b",
+    "backend": "f44a7221be06220f1aaa780faecc24781cba346c",
+    "gcc": "e1c6e07b095d091177376a163da44039475e05e3",
+    "libc": "ccc2ff4aaab962f7fde7b8edda7379c045b1ca12",
+    "binutils": "2de4446d9090b5773c863ab7bbdd95a5d4f81367"
+  },
+  "runtime_baseline": {
+    "cpu": "ev6",
+    "glibc": "2.41",
+    "panic": "abort"
+  },
+  "existing_sdk_modified": false,
+  "status": "private_proof_of_concept_validated_on_qemu",
+  "toolchain_id": "ddb0c065314fd2fa",
+  "compiler_version": "1.102.0-dev",
+  "backend_api_adaptations": [
+    "target_machine_factory signature",
+    "explicit unsupported x87 f80 handling",
+    "Alpha -mcpu option",
+    "disable reliable f128 on Alpha"
+  ],
+  "target_changes": [
+    "correct 64-bit integer alignment",
+    "built-in Alpha target with GNU linker",
+    "Alpha C ABI classifier and inline assembly",
+    "std allocator, raw types and unwind metadata",
+    "disable unimplemented Rust C-variadic definitions"
+  ],
+  "validation": {
+    "target_definition_tests_passed": 342,
+    "debug_and_release_probes": "pass",
+    "libc_constants_per_profile": 2367,
+    "cargo_compatibility": "Serde, Clap, Regex, procedural macros and cc build script passed",
+    "cargo_tests": {
+      "passed": 5,
+      "ignored": 1,
+      "failed": 0
+    },
+    "validation_commands": 34,
+    "backend_cfg_stderr": "empty"
+  },
+  "native_testing": {
+    "status": "pending",
+    "host": "192.168.1.82",
+    "last_check": "SSH TCP connection timed out",
+    "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/logs/es40-ssh-connect.log"
+  },
+  "limitations": [
+    "panic=abort",
+    "LTO and incremental compilation disabled",
+    "f128 unreliable on Alpha; x87 f80 unsupported",
+    "Rust C-variadic definitions disabled",
+    "native ES40 validation pending",
+    "not a native Alpha compiler or an upstream-ready submission"
+  ],
+  "patch_sha256": {
+    "patches/rust-private-alpha.patch": "20a49e63986236c474c6d2ad9e2bbee67341f671748bfe459ae8de55841dc8ee",
+    "patches/backend-private-alpha.patch": "df5c141876b8bcbfa4440af6cde8c465e4ce88a18765eb22d1e3471e09adc850",
+    "patches/gcc-alpha-jit-sequence.patch": "63b6ef1aaf1f86e3a646aa28f4253ea69bbaefcf5452d7d6d386f228e2de6c88",
+    "patches/libc-0.2-private-alpha.patch": "9f62c448b84cc47a636e748fee386caae05609c18363a8ded56c7ce4af5bd996"
+  },
+  "artifact_directory": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/rust_alpha_stuff/experimental/20261111",
+  "binutils_upgrade": {
+    "version": "2.47.50.20261111",
+    "status": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/rust_alpha_stuff/experimental/20261111/binutils-upgrade/status.json",
+    "source_modified": false,
+    "rust_validation": "34 commands passed; 18 restored probes passed",
+    "known_issue": "small release PIE DT_JMPREL=0; probe workaround retained"
+  },
+  "checkpoint": "cross-toolchain checkpoint; later native results are recorded separately",
+  "latest_results": "native-toolchain/status.json and portage/validation.json"
+}

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+w=$(cd -- "$(dirname -- "$0")" && pwd)
+p=$(cd -- "$w/../.." && pwd)
+exec "$w/stage/opt/rust-alpha-experimental/bin/gcc" --sysroot="$p/work/sdk/release/alpha-sdk/sysroot" "$@"

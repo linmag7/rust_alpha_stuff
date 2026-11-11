@@ -1,0 +1,48 @@
+diff --git a/libc-test/build/main.rs b/libc-test/build/main.rs
+--- a/libc-test/build/main.rs
++++ b/libc-test/build/main.rs
+@@ -116,6 +116,7 @@
+ }
+ 
+ fn main() {
++    println!("cargo:rerun-if-env-changed=LIBC_CI_CTEST_SHARD");
+     // Avoid unnecessary re-building.
+     println!("cargo:rerun-if-changed=.");
+     let t = Target::from_env();
+@@ -3869,6 +3870,28 @@
+     }
+ }
+ 
++fn ctest_shard(cfg: &mut ctest::TestGenerator) {
++    let Ok(value) = env::var("LIBC_CI_CTEST_SHARD") else {
++        return;
++    };
++    let (index, count) = value.split_once('/').expect("expected shard index/count");
++    let index: u64 = index.parse().expect("invalid shard index");
++    let count: u64 = count.parse().expect("invalid shard count");
++    assert!(count > 0 && index < count);
++    let excluded = move |name: &str| {
++        name.bytes().fold(0u64, |hash, byte| {
++            hash.wrapping_mul(31).wrapping_add(u64::from(byte))
++        }) % count
++            != index
++    };
++    cfg.skip_alias(move |item| excluded(item.ident()))
++        .skip_const(move |item| excluded(item.ident()))
++        .skip_struct(move |item| excluded(item.ident()))
++        .skip_union(move |item| excluded(item.ident()))
++        .skip_fn(move |item| excluded(item.ident()))
++        .skip_static(move |item| excluded(item.ident()));
++}
++
+ // This also covers the L4Re targets since they have a similar API surface
+ fn test_linux(t: &Target) {
+     assert!(t.linux() || t.l4re());
+@@ -3940,6 +3963,7 @@
+     let old_musl = musl && !musl_v1_2;
+ 
+     let mut cfg = ctest_cfg();
++    ctest_shard(&mut cfg);
+ 
+     if musl && musl_v1_2 {
+         cfg.cfg("musl_v1_2", None);

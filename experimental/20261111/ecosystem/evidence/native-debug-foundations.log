@@ -1,0 +1,3 @@
+PASS serde/serde_json/toml/clap/regex/anyhow/thiserror
+PASS sha2 known vector, rand seeded/OS entropy, uuid v4
+2026-11-11T12:38:22.461732Z  INFO PASS tracing/tracing-subscriber, flate2, tempfile/walkdir

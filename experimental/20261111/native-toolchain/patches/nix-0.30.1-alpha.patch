@@ -1,0 +1,44 @@
+--- a/src/sys/signal.rs
++++ b/src/sys/signal.rs
+@@ -63,7 +63,8 @@
+         /// Stack fault (obsolete)
+         #[cfg(all(any(linux_android, target_os = "emscripten",
+                       target_os = "fuchsia"),
+-                  not(any(target_arch = "mips",
++                  not(any(target_arch = "alpha",
++                          target_arch = "mips",
+                           target_arch = "mips32r6",
+                           target_arch = "mips64",
+                           target_arch = "mips64r6",
+@@ -145,6 +146,7 @@
+                     target_os = "fuchsia",
+                 ),
+                 not(any(
++                    target_arch = "alpha",
+                     target_arch = "mips",
+                     target_arch = "mips32r6",
+                     target_arch = "mips64",
+@@ -230,6 +232,7 @@
+                     target_os = "fuchsia",
+                 ),
+                 not(any(
++                    target_arch = "alpha",
+                     target_arch = "mips",
+                     target_arch = "mips32r6",
+                     target_arch = "mips64",
+@@ -320,6 +323,7 @@
+ #[cfg(all(
+     any(linux_android, target_os = "emscripten", target_os = "fuchsia"),
+     not(any(
++        target_arch = "alpha",
+         target_arch = "mips",
+         target_arch = "mips32r6",
+         target_arch = "mips64",
+@@ -338,6 +342,7 @@
+ #[cfg(all(
+     any(linux_android, target_os = "emscripten", target_os = "fuchsia"),
+     any(
++        target_arch = "alpha",
+         target_arch = "mips",
+         target_arch = "mips32r6",
+         target_arch = "mips64",

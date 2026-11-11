@@ -1,0 +1,21 @@
+	PASSED: gcc-regression iteration 1 of 5: set_up_logging: logfile is non-null
+	NOTE: gcc-regression iteration 1 of 5: writing reproducer to ../gcc-regression.reproducer.c
+	PASSED: gcc-regression iteration 1 of 5: test_jit: no errors occurred
+	PASSED: gcc-regression iteration 2 of 5: set_up_logging: logfile is non-null
+	NOTE: gcc-regression iteration 2 of 5: writing reproducer to ../gcc-regression.reproducer.c
+	PASSED: gcc-regression iteration 2 of 5: test_jit: no errors occurred
+	PASSED: gcc-regression iteration 3 of 5: set_up_logging: logfile is non-null
+	NOTE: gcc-regression iteration 3 of 5: writing reproducer to ../gcc-regression.reproducer.c
+	PASSED: gcc-regression iteration 3 of 5: test_jit: no errors occurred
+	PASSED: gcc-regression iteration 4 of 5: set_up_logging: logfile is non-null
+	NOTE: gcc-regression iteration 4 of 5: writing reproducer to ../gcc-regression.reproducer.c
+	PASSED: gcc-regression iteration 4 of 5: test_jit: no errors occurred
+	PASSED: gcc-regression iteration 5 of 5: set_up_logging: logfile is non-null
+	NOTE: gcc-regression iteration 5 of 5: writing reproducer to ../gcc-regression.reproducer.c
+	PASSED: gcc-regression iteration 5 of 5: test_jit: no errors occurred
+
+Totals:
+	#passed:		10
+	#real failed:		0
+
+jit-dg-harness-complete

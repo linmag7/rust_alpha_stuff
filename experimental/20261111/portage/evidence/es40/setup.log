@@ -1,0 +1,8 @@
+Machine: alpha
+glibc: 2.41
+CHOST: alpha-unknown-linux-gnu
+Binary packages were prepared for CHOST=alphaev67-unknown-linux-gnu. Use source ebuilds until binary compatibility is checked.
+Portage temporary directory: /var/tmp
+Overlay and distfiles installed. No compiler or application has been merged yet.
+Next: emerge --ask dev-lang/rust-alpha-bin::rust-alpha
+Then: emerge --ask sys-apps/ripgrep::rust-alpha sys-apps/fd::rust-alpha app-shells/zoxide::rust-alpha

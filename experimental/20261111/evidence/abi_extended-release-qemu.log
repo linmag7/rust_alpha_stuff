@@ -1,0 +1,9 @@
+Testing aggregate sizes, returns and register/stack split
+Rust -> C 4-byte return: PASS
+Rust -> C 3-byte return: PASS
+Rust -> C 24-byte return: PASS
+Rust -> C 64-byte argument: PASS
+Rust -> C split register/stack argument: PASS
+Rust -> C 3-byte argument: PASS
+Rust -> C float/integer aggregate: PASS
+C -> Rust extended aggregates: PASS

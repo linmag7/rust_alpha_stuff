@@ -1,0 +1,143 @@
+{
+  "scope": "private experimental Alpha Linux integration smoke tests under QEMU EV6",
+  "direct_dependencies": {
+    "anyhow": "1.0.104",
+    "thiserror": "2.0.21",
+    "serde": "1.0.229",
+    "serde_json": "1.0.154",
+    "toml": "1.2.1+spec-1.1.0",
+    "clap": "4.6.7",
+    "regex": "1.13.1",
+    "tracing": "0.1.44",
+    "tracing-subscriber": "0.3.23",
+    "rand": "0.9.5",
+    "uuid": "1.29.2",
+    "sha2": "0.10.9",
+    "flate2": "1.1.11",
+    "tempfile": "3.27.0",
+    "walkdir": "2.5.0",
+    "rayon": "1.12.0",
+    "crossbeam-channel": "0.5.17",
+    "parking_lot": "0.12.5",
+    "tokio": "1.54.1",
+    "axum": "0.8.9",
+    "reqwest": "0.12.28",
+    "rusqlite": "0.40.2"
+  },
+  "resolved_packages": 198,
+  "vendored_registry_packages": 195,
+  "existing_patches": [
+    "libc 0.2.191 Alpha",
+    "rustix 1.1.5 libc backend/Alpha ioctl"
+  ],
+  "new_crate_patches": [],
+  "es40_tested": false,
+  "tls_tested": false,
+  "results": {
+    "cross-debug": [
+      {
+        "probe": "foundations",
+        "exit_code": 0,
+        "seconds": 1.07,
+        "binary": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/cross-target/alphaev6-unknown-linux-gnu/debug/foundations",
+        "sha256": "cac6ba7c0eb2e229a017cb05262cd21319f3221ea7ad6fbe6492b52b91ad170f",
+        "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/logs/cross-debug-foundations.log"
+      },
+      {
+        "probe": "concurrency",
+        "exit_code": 0,
+        "seconds": 0.52,
+        "binary": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/cross-target/alphaev6-unknown-linux-gnu/debug/concurrency",
+        "sha256": "d4ac19bfc681598ea4562e350c8c43e5548c97c101c3b4e614c48c5be63700c1",
+        "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/logs/cross-debug-concurrency.log"
+      },
+      {
+        "probe": "network",
+        "exit_code": 0,
+        "seconds": 1.27,
+        "binary": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/cross-target/alphaev6-unknown-linux-gnu/debug/network",
+        "sha256": "f03923842c8ff8c6e91049069103db91944c2788bb6cd9c71eb362a86128bc5e",
+        "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/logs/cross-debug-network.log"
+      },
+      {
+        "probe": "database",
+        "exit_code": 0,
+        "seconds": 0.67,
+        "binary": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/cross-target/alphaev6-unknown-linux-gnu/debug/database",
+        "sha256": "5e35cecff90fbcebce834c78b1b1ea17e033df763e5ba5fd16d78b3b62fc54e1",
+        "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/logs/cross-debug-database.log"
+      }
+    ],
+    "cross-release": [
+      {
+        "probe": "foundations",
+        "exit_code": 0,
+        "seconds": 0.16,
+        "binary": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/cross-target/alphaev6-unknown-linux-gnu/release/foundations",
+        "sha256": "47d21aecac9baed96eae7dcd5b7b2801af13e22a38411ca732ac6b8f64533230",
+        "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/logs/cross-release-foundations.log"
+      },
+      {
+        "probe": "concurrency",
+        "exit_code": 0,
+        "seconds": 0.12,
+        "binary": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/cross-target/alphaev6-unknown-linux-gnu/release/concurrency",
+        "sha256": "d4fdeecf14cc73080e4b957e4324a599087299873b799662d3a29417b61605b0",
+        "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/logs/cross-release-concurrency.log"
+      },
+      {
+        "probe": "network",
+        "exit_code": 0,
+        "seconds": 0.37,
+        "binary": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/cross-target/alphaev6-unknown-linux-gnu/release/network",
+        "sha256": "5e0cc89a1d3fe93b611fbde3cd95bef9672b5127ac9e60024f56ed2a3b64b04b",
+        "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/logs/cross-release-network.log"
+      },
+      {
+        "probe": "database",
+        "exit_code": 0,
+        "seconds": 0.22,
+        "binary": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/cross-target/alphaev6-unknown-linux-gnu/release/database",
+        "sha256": "fdbb4e7f582667940dba3f6e91f5da440fdc865d4814b23672c3da06d3d631d7",
+        "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/logs/cross-release-database.log"
+      }
+    ],
+    "native-debug": [
+      {
+        "probe": "foundations",
+        "exit_code": 0,
+        "seconds": 0.62,
+        "binary": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/native-target/debug/foundations",
+        "sha256": "75303a2b633c6a5c62e7d2fc557fa5b1bf61cb8e26c4f7069c182c410aea3ae3",
+        "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/logs/native-debug-foundations.log"
+      },
+      {
+        "probe": "concurrency",
+        "exit_code": 0,
+        "seconds": 0.32,
+        "binary": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/native-target/debug/concurrency",
+        "sha256": "8bbb7138f348fd2f52ba3a3ce7f9859d8cc28a9880e7206be522f825fb0acfa1",
+        "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/logs/native-debug-concurrency.log"
+      },
+      {
+        "probe": "network",
+        "exit_code": 0,
+        "seconds": 0.92,
+        "binary": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/native-target/debug/network",
+        "sha256": "c6a7e4448f1f408b840e0c6a939120b25b153093b1bbadbe525a9f12af526fda",
+        "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/logs/native-debug-network.log"
+      },
+      {
+        "probe": "database",
+        "exit_code": 0,
+        "seconds": 0.32,
+        "binary": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/native-target/debug/database",
+        "sha256": "6e8c1c7afe4ac1def3a221fb122cb283adbdfd86ccca6b17bd22bac794a72e5a",
+        "log": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/ecosystem-20261111/logs/native-debug-database.log"
+      }
+    ]
+  },
+  "native_toolchain_archive_sha256": "cb21471ae02ce140d208e1ba771f883eb82cbc1388c8d0f6307182aa9d451957",
+  "cross_toolchain_id": "ddb0c065314fd2fa",
+  "lockfile_sha256": "9932067eb1251c271e7e69250dc2b91cbbff51cad7940d4ce0ce3851dcff33a3"
+}

@@ -1,0 +1,7 @@
+warning: patch `libc v0.2.191 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/libc)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+   Compiling alpha_abi_probe v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/probes/abi_probe)
+    Finished `release` profile [optimized] target(s) in 0.54s

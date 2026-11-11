@@ -1,0 +1,11 @@
+warning: patch `rustix v1.1.4 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/rustix)` was not used in the crate graph
+  |
+  = help: perhaps you meant one of the following:
+          	/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/rustix-compiler
+warning: patch `nix v0.30.1 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/nix-0.30.1)` was not used in the crate graph
+warning: patch `nix v0.31.3 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/nix-0.31.3)` was not used in the crate graph
+warning: patch `openssl-src v300.6.1+3.6.3 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/openssl-src)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.

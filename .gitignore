@@ -1,0 +1,9 @@
+**/target/
+**/__pycache__/
+*.pyc
+/work/
+/distfiles/
+/binpkgs/
+*.tar.xz
+*.gpkg.tar
+config.json

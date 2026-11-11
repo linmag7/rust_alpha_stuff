@@ -1,0 +1,227 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index aec0ef2..14c85f8 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -334,3 +334,11 @@ checksum = "6f42320e61fe2cfd34354ecb597f86f413484a798ba44a8ca1165c58d42da6c1"
+ dependencies = [
+  "bitflags",
+ ]
++
++[[patch.unused]]
++name = "libc"
++version = "0.2.191"
++
++[[patch.unused]]
++name = "rustix"
++version = "1.1.5"
+diff --git a/src/asm.rs b/src/asm.rs
+index aabb57a..fe33d79 100644
+--- a/src/asm.rs
++++ b/src/asm.rs
+@@ -747,6 +747,8 @@ fn reg_class_to_gcc(reg_class: InlineAsmRegClass) -> &'static str {
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg) => "r",
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg_addr) => "a",
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg_data) => "d",
++        InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::reg) => "r",
++        InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::freg) => "f",
+         InlineAsmRegClass::CSKY(CSKYInlineAsmRegClass::reg) => "r",
+         InlineAsmRegClass::CSKY(CSKYInlineAsmRegClass::freg) => "f",
+         InlineAsmRegClass::Mips(MipsInlineAsmRegClass::reg) => "d", // more specific than "r"
+@@ -927,6 +929,8 @@ fn dummy_output_type<'gcc, 'tcx>(cx: &CodegenCx<'gcc, 'tcx>, reg: InlineAsmRegCl
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg) => cx.type_i32(),
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg_addr) => cx.type_i32(),
+         InlineAsmRegClass::M68k(M68kInlineAsmRegClass::reg_data) => cx.type_i32(),
++        InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::reg) => cx.type_i64(),
++        InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::freg) => cx.type_f64(),
+         InlineAsmRegClass::CSKY(CSKYInlineAsmRegClass::reg) => cx.type_i32(),
+         InlineAsmRegClass::CSKY(CSKYInlineAsmRegClass::freg) => cx.type_f32(),
+         InlineAsmRegClass::SpirV(SpirVInlineAsmRegClass::reg) => {
+@@ -1181,6 +1185,7 @@ fn modifier_to_gcc(
+         InlineAsmRegClass::Sparc(_) => None,
+         InlineAsmRegClass::Msp430(_) => None,
+         InlineAsmRegClass::M68k(_) => None,
++        InlineAsmRegClass::Alpha(_) => None,
+         InlineAsmRegClass::CSKY(_) => None,
+         InlineAsmRegClass::SpirV(SpirVInlineAsmRegClass::reg) => {
+             bug!("LLVM backend does not support SPIR-V")
+diff --git a/src/builder.rs b/src/builder.rs
+index 1f7436f..f986940 100644
+--- a/src/builder.rs
++++ b/src/builder.rs
+@@ -872,7 +872,7 @@ impl<'a, 'gcc, 'tcx> BuilderMethods<'a, 'tcx> for Builder<'a, 'gcc, 'tcx> {
+                 );
+                 return self.context.new_call(self.location, fmodf128, &[a, b]);
+             }
+-            Some(float @ (abi::Float::F16B | abi::Float::PpcF128)) => {
++            Some(float @ (abi::Float::F16B | abi::Float::PpcF128 | abi::Float::X87F80)) => {
+                 bug!("frem unsupported on {float:?}")
+             }
+             None => (),
+@@ -2022,7 +2022,7 @@ impl<'a, 'gcc, 'tcx> Builder<'a, 'gcc, 'tcx> {
+                 abi::Float::F32 => bx.cx().const_u32(bits as u32),
+                 abi::Float::F64 => bx.cx().const_u64(bits as u64),
+                 abi::Float::F128 => bx.cx().const_u128(bits),
+-                abi::Float::F16B | abi::Float::PpcF128 => {
++                abi::Float::F16B | abi::Float::PpcF128 | abi::Float::X87F80 => {
+                     bug!("unsupported float width {float_type:?}")
+                 }
+             };
+@@ -2033,7 +2033,7 @@ impl<'a, 'gcc, 'tcx> Builder<'a, 'gcc, 'tcx> {
+             abi::Float::F32 => compute_clamp_bounds::<ieee::Single>(signed, int_width),
+             abi::Float::F64 => compute_clamp_bounds::<ieee::Double>(signed, int_width),
+             abi::Float::F128 => compute_clamp_bounds::<ieee::Quad>(signed, int_width),
+-            abi::Float::F16B | abi::Float::PpcF128 => {
++            abi::Float::F16B | abi::Float::PpcF128 | abi::Float::X87F80 => {
+                 bug!("unsupported float width {float_type:?}")
+             }
+         };
+diff --git a/src/declare.rs b/src/declare.rs
+index 0044ed2..d93c6f6 100644
+--- a/src/declare.rs
++++ b/src/declare.rs
+@@ -192,10 +192,30 @@ fn declare_raw_fn<'gcc>(
+             .enumerate()
+             .map(|(index, param)| cx.context.new_parameter(None, *param, format!("param{}", index))) // FIXME(antoyo): set name.
+             .collect();
++        // libgccjit rejects '@' in function names. ELF versioned imports need
++        // an ordinary identifier plus an assembler .symver alias. Keep the
++        // original symbol as the cache key, so repeated declarations reuse it.
++        let versioned_alias;
++        let gcc_name = if cx.linkage.get() == FunctionType::Extern
++            && cx.tcx.sess.target.os == rustc_target::spec::Os::Linux
++            && name.contains('@')
++        {
++            versioned_alias = cx.generate_local_symbol_name("__rustc_gcc_symver").replace('.', "_");
++            cx.context.add_top_level_asm(None, &format!(".symver {versioned_alias}, {name}"));
++            versioned_alias.as_str()
++        } else {
++            name
++        };
+         #[cfg(not(feature = "master"))]
+-        let name = &mangle_name(name);
+-        let func =
+-            cx.context.new_function(None, cx.linkage.get(), return_type, &params, name, variadic);
++        let gcc_name = &mangle_name(gcc_name);
++        let func = cx.context.new_function(
++            None,
++            cx.linkage.get(),
++            return_type,
++            &params,
++            gcc_name,
++            variadic,
++        );
+         #[cfg(feature = "master")]
+         if let Some(attribute) = callconv {
+             func.add_attribute(attribute);
+diff --git a/src/gcc_util.rs b/src/gcc_util.rs
+index 96f78c6..9862b0d 100644
+--- a/src/gcc_util.rs
++++ b/src/gcc_util.rs
+@@ -228,6 +228,11 @@ fn handle_native(name: &str) -> Cow<'_, str> {
+     unimplemented!();
+ }
+ 
++pub fn target_cpu_option(arch: &Arch, cpu: &str) -> String {
++    let option = if matches!(arch, Arch::Alpha) { "-mcpu" } else { "-march" };
++    format!("{option}={cpu}")
++}
++
+ pub fn target_cpu(sess: &EarlySession) -> Cow<'_, str> {
+     match sess.opts.cg.target_cpu {
+         Some(ref name) => handle_native(name),
+@@ -339,12 +344,12 @@ pub fn new_context<'gcc>(sess: &Session) -> Context<'gcc> {
+ 
+     let target_cpu = target_cpu(sess);
+     if target_cpu != "generic" {
+-        context.add_command_line_option(format!("-march={}", target_cpu));
++        context.add_command_line_option(target_cpu_option(&sess.target.arch, &target_cpu));
+         // NOTE: we use both add_command_line_option and add_driver_option because the former
+         // only reaches the compiler, while the driver is what runs the assembler: without
+         // -march there, it assembles for the CPU GCC was configured for (e.g. 68020 for
+         // m68k-linux) and can emit instructions the target CPU lacks (e.g. bra.l on a 68000).
+-        context.add_driver_option(format!("-march={}", target_cpu));
++        context.add_driver_option(target_cpu_option(&sess.target.arch, &target_cpu));
+     }
+ 
+     if sess.opts.unstable_opts.function_sections.unwrap_or(sess.target.function_sections) {
+diff --git a/src/int.rs b/src/int.rs
+index 097c248..3863c4e 100644
+--- a/src/int.rs
++++ b/src/int.rs
+@@ -986,7 +986,7 @@ impl<'gcc, 'tcx> CodegenCx<'gcc, 'tcx> {
+             Some(Float::F32) => "tisf",
+             Some(Float::F64) => "tidf",
+             Some(Float::F128) => "titf",
+-            None | Some(Float::F16B | Float::PpcF128) => {
++            None | Some(Float::F16B | Float::PpcF128 | Float::X87F80) => {
+                 panic!("cannot cast a non-native integer to type {dest_typ:?}")
+             }
+         };
+@@ -1037,7 +1037,7 @@ impl<'gcc, 'tcx> CodegenCx<'gcc, 'tcx> {
+             Some(Float::F16 | Float::F32) => "sfti",
+             Some(Float::F64) => "dfti",
+             Some(Float::F128) => "tfti",
+-            None | Some(Float::F16B | Float::PpcF128) => {
++            None | Some(Float::F16B | Float::PpcF128 | Float::X87F80) => {
+                 bug!("cannot cast a {value_type:?} to non-native integer")
+             }
+         };
+diff --git a/src/lib.rs b/src/lib.rs
+index 17034d0..8e145d3 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -251,7 +251,10 @@ impl CodegenBackend for GccCodegenBackend {
+             // Get the second TargetInfo with the correct CPU features by setting the arch.
+             let context = Context::default();
+             if target_cpu != "generic" {
+-                context.add_command_line_option(format!("-march={}", target_cpu));
++                context.add_command_line_option(gcc_util::target_cpu_option(
++                    &sess.target.arch,
++                    &target_cpu,
++                ));
+             }
+             gcc_util::add_target_info_feature_options(
+                 &context,
+@@ -409,11 +412,7 @@ impl WriteBackendMethods for GccCodegenBackend {
+         false
+     }
+ 
+-    fn target_machine_factory(
+-        &self,
+-        _sess: &Session,
+-        _opt_level: OptLevel,
+-    ) -> TargetMachineFactoryFn<Self> {
++    fn target_machine_factory(&self, _sess: &Session) -> TargetMachineFactoryFn<Self> {
+         // FIXME(antoyo): set opt level.
+         Arc::new(|_, _| ())
+     }
+@@ -519,11 +518,12 @@ fn target_config(sess: &EarlySession, target_info: &SharedTargetInfo) -> TargetC
+ 
+     let has_reliable_f16 = target_info.supports_target_dependent_type(CType::Float16);
+     let has_reliable_f16b = target_info.supports_target_dependent_type(CType::BFloat16);
+-    let has_reliable_f128 = target_info.supports_target_dependent_type(CType::Float128);
++    // Alpha exposes the type, but quad-precision comparisons currently ICE in GCC.
++    let has_reliable_f128 = sess.target.arch != rustc_target::spec::Arch::Alpha
++        && target_info.supports_target_dependent_type(CType::Float128);
+ 
+     TargetConfig {
+         internal_target_features,
+-        // There are no known bugs with GCC support for f16 or f128
+         has_reliable_f16,
+         has_reliable_f16_math: has_reliable_f16,
+         has_reliable_f16b,
+diff --git a/src/type_.rs b/src/type_.rs
+index 6d815b9..43000bf 100644
+--- a/src/type_.rs
++++ b/src/type_.rs
+@@ -304,6 +304,10 @@ impl<'gcc, 'tcx> BaseTypeCodegenMethods for CodegenCx<'gcc, 'tcx> {
+         bug!("unsupported ppcf128 type")
+     }
+ 
++    fn type_x87_f80(&self) -> Type<'gcc> {
++        bug!("unsupported x87 f80 type")
++    }
++
+     fn type_func(&self, params: &[Type<'gcc>], return_type: Type<'gcc>) -> Type<'gcc> {
+         self.context.new_function_pointer_type(None, return_type, params, false)
+     }

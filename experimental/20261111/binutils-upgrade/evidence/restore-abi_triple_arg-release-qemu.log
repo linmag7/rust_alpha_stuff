@@ -1,0 +1,3 @@
+Testing 24-byte aggregate arguments
+Rust -> C triple argument: PASS
+C -> Rust triple argument: PASS

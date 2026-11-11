@@ -1,0 +1,62 @@
+[
+  {
+    "toolchain": "old",
+    "test": "size",
+    "exit": 1,
+    "set_alias_error": true
+  },
+  {
+    "toolchain": "old",
+    "test": "common5a",
+    "exit": 1,
+    "set_alias_error": true
+  },
+  {
+    "toolchain": "old",
+    "test": "common5b",
+    "exit": 1,
+    "set_alias_error": true
+  },
+  {
+    "toolchain": "old",
+    "test": "common5c",
+    "exit": 1,
+    "set_alias_error": true
+  },
+  {
+    "toolchain": "old",
+    "test": "common5d",
+    "exit": 1,
+    "set_alias_error": true
+  },
+  {
+    "toolchain": "new",
+    "test": "size",
+    "exit": 1,
+    "set_alias_error": true
+  },
+  {
+    "toolchain": "new",
+    "test": "common5a",
+    "exit": 1,
+    "set_alias_error": true
+  },
+  {
+    "toolchain": "new",
+    "test": "common5b",
+    "exit": 1,
+    "set_alias_error": true
+  },
+  {
+    "toolchain": "new",
+    "test": "common5c",
+    "exit": 1,
+    "set_alias_error": true
+  },
+  {
+    "toolchain": "new",
+    "test": "common5d",
+    "exit": 1,
+    "set_alias_error": true
+  }
+]

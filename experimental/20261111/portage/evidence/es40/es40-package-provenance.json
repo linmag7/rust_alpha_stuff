@@ -1,0 +1,23 @@
+[
+  {
+    "package": "sys-apps/ripgrep-15.2.0-r1",
+    "original_chost": "alphaev67-unknown-linux-gnu",
+    "es40_chost": "alpha-unknown-linux-gnu",
+    "image_sha256": "32ccc988dbf23135458290a8f992b2d4bebacc56e34776800234539cc5474e5b",
+    "hardware_smoke_passed": true
+  },
+  {
+    "package": "sys-apps/fd-10.5.0-r1",
+    "original_chost": "alphaev67-unknown-linux-gnu",
+    "es40_chost": "alpha-unknown-linux-gnu",
+    "image_sha256": "5443263c20eb91d76a28eb21b656b46b567c378baecc2f92b4fce0a549dcb109",
+    "hardware_smoke_passed": true
+  },
+  {
+    "package": "app-shells/zoxide-0.10.0-r1",
+    "original_chost": "alphaev67-unknown-linux-gnu",
+    "es40_chost": "alpha-unknown-linux-gnu",
+    "image_sha256": "f4b5fbb64778c0be46b83cb9f450cffb0c9db2ce233748183827c405fe52612b",
+    "hardware_smoke_passed": true
+  }
+]

@@ -1,0 +1,14 @@
+change-id = "ignore"
+[llvm]
+download-ci-llvm = true
+[build]
+build-dir = "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/host-rust-build"
+extended = false
+submodules = false
+docs = false
+[rust]
+deny-warnings = false
+download-rustc = false
+channel = "dev"
+debug = false
+incremental = true

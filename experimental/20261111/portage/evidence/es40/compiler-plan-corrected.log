@@ -1,0 +1,32 @@
+
+These are the packages that would be merged, in order:
+
+Calculating dependencies ... done!
+Dependency resolution took 22.74 s (backtrack: 0/20).
+
+[ebuild  N f   ] dev-lang/rust-alpha-bin-1.102.0_pre20261111::rust-alpha  0 KiB
+
+Total: 1 package (1 new), Size of downloads: 0 KiB
+Fetch Restriction: 1 package
+
+!!! The following installed packages are masked:
+- sys-libs/glibc-2.40-r11::gentoo (masked by: package.mask)
+/var/db/repos/gentoo/profiles/package.mask:
+# Andreas K. Hüttel <dilfridge@gentoo.org> (2017-05-21)
+# (and others, updated later)
+# These old versions of toolchain packages (binutils, gcc, glibc) are no
+# longer officially supported and are not suitable for general use. Using
+# these packages can result in build failures (and possible breakage) for
+# many packages, and may leave your system vulnerable to known security
+# exploits.
+# If you still use one of these old toolchain packages, please upgrade (and
+# switch the compiler / the binutils) ASAP. If you need them for a specific
+# (isolated) use case, feel free to unmask them on your system.
+
+For more information, see the MASKED PACKAGES section in the emerge
+man page or refer to the Gentoo Handbook.
+
+
+ * IMPORTANT: 28 news items need reading for repository 'gentoo'.
+ * Use eselect news read to view new items.
+

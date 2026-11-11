@@ -1,0 +1,113 @@
+Alpha Rust SDK 0.1.0-alpha1
+
+This SDK cross-builds Rust for Alpha Linux (EV6 or later), using the validated
+Rust 1.94 development compiler, GCC/libgccjit 16, and patched libc 0.2.191. Its
+sysroot comes from the ES40's glibc 2.41 development files. It is independent of
+the original toolchain installation paths. The newer Rust/GCC 17 rebase remains
+separate work. An SDK-only backend adjustment locates the packaged LTO tool
+instead of probing the original GCC installation path.
+
+Quick start
+
+Extract the archive on the project disk, then add its bin directory to PATH:
+
+  export PATH="/path/to/alpha-sdk/bin:$PATH"
+  cargo alpha doctor --verify
+  cargo alpha new --vcs none /path/on/project/disk/hello-alpha
+  cd /path/on/project/disk/hello-alpha
+  cargo alpha run
+  cargo alpha build --release
+  cargo alpha test
+
+An existing host Cargo discovers the cargo-alpha subcommand. If Cargo is not on
+PATH, use /path/to/alpha-sdk/bin/cargo-alpha directly; the SDK includes its own
+matching Cargo executable. Application manifests need no target or patch edits.
+
+Normal Cargo options pass through, including --manifest-path, --package,
+--features, --locked, --offline and arguments after --. QEMU is the default
+runner. Downloads are enabled unless --offline or an existing Cargo setting
+requests otherwise. The first build compiles std; subsequent builds reuse it.
+
+The SDK keeps Cargo downloads, build output and temporary files in var/ by
+default. Set ALPHA_CACHE_DIR to another directory on the project disk to move
+all caches. An explicit CARGO_TARGET_DIR overrides the build output directory.
+The default target cache is separated by SDK content hash and shared between projects; cargo alpha clean cleans
+that shared cache. No home-directory caches are required.
+
+Running on the ES40
+
+For this workstation, copy config.example.json to config.json in the SDK. It
+selects root@192.168.1.82 and the local codex account that owns the SSH key.
+No password or private key is stored in the SDK or archive. The local su prompt
+uses the codex account password. It appears once for each executable, including
+each unit/integration test binary.
+
+  cargo alpha run --runner es40 --release
+  cargo alpha test --runner es40 --release
+
+On another workstation, configure es40.target in config.json, or use:
+
+  export ALPHA_SSH_TARGET=root@your-alpha-host
+  cargo alpha run --runner es40
+
+ALPHA_SSH_LOCAL_USER optionally selects a local account via su; otherwise SSH
+uses the invoking account. Existing SSH configuration and host-key checks apply.
+The runner transfers only the executable by default, preserves its arguments,
+standard input/output/error and exit status, and removes its temporary remote
+run directory after execution. The target needs a compatible glibc and tar.
+
+To include runtime fixtures relative to your current directory:
+
+  export ALPHA_RUN_FILES='["fixtures", "input.json"]'
+
+To forward selected environment variables:
+
+  export ALPHA_RUN_ENV=MY_SETTING,ANOTHER_SETTING
+
+RUST_TEST_* and Rust backtrace variables are forwarded automatically. Remote
+execution starts in the temporary run directory, not the original host source
+path. Shared libraries from additional native dependencies must be deployed
+separately; this runner is not a dependency bundler.
+
+Tests and supported scope
+
+Unit and integration tests use panic=abort with an isolated subprocess per test.
+Expected-panic tests and failing-test exit status are validated. Under QEMU, a
+host launcher allows the test harness to restart without requiring a global
+binfmt registration. Ordinary application self-execution using current_exe may
+still require binfmt; the test launcher only handles libtest's argv[0] restart.
+Doctests and panic unwinding are not supported by this SDK interface.
+
+Native C build scripts using the cc crate receive the Alpha compiler and sysroot
+automatically. Build scripts and procedural macros run on x86_64. The bundled
+compiler supports C; a C++ toolchain and third-party native libraries are not
+included. Static linking and CPUs older than EV6 are not validated.
+
+libc is patched to the supplied 0.2.191 fork. Dependencies requiring a different
+exact libc version need compatible dependency versions. Cargo may report an
+unused libc patch for an application that does not itself depend on libc; the
+separately built standard library still uses the patched crate.
+
+Host requirements: x86_64 Linux, Python 3.11 or newer, a host C compiler/linker,
+and the shared-library dependencies of the bundled Cargo/Rust binaries (glibc,
+libstdc++, OpenSSL 3 and zlib). SSH is needed for ES40 execution. The SDK was
+validated on the current Ubuntu host; doctor checks the installed binaries.
+
+Reproduction and validation
+
+manifest.json records input hashes, component versions and packaged-file hashes.
+provenance/ contains the source patches and SDK packaging code. Reassembling the
+SDK uses the preserved compiler/backend artifacts plus the recorded ES40 sysroot
+archive; it is not a complete compiler bootstrap from pristine upstream sources.
+
+In the project repository:
+
+  rust_alpha_stuff/sdk/build-backend.sh
+  python3 rust_alpha_stuff/sdk/package.py --output work/sdk/new-sdk --archive
+  python3 rust_alpha_stuff/sdk/validate.py --sdk work/sdk/new-sdk --work work/sdk/new-validation
+
+The validation suite creates independent Cargo projects, exercises pinned Serde,
+Serde JSON, Clap, Regex, procedural macros and a cc-based C library, then runs
+the ABI/layout/constants/memory/signal probes in debug and release. Tests and
+failure logs remain under the chosen validation directory. --abi-only runs the
+low-level regression suite alone.

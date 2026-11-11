@@ -1,0 +1,2037 @@
+Building bootstrap
+warning: patch `rustix v1.1.5 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler)` was not used in the crate graph
+  |
+  = help: perhaps you meant one of the following:
+          	/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix
+warning: patch `libc v0.2.191 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/libc)` was not used in the crate graph
+warning: patch `nix v0.30.1 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1)` was not used in the crate graph
+warning: patch `nix v0.31.3 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.31.3)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+    Finished `dev` profile [unoptimized] target(s) in 0.08s
+Building stage0 library artifacts (stage0:x86_64-unknown-linux-gnu -> stage0:alphaev6-unknown-linux-gnu)
+warning: patch `nix v0.30.1 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1)` was not used in the crate graph
+warning: patch `nix v0.31.3 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.31.3)` was not used in the crate graph
+warning: patch `rustix v1.1.5 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler)` was not used in the crate graph
+warning: patch `rustix v1.1.4 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+    Finished `dist` profile [optimized] target(s) in 0.08s
+Building stage1 compiler artifacts (stage0:x86_64-unknown-linux-gnu -> stage1:alphaev6-unknown-linux-gnu)
+warning: patch `rustix v1.1.4 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix)` was not used in the crate graph
+  |
+  = help: perhaps you meant one of the following:
+          	/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler
+warning: unreachable `pub` item
+ --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/libc/src/new/linux_uapi/linux/can/error.rs:3:9
+  |
+3 | pub use crate::linux::can::*;
+  | ---     ^^^^^^^^^^^^^^^^^
+  | |
+  | help: consider restricting its visibility: `pub(crate)`
+  |
+  = help: or consider exporting it for use by other crates
+  = note: requested on the command line with `-W unreachable-pub`
+
+warning: unreachable `pub` item
+ --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/libc/src/new/linux_uapi/linux/can/j1939.rs:3:9
+  |
+3 | pub use crate::linux::can::*;
+  | ---     ^^^^^^^^^^^^^^^^^
+  | |
+  | help: consider restricting its visibility: `pub(crate)`
+  |
+  = help: or consider exporting it for use by other crates
+
+warning: unreachable `pub` item
+ --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/libc/src/new/linux_uapi/linux/can/raw.rs:3:9
+  |
+3 | pub use crate::linux::can::*;
+  | ---     ^^^^^^^^^^^^^^^^^
+  | |
+  | help: consider restricting its visibility: `pub(crate)`
+  |
+  = help: or consider exporting it for use by other crates
+
+warning: unreachable `pub` item
+ --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/libc/src/new/glibc/sysdeps/nptl/bits/struct_mutex.rs:5:1
+  |
+5 | pub const fn __PTHREAD_MUTEX_INITIALIZER(__kind: c_int) -> crate::pthread_mutex_t {
+  | ---^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  | |
+  | help: consider restricting its visibility: `pub(crate)`
+  |
+  = help: or consider exporting it for use by other crates
+
+warning: unreachable `pub` item
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/libc/src/types.rs:131:1
+    |
+131 |   pub const fn replace_array_items<T: Copy, const N: usize>(
+    |   ^--
+    |   |
+    |  _help: consider restricting its visibility: `pub(crate)`
+    | |
+132 | |     mut dst: [T; N],
+133 | |     src: &[T],
+134 | |     start: usize,
+135 | | ) -> [T; N] {
+    | |___________^
+    |
+    = help: or consider exporting it for use by other crates
+
+warning: `libc` (lib) generated 5 warnings (run `cargo fix --lib -p libc` to apply 5 suggestions)
+warning[E0133]: call to unsafe function `std::slice::from_raw_parts_mut` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/buffer.rs:179:20
+    |
+179 |         let init = slice::from_raw_parts_mut(init.as_mut_ptr().cast::<T>(), init.len());
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/buffer.rs:175:5
+    |
+175 |     unsafe fn assume_init(self, len: usize) -> Self::Output {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+    = note: requested on the command line with `-W unsafe-op-in-unsafe-fn`
+
+warning[E0133]: call to unsafe function `std::slice::from_raw_parts_mut` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/buffer.rs:198:20
+    |
+198 |         let init = slice::from_raw_parts_mut(init.as_mut_ptr().cast::<T>(), init.len());
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/buffer.rs:194:5
+    |
+194 |     unsafe fn assume_init(self, len: usize) -> Self::Output {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `std::slice::from_raw_parts_mut` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/buffer.rs:218:20
+    |
+218 |         let init = slice::from_raw_parts_mut(init.as_mut_ptr().cast::<T>(), init.len());
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/buffer.rs:214:5
+    |
+214 |     unsafe fn assume_init(self, len: usize) -> Self::Output {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `std::vec::Vec::<T, A>::set_len` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/buffer.rs:293:9
+    |
+293 |         self.0.set_len(self.0.len() + len);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/buffer.rs:291:5
+    |
+291 |     unsafe fn assume_init(self, len: usize) -> Self::Output {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `weak::fetch` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:105:19
+    |
+105 |         let val = fetch(self.name);
+    |                   ^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:104:5
+    |
+104 |     unsafe fn initialize(&self) -> Option<F> {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `std::mem::transmute_copy` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:111:26
+    |
+111 |             addr => Some(mem::transmute_copy::<*mut c_void, F>(&addr)),
+    |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::dlsym` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:144:5
+    |
+144 |     libc::dlsym(libc::RTLD_DEFAULT, name.as_ptr().cast())
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:139:1
+    |
+139 | unsafe fn fetch(name: &str) -> *mut c_void {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `std::os::fd::FromRawFd::from_raw_fd` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/conv.rs:143:12
+    |
+143 |         Ok(OwnedFd::from_raw_fd(raw as RawFd))
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/conv.rs:139:1
+    |
+139 | pub(super) unsafe fn ret_owned_fd(raw: LibcFd) -> io::Result<OwnedFd> {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `backend::c::prlimit::prlimit64` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/c.rs:188:5
+    |
+188 |     prlimit64(pid, resource, new_limit, old_limit)
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/c.rs:172:1
+    |
+172 | / pub(super) unsafe fn prlimit(
+173 | |     pid: pid_t,
+174 | |     resource: __rlimit_resource_t,
+175 | |     new_limit: *const rlimit64,
+176 | |     old_limit: *mut rlimit64,
+177 | | ) -> c_int {
+    | |__________^
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:281:17
+    |
+273 | / macro_rules! weak_or_syscall {
+274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+276 | |             weak! { fn $name($($t),*) -> $ret }
+...   |
+281 | |                 fun($($arg_name),*)
+    | |                 ^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...   |
+288 | | }
+    | |_- in this expansion of `weak_or_syscall!`
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/c.rs:179:5
+    |
+179 | /     weak_or_syscall! {
+180 | |         fn prlimit64(
+181 | |             pid: pid_t,
+182 | |             resource: __rlimit_resource_t,
+...   |
+185 | |         ) via SYS_prlimit64 -> c_int
+186 | |     }
+    | |_____- in this macro invocation
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:275:9
+    |
+273 | / macro_rules! weak_or_syscall {
+274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+    | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+276 | |             weak! { fn $name($($t),*) -> $ret }
+...   |
+288 | | }
+    | |_- in this expansion of `weak_or_syscall!`
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/c.rs:179:5
+    |
+179 | /     weak_or_syscall! {
+180 | |         fn prlimit64(
+181 | |             pid: pid_t,
+182 | |             resource: __rlimit_resource_t,
+...   |
+185 | |         ) via SYS_prlimit64 -> c_int
+186 | |     }
+    | |_____- in this macro invocation
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `backend::c::prlimit::prlimit64::prlimit64` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:284:17
+    |
+273 | / macro_rules! weak_or_syscall {
+274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+276 | |             weak! { fn $name($($t),*) -> $ret }
+...   |
+284 | |                 $name($($arg_name),*)
+    | |                 ^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...   |
+288 | | }
+    | |_- in this expansion of `weak_or_syscall!`
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/c.rs:179:5
+    |
+179 | /     weak_or_syscall! {
+180 | |         fn prlimit64(
+181 | |             pid: pid_t,
+182 | |             resource: __rlimit_resource_t,
+...   |
+185 | |         ) via SYS_prlimit64 -> c_int
+186 | |     }
+    | |_____- in this macro invocation
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::syscall` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:249:13
+    |
+164 | / macro_rules! syscall {
+165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+...   |
+249 | |             syscall($sys_name, $($arg_name.into_syscall_arg()),*) as $ret
+    | |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...   |
+252 | | }
+    | |_- in this expansion of `syscall!` (#2)
+...
+273 | / macro_rules! weak_or_syscall {
+274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+276 | |             weak! { fn $name($($t),*) -> $ret }
+...   |
+283 | |                 syscall! { fn $name($($arg_name: $t),*) via $sys_name -> $ret }
+    | |                 --------------------------------------------------------------- in this macro invocation (#2)
+...   |
+288 | | }
+    | |_- in this expansion of `weak_or_syscall!` (#1)
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/c.rs:179:5
+    |
+179 | /     weak_or_syscall! {
+180 | |         fn prlimit64(
+181 | |             pid: pid_t,
+182 | |             resource: __rlimit_resource_t,
+...   |
+185 | |         ) via SYS_prlimit64 -> c_int
+186 | |     }
+    | |_____- in this macro invocation (#1)
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:166:9
+    |
+164 | / macro_rules! syscall {
+165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+    | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...   |
+252 | | }
+    | |_- in this expansion of `syscall!` (#2)
+...
+273 | / macro_rules! weak_or_syscall {
+274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+276 | |             weak! { fn $name($($t),*) -> $ret }
+...   |
+283 | |                 syscall! { fn $name($($arg_name: $t),*) via $sys_name -> $ret }
+    | |                 --------------------------------------------------------------- in this macro invocation (#2)
+...   |
+288 | | }
+    | |_- in this expansion of `weak_or_syscall!` (#1)
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/c.rs:179:5
+    |
+179 | /     weak_or_syscall! {
+180 | |         fn prlimit64(
+181 | |             pid: pid_t,
+182 | |             resource: __rlimit_resource_t,
+...   |
+185 | |         ) via SYS_prlimit64 -> c_int
+186 | |     }
+    | |_____- in this macro invocation (#1)
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/c.rs:339:13
+    |
+339 |             fun(fd, iov, iovcnt, offset, flags)
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/c.rs:324:5
+    |
+324 | /     pub(in super::super) unsafe fn preadv64v2(
+325 | |         fd: c_int,
+326 | |         iov: *const iovec,
+327 | |         iovcnt: c_int,
+328 | |         offset: off64_t,
+329 | |         flags: c_int,
+330 | |     ) -> ssize_t {
+    | |________________^
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `backend::c::readwrite_pv64v2::preadv64v2::preadv2` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/c.rs:354:13
+    |
+354 | /             preadv2(
+355 | |                 fd,
+356 | |                 iov,
+357 | |                 iovcnt,
+...   |
+360 | |                 flags,
+361 | |             )
+    | |_____________^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::syscall` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:249:13
+    |
+164 | / macro_rules! syscall {
+165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+...   |
+249 | |             syscall($sys_name, $($arg_name.into_syscall_arg()),*) as $ret
+    | |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...   |
+252 | | }
+    | |_- in this expansion of `syscall!`
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/c.rs:344:13
+    |
+344 | /             syscall! {
+345 | |                 fn preadv2(
+346 | |                     fd: c_int,
+347 | |                     iov: *const iovec,
+...   |
+352 | |                 ) via SYS_preadv2 -> ssize_t
+353 | |             }
+    | |_____________- in this macro invocation
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:166:9
+    |
+164 | / macro_rules! syscall {
+165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+    | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...   |
+252 | | }
+    | |_- in this expansion of `syscall!`
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/c.rs:344:13
+    |
+344 | /             syscall! {
+345 | |                 fn preadv2(
+346 | |                     fd: c_int,
+347 | |                     iov: *const iovec,
+...   |
+352 | |                 ) via SYS_preadv2 -> ssize_t
+353 | |             }
+    | |_____________- in this macro invocation
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/c.rs:376:13
+    |
+376 |             fun(fd, iov, iovcnt, offset, flags)
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/c.rs:364:5
+    |
+364 | /     pub(in super::super) unsafe fn pwritev64v2(
+365 | |         fd: c_int,
+366 | |         iov: *const iovec,
+367 | |         iovcnt: c_int,
+368 | |         offset: off64_t,
+369 | |         flags: c_int,
+370 | |     ) -> ssize_t {
+    | |________________^
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `backend::c::readwrite_pv64v2::pwritev64v2::pwritev2` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/c.rs:391:13
+    |
+391 | /             pwritev2(
+392 | |                 fd,
+393 | |                 iov,
+394 | |                 iovcnt,
+...   |
+397 | |                 flags,
+398 | |             )
+    | |_____________^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::syscall` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:249:13
+    |
+164 | / macro_rules! syscall {
+165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+...   |
+249 | |             syscall($sys_name, $($arg_name.into_syscall_arg()),*) as $ret
+    | |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...   |
+252 | | }
+    | |_- in this expansion of `syscall!`
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/c.rs:381:13
+    |
+381 | /             syscall! {
+382 | |                 fn pwritev2(
+383 | |                     fd: c_int,
+384 | |                     iov: *const iovec,
+...   |
+389 | |                 ) via SYS_pwritev2 -> ssize_t
+390 | |             }
+    | |_____________- in this macro invocation
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:166:9
+    |
+164 | / macro_rules! syscall {
+165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+    | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...   |
+252 | | }
+    | |_- in this expansion of `syscall!`
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/c.rs:381:13
+    |
+381 | /             syscall! {
+382 | |                 fn pwritev2(
+383 | |                     fd: c_int,
+384 | |                     iov: *const iovec,
+...   |
+389 | |                 ) via SYS_pwritev2 -> ssize_t
+390 | |             }
+    | |_____________- in this macro invocation
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::syscall` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:249:13
+    |
+164 | / macro_rules! syscall {
+165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+...   |
+249 | |             syscall($sys_name, $($arg_name.into_syscall_arg()),*) as $ret
+    | |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...   |
+252 | | }
+    | |_- in this expansion of `syscall!`
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:131:9
+    |
+131 | /         syscall! {
+132 | |             fn open(
+133 | |                 pathname: *const ffi::c_char,
+134 | |                 oflags: c::c_int,
+135 | |                 mode: c::mode_t
+136 | |             ) via SYS_open -> c::c_int
+137 | |         }
+    | |_________- in this macro invocation
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:166:9
+    |
+164 | / macro_rules! syscall {
+165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+    | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...   |
+252 | | }
+    | |_- in this expansion of `syscall!`
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:131:9
+    |
+131 | /         syscall! {
+132 | |             fn open(
+133 | |                 pathname: *const ffi::c_char,
+134 | |                 oflags: c::c_int,
+135 | |                 mode: c::mode_t
+136 | |             ) via SYS_open -> c::c_int
+137 | |         }
+    | |_________- in this macro invocation
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::syscall` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:249:13
+    |
+164 | / macro_rules! syscall {
+165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+...   |
+249 | |             syscall($sys_name, $($arg_name.into_syscall_arg()),*) as $ret
+    | |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...   |
+252 | | }
+    | |_- in this expansion of `syscall!`
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:190:5
+    |
+190 | /     syscall! {
+191 | |         fn openat(
+192 | |             base_dirfd: c::c_int,
+193 | |             pathname: *const ffi::c_char,
+...   |
+196 | |         ) via SYS_openat -> c::c_int
+197 | |     }
+    | |_____- in this macro invocation
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:166:9
+    |
+164 | / macro_rules! syscall {
+165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+    | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...   |
+252 | | }
+    | |_- in this expansion of `syscall!`
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:190:5
+    |
+190 | /     syscall! {
+191 | |         fn openat(
+192 | |             base_dirfd: c::c_int,
+193 | |             pathname: *const ffi::c_char,
+...   |
+196 | |         ) via SYS_openat -> c::c_int
+197 | |     }
+    | |_____- in this macro invocation
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::readlinkat` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:298:15
+    |
+298 |     ret_usize(c::readlinkat(borrowed_fd(dirfd), c_str(path), buf.0.cast(), buf.1) as isize)
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:293:1
+    |
+293 | / pub(crate) unsafe fn readlinkat(
+294 | |     dirfd: BorrowedFd<'_>,
+295 | |     path: &CStr,
+296 | |     buf: (*mut u8, usize),
+297 | | ) -> io::Result<usize> {
+    | |______________________^
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::syscall` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:249:13
+    |
+164 | / macro_rules! syscall {
+165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+...   |
+249 | |             syscall($sys_name, $($arg_name.into_syscall_arg()),*) as $ret
+    | |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...   |
+252 | | }
+    | |_- in this expansion of `syscall!`
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:321:5
+    |
+321 | /     syscall! {
+322 | |         fn getdents64(
+323 | |             fd: c::c_int,
+324 | |             dirp: *mut c::c_void,
+325 | |             count: usize
+326 | |         ) via SYS_getdents64 -> c::ssize_t
+327 | |     }
+    | |_____- in this macro invocation
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:166:9
+    |
+164 | / macro_rules! syscall {
+165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+    | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...   |
+252 | | }
+    | |_- in this expansion of `syscall!`
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:321:5
+    |
+321 | /     syscall! {
+322 | |         fn getdents64(
+323 | |             fd: c::c_int,
+324 | |             dirp: *mut c::c_void,
+325 | |             count: usize
+326 | |         ) via SYS_getdents64 -> c::ssize_t
+327 | |     }
+    | |_____- in this macro invocation
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:281:17
+    |
+273 | / macro_rules! weak_or_syscall {
+274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+276 | |             weak! { fn $name($($t),*) -> $ret }
+...   |
+281 | |                 fun($($arg_name),*)
+    | |                 ^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...   |
+288 | | }
+    | |_- in this expansion of `weak_or_syscall!`
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:524:5
+    |
+524 | /     weak_or_syscall! {
+525 | |         fn renameat2(
+526 | |             olddirfd: c::c_int,
+527 | |             oldpath: *const ffi::c_char,
+...   |
+531 | |         ) via SYS_renameat2 -> c::c_int
+532 | |     }
+    | |_____- in this macro invocation
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:275:9
+    |
+273 | / macro_rules! weak_or_syscall {
+274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+    | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+276 | |             weak! { fn $name($($t),*) -> $ret }
+...   |
+288 | | }
+    | |_- in this expansion of `weak_or_syscall!`
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:524:5
+    |
+524 | /     weak_or_syscall! {
+525 | |         fn renameat2(
+526 | |             olddirfd: c::c_int,
+527 | |             oldpath: *const ffi::c_char,
+...   |
+531 | |         ) via SYS_renameat2 -> c::c_int
+532 | |     }
+    | |_____- in this macro invocation
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `backend::fs::syscalls::renameat2::renameat2::renameat2` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:284:17
+    |
+273 | / macro_rules! weak_or_syscall {
+274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+276 | |             weak! { fn $name($($t),*) -> $ret }
+...   |
+284 | |                 $name($($arg_name),*)
+    | |                 ^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...   |
+288 | | }
+    | |_- in this expansion of `weak_or_syscall!`
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:524:5
+    |
+524 | /     weak_or_syscall! {
+525 | |         fn renameat2(
+526 | |             olddirfd: c::c_int,
+527 | |             oldpath: *const ffi::c_char,
+...   |
+531 | |         ) via SYS_renameat2 -> c::c_int
+532 | |     }
+    | |_____- in this macro invocation
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::syscall` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:249:13
+    |
+164 | / macro_rules! syscall {
+165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+...   |
+249 | |             syscall($sys_name, $($arg_name.into_syscall_arg()),*) as $ret
+    | |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...   |
+252 | | }
+    | |_- in this expansion of `syscall!` (#2)
+...
+273 | / macro_rules! weak_or_syscall {
+274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+276 | |             weak! { fn $name($($t),*) -> $ret }
+...   |
+283 | |                 syscall! { fn $name($($arg_name: $t),*) via $sys_name -> $ret }
+    | |                 --------------------------------------------------------------- in this macro invocation (#2)
+...   |
+288 | | }
+    | |_- in this expansion of `weak_or_syscall!` (#1)
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:524:5
+    |
+524 | /     weak_or_syscall! {
+525 | |         fn renameat2(
+526 | |             olddirfd: c::c_int,
+527 | |             oldpath: *const ffi::c_char,
+...   |
+531 | |         ) via SYS_renameat2 -> c::c_int
+532 | |     }
+    | |_____- in this macro invocation (#1)
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:166:9
+    |
+164 | / macro_rules! syscall {
+165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+    | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...   |
+252 | | }
+    | |_- in this expansion of `syscall!` (#2)
+...
+273 | / macro_rules! weak_or_syscall {
+274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+276 | |             weak! { fn $name($($t),*) -> $ret }
+...   |
+283 | |                 syscall! { fn $name($($arg_name: $t),*) via $sys_name -> $ret }
+    | |                 --------------------------------------------------------------- in this macro invocation (#2)
+...   |
+288 | | }
+    | |_- in this expansion of `weak_or_syscall!` (#1)
+    |
+   ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:524:5
+    |
+524 | /     weak_or_syscall! {
+525 | |         fn renameat2(
+526 | |             olddirfd: c::c_int,
+527 | |             oldpath: *const ffi::c_char,
+...   |
+531 | |         ) via SYS_renameat2 -> c::c_int
+532 | |     }
+    | |_____- in this macro invocation (#1)
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::syscall` is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:249:13
+     |
+ 164 | / macro_rules! syscall {
+ 165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+...    |
+ 249 | |             syscall($sys_name, $($arg_name.into_syscall_arg()),*) as $ret
+     | |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...    |
+ 252 | | }
+     | |_- in this expansion of `syscall!`
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1140:5
+     |
+1140 | /     syscall! {
+1141 | |         fn fchmodat(
+1142 | |             base_dirfd: c::c_int,
+1143 | |             pathname: *const ffi::c_char,
+1144 | |             mode: c::mode_t
+1145 | |         ) via SYS_fchmodat -> c::c_int
+1146 | |     }
+     | |_____- in this macro invocation
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:166:9
+     |
+ 164 | / macro_rules! syscall {
+ 165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+     | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...    |
+ 252 | | }
+     | |_- in this expansion of `syscall!`
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1140:5
+     |
+1140 | /     syscall! {
+1141 | |         fn fchmodat(
+1142 | |             base_dirfd: c::c_int,
+1143 | |             pathname: *const ffi::c_char,
+1144 | |             mode: c::mode_t
+1145 | |         ) via SYS_fchmodat -> c::c_int
+1146 | |     }
+     | |_____- in this macro invocation
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::syscall` is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:249:13
+     |
+ 164 | / macro_rules! syscall {
+ 165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+...    |
+ 249 | |             syscall($sys_name, $($arg_name.into_syscall_arg()),*) as $ret
+     | |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...    |
+ 252 | | }
+     | |_- in this expansion of `syscall!`
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1241:5
+     |
+1241 | /     syscall! {
+1242 | |         fn copy_file_range(
+1243 | |             fd_in: c::c_int,
+1244 | |             off_in: *mut c::loff_t,
+...    |
+1249 | |         ) via SYS_copy_file_range -> c::ssize_t
+1250 | |     }
+     | |_____- in this macro invocation
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:166:9
+     |
+ 164 | / macro_rules! syscall {
+ 165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+     | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...    |
+ 252 | | }
+     | |_- in this expansion of `syscall!`
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1241:5
+     |
+1241 | /     syscall! {
+1242 | |         fn copy_file_range(
+1243 | |             fd_in: c::c_int,
+1244 | |             off_in: *mut c::loff_t,
+...    |
+1249 | |         ) via SYS_copy_file_range -> c::ssize_t
+1250 | |     }
+     | |_____- in this macro invocation
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::syscall` is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:249:13
+     |
+ 164 | / macro_rules! syscall {
+ 165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+...    |
+ 249 | |             syscall($sys_name, $($arg_name.into_syscall_arg()),*) as $ret
+     | |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...    |
+ 252 | | }
+     | |_- in this expansion of `syscall!`
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1458:5
+     |
+1458 | /     syscall! {
+1459 | |         fn fchmod(
+1460 | |             fd: c::c_int,
+1461 | |             mode: c::mode_t
+1462 | |         ) via SYS_fchmod -> c::c_int
+1463 | |     }
+     | |_____- in this macro invocation
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:166:9
+     |
+ 164 | / macro_rules! syscall {
+ 165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+     | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...    |
+ 252 | | }
+     | |_- in this expansion of `syscall!`
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1458:5
+     |
+1458 | /     syscall! {
+1459 | |         fn fchmod(
+1460 | |             fd: c::c_int,
+1461 | |             mode: c::mode_t
+1462 | |         ) via SYS_fchmod -> c::c_int
+1463 | |     }
+     | |_____- in this macro invocation
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::syscall` is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:249:13
+     |
+ 164 | / macro_rules! syscall {
+ 165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+...    |
+ 249 | |             syscall($sys_name, $($arg_name.into_syscall_arg()),*) as $ret
+     | |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...    |
+ 252 | | }
+     | |_- in this expansion of `syscall!`
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1481:5
+     |
+1481 | /     syscall! {
+1482 | |         fn fchown(
+1483 | |             fd: c::c_int,
+1484 | |             owner: c::uid_t,
+1485 | |             group: c::gid_t
+1486 | |         ) via SYS_fchown -> c::c_int
+1487 | |     }
+     | |_____- in this macro invocation
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:166:9
+     |
+ 164 | / macro_rules! syscall {
+ 165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+     | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...    |
+ 252 | | }
+     | |_- in this expansion of `syscall!`
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1481:5
+     |
+1481 | /     syscall! {
+1482 | |         fn fchown(
+1483 | |             fd: c::c_int,
+1484 | |             owner: c::uid_t,
+1485 | |             group: c::gid_t
+1486 | |         ) via SYS_fchown -> c::c_int
+1487 | |     }
+     | |_____- in this macro invocation
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:281:17
+     |
+ 273 | / macro_rules! weak_or_syscall {
+ 274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+ 276 | |             weak! { fn $name($($t),*) -> $ret }
+...    |
+ 281 | |                 fun($($arg_name),*)
+     | |                 ^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...    |
+ 288 | | }
+     | |_- in this expansion of `weak_or_syscall!`
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1523:5
+     |
+1523 | /     weak_or_syscall! {
+1524 | |         fn syncfs(fd: c::c_int) via SYS_syncfs -> c::c_int
+1525 | |     }
+     | |_____- in this macro invocation
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:275:9
+     |
+ 273 | / macro_rules! weak_or_syscall {
+ 274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+     | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 276 | |             weak! { fn $name($($t),*) -> $ret }
+...    |
+ 288 | | }
+     | |_- in this expansion of `weak_or_syscall!`
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1523:5
+     |
+1523 | /     weak_or_syscall! {
+1524 | |         fn syncfs(fd: c::c_int) via SYS_syncfs -> c::c_int
+1525 | |     }
+     | |_____- in this macro invocation
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `backend::fs::syscalls::syncfs::syncfs::syncfs` is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:284:17
+     |
+ 273 | / macro_rules! weak_or_syscall {
+ 274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+ 276 | |             weak! { fn $name($($t),*) -> $ret }
+...    |
+ 284 | |                 $name($($arg_name),*)
+     | |                 ^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...    |
+ 288 | | }
+     | |_- in this expansion of `weak_or_syscall!`
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1523:5
+     |
+1523 | /     weak_or_syscall! {
+1524 | |         fn syncfs(fd: c::c_int) via SYS_syncfs -> c::c_int
+1525 | |     }
+     | |_____- in this macro invocation
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::syscall` is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:249:13
+     |
+ 164 | / macro_rules! syscall {
+ 165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+...    |
+ 249 | |             syscall($sys_name, $($arg_name.into_syscall_arg()),*) as $ret
+     | |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...    |
+ 252 | | }
+     | |_- in this expansion of `syscall!` (#2)
+...
+ 273 | / macro_rules! weak_or_syscall {
+ 274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+ 276 | |             weak! { fn $name($($t),*) -> $ret }
+...    |
+ 283 | |                 syscall! { fn $name($($arg_name: $t),*) via $sys_name -> $ret }
+     | |                 --------------------------------------------------------------- in this macro invocation (#2)
+...    |
+ 288 | | }
+     | |_- in this expansion of `weak_or_syscall!` (#1)
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1523:5
+     |
+1523 | /     weak_or_syscall! {
+1524 | |         fn syncfs(fd: c::c_int) via SYS_syncfs -> c::c_int
+1525 | |     }
+     | |_____- in this macro invocation (#1)
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:166:9
+     |
+ 164 | / macro_rules! syscall {
+ 165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+     | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...    |
+ 252 | | }
+     | |_- in this expansion of `syscall!` (#2)
+...
+ 273 | / macro_rules! weak_or_syscall {
+ 274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+ 276 | |             weak! { fn $name($($t),*) -> $ret }
+...    |
+ 283 | |                 syscall! { fn $name($($arg_name: $t),*) via $sys_name -> $ret }
+     | |                 --------------------------------------------------------------- in this macro invocation (#2)
+...    |
+ 288 | | }
+     | |_- in this expansion of `weak_or_syscall!` (#1)
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1523:5
+     |
+1523 | /     weak_or_syscall! {
+1524 | |         fn syncfs(fd: c::c_int) via SYS_syncfs -> c::c_int
+1525 | |     }
+     | |_____- in this macro invocation (#1)
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:281:17
+     |
+ 273 | / macro_rules! weak_or_syscall {
+ 274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+ 276 | |             weak! { fn $name($($t),*) -> $ret }
+...    |
+ 281 | |                 fun($($arg_name),*)
+     | |                 ^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...    |
+ 288 | | }
+     | |_- in this expansion of `weak_or_syscall!`
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1861:5
+     |
+1861 | /     weak_or_syscall! {
+1862 | |         fn memfd_create(
+1863 | |             name: *const ffi::c_char,
+1864 | |             flags: c::c_uint
+1865 | |         ) via SYS_memfd_create -> c::c_int
+1866 | |     }
+     | |_____- in this macro invocation
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:275:9
+     |
+ 273 | / macro_rules! weak_or_syscall {
+ 274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+     | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 276 | |             weak! { fn $name($($t),*) -> $ret }
+...    |
+ 288 | | }
+     | |_- in this expansion of `weak_or_syscall!`
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1861:5
+     |
+1861 | /     weak_or_syscall! {
+1862 | |         fn memfd_create(
+1863 | |             name: *const ffi::c_char,
+1864 | |             flags: c::c_uint
+1865 | |         ) via SYS_memfd_create -> c::c_int
+1866 | |     }
+     | |_____- in this macro invocation
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `backend::fs::syscalls::memfd_create::memfd_create::memfd_create` is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:284:17
+     |
+ 273 | / macro_rules! weak_or_syscall {
+ 274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+ 276 | |             weak! { fn $name($($t),*) -> $ret }
+...    |
+ 284 | |                 $name($($arg_name),*)
+     | |                 ^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...    |
+ 288 | | }
+     | |_- in this expansion of `weak_or_syscall!`
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1861:5
+     |
+1861 | /     weak_or_syscall! {
+1862 | |         fn memfd_create(
+1863 | |             name: *const ffi::c_char,
+1864 | |             flags: c::c_uint
+1865 | |         ) via SYS_memfd_create -> c::c_int
+1866 | |     }
+     | |_____- in this macro invocation
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::syscall` is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:249:13
+     |
+ 164 | / macro_rules! syscall {
+ 165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+...    |
+ 249 | |             syscall($sys_name, $($arg_name.into_syscall_arg()),*) as $ret
+     | |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...    |
+ 252 | | }
+     | |_- in this expansion of `syscall!` (#2)
+...
+ 273 | / macro_rules! weak_or_syscall {
+ 274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+ 276 | |             weak! { fn $name($($t),*) -> $ret }
+...    |
+ 283 | |                 syscall! { fn $name($($arg_name: $t),*) via $sys_name -> $ret }
+     | |                 --------------------------------------------------------------- in this macro invocation (#2)
+...    |
+ 288 | | }
+     | |_- in this expansion of `weak_or_syscall!` (#1)
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1861:5
+     |
+1861 | /     weak_or_syscall! {
+1862 | |         fn memfd_create(
+1863 | |             name: *const ffi::c_char,
+1864 | |             flags: c::c_uint
+1865 | |         ) via SYS_memfd_create -> c::c_int
+1866 | |     }
+     | |_____- in this macro invocation (#1)
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:166:9
+     |
+ 164 | / macro_rules! syscall {
+ 165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+     | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...    |
+ 252 | | }
+     | |_- in this expansion of `syscall!` (#2)
+...
+ 273 | / macro_rules! weak_or_syscall {
+ 274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+ 276 | |             weak! { fn $name($($t),*) -> $ret }
+...    |
+ 283 | |                 syscall! { fn $name($($arg_name: $t),*) via $sys_name -> $ret }
+     | |                 --------------------------------------------------------------- in this macro invocation (#2)
+...    |
+ 288 | | }
+     | |_- in this expansion of `weak_or_syscall!` (#1)
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:1861:5
+     |
+1861 | /     weak_or_syscall! {
+1862 | |         fn memfd_create(
+1863 | |             name: *const ffi::c_char,
+1864 | |             flags: c::c_uint
+1865 | |         ) via SYS_memfd_create -> c::c_int
+1866 | |     }
+     | |_____- in this macro invocation (#1)
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:281:17
+     |
+ 273 | / macro_rules! weak_or_syscall {
+ 274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+ 276 | |             weak! { fn $name($($t),*) -> $ret }
+...    |
+ 281 | |                 fun($($arg_name),*)
+     | |                 ^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...    |
+ 288 | | }
+     | |_- in this expansion of `weak_or_syscall!`
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:2052:5
+     |
+2052 | /     weak_or_syscall! {
+2053 | |         pub(super) fn statx(
+2054 | |             dirfd_: BorrowedFd<'_>,
+2055 | |             path: *const ffi::c_char,
+...    |
+2059 | |         ) via SYS_statx -> c::c_int
+2060 | |     }
+     | |_____- in this macro invocation
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:275:9
+     |
+ 273 | / macro_rules! weak_or_syscall {
+ 274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+     | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 276 | |             weak! { fn $name($($t),*) -> $ret }
+...    |
+ 288 | | }
+     | |_- in this expansion of `weak_or_syscall!`
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:2052:5
+     |
+2052 | /     weak_or_syscall! {
+2053 | |         pub(super) fn statx(
+2054 | |             dirfd_: BorrowedFd<'_>,
+2055 | |             path: *const ffi::c_char,
+...    |
+2059 | |         ) via SYS_statx -> c::c_int
+2060 | |     }
+     | |_____- in this macro invocation
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `backend::fs::syscalls::sys::statx::statx` is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:284:17
+     |
+ 273 | / macro_rules! weak_or_syscall {
+ 274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+ 276 | |             weak! { fn $name($($t),*) -> $ret }
+...    |
+ 284 | |                 $name($($arg_name),*)
+     | |                 ^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...    |
+ 288 | | }
+     | |_- in this expansion of `weak_or_syscall!`
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:2052:5
+     |
+2052 | /     weak_or_syscall! {
+2053 | |         pub(super) fn statx(
+2054 | |             dirfd_: BorrowedFd<'_>,
+2055 | |             path: *const ffi::c_char,
+...    |
+2059 | |         ) via SYS_statx -> c::c_int
+2060 | |     }
+     | |_____- in this macro invocation
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::syscall` is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:249:13
+     |
+ 164 | / macro_rules! syscall {
+ 165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+...    |
+ 249 | |             syscall($sys_name, $($arg_name.into_syscall_arg()),*) as $ret
+     | |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+...    |
+ 252 | | }
+     | |_- in this expansion of `syscall!` (#2)
+...
+ 273 | / macro_rules! weak_or_syscall {
+ 274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+ 276 | |             weak! { fn $name($($t),*) -> $ret }
+...    |
+ 283 | |                 syscall! { fn $name($($arg_name: $t),*) via $sys_name -> $ret }
+     | |                 --------------------------------------------------------------- in this macro invocation (#2)
+...    |
+ 288 | | }
+     | |_- in this expansion of `weak_or_syscall!` (#1)
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:2052:5
+     |
+2052 | /     weak_or_syscall! {
+2053 | |         pub(super) fn statx(
+2054 | |             dirfd_: BorrowedFd<'_>,
+2055 | |             path: *const ffi::c_char,
+...    |
+2059 | |         ) via SYS_statx -> c::c_int
+2060 | |     }
+     | |_____- in this macro invocation (#1)
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/weak.rs:166:9
+     |
+ 164 | / macro_rules! syscall {
+ 165 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 166 | |         $vis unsafe fn $name($($arg_name:$t),*) -> $ret {
+     | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...    |
+ 252 | | }
+     | |_- in this expansion of `syscall!` (#2)
+...
+ 273 | / macro_rules! weak_or_syscall {
+ 274 | |     ($vis:vis fn $name:ident($($arg_name:ident: $t:ty),*) via $sys_name:ident -> $ret:ty) => (
+ 275 | |         $vis unsafe fn $name($($arg_name: $t),*) -> $ret {
+ 276 | |             weak! { fn $name($($t),*) -> $ret }
+...    |
+ 283 | |                 syscall! { fn $name($($arg_name: $t),*) via $sys_name -> $ret }
+     | |                 --------------------------------------------------------------- in this macro invocation (#2)
+...    |
+ 288 | | }
+     | |_- in this expansion of `weak_or_syscall!` (#1)
+     |
+    ::: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:2052:5
+     |
+2052 | /     weak_or_syscall! {
+2053 | |         pub(super) fn statx(
+2054 | |             dirfd_: BorrowedFd<'_>,
+2055 | |             path: *const ffi::c_char,
+...    |
+2059 | |         ) via SYS_statx -> c::c_int
+2060 | |     }
+     | |_____- in this macro invocation (#1)
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::getxattr` is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:2387:19
+     |
+2387 |           ret_usize(c::getxattr(
+     |  ___________________^
+2388 | |             path.as_ptr(),
+2389 | |             name.as_ptr(),
+2390 | |             value.0.cast::<c::c_void>(),
+2391 | |             value.1,
+2392 | |         ))
+     | |_________^ call to unsafe function
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:2380:1
+     |
+2380 | / pub(crate) unsafe fn getxattr(
+2381 | |     path: &CStr,
+2382 | |     name: &CStr,
+2383 | |     value: (*mut u8, usize),
+2384 | | ) -> io::Result<usize> {
+     | |______________________^
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::lgetxattr` is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:2423:19
+     |
+2423 |           ret_usize(c::lgetxattr(
+     |  ___________________^
+2424 | |             path.as_ptr(),
+2425 | |             name.as_ptr(),
+2426 | |             value.0.cast::<c::c_void>(),
+2427 | |             value.1,
+2428 | |         ))
+     | |_________^ call to unsafe function
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:2416:1
+     |
+2416 | / pub(crate) unsafe fn lgetxattr(
+2417 | |     path: &CStr,
+2418 | |     name: &CStr,
+2419 | |     value: (*mut u8, usize),
+2420 | | ) -> io::Result<usize> {
+     | |______________________^
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::fgetxattr` is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:2460:19
+     |
+2460 |           ret_usize(c::fgetxattr(
+     |  ___________________^
+2461 | |             borrowed_fd(fd),
+2462 | |             name.as_ptr(),
+2463 | |             value.0.cast::<c::c_void>(),
+2464 | |             value.1,
+2465 | |         ))
+     | |_________^ call to unsafe function
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:2453:1
+     |
+2453 | / pub(crate) unsafe fn fgetxattr(
+2454 | |     fd: BorrowedFd<'_>,
+2455 | |     name: &CStr,
+2456 | |     value: (*mut u8, usize),
+2457 | | ) -> io::Result<usize> {
+     | |______________________^
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::listxattr` is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:2585:19
+     |
+2585 |           ret_usize(c::listxattr(
+     |  ___________________^
+2586 | |             path.as_ptr(),
+2587 | |             list.0.cast::<ffi::c_char>(),
+2588 | |             list.1,
+2589 | |         ))
+     | |_________^ call to unsafe function
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:2582:1
+     |
+2582 | pub(crate) unsafe fn listxattr(path: &CStr, list: (*mut u8, usize)) -> io::Result<usize> {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::llistxattr` is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:2607:19
+     |
+2607 |           ret_usize(c::llistxattr(
+     |  ___________________^
+2608 | |             path.as_ptr(),
+2609 | |             list.0.cast::<ffi::c_char>(),
+2610 | |             list.1,
+2611 | |         ))
+     | |_________^ call to unsafe function
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:2604:1
+     |
+2604 | pub(crate) unsafe fn llistxattr(path: &CStr, list: (*mut u8, usize)) -> io::Result<usize> {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::flistxattr` is unsafe and requires unsafe block
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:2631:19
+     |
+2631 |         ret_usize(c::flistxattr(fd, list.0.cast::<ffi::c_char>(), list.1))
+     |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+     |
+     = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/syscalls.rs:2626:1
+     |
+2626 | pub(crate) unsafe fn flistxattr(fd: BorrowedFd<'_>, list: (*mut u8, usize)) -> io::Result<usize> {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::read` is unsafe and requires unsafe block
+  --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/io/syscalls.rs:29:15
+   |
+29 |       ret_usize(c::read(
+   |  _______________^
+30 | |         borrowed_fd(fd),
+31 | |         buf.0.cast(),
+32 | |         min(buf.1, READ_LIMIT),
+33 | |     ))
+   | |_____^ call to unsafe function
+   |
+   = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+  --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/io/syscalls.rs:28:1
+   |
+28 | pub(crate) unsafe fn read(fd: BorrowedFd<'_>, buf: (*mut u8, usize)) -> io::Result<usize> {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::pread64` is unsafe and requires unsafe block
+  --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/io/syscalls.rs:59:15
+   |
+59 |     ret_usize(c::pread(borrowed_fd(fd), buf.0.cast(), len, offset))
+   |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+   |
+   = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+  --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/io/syscalls.rs:46:1
+   |
+46 | / pub(crate) unsafe fn pread(
+47 | |     fd: BorrowedFd<'_>,
+48 | |     buf: (*mut u8, usize),
+49 | |     offset: u64,
+50 | | ) -> io::Result<usize> {
+   | |______________________^
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::close` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/io/syscalls.rs:211:13
+    |
+211 |     let _ = c::close(raw_fd as c::c_int);
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/io/syscalls.rs:210:1
+    |
+210 | pub(crate) unsafe fn close(raw_fd: RawFd) {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `libc::ioctl` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/io/syscalls.rs:225:15
+    |
+225 |     ret_c_int(c::ioctl(borrowed_fd(fd), request, arg))
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/io/syscalls.rs:220:1
+    |
+220 | / pub(crate) unsafe fn ioctl(
+221 | |     fd: BorrowedFd<'_>,
+222 | |     request: Opcode,
+223 | |     arg: *mut c::c_void,
+224 | | ) -> io::Result<IoctlOutput> {
+    | |____________________________^
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `backend::io::syscalls::ioctl` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/io/syscalls.rs:234:5
+    |
+234 |     ioctl(fd, request, arg)
+    |     ^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/io/syscalls.rs:229:1
+    |
+229 | / pub(crate) unsafe fn ioctl_readonly(
+230 | |     fd: BorrowedFd<'_>,
+231 | |     request: Opcode,
+232 | |     arg: *mut c::c_void,
+233 | | ) -> io::Result<IoctlOutput> {
+    | |____________________________^
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `backend::io::syscalls::close` is unsafe and requires unsafe block
+  --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/io/close.rs:55:5
+   |
+55 |     backend::io::syscalls::close(raw_fd)
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+   |
+   = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+  --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/io/close.rs:54:1
+   |
+54 | pub unsafe fn close(raw_fd: RawFd) {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `std::ptr::mut_ptr::<impl *mut T>::read` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/ioctl/patterns.rs:105:12
+    |
+105 |         Ok(ptr.cast::<Output>().read())
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/ioctl/patterns.rs:104:5
+    |
+104 |     unsafe fn output_from_ptr(_: IoctlOutput, ptr: *mut c::c_void) -> Result<Self::Output> {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `ioctl::_ioctl` is unsafe and requires unsafe block
+  --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/ioctl/mod.rs:99:9
+   |
+99 |         _ioctl(fd, request, arg)?
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+   |
+   = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+  --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/ioctl/mod.rs:91:1
+   |
+91 | pub unsafe fn ioctl<F: AsFd, I: Ioctl>(fd: F, mut ioctl: I) -> Result<I::Output> {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `ioctl::_ioctl_readonly` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/ioctl/mod.rs:101:9
+    |
+101 |         _ioctl_readonly(fd, request, arg)?
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `ioctl::Ioctl::output_from_ptr` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/ioctl/mod.rs:106:5
+    |
+106 |     I::output_from_ptr(output, arg)
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `backend::io::syscalls::ioctl` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/ioctl/mod.rs:110:5
+    |
+110 |     crate::backend::io::syscalls::ioctl(fd, request, arg)
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/ioctl/mod.rs:109:1
+    |
+109 | unsafe fn _ioctl(fd: BorrowedFd<'_>, request: Opcode, arg: *mut c::c_void) -> Result<IoctlOutput> {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: call to unsafe function `backend::io::syscalls::ioctl_readonly` is unsafe and requires unsafe block
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/ioctl/mod.rs:118:5
+    |
+118 |     crate::backend::io::syscalls::ioctl_readonly(fd, request, arg)
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+    |
+    = note: consult the function's documentation for information on how to avoid undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/ioctl/mod.rs:113:1
+    |
+113 | / unsafe fn _ioctl_readonly(
+114 | |     fd: BorrowedFd<'_>,
+115 | |     request: Opcode,
+116 | |     arg: *mut c::c_void,
+117 | | ) -> Result<IoctlOutput> {
+    | |________________________^
+    = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning: unreachable `pub` item
+  --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/maybe_polyfill/std/mod.rs:10:1
+   |
+10 | pub mod io {
+   | ---^^^^^^^
+   | |
+   | help: consider restricting its visibility: `pub(crate)`
+   |
+   = help: or consider exporting it for use by other crates
+   = note: requested on the command line with `-W unreachable-pub`
+
+warning: unreachable `pub` item
+  --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/maybe_polyfill/std/mod.rs:20:1
+   |
+20 | pub mod os {
+   | ---^^^^^^^
+   | |
+   | help: consider restricting its visibility: `pub(crate)`
+   |
+   = help: or consider exporting it for use by other crates
+
+warning: unreachable `pub` item
+  --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/maybe_polyfill/std/mod.rs:21:5
+   |
+21 |     pub mod fd {
+   |     ---^^^^^^^
+   |     |
+   |     help: consider restricting its visibility: `pub(crate)`
+   |
+   = help: or consider exporting it for use by other crates
+
+warning: unreachable `pub` item
+ --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/backend/libc/fs/mod.rs:7:1
+  |
+7 | pub mod inotify;
+  | ---^^^^^^^^^^^^
+  | |
+  | help: consider restricting its visibility: `pub(crate)`
+  |
+  = help: or consider exporting it for use by other crates
+
+warning: unreachable `pub` item
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/fs/statx.rs:232:5
+    |
+232 |       pub fn statx(
+    |       ^--
+    |       |
+    |  _____help: consider restricting its visibility: `pub(super)`
+    | |
+233 | |         dirfd: BorrowedFd<'_>,
+234 | |         path: &CStr,
+235 | |         flags: AtFlags,
+236 | |         mask: StatxFlags,
+237 | |     ) -> io::Result<Statx> {
+    | |__________________________^
+    |
+    = help: or consider exporting it for use by other crates
+
+warning: unreachable `pub` item
+ --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/ugid.rs:9:1
+  |
+9 | pub type RawGid = ffi::c_uint;
+  | ---^^^^^^^^^^^^
+  | |
+  | help: consider restricting its visibility: `pub(crate)`
+  |
+  = help: or consider exporting it for use by other crates
+
+warning: unreachable `pub` item
+  --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler/src/ugid.rs:11:1
+   |
+11 | pub type RawUid = ffi::c_uint;
+   | ---^^^^^^^^^^^^
+   | |
+   | help: consider restricting its visibility: `pub(crate)`
+   |
+   = help: or consider exporting it for use by other crates
+
+For more information about this error, try `rustc --explain E0133`.
+warning: `rustix` (lib) generated 63 warnings (run `cargo fix --lib -p rustix` to apply 53 suggestions)
+warning: building proc macro crate with `panic=abort` or `panic=immediate-abort` may crash the compiler should the proc-macro panic
+
+warning: `rustc_macros` (lib) generated 1 warning
+warning: `rustc_index_macros` (lib) generated 1 warning (1 duplicate)
+warning: `rustc_type_ir_macros` (lib) generated 1 warning (1 duplicate)
+   Compiling nix v0.30.1 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1)
+warning: hidden lifetime parameters in types are deprecated
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1/src/errno.rs:179:32
+    |
+179 |     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    |                           -----^^^^^^^^^
+    |                           |
+    |                           expected lifetime parameter
+    |
+    = note: `-W elided-lifetimes-in-paths` implied by `-W rust-2018-idioms`
+    = help: to override `-W rust-2018-idioms` add `#[allow(elided_lifetimes_in_paths)]`
+help: indicate the anonymous lifetime
+    |
+179 |     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    |                                         ++++
+
+warning: hidden lifetime parameters in types are deprecated
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1/src/sys/signal.rs:299:32
+    |
+299 |     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    |                           -----^^^^^^^^^
+    |                           |
+    |                           expected lifetime parameter
+    |
+help: indicate the anonymous lifetime
+    |
+299 |     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    |                                         ++++
+
+warning: hidden lifetime parameters in types are deprecated
+    --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1/src/sys/signal.rs:1321:34
+     |
+1321 |         pub fn new(sigev_notify: SigevNotify) -> SigEvent {
+     |                                  ^^^^^^^^^^^ expected lifetime parameter
+     |
+help: indicate the anonymous lifetime
+     |
+1321 |         pub fn new(sigev_notify: SigevNotify<'_>) -> SigEvent {
+     |                                             ++++
+
+warning: hidden lifetime parameters in types are deprecated
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1/src/sys/signalfd.rs:149:24
+    |
+149 |     fn as_fd(&self) -> BorrowedFd {
+    |                        ^^^^^^^^^^ expected lifetime parameter
+    |
+help: indicate the anonymous lifetime
+    |
+149 |     fn as_fd(&self) -> BorrowedFd<'_> {
+    |                                  ++++
+
+warning: hidden lifetime parameters in types are deprecated
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1/src/sys/time.rs:447:32
+    |
+447 |     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    |                           -----^^^^^^^^^
+    |                           |
+    |                           expected lifetime parameter
+    |
+help: indicate the anonymous lifetime
+    |
+447 |     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    |                                         ++++
+
+warning: hidden lifetime parameters in types are deprecated
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1/src/sys/time.rs:695:32
+    |
+695 |     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    |                           -----^^^^^^^^^
+    |                           |
+    |                           expected lifetime parameter
+    |
+help: indicate the anonymous lifetime
+    |
+695 |     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    |                                         ++++
+
+warning: hidden lifetime parameters in types are deprecated
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1/src/sys/wait.rs:360:19
+    |
+360 | pub fn waitid(id: Id, flags: WaitPidFlag) -> Result<WaitStatus> {
+    |                   ^^ expected lifetime parameter
+    |
+help: indicate the anonymous lifetime
+    |
+360 | pub fn waitid(id: Id<'_>, flags: WaitPidFlag) -> Result<WaitStatus> {
+    |                     ++++
+
+warning: hidden lifetime parameters in types are deprecated
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1/src/unistd.rs:198:32
+    |
+198 |     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    |                           -----^^^^^^^^^
+    |                           |
+    |                           expected lifetime parameter
+    |
+help: indicate the anonymous lifetime
+    |
+198 |     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    |                                         ++++
+
+warning: function pointer comparisons do not produce meaningful results since their addresses are not guaranteed to be unique
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1/src/sys/signal.rs:768:13
+    |
+761 | #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+    |                                        --------- in this derive macro expansion
+...
+768 |     Handler(extern "C" fn(libc::c_int)),
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+   --> library/core/src/cmp.rs:288:0
+    |
+    = note: in this expansion of `#[derive(PartialEq)]`
+    |
+    = note: the address of the same function can vary between different codegen units
+    = note: furthermore, different functions could have the same address after being merged together
+    = note: for more information visit <https://doc.rust-lang.org/nightly/core/ptr/fn.fn_addr_eq.html>
+    = note: `#[warn(unpredictable_function_pointer_comparisons)]` on by default
+
+warning: function pointer comparisons do not produce meaningful results since their addresses are not guaranteed to be unique
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1/src/sys/signal.rs:772:15
+    |
+761 | #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+    |                                        --------- in this derive macro expansion
+...
+772 |     SigAction(extern "C" fn(libc::c_int, *mut libc::siginfo_t, *mut libc::c_void))
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+   --> library/core/src/cmp.rs:288:0
+    |
+    = note: in this expansion of `#[derive(PartialEq)]`
+    |
+    = note: the address of the same function can vary between different codegen units
+    = note: furthermore, different functions could have the same address after being merged together
+    = note: for more information visit <https://doc.rust-lang.org/nightly/core/ptr/fn.fn_addr_eq.html>
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1/src/sys/signalfd.rs:149:14
+    |
+149 |     fn as_fd(&self) -> BorrowedFd {
+    |              ^^^^^     ^^^^^^^^^^ the same lifetime is hidden here
+    |              |
+    |              the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+    |
+149 |     fn as_fd(&self) -> BorrowedFd<'_> {
+    |                                  ++++
+
+warning: unreachable `pub` item
+  --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1/src/unistd.rs:43:9
+   |
+43 | pub use self::setres::*;
+   | ---     ^^^^^^^^^^^^
+   | |
+   | help: consider restricting its visibility: `pub(crate)`
+   |
+   = help: or consider exporting it for use by other crates
+   = note: requested on the command line with `-W unreachable-pub`
+
+warning: unreachable `pub` item
+  --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1/src/unistd.rs:46:9
+   |
+46 | pub use self::getres::*;
+   | ---     ^^^^^^^^^^^^
+   | |
+   | help: consider restricting its visibility: `pub(crate)`
+   |
+   = help: or consider exporting it for use by other crates
+
+   Compiling ctrlc v3.5.1
+   Compiling rustc_driver_impl v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rust/compiler/rustc_driver_impl)
+warning: `nix` (lib) generated 13 warnings (run `cargo fix --lib -p nix` to apply 3 suggestions)
+   Compiling rustc_driver v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rust/compiler/rustc_driver)
+   Compiling rustc-main v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rust/compiler/rustc)
+    Finished `release` profile [optimized] target(s) in 58.19s
+Creating a sysroot for stage1 compiler (alphaev6-unknown-linux-gnu) (use `rustup toolchain link 'name' build/alphaev6-unknown-linux-gnu/stage1`)
+Building stage1 codegen backend gcc (stage0:x86_64-unknown-linux-gnu -> stage1:alphaev6-unknown-linux-gnu)
+warning: patch `rustix v1.1.5 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler)` was not used in the crate graph
+  |
+  = help: perhaps you meant one of the following:
+          	/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix
+warning: patch `nix v0.30.1 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1)` was not used in the crate graph
+warning: patch `nix v0.31.3 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.31.3)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+libgccjit.so: warning: : writing 8 bytes into a region of size 0 [-Wstringop-overflow=]
+libgccjit.so: note: : destination object is likely at address zero
+libgccjit.so: warning: : writing 8 bytes into a region of size 0 [-Wstringop-overflow=]
+libgccjit.so: note: : destination object is likely at address zero
+libgccjit.so: warning: : writing 8 bytes into a region of size 0 [-Wstringop-overflow=]
+libgccjit.so: note: : destination object is likely at address zero
+libgccjit.so: warning: : writing 8 bytes into a region of size 0 [-Wstringop-overflow=]
+libgccjit.so: note: : destination object is likely at address zero
+   Compiling rustc_codegen_gcc v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rust/compiler/rustc_codegen_gcc)
+    Finished `release` profile [optimized] target(s) in 1m 42s
+Warning: LLVM not available on CI for target=alphaev6-unknown-linux-gnu and assertions=false
+Build completed successfully in 0:02:42
+Installed 53 Alpha standard-library artifacts from bootstrap stamp

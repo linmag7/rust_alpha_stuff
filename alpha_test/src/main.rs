@@ -49,9 +49,9 @@ fn inline_asm_complex_test() {
     // ------------------------------------------------------------
     // 1) FP registers: compute (x + y) in f64 using addt
     // ------------------------------------------------------------
-    let x: f64 = 1.25;
-    let y: f64 = 2.5;
-    let mut z: f64 = 0.0;
+    let x: f64 = core::hint::black_box(1.25);
+    let y: f64 = core::hint::black_box(2.5);
+    let z: f64;
 
     unsafe {
         // z = x + y  (IEEE double add)
@@ -65,7 +65,8 @@ fn inline_asm_complex_test() {
     }
 
     print(b"f64 z bits = "); print_u64_hex(z.to_bits()); print_nl();
-    let expz = (x + y).to_bits();
+    let expz = 3.75f64.to_bits();
+    assert_eq!(z.to_bits(), expz);
     print(b"exp bits   = "); print_u64_hex(expz); print_nl();
     print(b"ok? "); print(&[if z.to_bits() == expz { b'1' } else { b'0' }]); print_nl();
 
@@ -73,21 +74,21 @@ fn inline_asm_complex_test() {
     // 2) Clobber test: smash a call-clobbered integer reg explicitly
     //    and prove Rust values survive because compiler knows clobbers.
     // ------------------------------------------------------------
-    let before: u64 = 0x0123_4567_89ab_cdef;
+    let before: u64 = core::hint::black_box(0x0123_4567_89ab_cdef);
     let after: u64 = before;
 
     unsafe {
         asm!(
             // Write a recognizable constant into some register chosen by compiler,
             // but declare it as a clobber via `out(reg) _`.
-            "lda {tmp}, 0x1234({zero})",
-            tmp = out(reg) _,         // tmp is clobbered
-            zero = in(reg) 31u64,     // not used; see note below
+            "lda {tmp}, 0x1234($31)",
+            tmp = out(reg) _,
             options(nomem, nostack),
         );
     }
 
     // If clobbers are respected, `after` is unchanged.
+    assert_eq!(after, before);
     print(b"after = "); print_u64_hex(after); print_nl();
     print(b"ok? "); print(&[if after == before { b'1' } else { b'0' }]); print_nl();
 
@@ -116,6 +117,7 @@ fn inline_asm_complex_test() {
     }
 
     let seen = unsafe { GLOB };
+    assert_eq!(seen, val);
     print(b"GLOB = "); print_u64_hex(seen); print_nl();
     print(b"ok? "); print(&[if seen == val { b'1' } else { b'0' }]); print_nl();
 }
@@ -128,7 +130,7 @@ fn inline_asm_smoke_test() {
     // 1) Pure register op: addq
     let a: u64 = 0x1111_2222_3333_4444;
     let b: u64 = 0x0102_0304_0506_0708;
-    let mut out: u64 = 0;
+    let out: u64;
 
     unsafe {
         // out = a + b
@@ -142,7 +144,8 @@ fn inline_asm_smoke_test() {
     }
 
     print(b"addq out = "); print_u64_hex(out); print_nl();
-    let exp = a.wrapping_add(b);
+    let exp = 0x1213_2526_3839_4b4c;
+    assert_eq!(out, exp);
     print(b"exp      = "); print_u64_hex(exp); print_nl();
     print(b"ok? "); print(&[if out == exp { b'1' } else { b'0' }]); print_nl();
 
@@ -150,7 +153,7 @@ fn inline_asm_smoke_test() {
     let mut slot: u64 = 0;
     let val: u64 = 0xdead_beef_cafe_f00d;
     let p = &mut slot as *mut u64;
-    let mut loaded: u64 = 0;
+    let loaded: u64;
 
     unsafe {
         asm!(
@@ -164,6 +167,8 @@ fn inline_asm_smoke_test() {
         );
     }
 
+    assert_eq!(loaded, val);
+    assert_eq!(slot, val);
     print(b"mem slot = "); print_u64_hex(slot); print_nl();
     print(b"loaded   = "); print_u64_hex(loaded); print_nl();
     print(b"ok? "); print(&[if loaded == val && slot == val { b'1' } else { b'0' }]); print_nl();
@@ -211,12 +216,6 @@ unsafe extern "C" {
     fn _exit(code: i32) -> !;
 }
 
-const PAGE: usize = 4096;
-
-fn round_up_page(x: usize) -> usize {
-    (x + PAGE - 1) & !(PAGE - 1)
-}
-
 /// Print raw bytes to stdout (fd = 1)
 #[inline(always)]
 fn print(msg: &[u8]) {
@@ -225,85 +224,33 @@ fn print(msg: &[u8]) {
     }
 }
 use core::alloc::{GlobalAlloc, Layout};
-
 use core::ffi::c_void;
-//use libc::{PROT_READ, PROT_WRITE, MAP_PRIVATE, MAP_ANONYMOUS, MAP_FAILED};
-
-const PROT_READ: i32  = 1;
-const PROT_WRITE: i32 = 2;
-const MAP_PRIVATE: i32 = 2;
-//const MAP_ANONYMOUS: i32 = 0x20;
-
-// Alpha/Linux likely uses 0x1000 for MAP_ANONYMOUS (see below)
-const MAP_ANONYMOUS: i32 = 0x10;
-
-const MAP_FAILED: *mut c_void = (-1isize) as *mut c_void;
-//use core::ffi::c_void;
-
-type OffT = i64;
-
 
 unsafe extern "C" {
-    fn __errno_location() -> *mut i32;
+    fn posix_memalign(ptr: *mut *mut c_void, alignment: usize, size: usize) -> i32;
+    fn free(ptr: *mut c_void);
+    fn getpagesize() -> i32;
 }
 
-unsafe extern "C" {
-    fn mmap(
-        addr: *mut c_void,
-        len: usize,
-        prot: i32,
-        flags: i32,
-        fd: i32,
-        offset: OffT,
-    ) -> *mut c_void;
-
-    fn munmap(addr: *mut c_void, len: usize) -> i32;
-}
-
-struct MmapAlloc;
-
-
-unsafe impl GlobalAlloc for MmapAlloc {
+// Let the target libc honor Layout alignment, including alignments larger than
+// Alpha's 8 KiB pages. This is a no_std test with a glibc dependency.
+struct LibcAlloc;
+unsafe impl GlobalAlloc for LibcAlloc {
     unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
-        print(b"alloc: size="); print_i64_dec(layout.size() as i64); print_nl();
-        let size = round_up_page(layout.size().max(PAGE));
-
-        let raw = unsafe { mmap(
-            core::ptr::null_mut(),
-            size,
-            PROT_READ | PROT_WRITE,
-            MAP_PRIVATE | MAP_ANONYMOUS,
-            -1,
-            0 as OffT,
-        ) };
-
-        print(b"mmap -> ");
-        print_u64_hex(raw as u64);
-        print_nl();
-        if raw == MAP_FAILED {
-    let e = unsafe { *__errno_location() };
-    print(b"mmap failed errno="); print_i64_dec(e as i64); print_nl();
-    return core::ptr::null_mut();
-}
-        if raw == MAP_FAILED {
-            core::ptr::null_mut()
+        let mut ptr = core::ptr::null_mut();
+        let alignment = layout.align().max(core::mem::size_of::<usize>());
+        if unsafe { posix_memalign(&mut ptr, alignment, layout.size()) } == 0 {
+            ptr.cast()
         } else {
-            raw as *mut u8
+            core::ptr::null_mut()
         }
     }
-
-    unsafe fn dealloc(&self, ptr: *mut u8, layout: Layout) {
-        let size = round_up_page(layout.size().max(PAGE));
-        print(b"dealloc: size="); print_i64_dec(layout.size() as i64); print_nl();
-        print(b"dealloc: ptr -> ");
-        print_u64_hex(ptr as u64);
-        print_nl();
-        let _ = unsafe { munmap(ptr as *mut c_void, size) };
+    unsafe fn dealloc(&self, ptr: *mut u8, _: Layout) {
+        unsafe { free(ptr.cast()) };
     }
 }
-
 #[global_allocator]
-static ALLOC: MmapAlloc = MmapAlloc;
+static ALLOC: LibcAlloc = LibcAlloc;
 
 /* --------------------------------------------------------- */
 /* Minimal helpers (no formatting infrastructure available)  */
@@ -367,14 +314,20 @@ fn do_some_integer_math() {
     print(b"dec test 4096 = "); print_u64_dec(4096); print_nl();
     print(b"dec test 1234567890 = "); print_u64_dec(1_234_567_890); print_nl();
 
-    let a: i64 = 0x1234_5678_9abc_def0;
+    let a: i64 = core::hint::black_box(0x1234_5678_9abc_def0);
     let b: i64 = -0x1111_2222_3333_4444;
 
     let sum = a.wrapping_add(b);
     let diff = a.wrapping_sub(b);
     let prod = a.wrapping_mul(7);
-    let quo = a / 3;
-    let rem = a % 3;
+    let divisor = core::hint::black_box(3);
+    let quo = a / divisor;
+    let rem = a % divisor;
+    assert_eq!(quo, 437256155821263440);
+    assert_eq!(rem, 0);
+    assert_eq!(sum as u64, 0x0123_3456_6789_9aac);
+    assert_eq!(diff as u64, 0x2345_789a_cdf0_2334);
+    assert_eq!(prod as u64, 0x7f6e_5d4c_3b2a_1890);
 
     print(b"a      = "); print_u64_hex(a as u64); print_nl();
     print(b"b      = "); print_u64_hex(b as u64); print_nl();
@@ -408,8 +361,8 @@ fn do_some_integer_math() {
 fn do_some_float_math() {
     print(b"\n== float math (f64) ==\n");
 
-    let x: f64 = 1.0 / 10.0;
-    let y: f64 = 3.0;
+    let x: f64 = core::hint::black_box(1.0 / 10.0);
+    let y: f64 = core::hint::black_box(3.0);
 
     let a: f64 = x * y;
     let b: f64 = x + x + x;
@@ -419,6 +372,8 @@ fn do_some_float_math() {
 
     let d: f64 = (1.0e16 + 1.0) - 1.0e16;
 
+    assert_eq!(a.to_bits(), 0x3fd3_3333_3333_3334);
+    assert_eq!(b.to_bits(), 0x3fd3_3333_3333_3334);
     print(b"x*y bits        = "); print_u64_hex(a.to_bits()); print_nl();
     print(b"x+x+x bits      = "); print_u64_hex(b.to_bits()); print_nl();
     print(b"(z*z)/z bits     = "); print_u64_hex(c.to_bits()); print_nl();
@@ -480,6 +435,7 @@ fn abi_stress_test() {
     print_pair(b"exp = ", exp);
 
     let ok = (got.a == exp.a) && (got.b == exp.b);
+    assert!(ok);
     print(b"abi ok? "); print(&[if ok { b'1' } else { b'0' }]); print_nl();
 }
 
@@ -491,9 +447,14 @@ fn abi_stress_test() {
 pub extern "C" fn _start() -> ! {
     print(b"alpha no_std rust test\n");
 
+    let page_size = unsafe { getpagesize() };
+    print(b"page size = "); print_i64_dec(page_size as i64); print_nl();
+    assert_eq!(page_size, 8192);
+
     do_some_integer_math();
     do_some_float_math();
     let b = Box::new(0x12345678_u64);
+    assert_eq!(*b, 0x12345678);
     print(b"Box value = ");
     print_u64_hex(*b);
     print_nl();
@@ -504,9 +465,22 @@ pub extern "C" fn _start() -> ! {
         v.push(i * 3);
     }
     
+    assert_eq!(v.len(), 16);
+    for (i, value) in v.iter().enumerate() { assert_eq!(*value, i * 3); }
+    #[repr(align(16384))]
+    struct OverAligned([u8; 32]);
+    let aligned = Box::new(OverAligned([0x5a; 32]));
+    assert_eq!((&*aligned as *const OverAligned as usize) % 16384, 0);
+    assert_eq!(aligned.0[31], 0x5a);
+    drop(aligned);
+    drop(v);
+    drop(b);
+    print(b"allocation and alignment: PASS\n");
+
     abi_stress_test();
     inline_asm_smoke_test();
     inline_asm_complex_test();
+    print(b"alpha smoke: PASS\n");
     unsafe {
         _exit(0);
     }

@@ -1,0 +1,6 @@
+{
+  "patches/rust-private-alpha.patch": "20a49e63986236c474c6d2ad9e2bbee67341f671748bfe459ae8de55841dc8ee",
+  "patches/backend-private-alpha.patch": "df5c141876b8bcbfa4440af6cde8c465e4ce88a18765eb22d1e3471e09adc850",
+  "patches/gcc-alpha-jit-sequence.patch": "63b6ef1aaf1f86e3a646aa28f4253ea69bbaefcf5452d7d6d386f228e2de6c88",
+  "patches/libc-0.2-private-alpha.patch": "9f62c448b84cc47a636e748fee386caae05609c18363a8ded56c7ce4af5bd996"
+}

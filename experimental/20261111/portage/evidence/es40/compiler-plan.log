@@ -1,0 +1,35 @@
+
+These are the packages that would be merged, in order:
+
+Calculating dependencies ... done!
+Dependency resolution took 19.02 s (backtrack: 1/20).
+
+
+!!! All ebuilds that could satisfy ">=sys-libs/glibc-2.41" have been masked.
+!!! One of the following masked packages is required to complete your request:
+- sys-libs/glibc-9999::gentoo (masked by: package.mask, missing keyword)
+/etc/portage/package.mask/releng/glibc:
+# preemptively...
+# new glibc tends to lead to trouble with sandbox (and qemu),
+# especially for the unstable arches
+#
+
+- sys-libs/glibc-2.44.9999::gentoo (masked by: package.mask, missing keyword)
+- sys-libs/glibc-2.44-r4::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.44-r3::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.43.9999::gentoo (masked by: package.mask, missing keyword)
+- sys-libs/glibc-2.43-r6::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.43-r5::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.43-r4::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.42-r7::gentoo (masked by: package.mask)
+- sys-libs/glibc-2.41-r10::gentoo (masked by: package.mask)
+
+(dependency required by "dev-lang/rust-alpha-bin-1.102.0_pre20261111::rust-alpha" [ebuild])
+(dependency required by "dev-lang/rust-alpha-bin::rust-alpha" [argument])
+For more information, see the MASKED PACKAGES section in the emerge
+man page or refer to the Gentoo Handbook.
+
+
+ * IMPORTANT: 28 news items need reading for repository 'gentoo'.
+ * Use eselect news read to view new items.
+

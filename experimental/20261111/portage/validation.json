@@ -1,0 +1,45 @@
+{
+  "scope": "private experimental Portage integration",
+  "es40_installed": true,
+  "host_sandbox_tested": false,
+  "applications_native_built_and_smoke_tested": true,
+  "packages": [
+    {
+      "package": "dev-lang/rust-alpha-bin-1.102.0_pre20261111",
+      "path": "dev-lang/rust-alpha-bin/rust-alpha-bin-1.102.0_pre20261111-3.gpkg.tar",
+      "sha256": "f293bdb3eab8ae620c59146500f7dc9363770b6ff5005c2776601f7f41486cd5",
+      "files": 6522,
+      "root_owned": true
+    },
+    {
+      "package": "sys-apps/ripgrep-15.2.0-r1",
+      "path": "sys-apps/ripgrep/ripgrep-15.2.0-r1-2.gpkg.tar",
+      "sha256": "4b5ad71701b589fea4b002a0ca12c15c6bfd694a1cb76fc11ee24268129c08d0",
+      "files": 23,
+      "root_owned": true
+    },
+    {
+      "package": "sys-apps/fd-10.5.0-r1",
+      "path": "sys-apps/fd/fd-10.5.0-r1-2.gpkg.tar",
+      "sha256": "ca427245605f2ad88e6540672109ecc4e0722223ac523c304a5ceeaa7d22c5b2",
+      "files": 20,
+      "root_owned": true
+    },
+    {
+      "package": "app-shells/zoxide-0.10.0-r1",
+      "path": "app-shells/zoxide/zoxide-0.10.0-r1-2.gpkg.tar",
+      "sha256": "9e0ee9381c25376131e575c16908f6b0778116171670c426d79980b17c0548b4",
+      "files": 29,
+      "root_owned": true
+    }
+  ],
+  "es40_native_c_compile_run": true,
+  "es40_native_cxx_exceptions": true,
+  "es40_native_cargo_compile_run": true,
+  "es40_installed_application_smoke_tests": true,
+  "es40_app_source_rebuild_tested": false,
+  "es40_chost": "alpha-unknown-linux-gnu",
+  "es40_reported_glibc": "2.41",
+  "es40_evidence": "evidence/es40",
+  "original_bundle_unchanged": true
+}

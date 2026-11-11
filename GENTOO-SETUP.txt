@@ -1,0 +1,81 @@
+Experimental native Rust/GCC toolchain with Gentoo Portage
+
+Requirements
+  Alpha GNU/Linux, EV6 or newer; Gentoo Portage with EAPI 8 support.
+  Tested: ES40 EV67, alpha-unknown-linux-gnu, glibc reporting 2.41.
+  Public ELF symbols require at most GLIBC_2.39. Other libc versions have not
+  been hardware-tested. Native libc development headers/libraries are needed.
+  Several GB of disk space and RAM are useful for source builds.
+  The compiler is a development snapshot with Rust panic=abort and no rustdoc.
+
+Artifacts
+  The Git repository itself contains no large binary/source-vendor archives.
+  The separately prepared install kit contains these exact distfiles:
+    alpha-native-toolchain-20261111-experimental.tar.xz
+    ripgrep-15.2.0-alpha-experimental-20261111.tar.xz
+    fd-10.5.0-alpha-experimental-20261111.tar.xz
+    zoxide-0.10.0-alpha-experimental-20261111.tar.xz
+  Each ebuild Manifest records size, BLAKE2B and SHA512. The kit also includes
+  SHA256SUMS and the current overlay/config/setup script. Its compiler archive
+  is the same tested native toolchain; applications are built from source.
+  No binary-package CHOST conversion is needed for this installation route.
+  Until release assets are published, these are prerequisites to obtain or
+  reproduce; there is no public binary download implied by the repository URL.
+
+Installation from a verified install kit, on the Alpha machine as root
+  Verify the outer archive against the supplied SHA256 file before extracting.
+  Then, from the extracted rust-alpha-portage directory:
+    sha256sum -c SHA256SUMS
+    ./setup-es40.sh --check
+    ./setup-es40.sh --install
+    emerge --ask --usepkg=n dev-lang/rust-alpha-bin::rust-alpha
+    FEATURES="${FEATURES} test" emerge --ask --usepkg=n app-shells/zoxide::rust-alpha
+
+  The setup script installs the local overlay at /var/db/repos/rust-alpha,
+  writes /etc/portage/repos.conf/rust-alpha.conf, adds scoped ~alpha keywords
+  and exact-version unmask entries, and copies distfiles to Portage's DISTDIR.
+  It refuses differing pre-existing configuration. For systems where repos.conf,
+  package.accept_keywords or package.unmask is a file, merge the supplied
+  entries manually after reviewing them. No broad profile masks are removed.
+
+  dev-lang/rust-alpha-bin unpacks the compiler; it does not bootstrap rustc.
+  Its files are owned by Portage under /opt/rust-alpha-experimental.
+  The Alpha compiler then builds zoxide from vendored sources on Alpha.
+  FEATURES=test runs functional smoke tests, not the full upstream test suite.
+
+  Other adapted applications:
+    FEATURES="${FEATURES} test" emerge --ask --usepkg=n \
+      sys-apps/ripgrep::rust-alpha sys-apps/fd::rust-alpha
+
+  Rebuild an already installed application and avoid binary packages:
+    FEATURES="${FEATURES} test" emerge --ask --oneshot --usepkg=n \
+      app-shells/zoxide::rust-alpha
+
+Compiler selection
+  alpha-cargo.eclass adds BDEPEND on dev-lang/rust-alpha-bin and sets CARGO to
+  /opt/rust-alpha-experimental/bin/cargo-alpha, RUSTC to the native compiler,
+  and the explicit alphaev6-unknown-linux-gnu target. The wrapper selects GCC,
+  libgccjit, aborting panics and patched libc/Rustix/Nix/OpenSSL support sources.
+  Cargo home, target output and temporary files stay within Portage's build tree.
+  ALPHA_RUST_JOBS defaults to 2 and can be set in make.conf for these ebuilds.
+
+  This registers a private compiler package and selects it in adapted ebuilds.
+  It does not satisfy virtual/rust or alter eselect/global compiler selection.
+  Do not add a fake virtual/rust provider: ordinary ebuilds may need components
+  and behavior that this experiment does not supply. General slotted integration
+  is follow-up work, separate from validating these three packages.
+
+Usage outside Portage
+  /opt/rust-alpha-experimental/bin/cargo-alpha new --vcs none hello-alpha
+  cd hello-alpha
+  /opt/rust-alpha-experimental/bin/cargo-alpha run
+  --offline is optional when a project's dependencies are locally available.
+  Rust panics abort; rustdoc/doctests, clippy and rustfmt are not packaged.
+
+Evidence and source provenance
+  experimental/20261111/portage/evidence/es40/
+  experimental/20261111/portage/ES40-INSTALL.txt
+  experimental/20261111/native-toolchain/status.json
+  publication/source-revisions.json
+  Source-rebuild results on the physical ES40 are recorded separately from
+  QEMU builds and from installing/running prebuilt application payloads.

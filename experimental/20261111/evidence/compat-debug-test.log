@@ -1,0 +1,67 @@
+    Updating crates.io index
+   Compiling compiler_builtins v0.1.160 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/core)
+   Compiling test v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/test)
+   Compiling libc v0.2.191 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/libc)
+   Compiling std v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/std)
+   Compiling serde_core v1.0.228
+   Compiling serde v1.0.228
+   Compiling serde_json v1.0.145
+   Compiling alpha_sdk_compat v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/probes/compat)
+   Compiling rustc-std-workspace-core v1.99.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/rustc-std-workspace-core)
+   Compiling alloc v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/alloc)
+   Compiling cfg-if v1.0.4
+   Compiling rustc-demangle v0.1.28
+   Compiling rustc-literal-escaper v0.0.8
+   Compiling unwind v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/unwind)
+   Compiling rustc-std-workspace-alloc v1.99.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/rustc-std-workspace-alloc)
+   Compiling panic_abort v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/panic_abort)
+   Compiling panic_unwind v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/panic_unwind)
+   Compiling std_detect v0.1.5 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/std_detect)
+   Compiling hashbrown v0.17.1
+   Compiling rustc-std-workspace-std v1.99.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/rustc-std-workspace-std)
+   Compiling proc_macro v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/proc_macro)
+   Compiling getopts v0.2.24
+   Compiling utf8parse v0.2.2
+   Compiling memchr v2.8.3
+   Compiling anstyle-query v1.1.5
+   Compiling is_terminal_polyfill v1.70.2
+   Compiling anstyle v1.0.14
+   Compiling colorchoice v1.0.5
+   Compiling clap_lex v0.7.7
+   Compiling strsim v0.11.1
+   Compiling regex-syntax v0.8.11
+   Compiling ryu v1.0.23
+   Compiling itoa v1.0.19
+   Compiling anstyle-parse v0.2.7
+   Compiling anstream v0.6.21
+   Compiling aho-corasick v1.1.5
+   Compiling clap_builder v4.5.20
+   Compiling regex-automata v0.4.18
+   Compiling clap v4.5.20
+   Compiling regex v1.12.2
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1m 00s
+     Running unittests src/lib.rs (work/experimental-20261111/target/ddb0c065314fd2fa/alphaev6-unknown-linux-gnu/debug/build/alpha_sdk_compat/d26f8295674bce99/out/alpha_sdk_compat-d26f8295674bce99)
+
+running 4 tests
+test tests::intentional_failure ... ignored, runner validation invokes this separately and expects failure
+test tests::expected_panic_is_reported - should panic ... ok
+test tests::threads_and_atomics ... ok
+test tests::serialization_regex_and_c ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.72s
+
+     Running unittests src/main.rs (work/experimental-20261111/target/ddb0c065314fd2fa/alphaev6-unknown-linux-gnu/debug/build/alpha_sdk_compat/5a44068789affa57/out/alpha_sdk_compat-5a44068789affa57)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/integration.rs (work/experimental-20261111/target/ddb0c065314fd2fa/alphaev6-unknown-linux-gnu/debug/build/alpha_sdk_compat/25c4b7e709cdbd87/out/integration-25c4b7e709cdbd87)
+
+running 2 tests
+test files_and_tcp ... ok
+test public_api_and_native_abi ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.62s
+

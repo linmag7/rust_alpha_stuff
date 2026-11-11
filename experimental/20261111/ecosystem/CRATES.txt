@@ -1,0 +1,28 @@
+Pinned direct dependencies for the Alpha ecosystem probes
+
+Cargo.lock fixes transitive dependencies. Default features are enabled unless
+marked otherwise; the list below shows explicitly requested extra features.
+
+Crate                    Version                  Extra features / default override
+anyhow                   1.0.104                  (defaults)
+thiserror                2.0.21                   (defaults)
+serde                    1.0.229                  derive
+serde_json               1.0.154                  (defaults)
+toml                     1.2.1+spec-1.1.0         (defaults)
+clap                     4.6.7                    derive
+regex                    1.13.1                   (defaults)
+tracing                  0.1.44                   (defaults)
+tracing-subscriber       0.3.23                   (defaults)
+rand                     0.9.5                    (defaults)
+uuid                     1.29.2                   v4
+sha2                     0.10.9                   (defaults)
+flate2                   1.1.11                   (defaults)
+tempfile                 3.27.0                   (defaults)
+walkdir                  2.5.0                    (defaults)
+rayon                    1.12.0                   (defaults)
+crossbeam-channel        0.5.17                   (defaults)
+parking_lot              0.12.5                   (defaults)
+tokio                    1.54.1                   rt-multi-thread, macros, net, time, sync, io-util
+axum                     0.8.9                    (defaults)
+reqwest                  0.12.28                  json; default features disabled
+rusqlite                 0.40.2                   bundled

@@ -1,0 +1,3 @@
+C/Rust layout: PASS
+Rust -> C scalars and stack arguments: PASS
+C -> Rust scalars and stack arguments: PASS

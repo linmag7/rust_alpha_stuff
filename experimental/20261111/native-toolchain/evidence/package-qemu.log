@@ -1,0 +1,115 @@
+rustc 1.102.0-dev
+binary: rustc
+commit-hash: unknown
+commit-date: unknown
+host: alphaev6-unknown-linux-gnu
+release: 1.102.0-dev
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental
+cargo 1.101.0 (c07ac2c4d 2026-11-06)
+warning: patch `rustix v1.1.4 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/rustix)` was not used in the crate graph
+  |
+  = help: perhaps you meant one of the following:
+          	/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/rustix-compiler
+warning: patch `openssl-src v300.6.1+3.6.3 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/openssl-src)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+     Locking 11 packages to highest Rust 1.102.0-dev compatible versions
+   Compiling cfg_aliases v0.2.2
+   Compiling libc v0.2.191 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/libc)
+   Compiling bitflags v2.13.2
+   Compiling cfg-if v1.0.5
+   Compiling rustix v1.1.5 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/rustix-compiler)
+   Compiling nix v0.30.1 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/nix-0.30.1)
+   Compiling nix v0.31.3 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/nix-0.31.3)
+   Compiling errno v0.3.14
+warning: function pointer comparisons do not produce meaningful results since their addresses are not guaranteed to be unique
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/nix-0.30.1/src/sys/signal.rs:768:13
+    |
+761 | #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+    |                                        --------- in this derive macro expansion
+...
+768 |     Handler(extern "C" fn(libc::c_int)),
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: the address of the same function can vary between different codegen units
+    = note: furthermore, different functions could have the same address after being merged together
+    = note: for more information visit <https://doc.rust-lang.org/nightly/core/ptr/fn.fn_addr_eq.html>
+    = note: `#[warn(unpredictable_function_pointer_comparisons)]` on by default
+
+warning: function pointer comparisons do not produce meaningful results since their addresses are not guaranteed to be unique
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/nix-0.30.1/src/sys/signal.rs:772:15
+    |
+761 | #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+    |                                        --------- in this derive macro expansion
+...
+772 |     SigAction(extern "C" fn(libc::c_int, *mut libc::siginfo_t, *mut libc::c_void))
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: the address of the same function can vary between different codegen units
+    = note: furthermore, different functions could have the same address after being merged together
+    = note: for more information visit <https://doc.rust-lang.org/nightly/core/ptr/fn.fn_addr_eq.html>
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/nix-0.30.1/src/sys/signalfd.rs:149:14
+    |
+149 |     fn as_fd(&self) -> BorrowedFd {
+    |              ^^^^^     ^^^^^^^^^^ the same lifetime is hidden here
+    |              |
+    |              the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+    |
+149 |     fn as_fd(&self) -> BorrowedFd<'_> {
+    |                                  ++++
+
+warning: `nix` (lib) generated 3 warnings (run `cargo fix --lib -p nix` to apply 1 suggestion)
+   Compiling packaged-alpha-probe v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/tests/packaged-probe)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3m 05s
+     Running `work/native-20261111/package-cargo-target/debug/packaged-alpha-probe`
+536893441 1074026498 2148030467 3221772292 45
+warning: patch `libc v0.2.191 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/libc)` was not used in the crate graph
+warning: patch `nix v0.30.1 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/nix-0.30.1)` was not used in the crate graph
+warning: patch `nix v0.31.3 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/nix-0.31.3)` was not used in the crate graph
+warning: patch `openssl-src v300.6.1+3.6.3 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/openssl-src)` was not used in the crate graph
+warning: patch `rustix v1.1.5 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/rustix-compiler)` was not used in the crate graph
+warning: patch `rustix v1.1.4 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/rustix)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+   Compiling native-alpha-macro v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/tests/native-macro)
+warning: building proc macro crate with `panic=abort` or `panic=immediate-abort` may crash the compiler should the proc-macro panic
+
+warning: `native-alpha-macro` (lib) generated 1 warning
+   Compiling native-alpha-macro-app v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/tests/native-macro-app)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 11.83s
+     Running `work/native-20261111/package-cargo-target/debug/native-alpha-macro-app`
+Native Alpha Cargo + procedural macro: PASS
+warning: patch `libc v0.2.191 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/libc)` was not used in the crate graph
+warning: patch `nix v0.30.1 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/nix-0.30.1)` was not used in the crate graph
+warning: patch `nix v0.31.3 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/nix-0.31.3)` was not used in the crate graph
+warning: patch `openssl-src v300.6.1+3.6.3 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/openssl-src)` was not used in the crate graph
+warning: patch `rustix v1.1.5 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/rustix-compiler)` was not used in the crate graph
+warning: patch `rustix v1.1.4 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/rustix)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+   Compiling native-alpha-macro v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/tests/native-macro)
+warning: building proc macro crate with `panic=abort` or `panic=immediate-abort` may crash the compiler should the proc-macro panic
+
+warning: `native-alpha-macro` (lib) generated 1 warning
+   Compiling native-alpha-macro-app v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/tests/native-macro-app)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 15.09s
+     Running unittests src/main.rs (work/native-20261111/package-cargo-target/debug/build/native-alpha-macro-app/4ea70466972c0a2a/out/native_alpha_macro_app-4ea70466972c0a2a)
+
+running 1 test
+test tests::macro_answer ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+Staged native toolchain, dependency patches, proc macro and unit test: PASS

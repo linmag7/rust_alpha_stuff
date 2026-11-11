@@ -1,0 +1,18 @@
+rust-alpha-portage-20261111.tar: OK
+Machine: alpha
+glibc: 2.41
+CHOST: alpha-unknown-linux-gnu
+Binary packages were prepared for CHOST=alphaev67-unknown-linux-gnu. Use source ebuilds until binary compatibility is checked.
+Portage temporary directory: /var/tmp
+ripgrep 15.2.0
+
+features:-pcre2
+
+PCRE2 is not available in this build of ripgrep.
+ripgrep: search, Unicode, exit status, ignore rules and man generation PASS
+fd 10.5.0
+fd: recursive search, extension filter, hidden files and completion generation PASS
+zoxide 0.10.0
+zoxide: no match found
+zoxide: persistent database, add/query/remove and shell initialization PASS
+ES40 application payload tests PASS

@@ -1,0 +1,6 @@
+{
+  "base": "a2a11abfad353f3e39c3a46abf278ad6258e5547",
+  "source": "https://raw.githubusercontent.com/gcc-mirror/gcc/a2a11abfad353f3e39c3a46abf278ad6258e5547/gcc/config/alpha/alpha.cc",
+  "patch_applies": true,
+  "diagnostics": ""
+}

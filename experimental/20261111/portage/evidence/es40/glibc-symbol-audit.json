@@ -1,0 +1,1278 @@
+[
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/objdump",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.8",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/alphaev6-unknown-linux-gnu-gcc-ranlib",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.3",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.33",
+      "2.34"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/alphaev6-unknown-linux-gnu-g++",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.17",
+      "2.25",
+      "2.27",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/cargo",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.2",
+      "2.1.3",
+      "2.2",
+      "2.3",
+      "2.3.2",
+      "2.3.4",
+      "2.4",
+      "2.5",
+      "2.6",
+      "2.9",
+      "2.10",
+      "2.15",
+      "2.16",
+      "2.17",
+      "2.18",
+      "2.25",
+      "2.27",
+      "2.28",
+      "2.29",
+      "2.30",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.38",
+      "2.39"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/as",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/alphaev6-unknown-linux-gnu-gcc-nm",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.3",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.33",
+      "2.34"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/readelf",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.3",
+      "2.4",
+      "2.8",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/gcov-tool",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.3.3",
+      "2.4",
+      "2.17",
+      "2.25",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/gprof",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld.bfd",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.8",
+      "2.11",
+      "2.15",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/gcov",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.4",
+      "2.17",
+      "2.25",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/alphaev6-unknown-linux-gnu-gcc-17.0.0",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.17",
+      "2.25",
+      "2.27",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/gcov-dump",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.4",
+      "2.17",
+      "2.25",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/objcopy",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.6",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/g++",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.17",
+      "2.25",
+      "2.27",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/gcc",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.17",
+      "2.25",
+      "2.27",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/gcc-nm",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.3",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.33",
+      "2.34"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/gcc-ar",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.3",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.33",
+      "2.34"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/alphaev6-unknown-linux-gnu-gcc-ar",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.3",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.33",
+      "2.34"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/ar",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.6",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/lto-dump",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.3",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.3.4",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.17",
+      "2.25",
+      "2.27",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.8",
+      "2.11",
+      "2.15",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/ranlib",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.6",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/c++filt",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/c++",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.17",
+      "2.25",
+      "2.27",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/strings",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/size",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/strip",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.6",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/nm",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/cpp",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.17",
+      "2.25",
+      "2.27",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/alphaev6-unknown-linux-gnu-c++",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.17",
+      "2.25",
+      "2.27",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/addr2line",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/gcc-ranlib",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.3",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.33",
+      "2.34"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/elfedit",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.4",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/alphaev6-unknown-linux-gnu-gcc",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.17",
+      "2.25",
+      "2.27",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/bin/rustc",
+    "glibc_versions": [
+      "2.34"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/lib/libgcc_s.so.1",
+    "glibc_versions": [
+      "2.0",
+      "2.3.2",
+      "2.3.4",
+      "2.34",
+      "2.35"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/lib/libatomic.so.1.2.0",
+    "glibc_versions": [
+      "2.0",
+      "2.1.3"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/lib/libgccjit.so.0.0.1",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.3",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.3.4",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.17",
+      "2.25",
+      "2.27",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/lib/librustc_driver-dbf688def5b695d8.so",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.2",
+      "2.1.3",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.4",
+      "2.4",
+      "2.5",
+      "2.6",
+      "2.7",
+      "2.9",
+      "2.10",
+      "2.15",
+      "2.16",
+      "2.17",
+      "2.18",
+      "2.25",
+      "2.27",
+      "2.28",
+      "2.29",
+      "2.30",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.39"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/lib/libstdc++.so.6.0.37",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.3",
+      "2.3.2",
+      "2.3.4",
+      "2.4",
+      "2.6",
+      "2.17",
+      "2.18",
+      "2.25",
+      "2.29",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/lib/libitm.so.1.0.0",
+    "glibc_versions": [
+      "2.0",
+      "2.1.3",
+      "2.2",
+      "2.4",
+      "2.34"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/alphaev6-unknown-linux-gnu/bin/objdump",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.8",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/alphaev6-unknown-linux-gnu/bin/as",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/alphaev6-unknown-linux-gnu/bin/readelf",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.3",
+      "2.4",
+      "2.8",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/alphaev6-unknown-linux-gnu/bin/ld.bfd",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.8",
+      "2.11",
+      "2.15",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/alphaev6-unknown-linux-gnu/bin/objcopy",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.6",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/alphaev6-unknown-linux-gnu/bin/ar",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.6",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/alphaev6-unknown-linux-gnu/bin/ld",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.8",
+      "2.11",
+      "2.15",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/alphaev6-unknown-linux-gnu/bin/ranlib",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.6",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/alphaev6-unknown-linux-gnu/bin/strip",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.6",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/alphaev6-unknown-linux-gnu/bin/nm",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.11",
+      "2.27",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/lib/bfd-plugins/libdep.so",
+    "glibc_versions": [
+      "2.0",
+      "2.1.3",
+      "2.3",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/lib/gcc/alphaev6-unknown-linux-gnu/17.0.0/crtbeginT.o",
+    "glibc_versions": []
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/lib/gcc/alphaev6-unknown-linux-gnu/17.0.0/crtendS.o",
+    "glibc_versions": []
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/lib/gcc/alphaev6-unknown-linux-gnu/17.0.0/crtbegin.o",
+    "glibc_versions": []
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/lib/gcc/alphaev6-unknown-linux-gnu/17.0.0/crtbeginS.o",
+    "glibc_versions": []
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/lib/gcc/alphaev6-unknown-linux-gnu/17.0.0/crtfastmath.o",
+    "glibc_versions": []
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/lib/gcc/alphaev6-unknown-linux-gnu/17.0.0/crtend.o",
+    "glibc_versions": []
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/lib/rustlib/alphaev6-unknown-linux-gnu/lib/libstd-8296f2aae7b32ffb.so",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.2",
+      "2.1.3",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.4",
+      "2.4",
+      "2.5",
+      "2.6",
+      "2.9",
+      "2.10",
+      "2.15",
+      "2.16",
+      "2.17",
+      "2.18",
+      "2.25",
+      "2.27",
+      "2.28",
+      "2.29",
+      "2.30",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.39"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/lib/rustlib/alphaev6-unknown-linux-gnu/codegen-backends/librustc_codegen_gcc-1.102.0-dev.so",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.3",
+      "2.3.4",
+      "2.4",
+      "2.6",
+      "2.9",
+      "2.10",
+      "2.25",
+      "2.33",
+      "2.34"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/libexec/gcc/alphaev6-unknown-linux-gnu/17.0.0/liblto_plugin.so",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.33",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/libexec/gcc/alphaev6-unknown-linux-gnu/17.0.0/lto1",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.3",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.3.4",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.17",
+      "2.25",
+      "2.27",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/libexec/gcc/alphaev6-unknown-linux-gnu/17.0.0/lto-wrapper",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.17",
+      "2.25",
+      "2.27",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/libexec/gcc/alphaev6-unknown-linux-gnu/17.0.0/cc1",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.3",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.3.4",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.17",
+      "2.25",
+      "2.27",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/libexec/gcc/alphaev6-unknown-linux-gnu/17.0.0/g++-mapper-server",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.3",
+      "2.3.2",
+      "2.4",
+      "2.6",
+      "2.10",
+      "2.17",
+      "2.25",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/libexec/gcc/alphaev6-unknown-linux-gnu/17.0.0/collect2",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.17",
+      "2.25",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/libexec/gcc/alphaev6-unknown-linux-gnu/17.0.0/cc1plus",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.3",
+      "2.2.4",
+      "2.3",
+      "2.3.2",
+      "2.3.4",
+      "2.4",
+      "2.11",
+      "2.15",
+      "2.17",
+      "2.25",
+      "2.27",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.35",
+      "2.36",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/libexec/gcc/alphaev6-unknown-linux-gnu/17.0.0/plugin/gengtype",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.3",
+      "2.4",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/native-20261111/stage/opt/rust-alpha-experimental/libexec/gcc/alphaev6-unknown-linux-gnu/17.0.0/install-tools/fixincl",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.3",
+      "2.2",
+      "2.2.3",
+      "2.3",
+      "2.4",
+      "2.33",
+      "2.34",
+      "2.38"
+    ]
+  },
+  {
+    "file": "work/portage-20261111/verify-extracted/ripgrep/usr/bin/rg",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.2",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.4",
+      "2.9",
+      "2.15",
+      "2.16",
+      "2.17",
+      "2.18",
+      "2.25",
+      "2.28",
+      "2.29",
+      "2.30",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.39"
+    ]
+  },
+  {
+    "file": "work/portage-20261111/verify-extracted/fd/usr/bin/fd",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.2",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.4",
+      "2.4",
+      "2.9",
+      "2.15",
+      "2.16",
+      "2.17",
+      "2.18",
+      "2.25",
+      "2.28",
+      "2.29",
+      "2.30",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.39"
+    ]
+  },
+  {
+    "file": "work/portage-20261111/verify-extracted/zoxide/usr/bin/zoxide",
+    "glibc_versions": [
+      "2.0",
+      "2.1",
+      "2.1.2",
+      "2.2",
+      "2.2.4",
+      "2.3",
+      "2.3.4",
+      "2.9",
+      "2.15",
+      "2.16",
+      "2.17",
+      "2.18",
+      "2.28",
+      "2.29",
+      "2.30",
+      "2.32",
+      "2.33",
+      "2.34",
+      "2.39"
+    ]
+  }
+]

@@ -1,0 +1,4 @@
+/var/db/pkg/dev-lang/rust-alpha-bin-1.102.0_pre20261111/CONTENTS:obj /opt/rust-alpha-experimental/bin/rustc 7cc1ee1e37194c1168d0cbd1f35c3930 1794398145
+/var/db/pkg/sys-apps/ripgrep-15.2.0-r1/CONTENTS:obj /usr/bin/rg 2655cad12a4cd4b9b1f176c9bd82f1fd 1794403229
+/var/db/pkg/sys-apps/fd-10.5.0-r1/CONTENTS:obj /usr/bin/fd 2f3049e0cc71486e38349025ca7a4ef4 1794402986
+/var/db/pkg/app-shells/zoxide-0.10.0-r1/CONTENTS:obj /usr/bin/zoxide d105b26c52f191c5c413e7ebb6007281 1794402713

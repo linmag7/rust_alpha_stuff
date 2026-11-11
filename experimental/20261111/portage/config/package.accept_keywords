@@ -1,0 +1,5 @@
+# Private experimental packages; not official Gentoo Alpha keywording.
+dev-lang/rust-alpha-bin::rust-alpha ~alpha
+sys-apps/ripgrep::rust-alpha ~alpha
+sys-apps/fd::rust-alpha ~alpha
+app-shells/zoxide::rust-alpha ~alpha

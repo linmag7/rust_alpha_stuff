@@ -1,0 +1,35 @@
+Building bootstrap
+warning: patch `rustix v1.1.5 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix-compiler)` was not used in the crate graph
+  |
+  = help: perhaps you meant one of the following:
+          	/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix
+warning: patch `libc v0.2.191 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/libc)` was not used in the crate graph
+warning: patch `nix v0.30.1 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.30.1)` was not used in the crate graph
+warning: patch `nix v0.31.3 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/nix-0.31.3)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+   Compiling rustix v1.1.4 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix)
+warning: unexpected `cfg` condition value: `alpha`
+  --> /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rustix/src/ioctl/linux.rs:67:5
+   |
+67 |     target_arch = "alpha",
+   |     ^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `target_arch` are: `aarch64`, `amdgpu`, `arm`, `arm64ec`, `avr`, `bpf`, `csky`, `hexagon`, `loongarch32`, `loongarch64`, `m68k`, `mips`, `mips32r6`, `mips64`, `mips64r6`, `msp430`, `nvptx64`, `powerpc`, `powerpc64`, `riscv32`, `riscv64`, `s390x`, `sparc`, `sparc64`, `wasm32`, `wasm64`, `x86`, `x86_64`, and `xtensa`
+   = help: consider using a Cargo feature instead
+   = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+            [lints.rust]
+            unexpected_cfgs = { level = "warn", check-cfg = ['cfg(target_arch, values("alpha"))'] }
+   = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(target_arch, values(\"alpha\"))");` to the top of the `build.rs`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+   = note: requested on the command line with `-W unexpected-cfgs`
+
+   Compiling tempfile v3.27.0
+warning: `rustix` (lib) generated 1 warning
+   Compiling shim_utils v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rust/src/shim_utils)
+   Compiling bootstrap v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/src/rust/src/bootstrap)
+    Finished `dev` profile [unoptimized] target(s) in 17.18s
+fmt: formatted 25 modified files
+Build completed successfully in 0:00:17

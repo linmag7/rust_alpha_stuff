@@ -1,0 +1,81 @@
+
+ * IMPORTANT: 28 news items need reading for repository 'gentoo'.
+ * Use eselect news read to view new items.
+
+Calculating dependencies ... done!
+Dependency resolution took 20.68 s (backtrack: 0/20).
+
+
+!!! The following installed packages are masked:
+- sys-libs/glibc-2.40-r11::gentoo (masked by: package.mask)
+/var/db/repos/gentoo/profiles/package.mask:
+# Andreas K. Hüttel <dilfridge@gentoo.org> (2017-05-21)
+# (and others, updated later)
+# These old versions of toolchain packages (binutils, gcc, glibc) are no
+# longer officially supported and are not suitable for general use. Using
+# these packages can result in build failures (and possible breakage) for
+# many packages, and may leave your system vulnerable to known security
+# exploits.
+# If you still use one of these old toolchain packages, please upgrade (and
+# switch the compiler / the binutils) ASAP. If you need them for a specific
+# (isolated) use case, feel free to unmask them on your system.
+
+For more information, see the MASKED PACKAGES section in the emerge
+man page or refer to the Gentoo Handbook.
+
+
+>>> Verifying ebuild manifests
+
+>>> Emerging (1 of 1) dev-lang/rust-alpha-bin-1.102.0_pre20261111::rust-alpha
+ * alpha-native-toolchain-20261111-experimental.tar.xz BLAKE2B SHA512 size ;-) ...         [ ok ]
+>>> Unpacking source...
+>>> Unpacking 'alpha-native-toolchain-20261111-experimental.tar.xz' to /var/tmp/portage/dev-lang/rust-alpha-bin-1.102.0_pre20261111/work
+>>> Source unpacked in /var/tmp/portage/dev-lang/rust-alpha-bin-1.102.0_pre20261111/work
+>>> Preparing source in /var/tmp/portage/dev-lang/rust-alpha-bin-1.102.0_pre20261111/work ...
+>>> Source prepared.
+>>> Configuring source in /var/tmp/portage/dev-lang/rust-alpha-bin-1.102.0_pre20261111/work ...
+>>> Source configured.
+>>> Compiling source in /var/tmp/portage/dev-lang/rust-alpha-bin-1.102.0_pre20261111/work ...
+>>> Source compiled.
+>>> Test phase [not enabled]: dev-lang/rust-alpha-bin-1.102.0_pre20261111
+
+>>> Install dev-lang/rust-alpha-bin-1.102.0_pre20261111 into /var/tmp/portage/dev-lang/rust-alpha-bin-1.102.0_pre20261111/image
+>>> Completed installing dev-lang/rust-alpha-bin-1.102.0_pre20261111 into /var/tmp/portage/dev-lang/rust-alpha-bin-1.102.0_pre20261111/image
+
+ [32m*[0m Final size of build directory: 703092 KiB (686.6 MiB)
+ [32m*[0m Final size of installed tree:  703064 KiB (686.5 MiB)
+
+making executable: /opt/rust-alpha-experimental/lib/libgcc_s.so.1
+making executable: /opt/rust-alpha-experimental/lib/libstdc++.so.6.0.37-gdb.py
+making executable: /opt/rust-alpha-experimental/lib/libatomic_asneeded.so
+making executable: /opt/rust-alpha-experimental/lib/libgcc_s_asneeded.so
+
+>>> Installing (1 of 1) dev-lang/rust-alpha-bin-1.102.0_pre20261111::rust-alpha
+ * waiting for lock on /var/db/.pkg.portage_lockfile ...                 [ ok ]
+ [32;01m*[0m Installed experimental Alpha toolchain under /opt/rust-alpha-experimental.
+ [32;01m*[0m The rust-alpha overlay selects it for its application ebuilds.
+ [32;01m*[0m Interactive use: /opt/rust-alpha-experimental/bin/cargo-alpha
+ [32;01m*[0m Other Gentoo Rust ebuilds still need individual integration and validation.
+
+>>> Recording dev-lang/rust-alpha-bin::rust-alpha in "world" favorites file...
+
+>>> Completed (1 of 1) dev-lang/rust-alpha-bin-1.102.0_pre20261111::rust-alpha
+
+ * Messages for package dev-lang/rust-alpha-bin-1.102.0_pre20261111:
+
+ * Installed experimental Alpha toolchain under /opt/rust-alpha-experimental.
+ * The rust-alpha overlay selects it for its application ebuilds.
+ * Interactive use: /opt/rust-alpha-experimental/bin/cargo-alpha
+ * Other Gentoo Rust ebuilds still need individual integration and validation.
+ * waiting for lock on /var/db/.pkg.portage_lockfile ...                 [ ok ]
+
+ * Regenerating GNU info directory index...
+ * Processed 124 info files.
+
+ * IMPORTANT: 2 config files in '/etc' need updating.
+ * See the CONFIGURATION FILES and CONFIGURATION FILES UPDATE TOOLS
+ * sections of the emerge man page to learn how to update config files.
+
+ * IMPORTANT: 28 news items need reading for repository 'gentoo'.
+ * Use eselect news read to view new items.
+

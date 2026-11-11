@@ -1,0 +1,1 @@
+PASS rusqlite/bundled SQLite 3.53.2, WAL, commit/rollback, persistent rows, text/blob/float FFI, integrity

@@ -1,0 +1,164 @@
+[
+  {
+    "binary": "abi_scalars",
+    "profile": "debug",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           96 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000370"
+    ]
+  },
+  {
+    "binary": "abi_pair_arg",
+    "profile": "debug",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           96 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000370"
+    ]
+  },
+  {
+    "binary": "abi_pair_ret",
+    "profile": "debug",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           96 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000370"
+    ]
+  },
+  {
+    "binary": "abi_triple_arg",
+    "profile": "debug",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           96 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000370"
+    ]
+  },
+  {
+    "binary": "abi_triple_callback",
+    "profile": "debug",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           96 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000370"
+    ]
+  },
+  {
+    "binary": "abi_extended",
+    "profile": "debug",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           96 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000370"
+    ]
+  },
+  {
+    "binary": "constants",
+    "profile": "debug",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           72 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000348"
+    ]
+  },
+  {
+    "binary": "layouts",
+    "profile": "debug",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000308"
+    ]
+  },
+  {
+    "binary": "runtime",
+    "profile": "debug",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           528 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000818"
+    ]
+  },
+  {
+    "binary": "abi_scalars",
+    "profile": "release",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000308"
+    ]
+  },
+  {
+    "binary": "abi_pair_arg",
+    "profile": "release",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000308"
+    ]
+  },
+  {
+    "binary": "abi_pair_ret",
+    "profile": "release",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000308"
+    ]
+  },
+  {
+    "binary": "abi_triple_arg",
+    "profile": "release",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000308"
+    ]
+  },
+  {
+    "binary": "abi_triple_callback",
+    "profile": "release",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000308"
+    ]
+  },
+  {
+    "binary": "abi_extended",
+    "profile": "release",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000308"
+    ]
+  },
+  {
+    "binary": "constants",
+    "profile": "release",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000308"
+    ]
+  },
+  {
+    "binary": "layouts",
+    "profile": "release",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           48 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000308"
+    ]
+  },
+  {
+    "binary": "runtime",
+    "profile": "release",
+    "exit": 0,
+    "dynamic_tags": [
+      "0x0000000000000002 (PLTRELSZ)           480 (bytes)",
+      "0x0000000000000017 (JMPREL)             0x120000740"
+    ]
+  }
+]

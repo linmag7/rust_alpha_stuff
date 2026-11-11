@@ -1,0 +1,24 @@
+Building bootstrap
+    Finished `dev` profile [unoptimized] target(s) in 0.07s
+Testing stage1 rustc_target (x86_64-unknown-linux-gnu)
+   Compiling rustc_target v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_target)
+    Finished `release` profile [optimized] target(s) in 2.30s
+     Running unittests src/lib.rs (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage1-rustc/x86_64-unknown-linux-gnu/release/build/rustc_target/2ea203124ed9bb59/out/rustc_target-2ea203124ed9bb59)
+
+running 342 tests
+........................................................................................  88/342
+........................................................................................ 176/342
+........................................................................................ 264/342
+..............................................................................
+
+test result: ok. 342 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 21.84ms
+
+   Doc-tests rustc_target
+
+running 0 tests
+
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 25.43µs
+
+	finished in 3.278 seconds
+Build completed successfully in 0:00:03

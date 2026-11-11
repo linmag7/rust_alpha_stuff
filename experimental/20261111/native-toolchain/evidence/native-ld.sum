@@ -1,0 +1,74 @@
+Test run by lindholm on Wed Nov 11 11:40:40 2026
+Target is alphaev6-unknown-linux-gnu
+Host   is x86_64-pc-linux-gnu
+
+		=== ld tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/alpha.exp ...
+PASS: TLS -fpic -shared
+PASS: Helper shared library
+PASS: TLS -fpic and -fno-pic exec
+PASS: TLS -fpic and -fno-pic exec -relax
+PASS: empty got
+PASS: got realloc after relax
+PASS: IFUNC helper shared library
+PASS: ld-alpha/got-merge-gprel
+PASS: ld-alpha/ifunc-addend-literal
+PASS: ld-alpha/ifunc-addend-refquad
+PASS: ld-alpha/ifunc-addend-shared-local
+PASS: ld-alpha/ifunc-addend-shared
+PASS: ld-alpha/ifunc-branch
+PASS: ld-alpha/ifunc-comdat
+PASS: ld-alpha/ifunc-discard
+PASS: ld-alpha/ifunc-ehframe
+PASS: ld-alpha/ifunc-extern
+PASS: ld-alpha/ifunc-gc-local
+PASS: ld-alpha/ifunc-gc
+PASS: ld-alpha/ifunc-global-dynamic
+PASS: ld-alpha/ifunc-global-export
+PASS: ld-alpha/ifunc-global-nocombreloc
+PASS: ld-alpha/ifunc-global-pie
+PASS: ld-alpha/ifunc-global-relax
+PASS: ld-alpha/ifunc-global-shared
+PASS: ld-alpha/ifunc-global-static
+PASS: ld-alpha/ifunc-gprel
+PASS: ld-alpha/ifunc-gprel32
+PASS: ld-alpha/ifunc-local-call-shared
+PASS: ld-alpha/ifunc-local-call-static
+PASS: ld-alpha/ifunc-local-dynamic
+PASS: ld-alpha/ifunc-local-relax
+PASS: ld-alpha/ifunc-local-shared
+PASS: ld-alpha/ifunc-local-static
+PASS: ld-alpha/ifunc-multi
+PASS: ld-alpha/ifunc-none
+PASS: ld-alpha/ifunc-reflong-dynamic
+PASS: ld-alpha/ifunc-reflong-static
+PASS: ld-alpha/ifunc-relax-discard
+PASS: ld-alpha/ifunc-relax
+PASS: ld-alpha/ifunc-rodata-dynamic
+PASS: ld-alpha/ifunc-rodata-static
+PASS: ld-alpha/ifunc-rodata-ztext
+PASS: ld-alpha/ifunc-srel
+PASS: ld-alpha/ifunc-weak-dynamic
+PASS: ld-alpha/ifunc-weak-static
+PASS: ld-alpha/ifunc-weak-undef-dynamic
+PASS: ld-alpha/ifunc-weak-undef-static
+PASS: ld-alpha/relax-gpdisp
+PASS: ld-alpha/textrel
+PASS: ld-alpha/tlsbin-undef
+PASS: ld-alpha/tlsbin-weak-undef1
+PASS: ld-alpha/tlsbin-weak-undef2
+PASS: ld-alpha/tlsbin-weak-undef3
+PASS: ld-alpha/tlsbin-weak-undef4
+PASS: ld-alpha/tlspic-undef
+PASS: ld-alpha/tlspic-weak-undef1
+
+		=== ld Summary ===
+
+# of expected passes		57
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental/bin/ld 2.47.50.20261111
+

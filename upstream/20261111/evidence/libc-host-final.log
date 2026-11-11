@@ -1,0 +1,42 @@
+   Compiling libc v1.0.0-alpha.5 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/upstream-20261111/libc)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.32s
+     Running unittests src/lib.rs (work/upstream-20261111/host-target/debug/build/libc/95aa94233f21b79b/out/libc-95aa94233f21b79b)
+
+running 17 tests
+test macros::tests::c_enum_attrs ... ok
+test macros::tests::c_enum_basic ... ok
+test macros::tests::c_enum_repr ... ok
+test macros::tests::c_enum_multiple_set_value ... ok
+test macros::tests::c_enum_set_value ... ok
+test macros::tests::c_enum_vis ... ok
+test macros::tests::s2_is_non_exhaustive ... ok
+test macros::tests::f_safety ... ok
+test macros::tests::s2_keeps_field_attrs ... ok
+test macros::tests::s2_keeps_struct_cfg ... ok
+test macros::tests::s2_single_cfg_field ... ok
+test macros::tests::s2_union_default ... ok
+test macros::tests::s2_uses_custom_default ... ok
+test macros::tests::s2_uses_mixed_exhaustive ... ok
+test macros::tests::s2_uses_exhaustive ... ok
+test macros::tests::s_no_extra_traits2_zeroes_union ... ok
+test macros::tests::test_offset_of ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/const_fn.rs (work/upstream-20261111/host-target/debug/build/libc/8d9dfc5a0bb5a816/out/const_fn-8d9dfc5a0bb5a816)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests libc
+
+running 5 tests
+test src/lib.rs - (line 116) ... ignored
+test src/lib.rs - (line 66) ... ignored
+test src/lib.rs - (line 81) ... ignored
+test src/macros.rs - macros::s2 (line 270) ... ignored
+test src/macros.rs - macros::s_no_extra_traits2 (line 329) ... ignored
+
+test result: ok. 0 passed; 0 failed; 5 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

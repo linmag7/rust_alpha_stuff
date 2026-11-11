@@ -1,0 +1,63 @@
+ES40 installation and hardware validation — 2026-11-11
+
+Host: root@192.168.1.82 (ansgar), Alpha EV67, Gentoo Alpha 23.0 profile.
+CHOST: alpha-unknown-linux-gnu. Runtime getconf reports glibc 2.41.
+
+Installed through Portage:
+  dev-lang/rust-alpha-bin-1.102.0_pre20261111
+  sys-apps/ripgrep-15.2.0-r1
+  sys-apps/fd-10.5.0-r1
+  app-shells/zoxide-0.10.0-r1
+
+Native compiler prefix: /opt/rust-alpha-experimental
+Interactive Cargo: /opt/rust-alpha-experimental/bin/cargo-alpha
+Example (from a Cargo project):
+  /opt/rust-alpha-experimental/bin/cargo-alpha run --offline
+Use --offline when dependencies are already available locally.
+The wrapper's unused-patch warnings are expected for projects without those
+support-crate dependencies.
+
+Private overlay: /var/db/repos/rust-alpha
+Supported application source rebuild command, not yet validated on the ES40:
+  FEATURES="${FEATURES} test" emerge --ask --usepkg=n app-shells/zoxide::rust-alpha
+The source ebuild selects cargo-alpha and the prepared offline vendor bundles.
+Unmodified Gentoo Rust ebuilds do not automatically use this experimental compiler.
+
+Installation preparation and compatibility fixes:
+  Original release bundle checksums passed; preserved unchanged.
+  Original package CHOST was alphaev67-unknown-linux-gnu, code target EV6.
+  All three original app payloads passed smoke tests on actual EV67 hardware.
+  Separate application GPKGs were prepared with ES40 CHOST metadata, retaining
+  original CHOST and verifying compressed executable image SHA256 unchanged.
+  Portage regenerated the package checksums and index. No ignore-CHOST flag.
+  Compiler installed from its archive-unpacking ebuild, not a native bootstrap.
+  All four ebuilds now require glibc >=2.39: audited 70 toolchain ELF files and
+  three application ELF files. Actual hardware validation used glibc 2.41;
+  this is not a claim of runtime testing on every glibc version.
+  Existing VDB contains glibc 2.40-r11 and 2.41-r6 in the same slot; dependency
+  resolution initially rejected >=2.41. No libc package or VDB was changed.
+  A temporary exact-version libc unmask was ineffective and was removed.
+  Exact versions of these three private-overlay applications are unmasked in
+  /etc/portage/package.unmask/rust-alpha to override the wd40 profile mask.
+
+Evidence:
+  Compiler and application emerge commands returned zero.
+  Native GCC compiled and ran a C program.
+  Native G++ compiled and ran a C++ exception test.
+  Native Cargo compiled Rust in 13.85 seconds and ran the program successfully:
+    four threads, atomic counter, UTF-8 file write/read/delete.
+  Installed rg: search, Unicode, exit codes, ignore handling, man generation.
+  Installed fd: recursion, extension filter, hidden files, completions.
+  Installed zoxide: persistent database add/query/remove and shell init.
+  Smoke scripts and logs are retained in evidence/es40/.
+
+Remote staging/logs: /root/rust-alpha-install-20261111
+Hardware-adapted application packages: that directory's es40-binpkgs/.
+The original workstation release tar remains an immutable earlier artifact;
+use current project overlay/config plus the recorded ES40 adaptations, not
+an assumption that the original tar incorporates these installation fixes.
+
+Limits: private proof of concept; panic=abort, non-PIE, no rustdoc/doctests,
+no full compiler self-bootstrap. Native application source rebuilds on this
+physical machine remain a separate validation step. Original QEMU source
+builds passed. Shell startup files were not edited to activate zoxide.

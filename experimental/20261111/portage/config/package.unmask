@@ -1,0 +1,4 @@
+# Private experimental packages tested on ES40; retain other wd40 masks.
+=sys-apps/ripgrep-15.2.0-r1::rust-alpha
+=sys-apps/fd-10.5.0-r1::rust-alpha
+=app-shells/zoxide-0.10.0-r1::rust-alpha

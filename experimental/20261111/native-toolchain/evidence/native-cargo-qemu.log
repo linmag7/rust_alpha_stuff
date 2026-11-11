@@ -1,0 +1,12 @@
+cargo 1.101.0 (c07ac2c4d 2026-11-06)
+release: 1.101.0
+commit-hash: c07ac2c4d12237effc4b94f4543769b421790045
+commit-date: 2026-11-06
+host: alphaev6-unknown-linux-gnu
+libgit2: 1.9.6 (sys:0.21.0 vendored)
+libcurl: 8.21.0-DEV (sys:0.4.90+curl-8.21.0 vendored ssl:OpenSSL/3.6.3)
+ssl: OpenSSL 3.6.3 9 Jun 2026
+os: Ubuntu 24.4.0 (noble) [64-bit]
+    Creating binary (application) `native-cargo-project` package
+note: see more `Cargo.toml` keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+Native Alpha Cargo version/help/new/metadata: PASS

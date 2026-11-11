@@ -1,0 +1,2036 @@
+Test run by lindholm on Wed Nov 11 11:05:27 2026
+Target is alphaev6-unknown-linux-gnu
+Host   is x86_64-pc-linux-gnu
+
+		=== ld tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-aarch64/aarch64-elf.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-aarch64/aarch64-nto.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-aarch64/build-attributes/aarch64-build-attributes.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-aarch64/non-contiguous-mem/aarch64-non-contiguous-mem.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-aarch64/protections/aarch64-protections.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-alpha/alpha.exp ...
+PASS: TLS -fpic -shared
+PASS: Helper shared library
+PASS: TLS -fpic and -fno-pic exec
+PASS: TLS -fpic and -fno-pic exec -relax
+PASS: empty got
+PASS: got realloc after relax
+PASS: IFUNC helper shared library
+PASS: ld-alpha/got-merge-gprel
+PASS: ld-alpha/ifunc-addend-literal
+PASS: ld-alpha/ifunc-addend-refquad
+PASS: ld-alpha/ifunc-addend-shared-local
+PASS: ld-alpha/ifunc-addend-shared
+PASS: ld-alpha/ifunc-branch
+PASS: ld-alpha/ifunc-comdat
+PASS: ld-alpha/ifunc-discard
+PASS: ld-alpha/ifunc-ehframe
+PASS: ld-alpha/ifunc-extern
+PASS: ld-alpha/ifunc-gc-local
+PASS: ld-alpha/ifunc-gc
+PASS: ld-alpha/ifunc-global-dynamic
+PASS: ld-alpha/ifunc-global-export
+PASS: ld-alpha/ifunc-global-nocombreloc
+PASS: ld-alpha/ifunc-global-pie
+PASS: ld-alpha/ifunc-global-relax
+PASS: ld-alpha/ifunc-global-shared
+PASS: ld-alpha/ifunc-global-static
+PASS: ld-alpha/ifunc-gprel
+PASS: ld-alpha/ifunc-gprel32
+PASS: ld-alpha/ifunc-local-call-shared
+PASS: ld-alpha/ifunc-local-call-static
+PASS: ld-alpha/ifunc-local-dynamic
+PASS: ld-alpha/ifunc-local-relax
+PASS: ld-alpha/ifunc-local-shared
+PASS: ld-alpha/ifunc-local-static
+PASS: ld-alpha/ifunc-multi
+PASS: ld-alpha/ifunc-none
+PASS: ld-alpha/ifunc-reflong-dynamic
+PASS: ld-alpha/ifunc-reflong-static
+PASS: ld-alpha/ifunc-relax-discard
+PASS: ld-alpha/ifunc-relax
+PASS: ld-alpha/ifunc-rodata-dynamic
+PASS: ld-alpha/ifunc-rodata-static
+PASS: ld-alpha/ifunc-rodata-ztext
+PASS: ld-alpha/ifunc-srel
+PASS: ld-alpha/ifunc-weak-dynamic
+PASS: ld-alpha/ifunc-weak-static
+PASS: ld-alpha/ifunc-weak-undef-dynamic
+PASS: ld-alpha/ifunc-weak-undef-static
+PASS: ld-alpha/relax-gpdisp
+PASS: ld-alpha/textrel
+PASS: ld-alpha/tlsbin-undef
+PASS: ld-alpha/tlsbin-weak-undef1
+PASS: ld-alpha/tlsbin-weak-undef2
+PASS: ld-alpha/tlsbin-weak-undef3
+PASS: ld-alpha/tlsbin-weak-undef4
+PASS: ld-alpha/tlspic-undef
+PASS: ld-alpha/tlspic-weak-undef1
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-arc/arc.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-archive/archive.exp ...
+PASS: First regular archive create
+PASS: Second regular archive create
+PASS: First thin archive create
+PASS: Second thin archive create
+PASS: Regular archive w/o index create
+PASS: Thin archive w/o index create
+PASS: Other regular archive create
+PASS: Other thin archive create
+PASS: Other regular archive w/o index create
+PASS: Other thin archive w/o index create
+PASS: Regular archive link
+PASS: Thin archive link
+PASS: Fake archive link
+PASS: Script fake archive link
+PASS: Regular whole archive link
+PASS: Thin whole archive link
+PASS: Fake whole archive link
+PASS: Script fake whole archive link
+PASS: Regular non-group archive link reject
+PASS: Thin non-group archive link reject
+PASS: Fake non-group archive link reject
+PASS: Script fake non-group archive link reject
+PASS: Regular group archive link accept
+PASS: Thin group archive link accept
+PASS: Fake group archive link accept
+PASS: Script fake group archive link accept
+PASS: Regular archive plus regular link
+PASS: Regular archive plus thin link
+PASS: Regular archive plus fake link
+PASS: Regular archive plus script fake link
+PASS: Thin archive plus regular link
+PASS: Thin archive plus thin link
+PASS: Thin archive plus fake link
+PASS: Thin archive plus script fake link
+PASS: Fake archive plus regular link
+PASS: Script fake archive plus regular link
+PASS: Fake archive plus thin link
+PASS: Fake archive plus fake link
+PASS: Script fake archive plus script fake link
+PASS: Regular archive plus whole regular link
+PASS: Regular archive plus whole thin link
+PASS: Regular archive plus whole fake link
+PASS: Regular archive w/o index link accept
+PASS: Thin archive w/o index link accept
+PASS: Fake archive with --no-link-mapless link accept
+PASS: Script fake archive with --no-link-mapless link accept
+PASS: Regular archive w/o index plus thin link accept
+PASS: Thin archive w/o index plus regular link accept
+PASS: Regular non-group archive w/o index link reject
+PASS: Thin non-group archive w/o index link reject
+PASS: Regular group archive w/o index link accept
+PASS: Thin group archive w/o index link accept
+PASS: Regular archive w/o index link reject
+PASS: Thin archive w/o index link reject
+PASS: Regular archive w/o index plus thin link reject
+PASS: Thin archive w/o index plus regular link reject
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-arm/arm-elf.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-arm/export-class.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-attributes/ld-attributes.exp ...
+UNSUPPORTED: Object Attributes v2: mismatch subsection properties with oav2-1-all-optional-1
+UNSUPPORTED: Object Attributes v2: only one input object is copied to the output object
+UNSUPPORTED: Object Attributes v2: 2 files, all optional, 1 more, 1 missing
+UNSUPPORTED: Object Attributes v2: unknown attribute inside known subsection should be removed from the output.
+UNSUPPORTED: Object Attributes v2: unknown subsections are removed from the output.
+UNSUPPORTED: Object Attributes v2: combine non-matching required subsections
+UNSUPPORTED: Object Attributes v2: combine matching required subsections
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-auto-import/auto-import.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-avr/avr.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-bootstrap/bootstrap.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-bpf/bpf.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-cdtest/cdtest.exp ...
+UNTESTED: cdtest
+UNTESTED: cdtest with -Ur
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-checks/checks.exp ...
+PASS: check sections 1
+PASS: check sections 2
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-cris/archive.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-cris/cris.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-crx/crx.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-csky/csky.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-ctf/ctf.exp ...
+PASS: Arrays (conflicted)
+PASS: Arrays (extern)
+PASS: Arrays
+PASS: Conflicting cycle 1.B-1
+PASS: Conflicting cycle 1.B-2
+PASS: Conflicting cycle 1.parent
+PASS: Conflicting cycle 2.A-1
+PASS: Conflicting cycle 2.A-2
+PASS: Conflicting cycle 2.parent
+PASS: Conflicting cycle 3.C-1
+PASS: Conflicting cycle 3.C-2
+PASS: Conflicting cycle 3
+PASS: Conflicting Enums
+PASS: Conflicting Typedefs
+PASS: cross-TU-cyclic-conflicting
+PASS: cross-TU-cyclic-nonconflicting
+PASS: cross-TU-into-cycle
+PASS: cross-TU-noncyclic
+PASS: Cycle 1
+PASS: Cycle 2.A
+PASS: Cycle 2.B
+PASS: Cycle 2.C
+PASS: Conflicted data syms, partially indexed, stripped, with variables
+PASS: Conflicted data syms, partially indexed, stripped
+PASS: Diagnostics - CTF version 0
+PASS: Diagnostics - CTF version 2 with unsupported feature
+PASS: Diagnostics - Unsupported CTF version
+PASS: Diagnostics - Invalid type name.
+PASS: Diagnostics - Null type name
+PASS: Diagnostics - Invalid CU name offset
+PASS: Diagnostics - Decompression failure
+PASS: Diagnostics - Non-zero parlabel in parent
+PASS: Diagnostics - No parent dictionary
+PASS: Diagnostics - String offset invalid.
+PASS: Diagnostics - Unsupported flag
+PASS: Diagnostics - Wrong magic number mixed with valid CTF sections
+PASS: Diagnostics - Wrong magic number
+PASS: Forwards to enums
+PASS: Enumerated types
+PASS: Forwards
+PASS: Function
+PASS: Nonrepresentable members
+PASS: Nonrepresentable types
+PASS: Semioverlapping enumerators
+PASS: Overlapping enumerators
+PASS: Slice
+PASS: Super- and sub-cycles
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-cygwin/exe-export.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-d10v/d10v.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-discard/discard.exp ...
+PASS: ld-discard/extern
+PASS: ld-discard/start
+PASS: ld-discard/static
+PASS: ld-discard/zero-range
+PASS: ld-discard/zero-rel
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-dynamic/export-dynamic-symbol.exp ...
+PASS: Build libpr25910.a
+PASS: --export-dynamic-symbol foo archive
+PASS: -u --export-dynamic-symbol foo archive
+PASS: -u --export-dynamic-symbol "f*" archive
+PASS: --export-dynamic-symbol-list foo archive
+PASS: -u --export-dynamic-symbol-list foo bar archive
+PASS: -u --export-dynamic-symbol-list fstar archive
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/audit.exp ...
+PASS: Run with -paudit.so
+PASS: Run with -Paudit.so
+PASS: Run with --depaudit=audit.so
+PASS: Run with shared with --audit
+PASS: Run with shared with three --audit
+PASS: Run with -lusesaudit
+PASS: Run with -lusesaudit -lusesaudit2
+PASS: Link with -z globalaudit
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/binutils.exp ...
+PASS: strip -z max-page-size=0x200000 (maxpage1)
+PASS: strip -z max-page-size=0x200000 -z common-page-size=0x100000 (maxpage1)
+PASS: strip -z max-page-size=0x100000 (maxpage1)
+PASS: strip -z max-page-size=0x100000 -z common-page-size=0x1000 (maxpage1)
+PASS: strip  (maxpage1)
+PASS: strip -shared (maxpage1)
+PASS: objcopy  (maxpage1)
+PASS: objcopy -shared (maxpage1)
+PASS: strip -z relro (relro1)
+PASS: strip -z relro -shared (relro1)
+PASS: objcopy -z relro (relro1)
+PASS: objcopy -z relro -shared (relro1)
+PASS: strip -T lma.lnk
+PASS: objcopy -z noseparate-code (tdata1)
+PASS: objcopy -z separate-code (tdata1)
+PASS: objcopy -z relro (tdata1)
+PASS: objcopy -shared -z noseparate-code (tdata1)
+PASS: objcopy -shared -z separate-code (tdata1)
+PASS: objcopy -shared -z relro (tdata1)
+PASS: objcopy -z max-page-size=0x100000 (tdata1)
+PASS: objcopy -z max-page-size=0x100000 -z common-page-size=0x1000 (tdata1)
+PASS: objcopy -z noseparate-code (tdata2)
+PASS: objcopy -z separate-code (tdata2)
+PASS: objcopy -z relro (tdata2)
+PASS: objcopy -shared -z noseparate-code (tdata2)
+PASS: objcopy -shared -z separate-code (tdata2)
+PASS: objcopy -shared -z relro (tdata2)
+PASS: objcopy -z max-page-size=0x100000 (tdata2)
+PASS: objcopy -z max-page-size=0x100000 -z common-page-size=0x1000 (tdata2)
+PASS: objcopy -z noseparate-code (tdata3)
+PASS: objcopy -z separate-code (tdata3)
+PASS: objcopy -z relro (tdata3)
+PASS: objcopy -shared -z noseparate-code (tdata3)
+PASS: objcopy -shared -z separate-code (tdata3)
+PASS: objcopy -shared -z relro (tdata3)
+PASS: objcopy -z max-page-size=0x100000 (tdata3)
+PASS: objcopy -z max-page-size=0x100000 -z common-page-size=0x1000 (tdata3)
+PASS: objcopy -z noseparate-code (tbss1)
+PASS: objcopy -z separate-code (tbss1)
+PASS: objcopy -z relro (tbss1)
+PASS: objcopy -shared -z noseparate-code (tbss1)
+PASS: objcopy -shared -z separate-code (tbss1)
+PASS: objcopy -shared -z relro (tbss1)
+PASS: objcopy -z max-page-size=0x100000 (tbss1)
+PASS: objcopy -z max-page-size=0x100000 -z common-page-size=0x1000 (tbss1)
+PASS: objcopy -z noseparate-code (tbss2)
+PASS: objcopy -z separate-code (tbss2)
+PASS: objcopy -z relro (tbss2)
+PASS: objcopy -shared -z noseparate-code (tbss2)
+PASS: objcopy -shared -z separate-code (tbss2)
+PASS: objcopy -shared -z relro (tbss2)
+PASS: objcopy -z max-page-size=0x100000 (tbss2)
+PASS: objcopy -z max-page-size=0x100000 -z common-page-size=0x1000 (tbss2)
+PASS: objcopy -z noseparate-code (tbss3)
+PASS: objcopy -z separate-code (tbss3)
+PASS: objcopy -z relro (tbss3)
+PASS: objcopy -shared -z noseparate-code (tbss3)
+PASS: objcopy -shared -z separate-code (tbss3)
+PASS: objcopy -shared -z relro (tbss3)
+PASS: objcopy -z max-page-size=0x100000 (tbss3)
+PASS: objcopy -z max-page-size=0x100000 -z common-page-size=0x1000 (tbss3)
+PASS: strip -s (gap)
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/build-id.exp ...
+PASS: pr28639a.o
+PASS: pr28639b.o
+PASS: pr28639a.o deadbeef
+PASS: pr28639a
+PASS: pr28639b
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/comm-data.exp ...
+PASS: Common symbol override test (auxiliary shared object build)
+PASS: Common symbol override test
+PASS: Common symbol override test 3a
+PASS: Common symbol override test 3b
+PASS: libpr26580-1.so
+PASS: pr26580-1
+PASS: pr26580-2
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/compress.exp ...
+PASS: Build libfoo.so with compressed debug sections
+PASS: Build libbar.so with compressed debug sections
+PASS: Build libfoozlib.so with compressed debug sections with zlib-gabi
+PASS: Build libbarzlib.so with compressed debug sections with zlib-gabi
+PASS: Build libzlibfoo.so with zlib compressed debug sections
+PASS: Build libgnufoo.so with zlib-gnu compressed debug sections
+PASS: Build libgabifoo.so with zlib-gabi compressed debug sections
+PASS: Build zlibbegin.o with zlib compressed debug sections
+PASS: Build gnubegin.o with zlib-gnu compressed debug sections
+PASS: Build gabiend.o with zlib-gabi compressed debug sections
+UNSUPPORTED: Run normal with libfoo.so with compressed debug sections
+UNSUPPORTED: Run normal with libfoozlib.so with compressed debug sections with zlib-gabi
+UNSUPPORTED: Run zlibnormal with libzlibfoo.so with zlib compressed debug sections
+UNSUPPORTED: Run zlibnormal with libfoozlib.so with zlib compressed debug sections
+UNSUPPORTED: Run gnunormal with libgnufoo.so with zlib-gnu compressed debug sections
+UNSUPPORTED: Run gnunormal with libfoozlib.so with zlib-gnu compressed debug sections
+UNSUPPORTED: Run gabinormal with libgabifoo.so with zlib-gabi compressed debug sections
+UNSUPPORTED: Run gabinormal with libfoozlib.so with zlib-gabi compressed debug sections
+PASS: Link with zlib-gabi compressed debug input
+PASS: Link -r with zlib compressed debug output
+PASS: Link -r with zlib-gnu compressed debug output
+PASS: Link -r with zlib-gabi compressed debug output
+PASS: Link with zlib compressed debug output 2
+PASS: Link with zlib compressed debug output 3
+PASS: Link with zlib-gnu compressed debug output 1
+PASS: Link with zlib-gnu compressed debug output 2
+PASS: Link with zlib-gabi compressed debug output 1
+PASS: Link with zlib-gabi compressed debug output 2
+PASS: Build libzstdfoo.so with zstd compressed debug sections
+UNSUPPORTED: Run zstdnormal with libzstdfoo.so with zstd compressed debug sections
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/dt-relr.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/dwarf.exp ...
+PASS: Build libdwarf1.so
+PASS: DWARF parse during linker error
+PASS: Handle no DWARF information
+UNSUPPORTED: Run with libdwarf1.so first
+UNSUPPORTED: Run with libdwarf1.so last
+PASS: Strip -s libdwarf1c.so
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/eh-group.exp ...
+PASS: Guess the target size from eh-group1size.o
+PASS: Build eh-group1.o
+PASS: Link eh-group.o to eh-group
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/elf.exp ...
+PASS: Build symbol3.a
+PASS: Build symbol3w.a
+PASS: PR ld/21703
+PASS: PR ld/21703 -r
+PASS: Build libretain5.a
+PASS: Build libretain6.a
+PASS: ld-elf/anno-sym
+PASS: Symbol flags copy
+PASS: changelma (pr20659)
+PASS: ld-elf/comm-data4
+PASS: ld-elf/comm-data5
+PASS: ld-elf/commonpage1
+UNSUPPORTED: ld-elf/commonpage2
+PASS: ld-elf/compress1a
+PASS: ld-elf/compress1b
+PASS: ld-elf/compress1c
+PASS: ld-elf/compressed1a
+PASS: ld-elf/compressed1b
+PASS: ld-elf/compressed1c
+UNSUPPORTED: ld-elf/compressed1d-alt
+PASS: ld-elf/compressed1d
+PASS: ld-elf/compressed1e
+UNSUPPORTED: ld-elf/discard1
+UNSUPPORTED: ld-elf/discard2
+UNSUPPORTED: ld-elf/discard3
+UNSUPPORTED: ld-elf/dt-relr-1a
+UNSUPPORTED: ld-elf/dt-relr-1b
+UNSUPPORTED: ld-elf/dt-relr-1c
+UNSUPPORTED: ld-elf/dt-relr-2a
+UNSUPPORTED: ld-elf/dt-relr-2b
+UNSUPPORTED: ld-elf/dt-relr-2c
+UNSUPPORTED: ld-elf/dt-relr-2d
+UNSUPPORTED: ld-elf/dt-relr-2e
+UNSUPPORTED: ld-elf/dt-relr-2f
+UNSUPPORTED: ld-elf/dt-relr-2g
+UNSUPPORTED: ld-elf/dt-relr-2h
+UNSUPPORTED: ld-elf/dt-relr-2i
+UNSUPPORTED: ld-elf/dt-relr-3a
+UNSUPPORTED: ld-elf/dt-relr-3b
+PASS: ld-elf/dynamic1
+PASS: ld-elf/dynsym1
+PASS: ld-elf/eh-frame-hdr
+UNSUPPORTED: ld-elf/eh1
+UNSUPPORTED: ld-elf/eh2
+UNSUPPORTED: ld-elf/eh3
+UNSUPPORTED: ld-elf/eh4
+PASS: ld-elf/eh5
+UNSUPPORTED: ld-elf/eh6
+PASS: ld-elf/ehdr_start-missing
+PASS: ld-elf/ehdr_start-shared
+PASS: ld-elf/ehdr_start-userdef
+PASS: ld-elf/ehdr_start-weak
+PASS: ld-elf/ehdr_start
+PASS: ld-elf/empty
+PASS: ld-elf/empty2
+PASS: ld-elf/endsym
+PASS: ld-elf/exclude3a
+PASS: ld-elf/exclude3b
+PASS: ld-elf/exclude3c
+PASS: ld-elf/expr1
+PASS: ld-elf/fatal-warnings-1a
+PASS: ld-elf/fatal-warnings-1b
+PASS: ld-elf/fatal-warnings-2a
+PASS: ld-elf/fatal-warnings-2b
+PASS: ld-elf/fatal-warnings-3a
+PASS: ld-elf/fatal-warnings-3b
+PASS: ld-elf/fatal-warnings-4a
+PASS: ld-elf/fatal-warnings-4b
+PASS: --set-section-flags test 1 (sections)
+PASS: ld-elf/global1
+PASS: ld-elf/group1
+PASS: ld-elf/group10
+PASS: ld-elf/group11
+PASS: ld-elf/group12
+PASS: ld-elf/group2
+PASS: ld-elf/group3a
+PASS: ld-elf/group3b
+PASS: ld-elf/group4
+PASS: ld-elf/group5
+PASS: ld-elf/group6
+PASS: ld-elf/group7
+PASS: ld-elf/group8a
+PASS: ld-elf/group8b
+PASS: ld-elf/group9a
+PASS: ld-elf/group9b
+PASS: ld-elf/hash-2
+PASS: ld-elf/hash
+PASS: ld-elf/header
+PASS: ld-elf/init-fini-arrays
+PASS: --interleave test byte 0
+PASS: --interleave test byte 4
+UNSUPPORTED: ld-elf/linkinfo1a
+UNSUPPORTED: ld-elf/linkinfo1b
+PASS: ld-elf/linkonce1
+PASS: ld-elf/linkonce2
+UNSUPPORTED: ld-elf/linkonce3
+PASS: ld-elf/linkoncerdiff
+PASS: ld-elf/loadaddr1
+PASS: ld-elf/loadaddr2
+PASS: ld-elf/loadaddr3a
+PASS: ld-elf/loadaddr3b
+PASS: ld-elf/local1
+PASS: ld-elf/maxpage1
+PASS: ld-elf/maxpage2
+PASS: ld-elf/maxpage3a
+UNSUPPORTED: ld-elf/maxpage3b
+UNSUPPORTED: ld-elf/maxpage3c
+UNSUPPORTED: ld-elf/maxpage4
+UNSUPPORTED: ld-elf/maxpage5
+PASS: ld-elf/mbind1a
+PASS: ld-elf/mbind1b
+PASS: ld-elf/mbind1c
+PASS: ld-elf/merge
+PASS: ld-elf/merge2
+PASS: ld-elf/merge3
+PASS: ld-elf/merge5
+PASS: ld-elf/multibss1
+PASS: ld-elf/nobits-1
+UNSUPPORTED: .noinit sections
+UNSUPPORTED: .noinit sections (ld -r)
+PASS: ld-elf/noload-1
+PASS: ld-elf/noload-2
+PASS: ld-elf/noload-3
+PASS: non-contiguous
+PASS: ld-elf/nosectionheader-1
+PASS: ld-elf/nosectionheader-2
+PASS: ld-elf/note-1
+PASS: ld-elf/note-2
+PASS: .note.GNU-stack using SHT_NOTE
+PASS: .note.GNU-stack ld -r SHT_NOTE + SHT_PROGBITS (positive)
+PASS: .note.GNU-stack ld -r SHT_NOTE + SHT_PROGBITS (negative)
+PASS: .note.GNU-stack ld -r SHT_PROGBITS + SHT_NOTE (positive)
+PASS: .note.GNU-stack ld -r SHT_PROGBITS + SHT_NOTE (negative)
+PASS: ld-elf/now-1
+PASS: ld-elf/now-2
+PASS: ld-elf/now-3
+PASS: ld-elf/now-4
+PASS: ld-elf/orphan-10
+PASS: ld-elf/orphan-11
+PASS: ld-elf/orphan-12
+PASS: ld-elf/orphan-13
+PASS: Report warning for orphan sections
+PASS: Report error for orphan sections
+PASS: Discard orphan sections (map file check)
+PASS: Place orphan sections (map file check)
+PASS: ld-elf/orphan-9
+PASS: ld-elf/orphan-region
+PASS: ld-elf/orphan
+PASS: ld-elf/orphan2
+PASS: ld-elf/orphan3
+PASS: ld-elf/orphan4
+PASS: ld-elf/overlay
+PASS: ld-elf/page-size-1
+UNSUPPORTED: .persistent sections
+UNSUPPORTED: .persistent sections (ld -r)
+PASS: ld-elf/pie
+PASS: ld-elf/pr11304
+PASS: ld-elf/pr12851
+PASS: ld-elf/pr12975
+PASS: ld-elf/pr13177
+PASS: ld-elf/pr13195
+PASS: ld-elf/pr13839
+PASS: ld-elf/pr14052
+PASS: ld-elf/pr14156a
+PASS: ld-elf/pr14156b
+PASS: ld-elf/pr14156c
+PASS: ld-elf/pr14926
+PASS: ld-elf/pr16322
+PASS: ld-elf/pr16498a
+PASS: ld-elf/pr16498b
+FAIL: ld-elf/pr17550a
+FAIL: ld-elf/pr17550b
+FAIL: ld-elf/pr17550c
+FAIL: ld-elf/pr17550d
+PASS: ld-elf/pr17615
+PASS: ld-elf/pr18735
+PASS: ld-elf/pr19005
+PASS: ld-elf/pr19162
+PASS: ld-elf/pr19539
+PASS: ld-elf/pr19617a
+PASS: ld-elf/pr19617b
+PASS: ld-elf/pr19617c
+PASS: ld-elf/pr19698
+PASS: ld-elf/pr19789
+PASS: ld-elf/pr20513a
+PASS: ld-elf/pr20513b
+PASS: ld-elf/pr20513c
+PASS: ld-elf/pr20513d
+PASS: ld-elf/pr20513e
+PASS: ld-elf/pr20513f
+PASS: ld-elf/pr20528a
+PASS: ld-elf/pr20528b
+PASS: ld-elf/pr21384
+PASS: ld-elf/pr21389a
+PASS: ld-elf/pr21389b
+PASS: ld-elf/pr21389c
+PASS: ld-elf/pr21562a
+PASS: ld-elf/pr21562b
+PASS: ld-elf/pr21562c
+PASS: ld-elf/pr21562d
+PASS: ld-elf/pr21562e
+PASS: ld-elf/pr21562f
+PASS: ld-elf/pr21562g
+PASS: ld-elf/pr21562h
+PASS: ld-elf/pr21562i
+PASS: ld-elf/pr21562j
+PASS: ld-elf/pr21562k
+PASS: ld-elf/pr21562l
+PASS: ld-elf/pr21562m
+PASS: ld-elf/pr21562n
+PASS: ld-elf/pr21884
+PASS: ld-elf/pr21903a
+PASS: ld-elf/pr21903b
+PASS: ld-elf/pr21903c
+PASS: ld-elf/pr21903d
+PASS: ld-elf/pr21903e
+PASS: ld-elf/pr21904
+PASS: PR ld/22269
+PASS: PR ld/22269 (-z dynamic-undefined-weak)
+PASS: PR 22319 - required undefined symbols in output
+PASS: ld-elf/pr22393-1a
+PASS: ld-elf/pr22393-1b
+PASS: ld-elf/pr22393-1c
+PASS: ld-elf/pr22393-1d
+PASS: ld-elf/pr22393-1e
+PASS: ld-elf/pr22393-1f
+PASS: ld-elf/pr22423
+PASS: ld-elf/pr22450
+PASS: ld-elf/pr22677
+PASS: ld-elf/pr22836-1a
+PASS: ld-elf/pr22836-1b
+PASS: ld-elf/pr22836-2
+PASS: ld-elf/pr23591
+PASS: ld-elf/pr23648
+PASS: ld-elf/pr23658-1a
+PASS: ld-elf/pr23658-1b
+PASS: ld-elf/pr23658-1c
+PASS: ld-elf/pr23658-1e
+PASS: ld-elf/pr23658-1f
+UNSUPPORTED: ld-elf/pr23658-3
+PASS: ld-elf/pr23900-1
+PASS: ld-elf/pr23900-2a
+PASS: ld-elf/pr23900-2b
+PASS: ld-elf/pr24511
+PASS: ld-elf/pr24526
+PASS: ld-elf/pr24718-1
+PASS: ld-elf/pr24819
+PASS: ld-elf/pr25021
+PASS: ld-elf/pr25022
+PASS: ld-elf/pr25207
+PASS: ld-elf/pr25490-1
+PASS: ld-elf/pr25708
+PASS: ld-elf/pr26256-1a
+PASS: ld-elf/pr26256-1b
+PASS: ld-elf/pr26256-2a
+UNSUPPORTED: ld-elf/pr26256-2b-alt
+PASS: ld-elf/pr26256-2b
+PASS: ld-elf/pr26256-3a
+PASS: ld-elf/pr26256-3b
+PASS: ld-elf/pr26681
+PASS: ld-elf/pr26907
+PASS: ld-elf/pr26936
+PASS: ld-elf/pr26978a
+PASS: ld-elf/pr26978b
+PASS: ld-elf/pr26979a
+PASS: ld-elf/pr26979b
+PASS: ld-elf/pr27128a
+PASS: ld-elf/pr27128b
+PASS: ld-elf/pr27128c
+PASS: ld-elf/pr27128d
+PASS: ld-elf/pr27128e
+PASS: ld-elf/pr27259
+PASS: ld-elf/pr27590a
+PASS: ld-elf/pr27590b
+PASS: ld-elf/pr27825-1
+PASS: ld-elf/pr27825-2
+UNSUPPORTED: ld-elf/pr28597
+PASS: ld-elf/pr29259
+PASS: ld-elf/pr29435
+PASS: ld-elf/pr30508
+PASS: ld-elf/pr30791a
+PASS: ld-elf/pr30791b
+PASS: --rosegment (pr30907-1) (does not have two read-only segments)
+PASS: --rosegment (pr30907-2) (has at least one RX, one R and one RW segments)
+PASS: ld-elf/pr32341
+PASS: ld-elf/pr32787
+PASS: ld-elf/pr33291
+PASS: ld-elf/pr33599
+UNSUPPORTED: --rosegment (has at least one R, one RX and one RW segments)
+PASS: ld-elf/pr34550
+PASS: ld-elf/pr349
+PASS: ld-elf/property-1_needed-1a
+UNSUPPORTED: ld-elf/property-1_needed-1b
+UNSUPPORTED: ld-elf/property-1_needed-1c
+PASS: ld-elf/property-and-1
+PASS: ld-elf/property-and-2
+PASS: ld-elf/property-and-3
+PASS: ld-elf/property-and-4
+PASS: ld-elf/property-or-1
+PASS: ld-elf/property-or-2
+PASS: ld-elf/property-or-3
+PASS: ld-elf/property-or-4
+PASS: ld-elf/property-seal-1
+PASS: ld-elf/property-seal-2
+PASS: ld-elf/property-seal-3
+PASS: ld-elf/property-seal-4
+PASS: ld-elf/property-seal-5
+PASS: ld-elf/property-seal-6
+PASS: ld-elf/property-seal-7
+PASS: ld-elf/property-seal-8
+PASS: Discarded dynamic relocation section
+PASS: relocatable with script
+PASS: SHF_GNU_RETAIN 1a
+PASS: SHF_GNU_RETAIN 1b
+PASS: SHF_GNU_RETAIN 2 (remove SHF_GNU_RETAIN sections by placing in /DISCARD/) (map file check)
+FAIL: SHF_GNU_RETAIN 3 (keep sections referenced by retained sections)
+PASS: SHF_GNU_RETAIN 4 (keep orphaned sections when not discarding)
+PASS: SHF_GNU_RETAIN 5 (don't pull SHF_GNU_RETAIN section out of lib) (map file check)
+PASS: SHF_GNU_RETAIN 5 (don't pull SHF_GNU_RETAIN section out of lib)
+FAIL: SHF_GNU_RETAIN 6a (pull section out of lib required by SHF_GNU_RETAIN section)
+FAIL: SHF_GNU_RETAIN 6b (pull section out of lib required by SHF_GNU_RETAIN section)
+PASS: SHF_GNU_RETAIN 7a
+PASS: SHF_GNU_RETAIN 7b
+PASS: ld-elf/rpath-1
+PASS: ld-elf/rpath-2
+PASS: ld-elf/runpath-1
+PASS: ld-elf/runpath-2
+PASS: ld-elf/seg
+PASS: ld-elf/size-1
+PASS: ld-elf/size-2
+PASS: ld-elf/sizeofa
+PASS: ld-elf/sizeofb
+PASS: ld-elf/sizeofc
+UNSUPPORTED: ld-elf/stab
+PASS: ld-elf/startofa
+PASS: ld-elf/startofb
+PASS: ld-elf/startofc
+PASS: ld-elf/strtab
+PASS: ld-elf/tbss4
+PASS: ld-elf/textaddr1
+PASS: ld-elf/textaddr10
+PASS: ld-elf/textaddr2
+PASS: ld-elf/textaddr3
+PASS: ld-elf/textaddr4
+PASS: ld-elf/textaddr5
+PASS: ld-elf/textaddr6
+PASS: ld-elf/textaddr7
+PASS: ld-elf/textaddr8
+PASS: ld-elf/textaddr9
+PASS: ld-elf/unknown
+PASS: ld-elf/unknown2
+PASS: ld-elf/var1
+PASS: ld-elf/warn1
+PASS: ld-elf/warn2
+PASS: ld-elf/warn3
+PASS: Generate empty import library
+PASS: Generate import library
+FAIL: Generate undefweak-1.a
+FAIL: Generate undefweak-1.o
+PASS: --gc-sections on tls variable
+PASS: stack exec
+PASS: stack noexec
+PASS: stack size
+PASS: PT_GNU_PROPERTY alignment
+PASS: PR ld/29072 (warn about an executable .note.GNU-stack)
+PASS: Test --error-execstack with an executable .note.GNU-stack
+PASS: PR 29072 (warn about -z execstack)
+PASS: Test --error-execstack with -z execstack
+PASS: PR ld/29072 (suppress warnings about executable stack)
+PASS: Ensure that a warning is issued when creating a segment with RWX permissions
+PASS: Ensure that a error can be issued when creating a segment with RWX permissions
+PASS: Ensure that a warning issued when creating a TLS segment with execute permission
+PASS: Ensure that an error cn be issued when creating a TLS segment with execute permission
+PASS: Ensure that the RWX warning can be suppressed
+PASS: PR ld/29072 (warn about absent .note.GNU-stack)
+PASS: error when .note.GNU-stack is absent
+PASS: __patchable_function_entries section 2
+PASS: __patchable_function_entries section 3
+PASS: __patchable_function_entries section 4
+PASS: __patchable_function_entries section 5
+PASS: __patchable_function_entries section 6
+PASS: PR ld/13195
+UNSUPPORTED: preinit array
+UNSUPPORTED: init array
+UNSUPPORTED: fini array
+UNSUPPORTED: init array mixed
+UNSUPPORTED: PIE preinit array
+UNSUPPORTED: PIE init array
+UNSUPPORTED: PIE fini array
+UNSUPPORTED: PIE init array mixed
+UNSUPPORTED: PIE PR ld/14525
+UNSUPPORTED: Static PIE preinit array
+UNSUPPORTED: Static PIE init array
+UNSUPPORTED: Static PIE fini array
+UNSUPPORTED: Static PIE init array mixed
+UNSUPPORTED: Static PIE PR ld/14525
+UNSUPPORTED: Run PR ld/34184 test (static PIE)
+PASS: Build pr32690.so
+UNSUPPORTED: Run mbind2a
+UNSUPPORTED: Run mbind2b
+UNSUPPORTED: Run pr32690
+UNSUPPORTED: Run PR ld/34184 test (PDE)
+UNSUPPORTED: Run PR ld/34184 test (static PDE)
+UNSUPPORTED: Run PR ld/34184 test (PIE)
+UNSUPPORTED: static preinit array
+UNSUPPORTED: static init array
+UNSUPPORTED: static fini array
+UNSUPPORTED: static init array mixed
+PASS: Build pr26391-1
+PASS: Build pr26391-2
+PASS: Build pr26391-3
+PASS: Build pr26391-4
+PASS: Build pr26391-5.o
+PASS: Build pr26391-6.o
+UNSUPPORTED: Run pr26391-1
+UNSUPPORTED: Run pr26391-2
+UNSUPPORTED: Run pr26391-3
+UNSUPPORTED: Run pr26391-4
+UNSUPPORTED: Run pr26391-5
+UNSUPPORTED: Run pr26391-6
+UNSUPPORTED: merge4
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/exclude.exp ...
+PASS: ld link shared library
+PASS: ld export symbols from archive
+PASS: ld link shared library with --exclude-libs
+PASS: ld exclude symbols from archive - --exclude-libs libexclude
+PASS: ld exclude symbols from archive - --exclude-libs libexclude.a
+PASS: ld exclude symbols from archive - --exclude-libs ALL
+PASS: ld exclude symbols from archive - --exclude-libs foo:libexclude.a
+PASS: ld exclude symbols from archive - --exclude-libs foo,libexclude.a
+PASS: ld don't exclude symbols from archive - --exclude-libs foo:bar
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/export-class.exp ...
+PASS: Symbol export class test (auxiliary shared object)
+PASS: Symbol export class test (initial static object)
+PASS: Symbol export class test (final shared object)
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/frame.exp ...
+PASS: read-only .eh_frame section -z noseparate-code
+PASS: read-only .eh_frame section -z separate-code
+PASS: read-only .gcc_except_table section -z noseparate-code
+PASS: read-only .gcc_except_table section -z separate-code
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/indirect.exp ...
+PASS: Build libindirect1c.so
+PASS: Build libindirect3c.so
+PASS: Build libindirect4c.so
+PASS: Build libindirect5.so
+PASS: Build libpr18720c.so
+PASS: Build pr18720b1.o
+PASS: Build pr18720a
+PASS: Build libpr19553b.so
+PASS: Build libpr19553c.so
+PASS: Build libpr19553d.so
+PASS: Indirect symbol 1a: : local symbol `foo' in tmpdir/indirect1b.o is referenced by DSO
+PASS: Indirect symbol 1a: : final link failed: bad value
+PASS: Indirect symbol 1b: : local symbol `foo' in tmpdir/indirect1b.o is referenced by DSO
+PASS: Indirect symbol 1b: : final link failed: bad value
+PASS: Indirect symbol 2: : no symbol version section for versioned symbol `foo@FOO'
+UNSUPPORTED: Run with libindirect3c.so 1
+UNSUPPORTED: Run with libindirect3c.so 2
+UNSUPPORTED: Run with libindirect3c.so 3
+UNSUPPORTED: Run with libindirect3c.so 4
+UNSUPPORTED: Run with libindirect4c.so 1
+UNSUPPORTED: Run with libindirect4c.so 2
+UNSUPPORTED: Run with libindirect4c.so 3
+UNSUPPORTED: Run with libindirect4c.so 4
+UNSUPPORTED: Run indirect5 1
+UNSUPPORTED: Run indirect5 2
+UNSUPPORTED: Run indirect6 1
+UNSUPPORTED: Run indirect6 2
+UNSUPPORTED: Run with libpr18720c.so 1
+UNSUPPORTED: Run with libpr18720c.so 2
+UNSUPPORTED: Run with libpr18720c.so 3
+UNSUPPORTED: Run with libpr18720c.so 4
+UNSUPPORTED: Run with libpr18720c.so 5
+UNSUPPORTED: Run with libpr19553b.so
+UNSUPPORTED: Run with libpr19553c.so
+UNSUPPORTED: Run with libpr19553d.so
+PASS: indirect5a dynsym
+PASS: indirect5b dynsym
+PASS: indirect6a dynsym
+PASS: indirect6b dynsym
+UNSUPPORTED: Run indirect5 3
+UNSUPPORTED: Run indirect5 4
+UNSUPPORTED: Run indirect6 3
+UNSUPPORTED: Run indirect6 4
+PASS: indirect5c dynsym
+PASS: indirect5d dynsym
+PASS: indirect6c dynsym
+PASS: indirect6d dynsym
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/linux-x86.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/no-section-header.exp ...
+PASS: objcopy --strip-section-headers --hash-style=both (start)
+PASS: objcopy --strip-section-headers --hash-style=gnu (start)
+PASS: objcopy --strip-section-headers --hash-style=sysv (start)
+PASS: objcopy --strip-section-headers --hash-style=both -shared (start)
+PASS: objcopy --strip-section-headers --hash-style=gnu -shared (start)
+PASS: objcopy --strip-section-headers --hash-style=sysv -shared (start)
+PASS: strip --strip-section-headers --hash-style=both (start)
+PASS: strip --strip-section-headers --hash-style=gnu (start)
+PASS: strip --strip-section-headers --hash-style=sysv (start)
+PASS: strip --strip-section-headers --hash-style=both -shared (start)
+PASS: strip --strip-section-headers --hash-style=gnu -shared (start)
+PASS: strip --strip-section-headers --hash-style=sysv -shared (start)
+PASS: Build pr25617-1a-no-sec-hdr.so (none)
+PASS: Build pr25617-1a-now-no-sec-hdr.so (none)
+PASS: Build pr25617-1 (-z nosectionheader, none)
+PASS: Build pr25617-1 (PIE, -z nosectionheader, none)
+PASS: Build pr25617-1 (static, -z nosectionheader, none)
+UNSUPPORTED: Run pr25617-1 (-z nosectionheader, none)
+UNSUPPORTED: Run pr25617-1 (PIE, -z nosectionheader, none)
+UNSUPPORTED: Run pr25617-1 (static, -z nosectionheader, none)
+PASS: Build pr25617-1a-no-sec-hdr.so (objcopy)
+PASS: Build pr25617-1a-now-no-sec-hdr.so (objcopy)
+PASS: Build pr25617-1 (-z nosectionheader, objcopy)
+PASS: Build pr25617-1 (PIE, -z nosectionheader, objcopy)
+PASS: Build pr25617-1 (static, -z nosectionheader, objcopy)
+UNSUPPORTED: Run pr25617-1 (-z nosectionheader, objcopy)
+UNSUPPORTED: Run pr25617-1 (PIE, -z nosectionheader, objcopy)
+UNSUPPORTED: Run pr25617-1 (static, -z nosectionheader, objcopy)
+PASS: Update pr25617-1a-no-sec-hdr.so (objcopy)
+PASS: Update pr25617-1a-now-no-sec-hdr.so (objcopy)
+PASS: Build pr25617-1a-no-sec-hdr.so (strip)
+PASS: Build pr25617-1a-now-no-sec-hdr.so (strip)
+PASS: Build pr25617-1 (-z nosectionheader, strip)
+PASS: Build pr25617-1 (PIE, -z nosectionheader, strip)
+PASS: Build pr25617-1 (static, -z nosectionheader, strip)
+UNSUPPORTED: Run pr25617-1 (-z nosectionheader, strip)
+UNSUPPORTED: Run pr25617-1 (PIE, -z nosectionheader, strip)
+UNSUPPORTED: Run pr25617-1 (static, -z nosectionheader, strip)
+PASS: Update pr25617-1a-no-sec-hdr.so (strip)
+PASS: Update pr25617-1a-now-no-sec-hdr.so (strip)
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/notes.exp ...
+PASS: Linkonce sections with assembler generated notes
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/package-note.exp ...
+PASS: package-note.o
+PASS: package-note1b.o
+PASS: package-note1c.o
+PASS: package-note2.o
+PASS: package-note2b.o
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/provide-hidden.exp ...
+PASS: PROVIDE_HIDDEN test (auxiliary shared object)
+PASS: PROVIDE_HIDDEN test 1
+PASS: PROVIDE_HIDDEN test 2
+PASS: PROVIDE_HIDDEN test 3
+PASS: PROVIDE_HIDDEN test 4
+PASS: PROVIDE_HIDDEN test 5
+PASS: PROVIDE_HIDDEN test 6
+PASS: PROVIDE_HIDDEN test 7
+PASS: PROVIDE_HIDDEN test 8
+PASS: PROVIDE_HIDDEN test 9
+PASS: PROVIDE_HIDDEN test 10
+PASS: PROVIDE_HIDDEN test 11
+PASS: PROVIDE_HIDDEN test 12
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/readelf.exp ...
+PASS: readelf version information
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/sec-to-seg.exp ...
+PASS: assignment of ELF sections to segments (same page)
+PASS: assignment of ELF sections to segments (adjacent pages)
+PASS: assignment of ELF sections to segments (disjoint pages)
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/sec64k.exp ...
+PASS: ld-elf/64ksec-r
+PASS: ld-elf/64ksec
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/shared.exp ...
+PASS: Build pr22471a.so
+PASS: Build pr22471b.so
+PASS: Build pr22649-1.so
+PASS: Build pr22471
+PASS: Build pr22649-2a.so
+PASS: Build pr22649-2b.so
+PASS: Build pr22649-2c.so
+PASS: Build pr22649-2d.so
+PASS: DT_TEXTREL in shared lib
+PASS: DT_TEXTREL map file warning
+PASS: PR ld/20828 dynamic symbols with section GC (auxiliary shared library)
+PASS: PR ld/20828 dynamic symbols with section GC (plain)
+PASS: PR ld/20828 dynamic symbols with section GC (version script)
+PASS: PR ld/20828 dynamic symbols with section GC (versioned shared library)
+PASS: PR ld/20828 dynamic symbols with section GC (versioned)
+PASS: PR ld/20828 forcibly exported symbol version without section GC
+PASS: PR ld/20828 forcibly exported symbol version with section GC
+PASS: PR ld/21233 dynamic symbols with section GC (auxiliary shared library)
+PASS: PR ld/21233 dynamic symbols with section GC (--undefined)
+PASS: PR ld/21233 dynamic symbols with section GC (--require-defined)
+PASS: PR ld/21233 dynamic symbols with section GC (EXTERN)
+PASS: Build pr22150.so
+PASS: Build pr22150
+FAIL: Build pr25458.so
+FAIL: Build pr25458
+PASS: Build pr14170a.o
+PASS: Build shared library for pr14170
+PASS: PR ld/14170
+PASS: PR ld/21703 shared
+PASS: Build shared library for broken linker script test
+PASS: Link using broken linker script
+PASS: Build pr17068.so
+PASS: Build pr17068a.a
+PASS: Build pr17068b.a
+PASS: pr17068 link --as-needed lib in group
+PASS: -Bsymbolic-functions
+PASS: Build pr20995.so
+FAIL: pr20995
+PASS: Build pr20995-2.so
+FAIL: pr20995-2
+PASS: Build pr22374 shared library
+XPASS: pr22374 function pointer initialization
+PASS: Weak symbols in dynamic objects 1 (support)
+PASS: Weak symbols in dynamic objects 1 (main test)
+PASS: Build libpr2404a.so
+PASS: Build libpr2404n.so
+PASS: Build libpr2404b.a
+PASS: Build libpr26590a.so
+PASS: Build libpr26590b.so (1)
+PASS: Build pr26590c.o and pr26590d.o
+PASS: Build pr26590 (1)
+PASS: Build libpr26590b.so (2)
+PASS: Build pr26590 (2)
+PASS: Build libpr28348a.so
+PASS: Build pr28348b.o
+PASS: Build pr28348c.o
+PASS: Build libpr28348b.so
+PASS: Build pr28348
+PASS: Build pr31482b-no-lto.so
+PASS: Build pr31482c-no-lto.a
+PASS: Build pr31482d-no-lto.a
+PASS: Build pr21086
+PASS: Build pr32816.so
+PASS: Build pr32816
+PASS: Build libfoo.so
+PASS: Build versioned libfoo.so
+PASS: Build libbar.so
+PASS: Build warn libbar.so
+PASS: Build hidden libbar.so
+PASS: Build protected libbar.so
+PASS: Build libbar.so with libfoo.so
+PASS: Build libar.so with versioned libfoo.so
+PASS: Build hidden libbar.so with libfoo.so
+PASS: Build hidden libar.so with versioned libfoo.so
+PASS: Build protected libbar.so with libfoo.so
+PASS: Build protected libbar.so with versioned libfoo.so
+PASS: Build libdl1.so
+PASS: Build libdl2a.so with --dynamic-list=dl2.list
+PASS: Build libdl2a.so with --dynamic-list=dl2a.list
+PASS: Build libdl2a.so with --dynamic-list-data
+PASS: Build libdl2b.so with --dynamic-list=dl2.list and dl2xxx.list
+PASS: Build libdl2c.so with --dynamic-list-data and dl2xxx.list
+PASS: Build libdl2d.so with --dynamic-list-data -Bsymbolic
+PASS: Build libdl2e.so with --export-dynamic-symbol=foo
+PASS: Build libdl2f.so with --dynamic-list=dlempty.list and --export-dynamic-symbol=foo
+PASS: Build libdl2g.so with --export-dynamic-symbol-list=dl2.list
+PASS: Build libdl2h.so with --dynamic-list=dlempty.list and --export-dynamic-symbol-list=dl2.list
+PASS: Build libdl2i.so with -Bsymbolic and --export-dynamic-symbol=foo
+PASS: Build libdl2j.so with -Bsymbolic and --export-dynamic-symbol-list=dl2.list
+PASS: Build libdl2k.so with --export-dynamic-symbol-list=dl2.list and -Bsymbolic
+PASS: #
+PASS: Check
+PASS: that
+PASS: -Bno-symbolic
+PASS: cancels
+PASS: -Bsymbolic.
+PASS: Build libdl2l.so with -Bsymbolic -Bno-symbolic and --export-dynamic-symbol=foo
+PASS: Build libdl4a.so with --dynamic-list=dl4.list
+PASS: Build libdl4b.so with --dynamic-list-data
+PASS: Build libdl4c.so with --dynamic-list=dl4.list and dl4xxx.list
+PASS: Build libdl4d.so with --dynamic-list-data and dl4xxx.list
+PASS: Build libdl4e.so with -Bsymbolic-functions --dynamic-list-cpp-new
+PASS: Build libdl4f.so with --dynamic-list-cpp-new -Bsymbolic-functions
+PASS: Build libdl6a.so
+PASS: Build libdl6b.so with -Bsymbolic --dynamic-list-data
+PASS: Build libdl6c.so with -Bsymbolic
+PASS: Build libdl6d.so with --dynamic-list-data -Bsymbolic
+PASS: Build libdata1.so
+PASS: Build libdata2.so
+PASS: Build libcomm1.o
+PASS: Build libfunc1.so
+PASS: Build libpr9676-1.a
+PASS: Build libpr9676-2.a
+PASS: Build libpr9676-3.so
+PASS: Build libpr9676-4.so
+PASS: Build libpr9676-4a.so
+PASS: Build libpr9679.so
+PASS: Build libpr11138-1.so
+PASS: Build libpr11138-2.o
+PASS: Build pr13250-1.so
+PASS: Build pr13250-2.so with libpr13250-1.so
+PASS: Build libpr13250-3.o
+PASS: Build libpr14323-2.so
+PASS: Build pr14862-1.o
+PASS: Build libpr14862.so
+PASS: Build libneeded1b.so
+PASS: Build libneeded1a.so
+PASS: Build libneeded1c.o
+PASS: Build libneeded1pic.o
+PASS: Build needed1a.so with --add-needed
+PASS: Build needed1b.so with --copy-dt-needed-entries
+PASS: Build needed1a.so with --no-add-needed
+PASS: Build needed1b.so with --no-copy-dt-needed-entries
+PASS: Build librel.so
+PASS: Build libneeded2a.so
+PASS: Build libneeded2b.so
+PASS: Build libneeded2c.o
+PASS: Build needed2
+PASS: Build libneeded3a.so
+PASS: Build libneeded3b.so
+PASS: Build needed3.o
+PASS: Build needed3
+PASS: Build rdynamic-1
+PASS: Build dynamic-1
+PASS: Build libpr16496a.so
+PASS: Build libpr16496b.a
+PASS: Build libpr16496b.so
+PASS: Build libpr16452a.so
+PASS: Build libpr16452b.so
+PASS: Build pr16452
+PASS: Build pr16457
+PASS: Build libpr18458a.so
+PASS: Build libpr18458b.so
+UNSUPPORTED: Build pr19073a.o
+FAIL: Build libpr19073.so
+PASS: Build pr21964-1a.so
+PASS: Build pr21964-1b.so
+PASS: Build pr21964-2a.so
+PASS: Build pr21964-2b.so
+PASS: Build pr21964-3a.so
+PASS: Dump pr21978.so
+PASS: libpr26580-2.so
+PASS: Build pr26094-1.so
+PASS: Build pr26094-1
+PASS: Build pr26302a.so
+PASS: Build pr26302b.so
+PASS: Build pr33409a.o
+PASS: Build pr33409.so
+PASS: pr22269-1 (static pie undefined weak)
+UNSUPPORTED: Run normal with libfoo.so
+UNSUPPORTED: Run protected with libfoo.so
+UNSUPPORTED: Run hidden with libfoo.so
+UNSUPPORTED: Run normal with versioned libfoo.so
+UNSUPPORTED: Run warn with versioned libfoo.so
+UNSUPPORTED: Run protected with versioned libfoo.so
+UNSUPPORTED: Run hidden with versioned libfoo.so
+UNSUPPORTED: Run normal libbar.so with libfoo.so
+UNSUPPORTED: Run protected libbar.so with libfoo.so
+UNSUPPORTED: Run hidden libbar.so with libfoo.so
+UNSUPPORTED: Run normal libbar.so with versioned libfoo.so
+UNSUPPORTED: Run protected libbar.so with versioned libfoo.so
+UNSUPPORTED: Run hidden libbar.so with versioned libfoo.so
+UNSUPPORTED: Run with libdl2a.so
+UNSUPPORTED: Run with libdl2b.so
+UNSUPPORTED: Run with libdl2c.so
+UNSUPPORTED: Run with libdl2d.so
+UNSUPPORTED: Run with libdl2e.so
+UNSUPPORTED: Run with libdl2f.so
+UNSUPPORTED: Run with libdl2g.so
+UNSUPPORTED: Run with libdl2h.so
+UNSUPPORTED: Run with libdl2i.so
+UNSUPPORTED: Run with libdl2j.so
+UNSUPPORTED: Run with libdl2k.so
+UNSUPPORTED: Run with libdl2l.so
+UNSUPPORTED: Run with libdl4a.so
+UNSUPPORTED: Run with libdl4b.so
+UNSUPPORTED: Run with libdl4c.so
+UNSUPPORTED: Run with libdl4d.so
+UNSUPPORTED: Run with libdl4e.so
+UNSUPPORTED: Run with libdl4f.so
+UNSUPPORTED: Run with libdata1.so
+UNSUPPORTED: Run with libdata2.so
+UNSUPPORTED: Run with libfunc1.so comm1.o
+UNSUPPORTED: Run with comm1.o libfunc1.so
+UNSUPPORTED: Run with pr11138-2.c libpr11138-1.so
+UNSUPPORTED: Run with libpr11138-1.so pr11138-2.c
+UNSUPPORTED: Run with pr13250-3.c, libpr13250-1.so and libpr13250-2.so
+UNSUPPORTED: Run with pr14323-1.c pr14323-2.so
+UNSUPPORTED: Run with pr14862-1.c libpr14862.so
+UNSUPPORTED: Link with --add-needed
+UNSUPPORTED: Link with --copy-dt-needed-entries
+UNSUPPORTED: Run relmain
+UNSUPPORTED: Run pr2404
+UNSUPPORTED: Run pr2404n
+UNSUPPORTED: Run pr18458
+UNSUPPORTED: Run pr21964-1
+UNSUPPORTED: Run pr21964-3
+UNSUPPORTED: pr26580-3
+UNSUPPORTED: pr26580-4
+UNSUPPORTED: Run pr26590 (2)
+UNSUPPORTED: Run pr31482 (no-lto)
+UNSUPPORTED: Run pr33409
+UNSUPPORTED: Run dl1a with --dynamic-list=dl1.list and dlopen on libdl1.so
+UNSUPPORTED: Run dl1b with --dynamic-list-data and dlopen on libdl1.so
+UNSUPPORTED: Run dl6a1 with --dynamic-list-data and dlopen on libdl6a.so
+UNSUPPORTED: Run dl6a2 with -Bsymbolic-functions and dlopen on libdl6a.so
+UNSUPPORTED: Run dl6a3 with -Bsymbolic and dlopen on libdl6a.so
+UNSUPPORTED: Run dl6a4 with -Bsymbolic --dynamic-list-data and dlopen on libdl6a.so
+UNSUPPORTED: Run dl6a5 with -Bsymbolic-functions --dynamic-list-cpp-new and dlopen on libdl6a.so
+UNSUPPORTED: Run dl6a6 with --dynamic-list-cpp-new -Bsymbolic-functions and dlopen on libdl6a.so
+UNSUPPORTED: Run dl6a7 with --dynamic-list-data -Bsymbolic and dlopen on libdl6a.so
+UNSUPPORTED: Run dl6b1 with --dynamic-list-data and dlopen on libdl6b.so
+UNSUPPORTED: Run dl6b2 with dlopen on libdl6b.so
+UNSUPPORTED: Run dl6c1 with --dynamic-list-data and dlopen on libdl6c.so
+UNSUPPORTED: Run dl6d1 with --dynamic-list-data and dlopen on libdl6d.so
+UNSUPPORTED: Run pr21964-2
+UNSUPPORTED: Run pr21964-5
+PASS: --no-add-needed
+PASS: --no-copy-dt-needed-entries
+PASS: --no-add-needed -shared
+PASS: --no-copy-dt-needed-entries -shared
+UNSUPPORTED: Build libdnew1a.so with --Bsymbolic-functions --dynamic-list-cpp-new
+UNSUPPORTED: Build libdnew1b.so with --dynamic-list-data --dynamic-list-cpp-new
+UNSUPPORTED: Run with libnew1a.so
+UNSUPPORTED: Run with libnew1b.so
+UNSUPPORTED: Build libdl3a.so with --dynamic-list=dl3.list
+UNSUPPORTED: Build libdl3b.so with -Bsymbolic
+UNSUPPORTED: Build libdl3a.so with --dynamic-list-cpp-typeinfo
+UNSUPPORTED: Run with libdl3a.so
+UNSUPPORTED: Run with libdl3b.so
+UNSUPPORTED: Run with libdl3c.so
+PASS: Build libpr2404b.a with PIE
+PASS: Build pr19579a.o
+PASS: Build libpr19579.so
+PASS: Build libpr19579now.so
+PASS: Build pr22393-2a.so
+PASS: Build pr22393-2a-now.so
+PASS: Build pr22393-2
+PASS: Build pr22393-2 (PIE)
+PASS: Build pr22393-2 (static)
+UNSUPPORTED: Run pr18458 with PIE
+UNSUPPORTED: Run pr2404 with PIE
+UNSUPPORTED: Run pr2404 with PIE (-z now)
+UNSUPPORTED: Run pr18718
+UNSUPPORTED: Run pr18718 (-z now)
+UNSUPPORTED: Run pr18718 with PIE (1)
+UNSUPPORTED: Run pr18718 with PIE (2)
+UNSUPPORTED: Run pr18718 with PIE (3)
+UNSUPPORTED: Run pr18718 with PIE (4)
+UNSUPPORTED: Run pr18718 with PIC (1)
+UNSUPPORTED: Run pr18718 with PIC (2)
+UNSUPPORTED: Run pr18718 with PIC (3)
+UNSUPPORTED: Run pr18718 with PIC (4)
+UNSUPPORTED: Run pr19579
+UNSUPPORTED: Run pr19579 (-z now)
+UNSUPPORTED: Run pr22393-2
+UNSUPPORTED: Run pr22393-2 (PIE)
+UNSUPPORTED: Run pr22393-2 (static)
+UNSUPPORTED: Run pr21964-4
+PASS: Build libpr19719a.so
+PASS: Build libpr19719b.so
+PASS: Build libpr19719b.o
+UNSUPPORTED: Run pr19719 fun undefined
+UNSUPPORTED: Run pr19719 fun defined
+PASS: Build libpr19719a.so
+PASS: Build libpr19719b.so
+PASS: Build libpr19719b.o
+UNSUPPORTED: Run pr19719pie fun undefined
+UNSUPPORTED: Run pr19719pie fun defined
+PASS: Build libpr23162a.so
+PASS: Build pr23162a
+PASS: Build libpr23162b.so
+PASS: Build pr23162b
+PASS: Build libpr23161a.so
+PASS: Build pr23161a
+PASS: Build libpr23161b.so
+PASS: Build pr23161b
+PASS: Build libpr23161c.so
+PASS: Build pr23161c
+PASS: Build pr23658.so
+PASS: Build pr23658-2
+PASS: Build pr29655.so
+PASS: Build pr29655
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/tls.exp ...
+PASS: pr22263-1 -z text
+PASS: pr34165
+PASS: pr22263-1 tprel optimisation
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/tls_common.exp ...
+PASS: tls_common
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elf/wrap.exp ...
+PASS: Build libwrap1a.so
+PASS: Build libwrap1b.so
+UNSUPPORTED: Run with libwrap1a.so and libwrap1b.so
+UNSUPPORTED: Run with libwrap1b.so and libwrap1a.so
+PASS: Build libwrap2.a
+UNSUPPORTED: Run wrap2
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elfcomm/elfcomm.exp ...
+PASS: --sort-common (descending)
+PASS: --sort-common (ascending)
+PASS: size/alignment change of common symbols (warning 1)
+PASS: size/alignment change of common symbols (change 1)
+PASS: size/alignment change of common symbols (warning 2)
+PASS: size/alignment change of common symbols (change 2)
+PASS: static link of common symbols
+PASS: shared link of common symbols
+PASS: position independent link of common symbols
+PASS: Build common-3x.o
+PASS: Build common-3y.o
+PASS: Build common-3a.o
+PASS: Build common-3b.o
+PASS: Build common-3c.o
+PASS: Build common-3d.o
+PASS: Build common-3e.o
+PASS: Build common-3f.o
+PASS: ld-elfcomm/common-1a
+PASS: ld-elfcomm/common-1b
+PASS: ld-elfcomm/common-1c
+PASS: ld-elfcomm/common-1d
+PASS: ld-elfcomm/common-1e
+PASS: ld-elfcomm/common-1f
+PASS: ld-elfcomm/common-2a
+PASS: ld-elfcomm/common-2b
+PASS: ld-elfcomm/common-2c
+PASS: ld-elfcomm/common-2d
+PASS: ld-elfcomm/common-2e
+PASS: ld-elfcomm/common-2f
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elfvers/vers.exp ...
+PASS: vers1
+PASS: vers2
+PASS: vers3
+PASS: vers4
+PASS: vers4a
+PASS: vers4b
+PASS: vers5
+PASS: vers6
+PASS: vers7a
+PASS: vers7
+PASS: vers8
+PASS: vers9
+PASS: vers10
+PASS: vers11
+PASS: vers12
+PASS: ar with versioned solib
+PASS: vers14
+PASS: vers15
+PASS: vers16a
+PASS: vers16
+PASS: vers17
+PASS: vers18
+PASS: vers19
+PASS: vers20a
+PASS: vers20
+PASS: vers21
+PASS: vers22a
+PASS: vers22b
+PASS: vers22
+PASS: vers23a
+PASS: vers23b
+PASS: vers23c
+PASS: vers23d
+PASS: vers23
+PASS: vers24a
+PASS: vers24b
+PASS: vers24c
+PASS: vers25a
+PASS: vers25b1
+PASS: vers25b2
+PASS: vers26a
+PASS: vers26b1
+PASS: vers26b2
+PASS: vers26b3
+PASS: vers27a
+PASS: vers27b
+PASS: vers27c1
+PASS: vers27c2
+PASS: vers27d1
+PASS: vers27d2
+PASS: vers27d3
+PASS: vers27d4
+PASS: vers27d5
+PASS: vers28a
+PASS: vers28b
+PASS: vers28c
+PASS: vers29
+PASS: vers30
+PASS: vers31
+PASS: vers32a
+PASS: vers32b
+PASS: Build libpr33577-unversioned.so (-Wl,--as-needed,--hash-style=sysv)
+PASS: Build libpr33577-versioned.so (-Wl,--as-needed,--hash-style=sysv)
+PASS: Build pr33577a with tmpdir/libpr33577-unversioned.so (-Wl,--as-needed,--hash-style=sysv)
+PASS: Build pr33577b with tmpdir/libpr33577-versioned.so (-Wl,--as-needed,--hash-style=sysv)
+PASS: Build libpr33577-unversioned.so (-Wl,--as-needed,--hash-style=both)
+PASS: Build libpr33577-versioned.so (-Wl,--as-needed,--hash-style=both)
+PASS: Build pr33577a with tmpdir/libpr33577-unversioned.so (-Wl,--as-needed,--hash-style=both)
+PASS: Build pr33577b with tmpdir/libpr33577-versioned.so (-Wl,--as-needed,--hash-style=both)
+PASS: Build libpr33577-unversioned.so (-Wl,--no-as-needed,--hash-style=sysv)
+PASS: Build libpr33577-versioned.so (-Wl,--no-as-needed,--hash-style=sysv)
+PASS: Build pr33577a with tmpdir/libpr33577-unversioned.so (-Wl,--no-as-needed,--hash-style=sysv)
+PASS: Build pr33577b with tmpdir/libpr33577-versioned.so (-Wl,--no-as-needed,--hash-style=sysv)
+PASS: Build libpr33577-unversioned.so (-Wl,--no-as-needed,--hash-style=both)
+PASS: Build libpr33577-versioned.so (-Wl,--no-as-needed,--hash-style=both)
+PASS: Build pr33577a with tmpdir/libpr33577-unversioned.so (-Wl,--no-as-needed,--hash-style=both)
+PASS: Build pr33577b with tmpdir/libpr33577-versioned.so (-Wl,--no-as-needed,--hash-style=both)
+PASS: Build libpr33577-unversioned.so (-Wl,--as-needed,--hash-style=gnu)
+PASS: Build libpr33577-versioned.so (-Wl,--as-needed,--hash-style=gnu)
+PASS: Build pr33577a with tmpdir/libpr33577-unversioned.so (-Wl,--as-needed,--hash-style=gnu)
+PASS: Build pr33577b with tmpdir/libpr33577-versioned.so (-Wl,--as-needed,--hash-style=gnu)
+PASS: Build libpr33577-unversioned.so (-Wl,--no-as-needed,--hash-style=gnu)
+PASS: Build libpr33577-versioned.so (-Wl,--no-as-needed,--hash-style=gnu)
+PASS: Build pr33577a with tmpdir/libpr33577-unversioned.so (-Wl,--no-as-needed,--hash-style=gnu)
+PASS: Build pr33577b with tmpdir/libpr33577-versioned.so (-Wl,--no-as-needed,--hash-style=gnu)
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-elfweak/elfweak.exp ...
+PASS: ELF DSO weak func first
+PASS: ELF DSO weak func last
+PASS: ELF DSO weak func first DSO
+PASS: ELF DSO weak func last DSO
+UNSUPPORTED: ELF weak func first
+UNSUPPORTED: ELF weak func last
+UNSUPPORTED: ELF weak func first DSO
+UNSUPPORTED: ELF weak func last DSO
+PASS: ELF DSO weak data first
+PASS: ELF DSO weak data last
+PASS: ELF DSO weak data first DSO
+PASS: ELF DSO weak data last DSO
+PASS: ELF DSO weak data first DSO common
+PASS: ELF DSO weak data last DSO common
+UNSUPPORTED: ELF weak data first
+UNSUPPORTED: ELF weak data last
+UNSUPPORTED: ELF weak data first common
+UNSUPPORTED: ELF weak data last common
+UNSUPPORTED: ELF weak data first DSO
+UNSUPPORTED: ELF weak data last DSO
+UNSUPPORTED: ELF weak data first DSO common
+UNSUPPORTED: ELF weak data last DSO common
+PASS: ELF DSO small bar (size)
+PASS: ELF DSO foo with small bar (size)
+PASS: ELF DSO big bar (size)
+UNSUPPORTED: ELF weak size
+PASS: ld-elfweak/size2
+UNSUPPORTED: ELF weak (alias)
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-fastcall/fastcall.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-frv/fdpic.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-frv/frv-elf.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-frv/tls.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-gc/gc.exp ...
+PASS: Check --gc-section
+PASS: Check --gc-section/-q
+PASS: Check --gc-section/-r/-e
+PASS: Check --gc-section/-r/-u
+PASS: --gc-sections -r without -e
+PASS: --gc-sections with note section
+FAIL: --gc-sections with multiple debug sections for a function section
+PASS: ld-gc/pr19167
+PASS: --gc-sections with relocations in debug section
+PASS: --gc-sections removing __stop_
+PASS: --gc-sections with __start_
+PASS: --gc-sections with -z start-stop-gc
+PASS: --gc-sections with groups and start/stop syms
+PASS: --gc-sections with other syms and start/stop syms
+PASS: --gc-sections with __gxx_personality
+PASS: --gc-sections with .text._init
+PASS: ld-gc/pr20022
+PASS: --gc-sections with shared library
+PASS: --gc-sections with --defsym
+PASS: --gc-sections with KEEP
+PASS: --gc-sections with __start_SECTIONNAME
+PASS: Build libpr20306.so
+PASS: ld-gc/pr20306
+PASS: Check --no-print-map-discarded linker option (map file check)
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-h8300/h8300.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-i386/binutils.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-i386/export-class.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-i386/i386.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-i386/no-plt.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-i386/tls.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-ia64/ia64.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-ia64/line.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-ifunc/binutils.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-ifunc/ifunc.exp ...
+UNSUPPORTED: ld-ifunc/ifunc-1-local-x86
+UNSUPPORTED: ld-ifunc/ifunc-1-x86
+UNSUPPORTED: ld-ifunc/ifunc-10-i386
+UNSUPPORTED: ld-ifunc/ifunc-10-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-11-i386
+UNSUPPORTED: ld-ifunc/ifunc-11-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-12-i386
+UNSUPPORTED: ld-ifunc/ifunc-12-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-13-i386
+UNSUPPORTED: ld-ifunc/ifunc-13-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-14a-i386
+UNSUPPORTED: ld-ifunc/ifunc-14a-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-14b-i386
+UNSUPPORTED: ld-ifunc/ifunc-14b-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-14c-i386
+UNSUPPORTED: ld-ifunc/ifunc-14c-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-14d-i386
+UNSUPPORTED: ld-ifunc/ifunc-14d-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-14e-i386
+UNSUPPORTED: ld-ifunc/ifunc-14e-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-14f-i386
+UNSUPPORTED: ld-ifunc/ifunc-14f-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-15-i386
+UNSUPPORTED: ld-ifunc/ifunc-15-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-16-i386-now
+UNSUPPORTED: ld-ifunc/ifunc-16-i386
+UNSUPPORTED: ld-ifunc/ifunc-16-x86-64-now
+UNSUPPORTED: ld-ifunc/ifunc-16-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-17a-i386
+UNSUPPORTED: ld-ifunc/ifunc-17a-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-17b-i386
+UNSUPPORTED: ld-ifunc/ifunc-17b-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-18a-i386
+UNSUPPORTED: ld-ifunc/ifunc-18a-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-18b-i386
+UNSUPPORTED: ld-ifunc/ifunc-18b-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-19a-i386
+UNSUPPORTED: ld-ifunc/ifunc-19a-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-19b-i386
+UNSUPPORTED: ld-ifunc/ifunc-19b-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-2-i386-now
+UNSUPPORTED: ld-ifunc/ifunc-2-i386
+UNSUPPORTED: ld-ifunc/ifunc-2-local-i386-now
+UNSUPPORTED: ld-ifunc/ifunc-2-local-i386
+UNSUPPORTED: ld-ifunc/ifunc-2-local-x86-64-now
+UNSUPPORTED: ld-ifunc/ifunc-2-local-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-2-x86-64-now
+UNSUPPORTED: ld-ifunc/ifunc-2-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-20-i386
+UNSUPPORTED: ld-ifunc/ifunc-20-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-21-i386
+UNSUPPORTED: ld-ifunc/ifunc-21-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-22-i386
+UNSUPPORTED: ld-ifunc/ifunc-22-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-23a-x86
+UNSUPPORTED: ld-ifunc/ifunc-23b-x86
+UNSUPPORTED: ld-ifunc/ifunc-23c-x86
+UNSUPPORTED: ld-ifunc/ifunc-24a-x86
+UNSUPPORTED: ld-ifunc/ifunc-24b-x86
+UNSUPPORTED: ld-ifunc/ifunc-24c-x86
+UNSUPPORTED: ld-ifunc/ifunc-25a-x86
+UNSUPPORTED: ld-ifunc/ifunc-25b-x86
+UNSUPPORTED: ld-ifunc/ifunc-25c-x86
+FAIL: ld-ifunc/ifunc-26
+UNSUPPORTED: ld-ifunc/ifunc-3a-x86
+UNSUPPORTED: ld-ifunc/ifunc-3b-x86
+UNSUPPORTED: ld-ifunc/ifunc-4-local-x86
+UNSUPPORTED: ld-ifunc/ifunc-4-x86
+UNSUPPORTED: ld-ifunc/ifunc-4a-x86
+UNSUPPORTED: ld-ifunc/ifunc-5a-i386
+UNSUPPORTED: ld-ifunc/ifunc-5a-local-i386
+UNSUPPORTED: ld-ifunc/ifunc-5a-local-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-5a-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-5b-i386
+UNSUPPORTED: ld-ifunc/ifunc-5b-local-i386
+UNSUPPORTED: ld-ifunc/ifunc-5b-local-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-5b-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-5r-local-i386
+UNSUPPORTED: ld-ifunc/ifunc-5r-local-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-6a-i386
+UNSUPPORTED: ld-ifunc/ifunc-6a-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-6b-i386
+UNSUPPORTED: ld-ifunc/ifunc-6b-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-7a-i386
+UNSUPPORTED: ld-ifunc/ifunc-7a-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-7b-i386
+UNSUPPORTED: ld-ifunc/ifunc-7b-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-8-i386
+UNSUPPORTED: ld-ifunc/ifunc-8-x86-64
+UNSUPPORTED: ld-ifunc/ifunc-9-i386
+UNSUPPORTED: ld-ifunc/ifunc-9-x86-64
+PASS: Reloc against IFUNC symbol in NOTE section
+UNSUPPORTED: ld-ifunc/pr17154-i386-now
+UNSUPPORTED: ld-ifunc/pr17154-i386
+UNSUPPORTED: ld-ifunc/pr17154-x86-64-now
+UNSUPPORTED: ld-ifunc/pr17154-x86-64
+PASS: Building ifunc binaries
+PASS: Checking ifunc binaries
+PASS: Build libpr16467a.so
+PASS: Build libpr16467b.a
+PASS: Build libpr16467b.so
+PASS: Build libpr16467c.a
+PASS: Build libpr16467an.so
+PASS: Build libpr16467bn.so
+UNSUPPORTED: Common symbol override ifunc test 1a
+UNSUPPORTED: Common symbol override ifunc test 1b
+PASS: Build ifunc-lib.so
+PASS: Build ifunc-libn.so
+UNSUPPORTED: Run pr16467
+UNSUPPORTED: Run pr16467 (-z now)
+UNSUPPORTED: Run ifunc-main
+UNSUPPORTED: Run ifunc-main with -fpic
+UNSUPPORTED: Run ifunc-main (-z now)
+UNSUPPORTED: Run ifunc-main with PIE (-z now)
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-kvx/kvx-elf.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-libs/libs.exp ...
+PASS: -l: test (preparation)
+PASS: -l: test
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-linkonce/linkonce.exp ...
+PASS: Build sym.a
+PASS: pr26103
+UNSUPPORTED: ld-linkonce/zeroehl32
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-loongarch-elf/cmodel.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-loongarch-elf/ifunc.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-loongarch-elf/ld-loongarch-elf.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-loongarch-elf/pic.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-loongarch-elf/relax.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-m68hc11/m68hc11.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-m68k/m68k-got.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-m68k/m68k.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-mep/mep.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-metag/metag.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-microblaze/microblaze.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-mips-elf/comm-data.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-mips-elf/export-class.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-mips-elf/mips-elf-flags.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-mips-elf/mips-elf.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-misc/defsym.exp ...
+PASS: ld-misc/defsym1
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-misc/input-remap.exp ...
+XFAIL: --remap-inputs (expected fail)
+PASS: --remap-inputs (simple)
+PASS: --remap-inputs (wildcard)
+PASS: --remap-inputs-file
+PASS: --remap-inputs-file (with map output)
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-misc/just-symbols.exp ...
+PASS: Object for --just-symbols test
+PASS: Executable for --just-symbols test
+PASS: Object with --just-symbols test
+PASS: Executable with --just-symbols test
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-mmix/mmix.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-mn10300/mn10300.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-msp430-elf/msp430-elf.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-nds32/nds32.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-or1k/or1k.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-pdp11/pdp11.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-pe/pdb.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-pe/pe-compile.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-pe/pe-run.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-pe/pe-run2-def.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-pe/pe-run2.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-pe/pe.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-pie/pie.exp ...
+UNSUPPORTED: weak undefined
+UNSUPPORTED: weak undefined data
+PASS: missing entry symbol
+PASS: zero p_vaddr
+PASS: non-zero p_vaddr
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-plugin/lto-binutils.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-plugin/lto.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-plugin/plugin.exp ...
+PASS: plugin API enabled
+PASS: load plugin
+PASS: fail plugin onload
+PASS: fail plugin allsymbolsread
+PASS: fail plugin cleanup
+PASS: plugin all hooks
+PASS: plugin claimfile lost symbol
+PASS: plugin claimfile replace symbol
+PASS: plugin claimfile resolve symbol
+PASS: plugin claimfile replace file
+PASS: load plugin with source
+PASS: plugin claimfile lost symbol with source
+PASS: plugin claimfile replace symbol with source
+PASS: plugin claimfile resolve symbol with source
+PASS: plugin claimfile replace file with source
+PASS: load plugin with source not claimed
+PASS: plugin fatal error
+PASS: plugin error
+PASS: plugin warning
+PASS: PR ld/17973
+PASS: plugin set symbol visibility
+PASS: plugin set symbol visibility with source
+PASS: plugin ignore lib
+PASS: plugin claimfile replace lib
+PASS: plugin ignore lib with source
+PASS: plugin claimfile replace lib with source
+PASS: plugin with empty archive
+PASS: nm --plugin
+PASS: ar --plugin
+PASS: plugin 2 with source lib
+PASS: load plugin 2 with source
+PASS: load plugin 2 with source and -r
+PASS: plugin 3 with source lib
+PASS: load plugin 3 with source
+PASS: load plugin 3 with source and -r
+PASS: PR ld/20070
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-powerpc/aix52.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-powerpc/export-class.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-powerpc/powerpc.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-powerpc/xcoff-aux.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-pru/pru.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-riscv-elf/ld-riscv-elf.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-s12z/s12z.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-s390/binutils.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-s390/s390.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/align.exp ...
+PASS: align1
+PASS: ld-scripts/align2a
+PASS: ld-scripts/align2b
+PASS: ld-scripts/align3
+PASS: ld-scripts/align4
+PASS: ld-scripts/align5
+PASS: ld-scripts/align2c
+PASS: ld-scripts/subalign
+PASS: ld-scripts/pr23571
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/alignof.exp ...
+PASS: ALIGNOF
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/assert.exp ...
+PASS: ASSERT
+PASS: ld-scripts/assert2
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/crossref.exp ...
+PASS: NOCROSSREFS 1
+PASS: NOCROSSREFS 2
+PASS: NOCROSSREFS 3
+PASS: NOCROSSREFS_TO 1
+PASS: NOCROSSREFS_TO 2
+PASS: NOCROSSREFS_TO 3
+PASS: NOCROSSREFS_TO 4
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/data.exp ...
+PASS: ld-scripts/data
+PASS: ld-scripts/fill
+PASS: ld-scripts/fill16
+PASS: ld-scripts/fill2
+PASS: ld-scripts/pr27100
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/default-script.exp ...
+PASS: ld-scripts/default-script1
+PASS: ld-scripts/default-script2
+PASS: ld-scripts/default-script3
+PASS: ld-scripts/default-script4
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/defined.exp ...
+PASS: DEFINED (PRMS 5699)
+PASS: ld-scripts/defined2
+PASS: ld-scripts/defined3
+PASS: ld-scripts/defined4
+PASS: ld-scripts/defined5
+PASS: ld-scripts/defined6
+PASS: ld-scripts/pr24008 (map file check)
+PASS: ld-scripts/pr24008
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/dynamic-sections.exp ...
+PASS: dynamic sections
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/empty-address.exp ...
+PASS: ld-scripts/empty-address-1
+PASS: ld-scripts/empty-address-2a
+PASS: ld-scripts/empty-address-2b
+PASS: ld-scripts/empty-address-3a
+PASS: ld-scripts/empty-address-3b
+PASS: ld-scripts/empty-address-3c
+PASS: ld-scripts/empty-address-4
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/empty-aligned.exp ...
+PASS: ld-scripts/empty-aligned
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/empty-orphan.exp ...
+PASS: ld-scripts/empty-orphan
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/exclude-file.exp ...
+PASS: ld-scripts/exclude-file-1 (map file check)
+PASS: ld-scripts/exclude-file-2 (map file check)
+PASS: ld-scripts/exclude-file-3 (map file check)
+PASS: ld-scripts/exclude-file-4 (map file check)
+PASS: ld-scripts/exclude-file-5 (map file check)
+PASS: ld-scripts/exclude-file-6 (map file check)
+PASS: ld-scripts/exclude-file-7 (map file check)
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/expr.exp ...
+PASS: ld-scripts/expr1
+PASS: ld-scripts/expr2
+PASS: ld-scripts/sane1
+PASS: ld-scripts/assign-loc
+PASS: ld-scripts/pr14962
+PASS: ld-scripts/pr14962-2
+PASS: ld-scripts/pr18963
+PASS: ld-scripts/pr22267
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/extern.exp ...
+PASS: EXTERN
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/include.exp ...
+PASS: include-1
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/log2.exp ...
+PASS: binary logarithm
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/map-address.exp ...
+PASS: map addresses
+PASS: map to directory
+PASS: map to % directory
+PASS: map to %.foo directory
+PASS: map with locals
+PASS: map with resource usage
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/overlay-size.exp ...
+PASS: overlay size (map file check)
+PASS: overlay size
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/phdrs.exp ...
+PASS: PHDRS
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/phdrs2.exp ...
+PASS: PHDRS2
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/phdrs3.exp ...
+PASS: PHDRS headers
+PASS: PHDRS headers 3a
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/print-memory-usage.exp ...
+PASS: print-memory-usage-1
+PASS: print-memory-usage-2
+PASS: print-memory-usage-3
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/provide.exp ...
+PASS: ld-scripts/provide-1
+PASS: ld-scripts/provide-10 (map file check)
+PASS: ld-scripts/provide-11 (map file check)
+PASS: ld-scripts/provide-12 (map file check)
+PASS: ld-scripts/provide-2
+XFAIL: ld-scripts/provide-3
+PASS: ld-scripts/provide-4 (map file check)
+PASS: ld-scripts/provide-4
+PASS: ld-scripts/provide-5 (map file check)
+PASS: ld-scripts/provide-5
+PASS: ld-scripts/provide-6
+PASS: ld-scripts/provide-7
+PASS: ld-scripts/provide-8
+PASS: ld-scripts/provide-9 (map file check)
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/rgn-at.exp ...
+PASS: rgn-at1
+PASS: ld-scripts/rgn-at10
+PASS: ld-scripts/rgn-at11
+PASS: rgn-at2
+PASS: rgn-at3
+PASS: rgn-at4
+PASS: rgn-at5
+PASS: ld-scripts/rgn-at6
+PASS: ld-scripts/rgn-at7
+PASS: ld-scripts/rgn-at8
+PASS: ld-scripts/rgn-at9
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/rgn-over.exp ...
+PASS: rgn-over1
+PASS: rgn-over1 (map check)
+PASS: rgn-over2
+PASS: rgn-over2 (map check)
+PASS: rgn-over3
+PASS: rgn-over3 (map check)
+PASS: rgn-over4
+PASS: rgn-over4 (map check)
+PASS: rgn-over5
+PASS: rgn-over5 (map check)
+PASS: rgn-over6
+PASS: rgn-over6 (map check)
+PASS: rgn-over7
+PASS: rgn-over7 (map check)
+PASS: rgn-over8
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/script.exp ...
+PASS: script
+PASS: MRI script
+PASS: MEMORY
+PASS: MEMORY with symbols
+PASS: extract symbols
+PASS: ld-scripts/region-alias-1
+PASS: ld-scripts/region-alias-2
+PASS: ld-scripts/region-alias-3
+PASS: ld-scripts/region-alias-4
+PASS: ld-scripts/asciz
+PASS: ld-scripts/align-with-input
+PASS: ld-scripts/pr20302
+PASS: ld-scripts/output-section-types
+PASS: ld-scripts/ld-version
+PASS: ld-scripts/ld-version-2
+PASS: ld-scripts/pr24576-1
+PASS: ld-scripts/pr24576-2
+PASS: ld-scripts/linker-script-not-found
+PASS: SEGMENT_START expression not absolute (default)
+PASS: SEGMENT_START expression not absolute (overridden)
+PASS: ld-scripts/pr33265-1
+PASS: ld-scripts/pr33265-2
+PASS: ld-scripts/pr33265-3
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/section-flags.exp ...
+PASS: section-flags-1
+PASS: section-flags-2
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/section-match.exp ...
+PASS: ld-scripts/section-match-1
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/section-order.exp ...
+PASS: Text Section Ordering (section-order-1a)
+PASS: Text Section Ordering (section-order-1b)
+PASS: Data Section Ordering (section-order-1c)
+PASS: Data Section Ordering (section-order-1d)
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/sizeof.exp ...
+PASS: SIZEOF
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/sort.exp ...
+PASS: ld-scripts/sort-file-reversed-1
+PASS: ld-scripts/sort-file-reversed-2
+PASS: ld-scripts/sort-file
+PASS: ld-scripts/sort-sections-reversed-1
+PASS: ld-scripts/sort-sections-reversed-2
+PASS: ld-scripts/sort-sections-reversed-3
+PASS: --sort-section alignment
+PASS: SORT_BY_ALIGNMENT
+PASS: SORT_BY_ALIGNMENT(SORT_BY_ALIGNMENT())
+PASS: SORT_BY_ALIGNMENT(SORT_BY_ALIGNMENT()) --sort-section alignment
+PASS: SORT_BY_ALIGNMENT(SORT_BY_ALIGNMENT()) --sort-section name
+PASS: SORT_BY_ALIGNMENT(SORT_BY_NAME())
+PASS: SORT_BY_ALIGNMENT(SORT_BY_NAME()) --sort-section name
+PASS: SORT_BY_ALIGNMENT(SORT_BY_NAME()) --sort-section alignment
+PASS: --sort-section name
+PASS: SORT_BY_NAME
+PASS: SORT_BY_NAME(SORT_BY_ALIGNMENT())
+PASS: SORT_BY_NAME(SORT_BY_ALIGNMENT()) --sort-section name
+PASS: SORT_BY_NAME(SORT_BY_ALIGNMENT()) --sort-section alignment
+PASS: SORT_BY_NAME(SORT_BY_NAME())
+PASS: SORT_BY_NAME(SORT_BY_NAME()) --sort-section name
+PASS: SORT_BY_NAME(SORT_BY_NAME()) --sort-section alignment
+PASS: no SORT_BY_NAME/SORT_BY_ALIGNMENT/SORT
+PASS: no SORT_BY_NAME/SORT_BY_ALIGNMENT/SORT (2)
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/sysroot-prefix.exp ...
+PASS: sysroot-prefix common plain -Lpath, quoted
+PASS: sysroot-prefix common plain -Lpath, unquoted
+PASS: sysroot-prefix common root-anchored but -Lpath, quoted
+PASS: sysroot-prefix common root-anchored but -Lpath, unquoted
+PASS: sysroot-prefix common full-path, quoted
+PASS: sysroot-prefix common full-path, unquoted
+PASS: sysroot-prefix common root-anchored =-prefixed -Lpath, quoted
+PASS: sysroot-prefix common root-anchored =-prefixed -Lpath, unquoted
+PASS: sysroot-prefix common root-anchored $SYSROOT-prefixed -Lpath, quoted
+PASS: sysroot-prefix common root-anchored $SYSROOT-prefixed -Lpath, unquoted
+PASS: sysroot-prefix common plain =-prefixed with empty, quoted
+PASS: sysroot-prefix common plain =-prefixed with empty, unquoted
+PASS: sysroot-prefix common plain $SYSROOT-prefixed with empty, quoted
+PASS: sysroot-prefix common plain $SYSROOT-prefixed with empty, unquoted
+PASS: sysroot-prefix common root-anchored but script outside sysroot, quoted
+PASS: sysroot-prefix common root-anchored but script outside sysroot, unquoted
+PASS: sysroot-prefix common root-anchored and script inside sysroot, quoted
+PASS: sysroot-prefix common root-anchored and script inside sysroot, unquoted
+PASS: sysroot-prefix common root-anchored =-prefixed script outside, quoted
+PASS: sysroot-prefix common root-anchored =-prefixed script outside, unquoted
+PASS: sysroot-prefix common root-anchored $SYSROOT-prefixed script outside, quoted
+PASS: sysroot-prefix common root-anchored $SYSROOT-prefixed script outside, unquoted
+PASS: sysroot-prefix common root-anchored =-prefixed script inside, quoted
+PASS: sysroot-prefix common root-anchored =-prefixed script inside, unquoted
+PASS: sysroot-prefix common root-anchored $SYSROOT-prefixed script inside, quoted
+PASS: sysroot-prefix common root-anchored $SYSROOT-prefixed script inside, unquoted
+PASS: sysroot-prefix common plain =-prefixed without but -Lpath, quoted
+PASS: sysroot-prefix common plain =-prefixed without but -Lpath, unquoted
+PASS: sysroot-prefix common plain $SYSROOT-prefixed without but -Lpath, quoted
+PASS: sysroot-prefix common plain $SYSROOT-prefixed without but -Lpath, unquoted
+PASS: sysroot-prefix common full-path =-prefixed without, quoted
+PASS: sysroot-prefix common full-path =-prefixed without, unquoted
+PASS: sysroot-prefix common full-path $SYSROOT-prefixed without, quoted
+PASS: sysroot-prefix common full-path $SYSROOT-prefixed without, unquoted
+UNSUPPORTED: sysroot-prefix common plain =-prefixed -Lpath, quoted
+UNSUPPORTED: sysroot-prefix common plain =-prefixed -Lpath, unquoted
+UNSUPPORTED: sysroot-prefix common plain $SYSROOT-prefixed -Lpath, quoted
+UNSUPPORTED: sysroot-prefix common plain $SYSROOT-prefixed -Lpath, unquoted
+UNSUPPORTED: sysroot-prefix common full-path =-prefixed without, quoted
+UNSUPPORTED: sysroot-prefix common full-path =-prefixed without, unquoted
+UNSUPPORTED: sysroot-prefix common full-path $SYSROOT-prefixed without, quoted
+UNSUPPORTED: sysroot-prefix common full-path $SYSROOT-prefixed without, unquoted
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-scripts/weak.exp ...
+PASS: weak symbols
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-selective/sel-dump.exp ...
+PASS: Preserve default . = 0
+PASS: Preserve explicit . = 0
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-selective/selective.exp ...
+PASS: selective1
+PASS: selective2
+PASS: selective3
+UNSUPPORTED: selective4
+UNSUPPORTED: selective5
+UNSUPPORTED: selective6
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-sframe/sframe.exp ...
+UNSUPPORTED: no SFrame format support in the assembler, or SFrame disabled
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-sh/arch/arch.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-sh/rd-sh.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-sh/sh-coff-reloc-symndx.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-sh/sh-vxworks.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-sh/sh.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-shared/shared.exp ...
+XFAIL: shared (non PIC)
+XFAIL: shared (non PIC, load offset)
+UNSUPPORTED: shared
+UNSUPPORTED: shared -Bsymbolic
+XFAIL: shared (PIC main, non PIC so)
+UNSUPPORTED: shared (PIC main)
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-size/size.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-sparc/sparc.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-spu/spu.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-srec/srec.exp ...
+XFAIL: S-records
+UNSUPPORTED: S-records with constructors
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-tic6x/tic6x.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-tilegx/tilegx.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-tilepro/tilepro.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-undefined/entry.exp ...
+PASS: Build libentry.a
+PASS: --entry foo archive
+PASS: --entry foo -u foo archive
+PASS: -shared --entry foo archive
+PASS: -shared --entry foo -u foo archive
+PASS: --entry foo
+PASS: --entry foo -u foo
+PASS: --entry 0x0
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-undefined/require-defined.exp ...
+PASS: Build libfoo.a
+PASS: Check require-defined with an undefined symbol
+PASS: Check require-defined can require a symbol from an object
+PASS: Check require-defined does no error on a defined symbol
+PASS: Check require-defined can require a symbol from an archive
+PASS: Check require-defined can require two symbols
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-undefined/undefined.exp ...
+PASS: undefined
+PASS: undefined function
+PASS: undefined line
+PASS: undefined symbols in shared lib (dyn sym)
+PASS: undefined symbols in shared lib (dyn reloc)
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-undefined/weak-undef.exp ...
+PASS: weak undefined data symbols
+UNSUPPORTED: weak undefined function symbols in shared lib
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-unique/unique.exp ...
+PASS: ld-unique/pr21529
+PASS: Linker setting GNU OSABI on STB_GNU_UNIQUE symbol (PR 10549)
+PASS: Checking unique object
+PASS: Checking unique executable
+PASS: Checking empty unique object
+PASS: Checking unique PIC object 1
+PASS: Checking unique PIC object 2
+PASS: Checking shared empty executable
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-v850/v850.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-vax-elf/export-class.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-vax-elf/vax-elf.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-visium/visium.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-vsb/vsb.exp ...
+PASS: ld-vsb/hidden0-elf
+PASS: ld-vsb/hidden1-elf
+PASS: ld-vsb/hidden2-elf
+PASS: ld-vsb/internal0-elf
+PASS: ld-vsb/internal1-elf
+PASS: ld-vsb/protected0-elf
+PASS: ld-vsb/protected1-elf
+XFAIL: visibility (hidden) (non PIC)
+XFAIL: visibility (hidden) (non PIC, load offset)
+PASS: visibility (hidden)
+XFAIL: visibility (hidden) (PIC main, non PIC so)
+PASS: visibility (hidden) (PIC main)
+XFAIL: visibility (hidden_normal) (non PIC)
+XFAIL: visibility (hidden_normal) (non PIC, load offset)
+UNSUPPORTED: visibility (hidden_normal)
+XFAIL: visibility (hidden_normal) (PIC main, non PIC so)
+UNSUPPORTED: visibility (hidden_normal) (PIC main)
+PASS: visibility (hidden_undef) (non PIC)
+PASS: visibility (hidden_undef) (non PIC, load offset)
+PASS: visibility (hidden_undef)
+PASS: visibility (hidden_undef) (PIC main, non PIC so)
+PASS: visibility (hidden_undef) (PIC main)
+XFAIL: visibility (hidden_undef_def) (non PIC)
+XFAIL: visibility (hidden_undef_def) (non PIC, load offset)
+PASS: visibility (hidden_undef_def)
+XFAIL: visibility (hidden_undef_def) (PIC main, non PIC so)
+PASS: visibility (hidden_undef_def) (PIC main)
+XFAIL: visibility (hidden_weak) (non PIC)
+XFAIL: visibility (hidden_weak) (non PIC, load offset)
+UNSUPPORTED: visibility (hidden_weak)
+XFAIL: visibility (hidden_weak) (PIC main, non PIC so)
+UNSUPPORTED: visibility (hidden_weak) (PIC main)
+XFAIL: visibility (protected) (non PIC)
+XFAIL: visibility (protected) (non PIC, load offset)
+UNSUPPORTED: visibility (protected)
+XFAIL: visibility (protected) (PIC main, non PIC so)
+UNSUPPORTED: visibility (protected) (PIC main)
+PASS: visibility (protected_undef) (non PIC)
+PASS: visibility (protected_undef) (non PIC, load offset)
+PASS: visibility (protected_undef)
+PASS: visibility (protected_undef) (PIC main, non PIC so)
+PASS: visibility (protected_undef) (PIC main)
+XFAIL: visibility (protected_undef_def) (non PIC)
+XFAIL: visibility (protected_undef_def) (non PIC, load offset)
+UNSUPPORTED: visibility (protected_undef_def)
+XFAIL: visibility (protected_undef_def) (PIC main, non PIC so)
+UNSUPPORTED: visibility (protected_undef_def) (PIC main)
+XFAIL: visibility (protected_weak) (non PIC)
+XFAIL: visibility (protected_weak) (non PIC, load offset)
+UNSUPPORTED: visibility (protected_weak)
+XFAIL: visibility (protected_weak) (PIC main, non PIC so)
+UNSUPPORTED: visibility (protected_weak) (PIC main)
+XFAIL: visibility (normal) (non PIC)
+XFAIL: visibility (normal) (non PIC, load offset)
+UNSUPPORTED: visibility (normal)
+XFAIL: visibility (normal) (PIC main, non PIC so)
+UNSUPPORTED: visibility (normal) (PIC main)
+PASS: common hidden symbol
+PASS: weak hidden symbol DSO last
+PASS: weak hidden symbol DSO first
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-vxworks/vxworks.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-x86-64/arch-confusion.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-x86-64/binutils.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-x86-64/dwarfreloc.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-x86-64/export-class.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-x86-64/line.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-x86-64/no-plt.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-x86-64/pe-x86-64.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-x86-64/stub-file-retarget.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-x86-64/tls.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-x86-64/x86-64.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-xstormy16/xstormy16.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-xtensa/xtensa-linux.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-xtensa/xtensa.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-z80/z80.exp ...
+Running /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/binutils-20261111/src/ld/testsuite/ld-z8k/z8k.exp ...
+
+		=== ld Summary ===
+
+# of expected passes		1398
+# of unexpected failures	16
+# of unexpected successes	1
+# of expected failures		30
+# of untested testcases		2
+# of unsupported tests		378
+./ld-new 2.47.50.20261111
+

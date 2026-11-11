@@ -1,0 +1,9 @@
+{
+  "patches/openssl-src-alpha.patch": "a687a23025f2b9e71c8be11d2c55def04fb489ccbb714ba47e844c6ec0b572d7",
+  "patches/native-rust-extra.patch": "98b3454331e017939cea688535f37f868e21268c520b997fbac4beb63b2ce29d",
+  "patches/rustix-1.1.5-alpha.patch": "eadd729764d3b948ce3515cc6e6fad7f2b3f2b9ddbb174c6267491c40b694d7e",
+  "patches/rustix-1.1.4-alpha.patch": "eadd729764d3b948ce3515cc6e6fad7f2b3f2b9ddbb174c6267491c40b694d7e",
+  "patches/nix-0.30.1-alpha.patch": "702102537d89f123e34fd1b6618ff85cbdfc6707ef7cde2576fd9297dd3e688c",
+  "patches/native-libc-extra.patch": "12ec4d6243e56d59f545e6ac50880db14631b022177df8caa530a996886286ab",
+  "patches/nix-0.31.3-alpha.patch": "702102537d89f123e34fd1b6618ff85cbdfc6707ef7cde2576fd9297dd3e688c"
+}

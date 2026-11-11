@@ -1,0 +1,62 @@
+Building bootstrap
+    Finished `dev` profile [unoptimized] target(s) in 0.07s
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/ci-llvm/bin/llvm-strip does not exist; skipping copy
+/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/ci-llvm/bin/llvm-strip does not exist; skipping copy
+WARNING: Using a potentially old librustc. This may not behave well.
+WARNING: Use `--keep-stage-std` if you want to rebuild the compiler when it changes
+Creating a sysroot for stage1 compiler (use `rustup toolchain link 'name' build/host/stage1`)
+Building stage1 lld-wrapper (stage0 -> stage1, x86_64-unknown-linux-gnu)
+    Finished `release` profile [optimized] target(s) in 0.15s
+Building stage1 library artifacts (stage1 -> stage1, x86_64-unknown-linux-gnu)
+    Finished `dist` profile [optimized] target(s) in 0.05s
+Building stage2 compiler artifacts (stage1 -> stage2, x86_64-unknown-linux-gnu)
+   Compiling rustc_target v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_target)
+   Compiling rustc_session v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_session)
+   Compiling rustc_hir v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_hir)
+   Compiling rustc_hir_pretty v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_hir_pretty)
+   Compiling rustc_middle v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_middle)
+   Compiling rustc_parse v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_parse)
+   Compiling rustc_attr_parsing v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_attr_parsing)
+   Compiling rustc_expand v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_expand)
+   Compiling rustc_ast_passes v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_ast_passes)
+   Compiling rustc_builtin_macros v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_builtin_macros)
+   Compiling rustc_transmute v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_transmute)
+   Compiling rustc_infer v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_infer)
+   Compiling rustc_symbol_mangling v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_symbol_mangling)
+   Compiling rustc_mir_dataflow v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_mir_dataflow)
+   Compiling rustc_ty_walk v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_ty_walk)
+   Compiling rustc_metadata v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_metadata)
+   Compiling rustc_incremental v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_incremental)
+   Compiling rustc_pattern_analysis v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_pattern_analysis)
+   Compiling rustc_ast_lowering v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_ast_lowering)
+   Compiling rustc_public_bridge v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_public_bridge)
+   Compiling rustc_query_impl v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_query_impl)
+   Compiling rustc_expand_queries v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_expand_queries)
+   Compiling rustc_privacy v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_privacy)
+   Compiling rustc_monomorphize v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_monomorphize)
+   Compiling rustc_public v0.1.0-preview (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_public)
+   Compiling rustc_trait_selection v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_trait_selection)
+   Compiling rustc_resolve v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_resolve)
+   Compiling rustc_hir_analysis v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_hir_analysis)
+   Compiling rustc_const_eval v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_const_eval)
+   Compiling rustc_lint v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_lint)
+   Compiling rustc_sanitizers v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_sanitizers)
+   Compiling rustc_codegen_ssa v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_codegen_ssa)
+   Compiling rustc_mir_build v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_mir_build)
+   Compiling rustc_passes v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_passes)
+   Compiling rustc_ty_utils v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_ty_utils)
+   Compiling rustc_borrowck v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_borrowck)
+   Compiling rustc_traits v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_traits)
+   Compiling rustc_mir_transform v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_mir_transform)
+   Compiling rustc_codegen_llvm v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_codegen_llvm)
+   Compiling rustc_hir_typeck v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_hir_typeck)
+   Compiling rustc_interface v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_interface)
+   Compiling rustc_driver_impl v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_driver_impl)
+   Compiling rustc_driver v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc_driver)
+   Compiling rustc-main v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/rust/compiler/rustc)
+    Finished `release` profile [optimized] target(s) in 3m 22s
+Creating a sysroot for stage2 compiler (use `rustup toolchain link 'name' build/host/stage2`)
+Building stage2 lld-wrapper (stage1 -> stage2, x86_64-unknown-linux-gnu)
+    Finished `release` profile [optimized] target(s) in 0.16s
+Uplifting library (stage1 -> stage2)
+Build completed successfully in 0:03:28

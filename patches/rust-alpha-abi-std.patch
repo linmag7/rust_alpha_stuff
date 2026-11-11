@@ -1,0 +1,207 @@
+--- a/compiler/rustc_target/src/callconv/alpha.rs
++++ b/compiler/rustc_target/src/callconv/alpha.rs
+@@ -1,86 +1,18 @@
+-use rustc_abi::{BackendRepr, HasDataLayout, Primitive, Reg, Size, TyAbiInterface};
++use rustc_abi::{BackendRepr, HasDataLayout, Primitive, Reg, TyAbiInterface};
++
+ use crate::callconv::{ArgAbi, ArgExtension, FnAbi, PassMode, Uniform};
+ 
+-fn extend_int_to_64_if_needed<Ty>(arg: &mut ArgAbi<'_, Ty>) {
+-    let BackendRepr::Scalar(s) = arg.layout.backend_repr else { return };
+-    let Primitive::Int(_, _) = s.primitive() else { return };
+-    arg.extend_integer_width_to(64);
+-}
+-
+-// Alpha ABI (C ABI): 32-bit integer “argument items” are carried sign-extended in 64-bit regs.
+-// Only apply if no ext was chosen earlier (avoids Sext/Zext conflicts/panics).
+-fn fix_i32_ext_alpha<Ty>(arg: &mut ArgAbi<'_, Ty>) {
+-    let BackendRepr::Scalar(s) = arg.layout.backend_repr else { return };
+-    let Primitive::Int(i, _signed) = s.primitive() else { return };
+-    if i.size().bits() != 32 {
++fn extend_integer<Ty>(arg: &mut ArgAbi<'_, Ty>) {
++    if let BackendRepr::Scalar(scalar) = arg.layout.backend_repr
++        && let Primitive::Int(integer, _) = scalar.primitive()
++        && integer.size().bits() == 32
++        && let PassMode::Direct(attrs) = &mut arg.mode
++    {
++        // The OSF ABI sign-extends both signed and unsigned 32-bit argument items.
++        attrs.arg_ext = ArgExtension::Sext;
+         return;
+     }
+-
+-    let PassMode::Direct(ref mut attrs) = arg.mode else { return };
+-
+-    // Don’t fight earlier decisions (e.g., some compiler-builtins paths may set Zext already).
+-    if attrs.arg_ext != ArgExtension::None {
+-        return;
+-    }
+-
+-    attrs.ext(ArgExtension::Sext);
+-}
+-
+-fn classify_ret<'a, Ty, C>(cx: &C, ret: &mut ArgAbi<'a, Ty>, offset: &mut Size)
+-where
+-    Ty: TyAbiInterface<'a, C> + Copy,
+-    C: HasDataLayout,
+-{
+-    if !ret.layout.is_sized() {
+-        return;
+-    }
+-
+-    if !ret.layout.is_aggregate() {
+-        extend_int_to_64_if_needed(ret);
+-        fix_i32_ext_alpha(ret);
+-        return;
+-    }
+-
+-    let size = ret.layout.size;
+-    if size.bits() <= 128 && !ret.layout.is_unsized() {
+-        // Return small aggregates in 1–2 i64 regs.
+-        ret.cast_to(Uniform::new(Reg::i64(), size));
+-    } else {
+-        ret.make_indirect();
+-        *offset += cx.data_layout().pointer_size();
+-    }
+-}
+-
+-fn classify_arg<'a, Ty, C>(cx: &C, arg: &mut ArgAbi<'a, Ty>, offset: &mut Size)
+-where
+-    Ty: TyAbiInterface<'a, C> + Copy,
+-    C: HasDataLayout,
+-{
+-    if !arg.layout.is_sized() {
+-        return;
+-    }
+-
+-    if arg.layout.pass_indirectly_in_non_rustic_abis(cx) {
+-        arg.make_indirect();
+-        return;
+-    }
+-
+-    if !arg.layout.is_aggregate() {
+-        extend_int_to_64_if_needed(arg);
+-        fix_i32_ext_alpha(arg);
+-    } else {
+-        let size = arg.layout.size;
+-        if size.bits() <= 128 {
+-            // Pass small aggregates directly as i64 chunks.
+-            arg.cast_to(Uniform::new(Reg::i64(), size));
+-        } else {
+-            arg.make_indirect();
+-        }
+-    }
+-
+-    // Minimal offset accounting; note pointer_align is a method on your rustc.
+-    let palign = cx.data_layout().pointer_align().abi;
+-    *offset += arg.layout.size.align_to(palign);
++    arg.extend_integer_width_to(64);
+ }
+ 
+ pub(crate) fn compute_abi_info<'a, Ty, C>(cx: &C, fn_abi: &mut FnAbi<'a, Ty>)
+@@ -88,17 +20,27 @@
+     Ty: TyAbiInterface<'a, C> + Copy,
+     C: HasDataLayout,
+ {
+-    let mut offset = Size::ZERO;
+-
+-    if !fn_abi.ret.is_ignore() {
+-        classify_ret(cx, &mut fn_abi.ret, &mut offset);
++    let ret = &mut fn_abi.ret;
++    if !ret.is_ignore() && ret.layout.is_sized() {
++        // Linux follows the OSF convention: every aggregate returns in memory.
++        if ret.layout.is_aggregate() || ret.layout.size.bytes() > 8 {
++            ret.make_indirect();
++        } else {
++            extend_integer(ret);
++        }
+     }
+-
+-    for arg in fn_abi.args.iter_mut() {
+-        if arg.is_ignore() {
++    for arg in &mut fn_abi.args {
++        if arg.is_ignore() || !arg.layout.is_sized() {
+             continue;
+         }
+-        classify_arg(cx, arg, &mut offset);
++        if arg.layout.pass_indirectly_in_non_rustic_abis(cx) {
++            arg.make_indirect();
++        } else if arg.layout.is_aggregate() {
++            // Aggregates are by value regardless of size. GCC assigns the first
++            // six argument words to registers and spills the rest onto the stack.
++            arg.cast_to(Uniform::new(Reg::i64(), arg.layout.size));
++        } else {
++            extend_integer(arg);
++        }
+     }
+ }
+-
+--- a/src/bootstrap/src/core/build_steps/compile.rs
++++ b/src/bootstrap/src/core/build_steps/compile.rs
+@@ -818,6 +818,9 @@
+                 // which can be read-only (e.g., on CI). So remove it before copying
+                 // the stage0 lib.
+                 let _ = fs::remove_dir_all(sysroot.join("lib/rustlib/src/rust"));
++                // rustc-dev also carries source files. Its symlink points to
++                // the working tree, so copying through it would revert edits.
++                let _ = fs::remove_dir_all(sysroot.join("lib/rustlib/rustc-src/rust"));
+             }
+ 
+             builder.cp_link_r(&builder.initial_sysroot.join("lib"), &sysroot.join("lib"));
+--- a/library/unwind/src/libunwind.rs
++++ b/library/unwind/src/libunwind.rs
+@@ -48,7 +48,7 @@
+ #[cfg(all(target_arch = "aarch64", target_pointer_width = "32"))]
+ pub const unwinder_private_data_size: usize = 5;
+ 
+-#[cfg(target_arch = "m68k")]
++#[cfg(any(target_arch = "m68k", target_arch = "alpha"))]
+ pub const unwinder_private_data_size: usize = 2;
+ 
+ #[cfg(any(target_arch = "mips", target_arch = "mips32r6"))]
+--- a/library/std/src/os/linux/raw.rs
++++ b/library/std/src/os/linux/raw.rs
+@@ -370,3 +370,21 @@
+         pub __unused: [c_long; 3],
+     }
+ }
++
++#[cfg(target_arch = "alpha")]
++mod arch {
++    #[stable(feature = "raw_ext", since = "1.1.0")]
++    pub type blkcnt_t = libc::blkcnt_t;
++    #[stable(feature = "raw_ext", since = "1.1.0")]
++    pub type blksize_t = libc::blksize_t;
++    #[stable(feature = "raw_ext", since = "1.1.0")]
++    pub type ino_t = libc::ino_t;
++    #[stable(feature = "raw_ext", since = "1.1.0")]
++    pub type nlink_t = libc::nlink_t;
++    #[stable(feature = "raw_ext", since = "1.1.0")]
++    pub type off_t = libc::off_t;
++    #[stable(feature = "raw_ext", since = "1.1.0")]
++    pub type stat = libc::stat;
++    #[stable(feature = "raw_ext", since = "1.1.0")]
++    pub type time_t = libc::time_t;
++}
+--- a/library/std/src/sys/alloc/mod.rs
++++ b/library/std/src/sys/alloc/mod.rs
+@@ -31,6 +31,7 @@
+     8
+ } else if cfg!(any(
+     target_arch = "x86_64",
++    target_arch = "alpha",
+     target_arch = "aarch64",
+     target_arch = "arm64ec",
+     target_arch = "loongarch64",
+--- a/library/std/src/sys/personality/gcc.rs
++++ b/library/std/src/sys/personality/gcc.rs
+@@ -56,6 +56,10 @@
+ 
+ #[cfg(any(target_arch = "arm", target_arch = "aarch64"))]
+ const UNWIND_DATA_REG: (i32, i32) = (0, 1); // R0, R1 / X0, X1
++
++// GCC alpha.h: EH_RETURN_DATA_REGNO(0/1), with identity DWARF numbering.
++#[cfg(target_arch = "alpha")]
++const UNWIND_DATA_REG: (i32, i32) = (16, 17);
+ 
+ #[cfg(target_arch = "m68k")]
+ const UNWIND_DATA_REG: (i32, i32) = (0, 1); // D0, D1

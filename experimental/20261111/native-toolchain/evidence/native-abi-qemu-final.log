@@ -1,0 +1,35 @@
+   Compiling alpha_abi_probe v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/tests/native-abi-probe)
+    Finished `release` profile [optimized] target(s) in 3.95s
+Testing aggregate sizes, returns and register/stack split
+Rust -> C 4-byte return: PASS
+Rust -> C 3-byte return: PASS
+Rust -> C 24-byte return: PASS
+Rust -> C 64-byte argument: PASS
+Rust -> C split register/stack argument: PASS
+Rust -> C 3-byte argument: PASS
+Rust -> C float/integer aggregate: PASS
+C -> Rust extended aggregates: PASS
+   Compiling alpha_abi_probe v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/tests/native-abi-probe)
+    Finished `release` profile [optimized] target(s) in 3.32s
+Testing 16-byte aggregate arguments
+Rust -> C pair argument: PASS
+C -> Rust pair argument: PASS
+   Compiling alpha_abi_probe v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/tests/native-abi-probe)
+    Finished `release` profile [optimized] target(s) in 3.49s
+Testing 16-byte aggregate returns
+Rust -> C pair return: PASS
+C -> Rust pair return: PASS
+   Compiling alpha_abi_probe v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/tests/native-abi-probe)
+    Finished `release` profile [optimized] target(s) in 3.57s
+C/Rust layout: PASS
+Rust -> C scalars and stack arguments: PASS
+C -> Rust scalars and stack arguments: PASS
+   Compiling alpha_abi_probe v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/tests/native-abi-probe)
+    Finished `release` profile [optimized] target(s) in 3.36s
+Testing 24-byte aggregate arguments
+Rust -> C triple argument: PASS
+C -> Rust triple argument: PASS
+   Compiling alpha_abi_probe v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/tests/native-abi-probe)
+    Finished `release` profile [optimized] target(s) in 3.21s
+Testing C -> Rust 24-byte aggregate argument
+C -> Rust triple argument: PASS

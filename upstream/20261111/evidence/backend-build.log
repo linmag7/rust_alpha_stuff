@@ -1,0 +1,111 @@
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded cfg-if v1.0.0
+  Downloaded gccjit v7.3.0
+  Downloaded fastrand v2.3.0
+  Downloaded bitflags v2.6.0
+  Downloaded errno v0.3.14
+  Downloaded gccjit_sys v4.3.0
+  Downloaded once_cell v1.20.2
+  Downloaded tempfile v3.27.0
+  Downloaded getrandom v0.3.3
+  Downloaded memchr v2.5.0
+  Downloaded object v0.39.1
+  Downloaded rustix v1.1.4
+  Downloaded libc v0.2.186
+  Downloaded linux-raw-sys v0.12.1
+   Compiling libc v0.2.186
+   Compiling rustix v1.1.4
+   Compiling memchr v2.5.0
+   Compiling getrandom v0.3.3
+   Compiling linux-raw-sys v0.12.1
+   Compiling object v0.39.1
+   Compiling cfg-if v1.0.0
+   Compiling bitflags v2.6.0
+   Compiling once_cell v1.20.2
+   Compiling fastrand v2.3.0
+   Compiling gccjit_sys v4.3.0
+   Compiling gccjit v7.3.0
+   Compiling tempfile v3.27.0
+   Compiling rustc_codegen_gcc v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/rebase-20261111/src/backend)
+error[E0599]: no variant, associated function, or constant named `Alpha` found for enum `rustc_target::asm::InlineAsmRegClass` in the current scope
+   --> src/asm.rs:750:28
+    |
+750 |         InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::reg) => "r",
+    |                            ^^^^^ variant, associated function, or constant not found in `rustc_target::asm::InlineAsmRegClass`
+
+error[E0599]: no variant, associated function, or constant named `Alpha` found for enum `rustc_target::asm::InlineAsmRegClass` in the current scope
+   --> src/asm.rs:751:28
+    |
+751 |         InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::freg) => "f",
+    |                            ^^^^^ variant, associated function, or constant not found in `rustc_target::asm::InlineAsmRegClass`
+
+error[E0599]: no variant, associated function, or constant named `Alpha` found for enum `rustc_target::asm::InlineAsmRegClass` in the current scope
+   --> src/asm.rs:932:28
+    |
+932 |         InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::reg) => cx.type_i64(),
+    |                            ^^^^^ variant, associated function, or constant not found in `rustc_target::asm::InlineAsmRegClass`
+
+error[E0599]: no variant, associated function, or constant named `Alpha` found for enum `rustc_target::asm::InlineAsmRegClass` in the current scope
+   --> src/asm.rs:933:28
+    |
+933 |         InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::freg) => cx.type_f64(),
+    |                            ^^^^^ variant, associated function, or constant not found in `rustc_target::asm::InlineAsmRegClass`
+
+error[E0599]: no variant, associated function, or constant named `Alpha` found for enum `rustc_target::asm::InlineAsmRegClass` in the current scope
+    --> src/asm.rs:1188:28
+     |
+1188 |         InlineAsmRegClass::Alpha(_) => None,
+     |                            ^^^^^ variant, associated function, or constant not found in `rustc_target::asm::InlineAsmRegClass`
+
+error[E0433]: cannot find type `AlphaInlineAsmRegClass` in this scope
+   --> src/asm.rs:750:34
+    |
+750 |         InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::reg) => "r",
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^ use of undeclared type `AlphaInlineAsmRegClass`
+    |
+help: an enum with a similar name exists
+    |
+750 -         InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::reg) => "r",
+750 +         InlineAsmRegClass::Alpha(ArmInlineAsmRegClass::reg) => "r",
+    |
+
+error[E0433]: cannot find type `AlphaInlineAsmRegClass` in this scope
+   --> src/asm.rs:751:34
+    |
+751 |         InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::freg) => "f",
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^ use of undeclared type `AlphaInlineAsmRegClass`
+    |
+help: an enum with a similar name exists
+    |
+751 -         InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::freg) => "f",
+751 +         InlineAsmRegClass::Alpha(ArmInlineAsmRegClass::freg) => "f",
+    |
+
+error[E0433]: cannot find type `AlphaInlineAsmRegClass` in this scope
+   --> src/asm.rs:932:34
+    |
+932 |         InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::reg) => cx.type_i64(),
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^ use of undeclared type `AlphaInlineAsmRegClass`
+    |
+help: an enum with a similar name exists
+    |
+932 -         InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::reg) => cx.type_i64(),
+932 +         InlineAsmRegClass::Alpha(ArmInlineAsmRegClass::reg) => cx.type_i64(),
+    |
+
+error[E0433]: cannot find type `AlphaInlineAsmRegClass` in this scope
+   --> src/asm.rs:933:34
+    |
+933 |         InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::freg) => cx.type_f64(),
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^ use of undeclared type `AlphaInlineAsmRegClass`
+    |
+help: an enum with a similar name exists
+    |
+933 -         InlineAsmRegClass::Alpha(AlphaInlineAsmRegClass::freg) => cx.type_f64(),
+933 +         InlineAsmRegClass::Alpha(ArmInlineAsmRegClass::freg) => cx.type_f64(),
+    |
+
+Some errors have detailed explanations: E0433, E0599.
+For more information about an error, try `rustc --explain E0433`.
+error: could not compile `rustc_codegen_gcc` (lib) due to 9 previous errors

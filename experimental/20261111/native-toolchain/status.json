@@ -1,0 +1,65 @@
+{
+  "scope": "private experimental Alpha-native toolchain; installed and smoke-tested on ES40",
+  "binutils_revision": "2de4446d9090b5773c863ab7bbdd95a5d4f81367",
+  "gcc_revision": "e1c6e07b095d091177376a163da44039475e05e3",
+  "rust_revision": "6f1c7ee0ec0ea64802f4b7a184b63b7efb645b3b",
+  "staging_prefix": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/stage/opt/rust-alpha-experimental",
+  "completed": [
+    "native binutils assembled, linked and executed a test program under QEMU",
+    "57 native Alpha ld regression tests passed",
+    "Alpha GMP/MPFR/MPC smoke test passed",
+    "cross C++ compiler and exception-handling test passed",
+    "native GCC 17 and G++ built and staged",
+    "native GCC and G++ compiled and ran C/C++ tests under QEMU, including C++ exceptions",
+    "native Alpha libgccjit compiled 16 contexts and passed 1024 runtime checks under QEMU",
+    "Alpha ELF shared-library metadata write/read regression passed",
+    "native Cargo 1.101.0 built; QEMU version/help/new/metadata/Git creation and HTTPS registry search passed",
+    "Alpha ioctl values matched C headers; libc SYS_open and Rustix open/fstat passed",
+    "native Rust 1.102.0-dev and GCC backend built; native std/thread/collections/I/O test passed",
+    "native Cargo compiled and ran a native procedural macro application",
+    "six native C ABI probe binaries passed 18 checks",
+    "both Nix signal probes passed under QEMU",
+    "relocated staged package compiled bundled libc/Rustix/Nix dependencies, ran a procedural macro application, and passed one unit test",
+    "ES40 Portage installation and physical-hardware native C/C++ exception/Cargo Rust thread-atomic-file-I/O smoke tests passed"
+  ],
+  "in_progress": null,
+  "pending": [],
+  "rust_bootstrap_gap": "fixed target object mapping, backend flags in proc-macro probe, and local-rebuild cross-target std installation",
+  "c_toolchain_archive": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/dist/alpha-native-gcc-binutils-20261111.tar.xz",
+  "private_additions": [
+    "Alpha object architecture mapping",
+    "native executable PIE disabled pending loader investigation",
+    "openssl-src Linux Alpha target mapping",
+    "Rustix libc-only dependency selection and Alpha ioctl layout",
+    "Alpha libc SYS_open from sysroot headers"
+  ],
+  "known_limitations": [
+    "GCC memory-read warnings appeared during Cargo build and memory-write warnings during backend build; causes unresolved despite successful runtime smoke tests",
+    "native target defaults to non-PIE executables pending investigation of small Alpha PIE loader failures",
+    "private proof of concept; not a full native self-bootstrap or upstream support claim",
+    "panic=abort: panics and some compiler diagnostic failures abort the process",
+    "rustdoc and doctests are not included"
+  ],
+  "build_and_qemu_validation_complete": true,
+  "full_archive": "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/dist/alpha-native-toolchain-20261111-experimental.tar.xz",
+  "versions": {
+    "gcc": "17.0.0 development",
+    "binutils": "2.47.50.20261111",
+    "rustc": "1.102.0-dev",
+    "cargo": "1.101.0",
+    "glibc_sysroot": "2.41"
+  },
+  "test_counts": {
+    "native_alpha_ld_pass": 57,
+    "native_libgccjit_runtime_checks": 1024,
+    "native_abi_binaries": 6,
+    "native_abi_pass_checks": 18,
+    "packaged_unit_tests_pass": 1
+  },
+  "archive_sha256": "cb21471ae02ce140d208e1ba771f883eb82cbc1388c8d0f6307182aa9d451957",
+  "archive_size_bytes": 179746444,
+  "archive_integrity_verified": true,
+  "packaged_alpha_elf_files": 70,
+  "es40_installed": true,
+  "es40_evidence": "../portage/evidence/es40"
+}

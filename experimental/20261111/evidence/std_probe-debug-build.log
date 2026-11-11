@@ -1,0 +1,28 @@
+    Updating crates.io index
+   Compiling compiler_builtins v0.1.160 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/core)
+   Compiling libc v0.2.191 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/libc)
+   Compiling std v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/std)
+   Compiling rustc-std-workspace-core v1.99.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/rustc-std-workspace-core)
+   Compiling alloc v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/alloc)
+   Compiling cfg-if v1.0.4
+   Compiling rustc-demangle v0.1.28
+   Compiling rustc-literal-escaper v0.0.8
+   Compiling unwind v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/unwind)
+   Compiling rustc-std-workspace-alloc v1.99.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/rustc-std-workspace-alloc)
+   Compiling panic_abort v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/panic_abort)
+   Compiling panic_unwind v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/panic_unwind)
+   Compiling hashbrown v0.17.1
+   Compiling std_detect v0.1.5 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/std_detect)
+   Compiling proc_macro v0.0.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/rust-build/x86_64-unknown-linux-gnu/stage2/lib/rustlib/src/rust/library/proc_macro)
+   Compiling alpha_std_probe v0.1.0 (/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/experimental-20261111/probes/std_probe)
+warning: unused dependency `libc`
+ --> Cargo.toml:8:1
+  |
+8 | libc = { path = "../../libc" }
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `cargo::unused_dependencies` is set to `warn` by default
+help: consider removing the dependency on `libc`
+warning: `alpha_std_probe` (manifest) generated 1 warning
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 52.57s

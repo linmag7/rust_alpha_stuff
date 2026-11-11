@@ -1,0 +1,10 @@
+error: linking with `/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/alpha-link` failed: exit status: 1
+  |
+  = note:  "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/alpha-link" "-Wl,--version-script=/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/tests/rustcSGJWQq/list" "-Wl,--no-undefined-version" "<1 object files omitted>" "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/tests/rustcSGJWQq/rmeta.o" "-Wl,--as-needed" "-L" "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/tests/rustcSGJWQq/raw-dylibs" "-Wl,-Bdynamic" "-Wl,--eh-frame-hdr" "-Wl,-z,noexecstack" "-fno-lto" "-L" "<sysroot>/lib/rustlib/alphaev6-unknown-linux-gnu/lib" "-o" "/media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/tests/libmetadata.so" "-shared" "-Wl,-soname=libmetadata.so" "-Wl,-z,relro,-z,now" "-nodefaultlibs"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: /media/lindholm/545a6254-41a9-48f3-a207-cbea64457d45/gcc-alpha-rust/work/native-20261111/tests/rustcSGJWQq/rmeta.o: file not recognized: file format not recognized
+          collect2: error: ld returned 1 exit status
+          
+
+error: aborting due to 1 previous error
+

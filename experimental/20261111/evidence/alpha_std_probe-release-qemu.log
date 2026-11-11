@@ -1,0 +1,7 @@
+Rust std on Alpha Linux
+allocation, formatting and randomized hashing: PASS
+files, stat, directory entries and timestamps: PASS
+threads, TLS, atomics, locks and condition variables: PASS
+clocks, sleep, TCP, UDP and nonblocking errno: PASS
+process creation, pipes and exit status: PASS
+std probe: PASS

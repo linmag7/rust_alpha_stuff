@@ -1,0 +1,35 @@
+{
+  "status": "partial_rebase",
+  "gcc": {
+    "built": true,
+    "qemu": "pass",
+    "es40": "pass",
+    "contexts": 16,
+    "functions": 128,
+    "runtime_checks_per_platform": 1024
+  },
+  "libc": {
+    "version": "0.2.191",
+    "profiles": [
+      "debug",
+      "release"
+    ],
+    "qemu": "pass",
+    "es40": "pass",
+    "layout_checks": 315,
+    "cross_constants": 2370,
+    "native_constants": 2367,
+    "std_probe": "pass",
+    "compiler": "validated Rust 1.94/GCC 16; isolated std source and lockfile"
+  },
+  "backend": {
+    "patches_ported": true,
+    "built": false
+  },
+  "rust": {
+    "fetched": true,
+    "modified": false,
+    "pending": "User clarification required by fresh Rust AGENTS.md personal-use exemption"
+  },
+  "baseline_integrity": "sha256 checks passed"
+}
