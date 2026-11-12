@@ -1,0 +1,8 @@
+eza eza - A modern, maintained replacement for ls
+v0.23.5 [+git]
+https://github.com/eza-community/eza
+File listing: PASS
+Permissions and symlink rendering: PASS
+Recursive traversal: PASS
+Git modified-file status: PASS
+Eza runtime smoke: PASS (not full suite)

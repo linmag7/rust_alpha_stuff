@@ -1,0 +1,48 @@
+libgccjit.so: error: : gcc_jit_context_new_call: mismatching types for argument 3 of function "memcmp": assignment to param arg2 (type: size_t) from temp (type: __int64_t  __attribute__((aligned(8))))
+
+thread 'rustc' (132525) panicked at compiler/rustc_codegen_gcc/src/intrinsic/mod.rs:496:40:
+gccjit: gcc_jit_context_new_call: mismatching types for argument 3 of function "memcmp": assignment to param arg2 (type: size_t) from temp (type: __int64_t  __attribute__((aligned(8))))
+stack backtrace:
+   0: __rustc::rust_begin_unwind
+   1: core::panicking::panic_fmt
+   2: gccjit::panic_on_null::<gccjit::context::Context>
+   3: gccjit::with_lib_handle::<gccjit::context::Context, gccjit::rvalue::RValue, <gccjit::context::Context>::new_call::{closure#0}>
+   4: <gccjit::context::Context>::new_call
+   5: <rustc_codegen_gcc::builder::Builder as rustc_codegen_ssa::traits::intrinsic::IntrinsicCallBuilderMethods>::codegen_intrinsic_call
+   6: <rustc_codegen_ssa::mir::FunctionCx<rustc_codegen_gcc::builder::Builder>>::codegen_intrinsic_call
+   7: <rustc_codegen_ssa::mir::FunctionCx<rustc_codegen_gcc::builder::Builder>>::codegen_call_terminator
+   8: <rustc_codegen_ssa::mir::FunctionCx<rustc_codegen_gcc::builder::Builder>>::codegen_terminator
+   9: rustc_codegen_ssa::mir::codegen_mir::<rustc_codegen_gcc::builder::Builder>
+  10: rustc_codegen_ssa::base::codegen_instance::<rustc_codegen_gcc::builder::Builder>
+  11: <rustc_middle::mono::MonoItem as rustc_codegen_ssa::mono_item::MonoItemExt>::define::<rustc_codegen_gcc::builder::Builder>
+  12: rustc_codegen_gcc::base::compile_codegen_unit::module_codegen
+  13: rustc_codegen_gcc::base::compile_codegen_unit
+  14: <rustc_codegen_gcc::GccCodegenBackend as rustc_codegen_ssa::traits::backend::ExtraBackendMethods>::compile_codegen_unit
+  15: rustc_codegen_ssa::base::codegen_crate::<rustc_codegen_gcc::GccCodegenBackend, rustc_codegen_gcc::GccContext>
+  16: <rustc_codegen_gcc::GccCodegenBackend as rustc_codegen_ssa::traits::backend::CodegenBackend>::codegen_crate
+  17: <rustc_session::session::Session>::time::<alloc::boxed::Box<dyn core::any::Any>, rustc_interface::passes::start_codegen::{closure#1}>
+  18: rustc_interface::passes::start_codegen
+  19: <rustc_interface::queries::Linker>::codegen_and_build_linker
+  20: <std::thread::local::LocalKey<core::cell::Cell<*const ()>>>::with::<rustc_middle::ty::context::tls::enter_context<<rustc_middle::ty::context::GlobalCtxt>::enter<rustc_interface::passes::create_and_enter_global_ctxt<core::option::Option<rustc_interface::queries::Linker>, rustc_driver_impl::compiler_entrypoint::{closure#0}::{closure#1}>::{closure#2}, core::option::Option<rustc_interface::queries::Linker>>::{closure#1}, core::option::Option<rustc_interface::queries::Linker>>::{closure#0}, core::option::Option<rustc_interface::queries::Linker>>
+  21: <rustc_middle::ty::context::TyCtxt>::create_global_ctxt::<core::option::Option<rustc_interface::queries::Linker>, rustc_interface::passes::create_and_enter_global_ctxt<core::option::Option<rustc_interface::queries::Linker>, rustc_driver_impl::compiler_entrypoint::{closure#0}::{closure#1}>::{closure#2}>
+  22: rustc_interface::passes::create_and_enter_global_ctxt::<core::option::Option<rustc_interface::queries::Linker>, rustc_driver_impl::compiler_entrypoint::{closure#0}::{closure#1}>
+  23: rustc_interface::interface::run_compiler::<(), rustc_driver_impl::compiler_entrypoint::{closure#0}>::{closure#2}
+  24: rustc_interface::util::run_in_thread_with_globals::<rustc_interface::util::run_in_thread_pool_with_globals<rustc_interface::interface::run_compiler<(), rustc_driver_impl::compiler_entrypoint::{closure#0}>::{closure#2}, ()>::{closure#0}, ()>::{closure#0}::{closure#0}::{closure#0}
+  25: <scoped_tls::ScopedKey<rustc_span::SessionGlobals>>::set::<rustc_interface::util::run_in_thread_with_globals<rustc_interface::util::run_in_thread_pool_with_globals<rustc_interface::interface::run_compiler<(), rustc_driver_impl::compiler_entrypoint::{closure#0}>::{closure#2}, ()>::{closure#0}, ()>::{closure#0}::{closure#0}::{closure#0}, ()>
+  26: rustc_interface::util::run_in_thread_with_globals::<rustc_interface::util::run_in_thread_pool_with_globals<rustc_interface::interface::run_compiler<(), rustc_driver_impl::compiler_entrypoint::{closure#0}>::{closure#2}, ()>::{closure#0}, ()>::{closure#0}::{closure#0}
+note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.
+
+error: the compiler unexpectedly panicked. This is a bug
+
+note: we would appreciate a bug report: https://github.com/rust-lang/rust/issues/new?labels=C-bug%2C+I-ICE%2C+T-compiler&template=ice.md
+
+note: please make sure that you have updated to the latest nightly
+
+note: please attach the file at `/root/rustc-ice-2026-11-12T21_34_46-132523.txt` to your bug report
+
+note: rustc 1.102.0-dev running on alphaev6-unknown-linux-gnu
+
+note: compiler flags: --crate-type rlib -C opt-level=3 -C panic=abort
+
+query stack during panic:
+end of query stack

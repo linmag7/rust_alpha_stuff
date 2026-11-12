@@ -1,0 +1,13 @@
+Revision 2: validated native compare_bytes/memcmp size_t fix.
+Backend commit 7cb1ce39972c1fce610e00dbd49768caed92c0a4, local only; not pushed.
+Backend SHA256 c7885247dcbef9843d6ec02836bd165719f927e059909e11c951a121898f5602.
+New native application coverage: Just1.59.0-r1 and Eza0.23.5-r1 (+git).
+Eza built fully optimized with isolated candidate backend and passed file listing,
+permissions, symlink rendering, traversal and Git modified-status smoke checks.
+Just passed dependencies/arguments/environment/child-exit smoke checks.
+No upstream full test-suite claims. Existing November12 release is preserved.
+Installed SDK remains unchanged until the user installs this revision.
+Use setup-es40.sh --check, then --update for an existing overlay (backs up config),
+then emerge --ask =dev-lang/rust-alpha-bin-1.102.0_pre20261111-r2::rust-alpha.
+Existing ES40 candidate package.env is experimental-only; remove that exact Eza
+candidate override after installing r2 to use the installed backend by default.

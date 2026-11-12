@@ -1,0 +1,4 @@
+#!/bin/bash
+set -euo pipefail
+: "${ALPHA_RUST_PREFIX:?}" "${ALPHA_FISH_NIX:?}"
+exec "${ALPHA_RUST_PREFIX}/bin/cargo-alpha" --config "patch.crates-io.nix_031.path=\"${ALPHA_FISH_NIX}\"" "$@"

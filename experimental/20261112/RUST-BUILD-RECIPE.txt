@@ -127,3 +127,17 @@ configure, before compiling crates. No raw syscall ABI was invented.
 Bat also exposed sysinfo0.33.1 rlimit argument and signed statvfs conversions.
 This version now has a private patch and preflight registration, just like the
 previously tested sysinfo versions. Unknown versions are not assumed compatible.
+
+Post-release Eza experiment: vendored Rustix 1.1.3 can remain selected when
+SDK 1.1.4/1.1.5 overrides are unusable with the offline dependency set. Use
+private rustix-1.1.3.patch (adapted from native-toolchain 1.1.4 Alpha patch),
+with a distinct rustix_113 package alias. It guards raw Linux dependencies
+and uses Alpha ioctl encoding; preflight requires this private version.
+Validation pending native retry; frozen release archive is unchanged.
+
+Eza retry: locale0.2.2 at opt-level3 triggers a rustc_codegen_gcc compare_bytes/
+memcmp length type mismatch (size_t vs signed aligned int64) and ICE. Exact
+failing rustc command replay at opt-level0 compiled successfully on ES40.
+Eza uses profile.release.package.locale.opt-level=0 only; this is a package
+workaround, not a compiler fix. Keep this narrow, do not disable optimization
+globally. Full application/runtime validation is pending.

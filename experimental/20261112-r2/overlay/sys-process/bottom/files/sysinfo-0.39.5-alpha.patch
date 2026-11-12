@@ -1,0 +1,42 @@
+--- a/src/unix/linux/system.rs
++++ b/src/unix/linux/system.rs
+@@ -26,7 +26,7 @@
+         rlim_max: 0,
+     };
+ 
+-    if unsafe { libc::getrlimit(libc::RLIMIT_NOFILE, &mut limits) } != 0 {
++    if unsafe { libc::getrlimit(libc::RLIMIT_NOFILE as _, &mut limits) } != 0 {
+         None
+     } else {
+         Some(limits)
+@@ -39,7 +39,7 @@
+             rlim_cur: 0,
+             rlim_max: 0,
+         };
+-        if libc::getrlimit(libc::RLIMIT_NOFILE, &mut limits) != 0 {
++        if libc::getrlimit(libc::RLIMIT_NOFILE as _, &mut limits) != 0 {
+             // Most Linux system now defaults to 1024.
+             1024 / 2
+         } else {
+@@ -64,7 +64,7 @@
+         limits.rlim_cur = limits.rlim_max;
+         // In this part, we leave minimum 50% of the available file descriptors to the process
+         // using sysinfo.
+-        AtomicIsize::new(if libc::setrlimit(libc::RLIMIT_NOFILE, &limits) == 0 {
++        AtomicIsize::new(if libc::setrlimit(libc::RLIMIT_NOFILE as _, &limits) == 0 {
+             limits.rlim_cur / 2
+         } else {
+             current / 2
+--- a/src/unix/linux/disk.rs
++++ b/src/unix/linux/disk.rs
+@@ -236,8 +236,8 @@
+         let stat = unsafe { stat.assume_init() };
+ 
+         let frsize = cast!(stat.f_frsize);
+-        let blocks = cast!(stat.f_blocks);
+-        let bavail = cast!(stat.f_bavail);
++        let blocks = u64::try_from(stat.f_blocks).ok()?;
++        let bavail = u64::try_from(stat.f_bavail).ok()?;
+         let total = frsize.saturating_mul(blocks);
+         if total == 0 {
+             return None;

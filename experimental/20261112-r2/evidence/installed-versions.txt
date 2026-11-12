@@ -1,0 +1,11 @@
+app-shells/fish-4.9.3-r2
+app-shells/zoxide-0.10.0-r1
+sys-apps/ripgrep-15.2.0-r1
+sys-apps/fd-10.5.0-r1
+app-editors/helix-25.07.1-r1
+sys-process/bottom-0.14.6-r1
+dev-util/git-delta-0.19.2-r1
+app-benchmarks/hyperfine-1.21.0-r1
+sys-block/dust-1.2.3-r1
+sys-apps/bat-0.26.1-r2
+dev-vcs/git-2.56.1-r1

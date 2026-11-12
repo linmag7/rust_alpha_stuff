@@ -1,0 +1,6 @@
+Revision2 bundled DIST hashes and SHA256SUMS: PASS
+Revision2 ebuild and installer bash syntax: PASS
+Revision2 payload xz integrity: PASS
+Native extracted payload MANIFEST verification: PASS
+Native SDK debug/release, pthread_atfork and default-backend CStr regression: PASS
+See sdk-r2-validation.log. No installed SDK replacement; no full upstream suites.

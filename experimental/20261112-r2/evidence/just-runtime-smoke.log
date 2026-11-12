@@ -1,0 +1,5 @@
+Recipe dependency ordering: PASS
+Argument with spaces: PASS
+Exported environment: PASS
+Child exit status 7: PASS
+Just runtime smoke: PASS (not full test suite)

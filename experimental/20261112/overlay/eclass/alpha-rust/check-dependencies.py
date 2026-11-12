@@ -20,7 +20,7 @@ def check(metadata, workdir):
             if any(k.get('kind') != 'dev' for k in dep['dep_kinds']):
                 pending.append(dep['pkg'])
     errors = []
-    known = {'sysinfo': {'0.27.8', '0.29.11', '0.33.1', '0.39.5'}, 'terminal_size': {'0.2.6', '0.4.1'}}
+    known = {'rustix': {'1.1.3'}, 'sysinfo': {'0.27.8', '0.29.11', '0.33.1', '0.39.5'}, 'terminal_size': {'0.2.6', '0.4.1'}}
     for key in sorted(seen):
         p = packages[key]
         name, version = p['name'], p['version']

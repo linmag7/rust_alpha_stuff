@@ -1,0 +1,16 @@
+# Exact experimental versions only
+=dev-lang/rust-alpha-bin-1.102.0_pre20261111-r2::rust-alpha ~alpha
+=sys-apps/ripgrep-15.2.0-r1::rust-alpha ~alpha
+=sys-apps/fd-10.5.0-r1::rust-alpha ~alpha
+=app-shells/zoxide-0.10.0-r1::rust-alpha ~alpha
+=app-shells/fish-4.9.3-r2::rust-alpha ~alpha
+=app-editors/helix-25.07.1-r1::rust-alpha ~alpha
+=sys-process/bottom-0.14.6-r1::rust-alpha ~alpha
+=dev-util/git-delta-0.19.2-r1::rust-alpha ~alpha
+=app-benchmarks/hyperfine-1.21.0-r1::rust-alpha ~alpha
+=sys-block/dust-1.2.3-r1::rust-alpha ~alpha
+=sys-apps/bat-0.26.1-r2::rust-alpha ~alpha
+=dev-vcs/git-2.56.1-r1::rust-alpha ~alpha
+=dev-libs/libgit2-1.9.7::gentoo **
+=dev-build/just-1.59.0-r1::rust-alpha ~alpha
+=sys-apps/eza-0.23.5-r1::rust-alpha ~alpha
