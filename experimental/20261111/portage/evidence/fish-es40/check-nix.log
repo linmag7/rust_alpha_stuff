@@ -1,0 +1,2 @@
+{"$message_type":"unused_extern","lint_level":"force-warn","unused_extern_names":[]}
+{"$message_type":"artifact","artifact":"/root/rust-alpha-fish-4.9.3/nix-probe-out/libnix-55bcd3a733096e90.rmeta","emit":"metadata"}

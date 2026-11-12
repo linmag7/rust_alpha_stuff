@@ -1,0 +1,2 @@
+# Enable Rust only for the adapted experimental Git ebuild.
+=dev-vcs/git-2.56.1-r1::rust-alpha -rust

@@ -1,0 +1,35 @@
+Validation recorded 2026-11-12
+
+Original compiler binaries: see experimental/20261111/native-toolchain/evidence
+for QEMU compiler/ABI/proc-macro tests; original installed kit ES40 results under
+experimental/20261111/portage/evidence/es40. Historical README snapshots may
+predate later hardware tests.
+
+Maintenance SDK: isolated copy on the physical ES40, no system/installed SDK
+replacement. Both cargo-alpha debug and release builds passed IEEE NaN/Inf,
+thread join/TLS destructor count, file write/read. alpha-cc linked and ran C
+pthread_atfork successfully with the bundled CRT. See sdk-validation.log.
+This validates wrapper defaults, not a rebuilt std or the full compiler suite.
+
+Applications: Alpha builds, ES40 installations and individual smoke
+checks, not complete upstream suites. Initial ripgrep/fd/zoxide packaging used
+the earlier QEMU workflow; recent Fish-through-Bat builds ran natively through
+emerge. Installed versions are recorded separately.
+Fish shell/math/pipeline/wait; Helix PTY edit/save/quit; Bottom PTY CPU/memory
+screen and clean quit; Delta Git diff/ANSI/side-by-side; Hyperfine process timing,
+JSON and nonzero status; Dust nested file sizes and equal1/2-thread traversal;
+Bat plain byte output, Rust highlighting and Git markers. Initial smoke script
+assumptions about truncated paths/non-TTY decorations were corrected. Full suites
+were disabled for recent apps; Git suite was explicitly waived.
+
+Reused compatibility patches were verified with failing-feature metadata replay
+or actual-module PTY tests before retries. Shared eclass integration succeeded
+for Dust and Bat; preflight caught Bat's raw dependency at configure. Syntax,
+wrapper quoting and known-dependency test cases passed. Unknown versions/features
+can still fail, and runtime smoke results do not prove full ABI correctness.
+
+Release verification: xz integrity, SHA256 contents, package DIST hash audit,
+installer bash syntax and native --check. See release-verification.log.
+Installing this refreshed compiler over the current ES40 compiler is NOT part
+of this release preparation. Existing app binaries were built using equivalent
+per-package workaround flags before this SDK maintenance update.

@@ -1,0 +1,54 @@
+Experimental Git 2.56.1 with native Alpha Rust
+==============================================
+
+This recipe adapts Gentoo's Git 2.56.1 ebuild for the personal experimental
+Alpha compiler in /opt/rust-alpha-experimental. It is not an upstream Gentoo
+package or a claim of supported Rust on Alpha.
+
+Prerequisites: the rust-alpha overlay and dev-lang/rust-alpha-bin from this
+installation kit, with the native cargo-alpha wrapper working on Alpha Linux.
+Copy overlay/dev-vcs/git into the installed rust-alpha overlay. Apply the
+three scoped snippets in config/git according to its README.txt. They enable
+rust and keyring and disable test only for =dev-vcs/git-2.56.1-r1::rust-alpha.
+The profile package.use.mask entry removes Gentoo's Rust mask for that exact
+package version only.
+
+Review the dependency plan:
+  emerge --pretend --verbose --usepkg=n '=dev-vcs/git-2.56.1-r1::rust-alpha'
+Build and install from source (the full test suite is intentionally disabled):
+  FEATURES="${FEATURES} -test" MAKEOPTS="-j4" emerge --usepkg=n '=dev-vcs/git-2.56.1-r1::rust-alpha'
+Verify the installed binary:
+  git version --build-options
+Expected version: 2.56.1. Expected build option: rust: enabled.
+
+The Rust crate uses no external crates, so this adaptation invokes the native
+cargo-alpha wrapper directly instead of cargo.eclass. Cargo is offline and
+uses build-local temporary/cache paths. Rust LTO and debug information are
+disabled, panic=abort is selected, and the dev profile is optimized because
+Gentoo's Meson plain build selects that profile. C executable PIE is disabled
+to match the validated experimental compiler configuration. The final C link
+explicitly uses -fno-lto: the Rust archive contains GCC 17 fat LTO objects,
+and an older system GCC must use their native code instead of attempting
+to consume GCC 17 LTO bytecode. The initial GCC 15 link failed without this
+flag; a direct relink with it produced a working Rust-enabled Git binary.
+
+The wrapper limits cargo test to --lib because this compiler package lacks
+rustdoc. The full Git suite has not been validated by this build; enabling
+tests later requires checking the complete Meson/Cargo link and test setup.
+Do not interpret successful compilation or small smoke checks as a full
+Git test-suite pass.
+
+Original ebuild: https://github.com/gentoo/gentoo/blob/master/dev-vcs/git/git-2.56.1.ebuild
+SHA256 of the original ebuild used:
+15ecf968a68578c022f04a26ebc8bc678c2452b1e7b973e8ca4a55cbc9fe0eec
+Source archives were checked against Gentoo's BLAKE2B and SHA512 Manifest.
+
+ES40 result (2026-11-11): installed successfully through emerge, exit 0.
+Git 2.56.1 reports cpu: alpha and rust: enabled. The optimized Rust library
+compiled natively in 10.21 seconds in the successful clean build. Installed
+repository smoke checks passed: init, commits, branch, fast-forward merge,
+gc, strict fsck, bundle creation/verification and clone. Keyring remains
+enabled. Full Git tests were skipped at the user's request. Compact evidence
+and the exact scripts are in evidence/git-es40/. Full build logs are retained
+locally in work/git-rust-es40/logs/ and on the ES40 in
+/root/rust-alpha-git-2.56.1/.

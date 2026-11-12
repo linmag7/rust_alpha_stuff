@@ -1,0 +1,40 @@
+Experimental Bottom 0.14.6-r1, native Alpha Linux only.
+Based on the synced Gentoo bottom-0.14.6 recipe; original and Manifest saved
+in work/bottom-rust-es40/reference. Uses CARGO_OPTIONAL and rust-alpha-bin,
+packaged libc0.2.191/rustix1.1.5, libc syscall backend, package-private native
+CRT workaround validated with Fish/Helix. Offline vendoring retains Gentoo
+source hashes and adds linux-raw-sys0.12.0 from the verified Helix manifest.
+Build uses --no-default-features: optional GPU/NVIDIA/ZFS/battery features
+are excluded for this initial experiment. Test suite not enabled. Installs
+btm, generated man page and completions. Build/runtime validation pending.
+
+Exact overlay revision unmasked from Gentoo wd40 profile package.mask;
+no broad architecture or repository unmasking.
+
+Build findings 2026-11-12: explicitly call cargo_src_unpack with CARGO_OPTIONAL
+so offline dependencies are configured. Subsequent build reached sysinfo0.39.5
+and failed five type errors: RLIMIT_NOFILE i32 versus GNU get/setrlimit u32,
+and signed Alpha statvfs counters cannot use u64::from. Private sysinfo copy
+now casts the resource constant to the inferred FFI argument type and uses
+u64::try_from(...).ok()? for disk counters, rejecting negative values instead
+of wrapping them. Full failing-feature rustc metadata replay passed; native
+application rebuild/runtime validation pending. Shared SDK crates unchanged.
+
+Next retry compiled sysinfo successfully, then Bottom's own disk usage module
+failed four signed-counter conversions. Added checked conversions with zero
+fallback for negative counters (especially available blocks on full filesystems).
+Native standalone probe compiling the actual patched module with SDK libc
+passed total/available/used/free positive calculations and negative available.
+Full app rebuild still pending. Failure log: work/bottom-rust-es40/logs/sysinfo-retry.log.
+
+Runtime finding: first successful native installation reports0.14.6, but PTY
+startup SIGFPEs. GDB stopped adjacent to cmpteq floating-point comparison.
+A reduced Rust NaN/zero comparison and division probe traps under default SDK
+codegen, but passes with -Cllvm-args=-mieee. Bottom recipe now applies this
+GCC option across Rust compilation; full rebuilt runtime test pending.
+SDK follow-up: make IEEE semantics the Alpha backend default and validate
+NaN/infinity/subnormal operations including std, without relying on app flags.
+
+IEEE rebuild installed successfully. PTY smoke rendered CPU/memory, ran
+8 seconds and quit cleanly (exit0). Previous SIGFPE no longer reproduced
+in this smoke check. Full tests and detailed metric accuracy not validated.

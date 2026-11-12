@@ -1,0 +1,19 @@
+--- a/src/signal.rs
++++ b/src/signal.rs
+@@ -392,7 +392,7 @@
+     signal_entry!(SIGSYS, "Bad system call"),
+     signal_entry!(SIGIOT, "Abort (Alias for SIGABRT)"),
+ 
+-    #[cfg(any(apple, bsd))]
++    #[cfg(any(apple, bsd, target_arch = "alpha"))]
+     signal_entry!(SIGEMT, SIGEMT_DESC),
+ 
+     #[cfg(any(apple, bsd))]
+@@ -401,6 +401,7 @@
+     #[cfg(all(
+         target_os = "linux",
+         not(any(
++            target_arch = "alpha",
+             target_arch = "mips",
+             target_arch = "mips32r6",
+             target_arch = "mips64",

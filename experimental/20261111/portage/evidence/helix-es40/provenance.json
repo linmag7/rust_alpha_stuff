@@ -1,0 +1,6 @@
+{
+  "base": "Gentoo synced ES40 app-editors/helix/helix-25.07.1.ebuild",
+  "sha256": "e60dd4b0d8a09cd2ba5b55a02471ca5e3e28d4e54689a27285e851d8e0e46c51",
+  "version": "25.07.1",
+  "revision": "25.07.1-r1"
+}

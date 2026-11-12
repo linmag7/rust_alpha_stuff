@@ -1,0 +1,7 @@
+#!/bin/bash
+set -euo pipefail
+: "${ALPHA_RUST_PREFIX:=/opt/rust-alpha-experimental}"
+if [[ ${1:-} == test ]]; then
+	exec "${ALPHA_RUST_PREFIX}/bin/cargo-alpha" "$@" --lib
+fi
+exec "${ALPHA_RUST_PREFIX}/bin/cargo-alpha" "$@"

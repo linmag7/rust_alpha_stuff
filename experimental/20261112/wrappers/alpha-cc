@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+prefix=$(cd -- "$(dirname -- "$0")/.." && pwd)
+extra=("-B$prefix/share/rust-alpha-experimental/support/crt/")
+if [[ -n ${ALPHA_SYSROOT:-} ]]; then extra+=("--sysroot=$ALPHA_SYSROOT"); fi
+exec "$prefix/bin/gcc" "${extra[@]}" "$@"

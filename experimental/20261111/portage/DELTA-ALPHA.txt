@@ -1,0 +1,16 @@
+Experimental native Alpha git-delta0.19.2-r1.
+Based on synced Gentoo recipe and source Manifest. Exact version keyworded
+and unmasked from wd40 Rust profile mask. Uses rust-alpha-bin, explicit
+cargo_src_unpack and offline Cargo resolution, existing patched libc/rustix,
+private native CRT copies, and -Cllvm-args=-mieee from Bottom findings.
+Retains Gentoo native libgit2:0/1.9, oniguruma and zlib dependencies, native
+library selection and upstream git2 unpinning. Installs delta and completions.
+Build, runtime and dependency-plan validation pending. No full test suite.
+
+Native libgit2-1.9.7 has no Alpha keyword; exact Gentoo version accepted
+with ** for this experiment. No broad libgit2 keyword override.
+
+Initial build failed in sysinfo0.29.11 on signed Alpha statvfs counters
+and GNU resource-limit arguments. Private source patch uses checked counter
+conversions with zero fallback and inferred FFI casts. Original failing-feature
+metadata replay passes; full build/runtime pending. Native dependencies installed.

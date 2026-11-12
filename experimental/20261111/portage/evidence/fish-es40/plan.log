@@ -1,0 +1,13 @@
+
+These are the packages that would be merged, in order:
+
+Calculating dependencies ... done!
+Dependency resolution took 17.46 s (backtrack: 0/20).
+
+[ebuild  N    #] app-shells/fish-4.9.3-r1::rust-alpha  USE="-debug -doc -nls -test" 13832 KiB
+
+Total: 1 package (1 new), Size of downloads: 13832 KiB
+
+ * IMPORTANT: 28 news items need reading for repository 'gentoo'.
+ * Use eselect news read to view new items.
+

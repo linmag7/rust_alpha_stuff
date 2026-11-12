@@ -1,0 +1,29 @@
+warning: patch `libc v0.2.191 (/root/rust-alpha-release-20261112/sdk/share/rust-alpha-experimental/support/libc)` was not used in the crate graph
+warning: patch `nix v0.30.1 (/root/rust-alpha-release-20261112/sdk/share/rust-alpha-experimental/support/nix-0.30.1)` was not used in the crate graph
+warning: patch `nix v0.31.3 (/root/rust-alpha-release-20261112/sdk/share/rust-alpha-experimental/support/nix-0.31.3)` was not used in the crate graph
+warning: patch `openssl-src v300.6.1+3.6.3 (/root/rust-alpha-release-20261112/sdk/share/rust-alpha-experimental/support/openssl-src)` was not used in the crate graph
+warning: patch `rustix v1.1.5 (/root/rust-alpha-release-20261112/sdk/share/rust-alpha-experimental/support/rustix-compiler)` was not used in the crate graph
+warning: patch `rustix v1.1.4 (/root/rust-alpha-release-20261112/sdk/share/rust-alpha-experimental/support/rustix)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+   Compiling alpha_release_check v0.1.0 (/root/rust-alpha-release-20261112/probe)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 7.67s
+     Running `target/debug/alpha_release_check`
+IEEE arithmetic, threads, TLS destructor and file I/O: PASS
+warning: patch `libc v0.2.191 (/root/rust-alpha-release-20261112/sdk/share/rust-alpha-experimental/support/libc)` was not used in the crate graph
+warning: patch `nix v0.30.1 (/root/rust-alpha-release-20261112/sdk/share/rust-alpha-experimental/support/nix-0.30.1)` was not used in the crate graph
+warning: patch `nix v0.31.3 (/root/rust-alpha-release-20261112/sdk/share/rust-alpha-experimental/support/nix-0.31.3)` was not used in the crate graph
+warning: patch `openssl-src v300.6.1+3.6.3 (/root/rust-alpha-release-20261112/sdk/share/rust-alpha-experimental/support/openssl-src)` was not used in the crate graph
+warning: patch `rustix v1.1.5 (/root/rust-alpha-release-20261112/sdk/share/rust-alpha-experimental/support/rustix-compiler)` was not used in the crate graph
+warning: patch `rustix v1.1.4 (/root/rust-alpha-release-20261112/sdk/share/rust-alpha-experimental/support/rustix)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+   Compiling alpha_release_check v0.1.0 (/root/rust-alpha-release-20261112/probe)
+    Finished `release` profile [optimized] target(s) in 6.00s
+     Running `target/release/alpha_release_check`
+IEEE arithmetic, threads, TLS destructor and file I/O: PASS
+Native SDK defaults and C pthread_atfork link/run: PASS

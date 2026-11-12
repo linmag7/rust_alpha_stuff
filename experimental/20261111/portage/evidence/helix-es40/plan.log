@@ -1,0 +1,13 @@
+
+These are the packages that would be merged, in order:
+
+Calculating dependencies ... done!
+Dependency resolution took 32.69 s (backtrack: 0/20).
+
+[ebuild  N     ] app-editors/helix-25.07.1-r1::rust-alpha  USE="grammar -debug" 186073 KiB
+
+Total: 1 package (1 new), Size of downloads: 186073 KiB
+
+ * IMPORTANT: 28 news items need reading for repository 'gentoo'.
+ * Use eselect news read to view new items.
+

@@ -1,0 +1,51 @@
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -31,4 +31,3 @@
+-[target."cfg(not(windows))".dependencies.rustix]
+-version = "0.37.0"
+-features = ["termios"]
++[target."cfg(not(windows))".dependencies.libc]
++version = "0.2"
+ 
+--- a/src/unix.rs
++++ b/src/unix.rs
+@@ -1,30 +1,27 @@
+ use super::{Height, Width};
+ use std::os::unix::io::RawFd;
+-use rustix::fd::BorrowedFd;
++
+ 
+ /// Returns the size of the terminal defaulting to STDOUT, if available.
+ ///
+ /// If STDOUT is not a tty, returns `None`
+ pub fn terminal_size() -> Option<(Width, Height)> {
+-    terminal_size_using_fd(rustix::io::raw_stdout())
++    terminal_size_using_fd(libc::STDOUT_FILENO)
+ }
+ 
+ /// Returns the size of the terminal using the given file descriptor, if available.
+ ///
+ /// If the given file descriptor is not a tty, returns `None`
+ pub fn terminal_size_using_fd(fd: RawFd) -> Option<(Width, Height)> {
+-    use rustix::termios::{isatty, tcgetwinsize};
+-
+-    // TODO: Once I/O safety is stabilized, the enlosing function here should
+-    // be unsafe due to taking a `RawFd`. We should then move the main
+-    // logic here into a new function which takes a `BorrowedFd` and is safe.
+-    let fd = unsafe { BorrowedFd::borrow_raw(fd) };
+-
+-    if !isatty(fd) {
++    // Native libc handles Alpha's ioctl ABI; no raw Linux syscall bindings.
++    if unsafe { libc::isatty(fd) } != 1 {
+         return None;
+     }
+-
+-    let winsize = tcgetwinsize(fd).ok()?;
++    let mut winsize = std::mem::MaybeUninit::<libc::winsize>::uninit();
++    if unsafe { libc::ioctl(fd, libc::TIOCGWINSZ as _, winsize.as_mut_ptr()) } != 0 {
++        return None;
++    }
++    let winsize = unsafe { winsize.assume_init() };
+ 
+     let rows = winsize.ws_row;
+     let cols = winsize.ws_col;

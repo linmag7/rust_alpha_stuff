@@ -1,0 +1,71 @@
+Experimental Fish 4.9.3 for native Alpha
+=======================================
+
+Based on Gentoo fish-4.9.3.ebuild from the ES40's synced repository.
+Requires dev-lang/rust-alpha-bin-1.102.0_pre20261111 or newer with the
+packaged libc 0.2.191 and nix patches in /opt/rust-alpha-experimental.
+
+Copy overlay/app-shells/fish into /var/db/repos/rust-alpha/app-shells/.
+Apply config/fish entries as described in that directory's README.txt.
+Only the exact experimental revision is unmasked and accepts ~alpha.
+Documentation, localization and full tests are disabled for the first build.
+
+On the ES40, as root:
+  MAKEOPTS="-j2" emerge --ask --verbose --usepkg=n '=app-shells/fish-4.9.3-r2::rust-alpha'
+
+The recipe retains cargo.eclass's source unpacking and offline vendor setup,
+but opts out of its stock Rust dependency and compiler selection. CMake uses
+cargo-alpha and the native experimental rustc explicitly. A targeted offline
+lockfile update selects the Alpha libc crate. Optimized Rust builds use no
+LTO, no stripping and panic=abort; C link flags avoid PIE and cross-version
+LTO. Gentoo's normal installation logic is retained.
+
+This is preparation for the user's native build, not a claim that Fish has
+compiled or passed runtime tests. No Fish build/install or login-shell change
+is performed during setup. After the build, start with:
+  fish --version
+  fish -c 'printf "Fish on Alpha\n"'
+  fish
+
+The local preparation workspace is work/fish-rust-es40. Remote preparation
+logs are under /root/rust-alpha-fish-4.9.3/. The first configuration attempt
+resolved upstream libc; the final recipe explicitly selects patched libc.
+
+Setup validation: dependency plan selects Fish only; source checksums passed;
+clean ebuild configure exited 0 with patched libc 0.2.191 and both packaged
+nix versions selected. Evidence is in evidence/fish-es40/. Build not started.
+
+Revision r2: the first user build failed while compiling nix 0.31.3 with
+Fish's expanded feature set. The package now copies the packaged nix source
+into its own WORKDIR and applies a local Alpha patch: MAP_SYNC is excluded
+(Alpha headers do not define it), Resource uses a signed repr to match this
+libc's resource constants, and statfs block-count accessors preserve Alpha's
+signed c_long counters. A local cargo wrapper overrides only nix_031's path.
+The shared compiler/support installation remains unchanged. The old r1
+configuration result is historical evidence, not a successful Fish build.
+
+Overnight follow-up: r2 passed nix and reached the main Fish crate, then failed
+on SIGSTKFLT. Native Alpha signal.h has no SIGSTKFLT and does have SIGEMT (7).
+Added a Fish source cfg patch excluding Alpha from SIGSTKFLT and including
+Alpha in SIGEMT lookup. Original r2 build log preserved; clean retry queued.
+
+Startup-object workaround (2026-11-12): Fish reached final binary linking,
+then failed on __dso_handle from std TLS destructors and libc pthread_atfork.
+The installed experimental GCC 17 crtbegin.o/crtbeginS.o lack this symbol;
+its build auto-host.h leaves DEFAULT_USE_CXA_ATEXIT undefined, and crtstuff.c
+now guards the symbol with that macro. A minimal pthread_atfork C program
+reproduced the failure. Copies of native Gentoo GCC startup objects fixed
+that link/runtime check and a Rust spawned-thread TLS destructor check.
+Both Fish and Helix recipes now copy only five crtbegin/crtend objects from
+/usr/bin/gcc into package-private T/alpha-crt and pass -B to the Rust linker.
+This does not replace SDK/system files. Full application validation pending.
+SDK follow-up: explicitly enable __cxa_atexit when rebuilding GCC, verify the
+CRT symbol and C/C++/Rust destructor behavior, then retire this workaround.
+
+2026-11-12 validation: emerge completed with exit 0 and installed
+app-shells/fish-4.9.3-r2. fish --version reports 4.9.3. Arithmetic,
+pipelines, file redirection, loops, external-command status and background
+wait smoke checks passed on ES40. This is not full test-suite validation.
+A libgccjit -Wstringop-overflow warning concerning stack_var_5 remains
+unexplained; retain the build log for a later reduced compiler investigation.
+Helix started automatically after Fish installation and initial smoke passed.

@@ -1,0 +1,13 @@
+{
+  "package": "app-editors/helix-25.07.1-r1::rust-alpha",
+  "status": "prepared_for_user_build",
+  "configure_exit_status": 0,
+  "built": false,
+  "installed": false,
+  "grammar": true,
+  "selected_libc": "0.2.191 packaged Alpha support",
+  "selected_rustix": "1.1.5 packaged Alpha support/rustix-compiler",
+  "crossterm_backend": "libc; unused rustix dependency removed",
+  "metadata_assertions": "passed: libc feature enabled, no rustix 0.x in graph, no Crossterm rustix dependency",
+  "command": "MAKEOPTS=\"-j2\" emerge --ask --verbose --usepkg=n \"=app-editors/helix-25.07.1-r1::rust-alpha\""
+}

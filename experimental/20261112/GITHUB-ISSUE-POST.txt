@@ -1,0 +1,61 @@
+Draft for https://github.com/rust-lang/rustc_codegen_gcc/issues/742
+Publication note: the November12 kit and overlay update are prepared locally,
+not uploaded. The source links below refer to the previously published branches.
+Update availability wording after publishing; do not imply a downloadable release.
+
+--- post begins ---
+
+A small progress update from my personal Rust/Alpha experiment: I now have a native Rust toolchain running on a Gentoo AlphaServer ES40 (EV67), using `rustc_codegen_gcc` and GCC/libgccjit. It includes `std`, Cargo and a private Portage overlay. Initial cross-build checks used QEMU; the applications below were built for Alpha and installed/smoke-tested on the real machine. The recent Fish-through-Bat builds ran natively through `emerge`; the initial ripgrep/fd/zoxide packages were prepared using the earlier QEMU-backed packaging workflow.
+
+This remains experimental, with LLM-assisted implementation and documentation in personal forks—not an upstream-ready submission or official Rust/Gentoo support claim.
+
+The source branches are:
+
+- [Rust](https://github.com/linmag7/rust/tree/alpha-experimental-20261111)
+- [rustc_codegen_gcc](https://github.com/linmag7/rustc_codegen_gcc/tree/alpha-experimental-20261111)
+- [GCC](https://github.com/linmag7/gcc/tree/alpha-experimental-20261111)
+- [Alpha experiments, build scripts and Portage setup](https://github.com/linmag7/rust_alpha_stuff/tree/alpha-experimental-20261111)
+
+The native SDK uses Rust 1.102.0-dev, Cargo 1.101.0, GCC 17 development libgccjit, upstream binutils 2.47.50.20261111 and the `alphaev6-unknown-linux-gnu` target. The maintenance kit retains those compiler/std binaries and collects the fixes found while building applications: IEEE floating-point flags, a temporary native-GCC startup-object workaround, and versioned libc-backed crate adaptations. A shared eclass now checks known dependency blockers before a long compilation.
+
+Packages built/installed and smoke-tested on the ES40:
+
+| Application | Version |
+|---|---|
+| ripgrep | 15.2.0 |
+| fd | 10.5.0 |
+| zoxide | 0.10.0 |
+| Fish | 4.9.3 |
+| Helix | 25.07.1 |
+| Bottom | 0.14.6 |
+| git-delta | 0.19.2 |
+| Hyperfine | 1.21.0 |
+| Dust | 1.2.3 |
+| Bat | 0.26.1 |
+
+Also Git 2.56.1 with Rust enabled. These checks cover shell/process behavior, editing/saving, monitor startup, diff/syntax rendering, timing, filesystem traversal and threading. They are **not full upstream test-suite passes**. Optional features were scoped: for example ripgrep without PCRE2 and Bottom without GPU/battery/ZFS support.
+
+I have prepared an updated native installation kit locally; it is not yet a public download. Once you have a copy, on a compatible Alpha Gentoo system:
+
+```sh
+tar -xf rust-alpha-native-portage-20261112.tar
+cd rust-alpha-portage-20261112
+./setup-es40.sh --check
+./setup-es40.sh --install   # or reviewed --update for an existing overlay
+emerge --ask =dev-lang/rust-alpha-bin-1.102.0_pre20261111-r1::rust-alpha
+emerge --ask sys-apps/bat::rust-alpha sys-block/dust::rust-alpha
+```
+
+The setup verifies bundle checksums and installs the overlay, pinned distfiles and narrow keyword/USE exceptions; it does not merge packages automatically. The compiler is Portage-owned under `/opt/rust-alpha-experimental`. Recent app sources are fetched through Gentoo's hashed Manifests. For your own Rust code:
+
+```sh
+/opt/rust-alpha-experimental/bin/cargo-alpha new --vcs none hello-alpha
+cd hello-alpha
+/opt/rust-alpha-experimental/bin/cargo-alpha run --release
+```
+
+Other Gentoo Rust packages still need an adapted ebuild; unmasking or enabling a Rust USE flag alone is insufficient. `RUST-BUILD-RECIPE.txt` describes the shared helper and opt-in crate fixes. Compiler rebuild scripts, revisions and patches are in `experimental/20261111/native-toolchain`; they assume the prepared bootstrap workspace/sysroot and are not yet a clean-machine bootstrap guide.
+
+Current limits include `panic=abort`, disabled LTO/incremental in the supported recipes, no supported rustdoc/doctests or native compiler self-bootstrap, and unvalidated direct-syscall crates. We use libc-backed paths. Full `std` has not been rebuilt with the new IEEE defaults, and remaining ABI/compiler warnings and the small-PIE issue need investigation. Hardware validation so far is on the ES40 with glibc 2.41, not a claim of compatibility with all Alpha systems.
+
+For now the aim is to make the experiment reproducible, collect useful failures, and improve the SDK while keeping any eventual upstream work separate.

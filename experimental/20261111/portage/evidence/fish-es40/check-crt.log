@@ -1,0 +1,9 @@
+(.text+0x8): undefined reference to `__dso_handle'
+/opt/rust-alpha-experimental/alphaev6-unknown-linux-gnu/bin/ld: (.text+0x14): undefined reference to `__dso_handle'
+/opt/rust-alpha-experimental/alphaev6-unknown-linux-gnu/bin/ld: broken: hidden symbol `__dso_handle' isn't defined
+TLS destructor PASS
+f2ea1e89a370f1e32d29eb526f3e9c8a79243272d9c50864a3ed166a91af7265  crt/crtbegin.o
+0ad05873daeb9b33b4d540dbc9c33685c79b88a19e396df45fcb8ed1db77cf7a  crt/crtbeginS.o
+2e156fbae3f8c7fdf0109bd476c989d5add56eff577021312337d20a824e07b2  crt/crtbeginT.o
+f80e35fa0e6172fe4cb263b580c052be4f0501a16fcc8a509f91277a42fd0a65  crt/crtend.o
+f80e35fa0e6172fe4cb263b580c052be4f0501a16fcc8a509f91277a42fd0a65  crt/crtendS.o

@@ -1,0 +1,59 @@
+Experimental Helix 25.07.1 for native Alpha
+=========================================
+
+Based on Gentoo's synced helix-25.07.1 ebuild. Requires the native
+rust-alpha-bin package with /opt/rust-alpha-experimental/bin/cargo-alpha
+and its patched libc 0.2.191. Copy overlay/app-editors/helix into the
+rust-alpha overlay and apply config/helix as described in its README.
+
+After any other large native build finishes, as root on ES40:
+  MAKEOPTS="-j2" emerge --ask --verbose --usepkg=n '=app-editors/helix-25.07.1-r1::rust-alpha'
+
+The custom recipe uses cargo.eclass for verified source unpacking and offline
+vendoring, but selects cargo-alpha explicitly instead of stock Gentoo Rust.
+It selects the packaged Alpha libc 0.2.191 and rustix 1.1.5 before resolving
+the lockfile offline. Crossterm 0.28.1 uses its existing libc backend; a small
+local manifest patch removes its unused older rustix dependency, including
+the use-dev-tty feature edge. linux-raw-sys 0.12.0 is additionally vendored
+for Cargo dependency resolution; the Alpha build selects the libc backend. Rust is optimized with LTO/debug/strip disabled and
+panic=abort. The installed hx is copied from that build without a second
+Cargo installation build. Gentoo's grammar/runtime, icon, desktop entry,
+completion and documentation installation logic is retained.
+
+Syntax grammar compilation is enabled. The source archive includes grammar
+sources. This is an experimental build: full tests are restricted, and no
+compilation or runtime success is implied by preparation/configuration.
+
+After installing:
+  hx --version
+  hx --health
+  hx /path/to/a/file
+
+Language servers are separate programs and are not installed by this ebuild.
+Some entries in hx --health may therefore report missing language servers.
+
+Preparation workspace: work/helix-rust-es40
+Remote setup logs: /root/rust-alpha-helix-25.07.1/
+
+Final setup validation: clean configure exited 0. Metadata confirms patched
+libc 0.2.191, patched rustix 1.1.5, and Crossterm with libc enabled and no
+rustix dependency. No rustix 0.x remains. Source checksums passed. Build and
+runtime tests are not yet performed. The initial plan log predates the extra
+linux-raw-sys archive; system package dependencies are unchanged.
+
+Startup-object workaround (2026-11-12): Fish reached final binary linking,
+then failed on __dso_handle from std TLS destructors and libc pthread_atfork.
+The installed experimental GCC 17 crtbegin.o/crtbeginS.o lack this symbol;
+its build auto-host.h leaves DEFAULT_USE_CXA_ATEXIT undefined, and crtstuff.c
+now guards the symbol with that macro. A minimal pthread_atfork C program
+reproduced the failure. Copies of native Gentoo GCC startup objects fixed
+that link/runtime check and a Rust spawned-thread TLS destructor check.
+Both Fish and Helix recipes now copy only five crtbegin/crtend objects from
+/usr/bin/gcc into package-private T/alpha-crt and pass -B to the Rust linker.
+This does not replace SDK/system files. Full application validation pending.
+SDK follow-up: explicitly enable __cxa_atexit when rebuilding GCC, verify the
+CRT symbol and C/C++/Rust destructor behavior, then retire this workaround.
+
+2026-11-12: native emerge completed exit0, Helix25.07.1-r1 installed.
+Version reports 25.07.1 (a05c151b). PTY smoke inserted text, saved file,
+and exited successfully; exact saved content verified. Full suite not run.

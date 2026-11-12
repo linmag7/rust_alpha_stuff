@@ -1,0 +1,19 @@
+{
+  "package": "app-shells/fish-4.9.3-r2::rust-alpha",
+  "host": "root@192.168.1.82",
+  "status": "r2_prepared_after_nix_failure",
+  "configure_exit_status": 0,
+  "dependency_plan": "Fish only; installed rust-alpha-bin selected",
+  "source_hashes": "Portage verified BLAKE2B SHA512 and size",
+  "selected_libc": "0.2.191 from packaged Alpha support",
+  "selected_nix": [
+    "0.30.1 from packaged Alpha support",
+    "0.31.3 from packaged Alpha support"
+  ],
+  "built": false,
+  "installed": false,
+  "use": "-doc -nls -test",
+  "command": "MAKEOPTS=\"-j2\" emerge --ask --verbose --usepkg=n \"=app-shells/fish-4.9.3-r2::rust-alpha\"",
+  "first_build": "r1 failed with 20 nix errors",
+  "nix_failing_feature_set_typecheck": "passed"
+}

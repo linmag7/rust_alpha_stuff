@@ -1,0 +1,6 @@
+{
+  "version": "2.56.1",
+  "ebuild_source": "https://raw.githubusercontent.com/gentoo/gentoo/master/dev-vcs/git/git-2.56.1.ebuild",
+  "source_archives_verified_against_gentoo_manifest": true,
+  "upstream_ebuild_sha256": "15ecf968a68578c022f04a26ebc8bc678c2452b1e7b973e8ca4a55cbc9fe0eec"
+}

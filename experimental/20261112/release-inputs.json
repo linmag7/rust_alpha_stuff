@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-12",
+  "inputs": {
+    "work/release-20261112/inputs/crt.tar": {
+      "sha256": "29c33bcd0da9ca358f2e554c82c21f049cc95898214685a53e57cada02b22699",
+      "bytes": 20480
+    },
+    "work/portage-20261111/distfiles/alpha-native-toolchain-20261111-experimental.tar.xz": {
+      "sha256": "cb21471ae02ce140d208e1ba771f883eb82cbc1388c8d0f6307182aa9d451957",
+      "bytes": 179746444
+    }
+  },
+  "compiler_rebuild": false,
+  "installed_sdk_replaced": false,
+  "published": false
+}

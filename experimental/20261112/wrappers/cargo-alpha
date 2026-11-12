@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+prefix=$(cd -- "$(dirname -- "$0")/.." && pwd)
+support="$prefix/share/rust-alpha-experimental/support"
+export PATH="$prefix/bin:$PATH" RUSTC="$prefix/bin/rustc" RUSTC_BOOTSTRAP=1
+export CG_GCCJIT_LIBRARY_PATH="$prefix/lib/libgccjit.so"
+export LD_LIBRARY_PATH="$prefix/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+export GCC_EXEC_PREFIX="$prefix/lib/gcc/"
+export COMPILER_PATH="$prefix/libexec/gcc/alphaev6-unknown-linux-gnu/17.0.0:$prefix/bin"
+export LIBRARY_PATH="$prefix/lib:$prefix/lib/gcc/alphaev6-unknown-linux-gnu/17.0.0${LIBRARY_PATH:+:$LIBRARY_PATH}"
+export CC="$prefix/bin/alpha-cc" CXX="$prefix/bin/alpha-c++" AR="$prefix/bin/ar"
+export RUSTFLAGS="-Cpanic=abort -Clto=off -Cllvm-args=-mieee -Clinker=$prefix/bin/alpha-cc --cfg=rustix_use_libc --cfg=rustix_no_linux_raw${RUSTFLAGS:+ $RUSTFLAGS}"
+args=(
+ --config "patch.crates-io.libc.path=\"$support/libc\""
+ --config "patch.crates-io.openssl-src.path=\"$support/openssl-src\""
+ --config "patch.crates-io.rustix.path=\"$support/rustix-compiler\""
+ --config "patch.crates-io.rustix_114.package=\"rustix\""
+ --config "patch.crates-io.rustix_114.path=\"$support/rustix\""
+ --config "patch.crates-io.nix_030.package=\"nix\""
+ --config "patch.crates-io.nix_030.path=\"$support/nix-0.30.1\""
+ --config "patch.crates-io.nix_031.package=\"nix\""
+ --config "patch.crates-io.nix_031.path=\"$support/nix-0.31.3\""
+)
+if [[ ${1:-} == test ]]; then
+ export RUSTFLAGS="$RUSTFLAGS -Zpanic-abort-tests"
+ args+=(-Zpanic-abort-tests)
+fi
+exec "$prefix/bin/cargo" "${args[@]}" "$@"

@@ -1,0 +1,7 @@
+{
+  "upstream_ebuild": "Gentoo synced ES40 app-shells/fish/fish-4.9.3.ebuild",
+  "sha256": "18ffddc025b09aaeaace45305e88caeb48abc755774712c90d7a463409455af7",
+  "version": "4.9.3",
+  "overlay_revision": "4.9.3-r1",
+  "build_requested_by_user_to_run_later": true
+}

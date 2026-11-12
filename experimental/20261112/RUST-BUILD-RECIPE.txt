@@ -1,0 +1,129 @@
+Reusable native Alpha Rust recipe (experimental)
+================================================
+Use overlay/eclass/alpha-rust.eclass for new cargo-based packages. It is a
+helper eclass: it does not export or replace package phases. The older
+alpha-cargo.eclass serves prebuilt vendor archives and remains unchanged.
+Install the whole overlay, including eclass/alpha-rust/*.patch.
+
+Start with the synced Gentoo ebuild: retain CRATES, SRC_URI, Manifest,
+licenses, required native dependencies, documentation and completions.
+Before inheriting cargo, set CARGO_OPTIONAL=1. Inherit cargo alpha-rust plus
+any original completion/documentation helpers. Use ~alpha and an exact
+package keyword/unmask entry. Do not add broad ** keywords or world upgrades.
+
+Minimal phase structure:
+
+  CARGO_OPTIONAL=1
+  inherit cargo alpha-rust
+  RESTRICT="test"  # until this package's test suite is validated
+
+  pkg_setup() { alpha-rust_pkg_setup; }
+  src_unpack() { cargo_src_unpack; }
+  src_prepare() {
+      default
+      alpha-rust_prepare
+      # Optional, only when nix 0.31.3 is in the dependency graph:
+      # alpha-rust_patch_crate nix 0.31.3 \
+      #   "${BROOT}/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/nix-0.31.3" nix_031
+      # Optional, choose the exact vendored sysinfo version:
+      # alpha-rust_patch_crate sysinfo 0.29.11 "${ECARGO_VENDOR}/sysinfo-0.29.11"
+      alpha-rust_finish_prepare
+  }
+  src_configure() { alpha-rust_configure; }
+  src_compile() { alpha-rust_build --bin "${PN}"; }
+  src_install() {
+      dobin "${WORKDIR}/alpha-target/release/${PN}"
+      einstalldocs
+      # Retain package-specific man pages/completions/runtime assets.
+  }
+
+For CMake-driven packages such as Fish, retain CMake phases and explicitly
+call alpha-rust_env before invoking Cargo through CMake. Such integrations
+need individual validation; the minimal phases above are for Cargo apps.
+
+Shared behavior
+---------------
+* Native Alpha GNU/Linux guard and experimental SDK build dependency.
+* cargo-alpha supplies patched libc/rustix and other SDK overrides.
+* Offline lockfile generation and locked compilation; no registry fetching
+  during configure/compile. Keep crate tarball hashes in Gentoo Manifest.
+* Two usual build workers via MAKEOPTS=-j2, release, panic=abort, LTO off,
+  16 codegen units, no debug info. User RUSTFLAGS are intentionally replaced
+  by the tested experiment configuration, not silently assumed compatible.
+* -Cllvm-args=-mieee for Rust NaN/Inf behavior on Alpha.
+* Private copies of native Gentoo GCC startup objects via -B to work around
+  missing __dso_handle in the experimental GCC build. No shared SDK mutation.
+* Versioned, opt-in private crate patches passed through a Cargo wrapper:
+  nix0.31.3 (Alpha MAP_SYNC, resource enum and signed statfs getters),
+  sysinfo0.29.11 and0.39.5 (rlimit argument and signed disk counts).
+  Never apply a patch blindly to another version. nix_031 is the SDK's
+  existing Cargo override alias; using plain nix would leave that alias active.
+
+Package-specific work stays in the package
+-----------------------------------------
+Fish's signal table, Bottom's own disk calculations, Crossterm backend
+selection, native libgit2/oniguruma selection and completion generation are
+not universal Rust fixes. Preserve these in their respective ebuilds.
+RESTRICT=test is a temporary validation policy, not a compiler requirement.
+Do not equate successful install or smoke tests with full suite validation.
+
+Acceptance for each new application
+----------------------------------
+1. Inspect emerge --pretend --verbose for only intended dependencies.
+2. Build serially with the campaign host guard, flock and unique marker.
+3. Preserve failed logs. Replay the failing case before a clean retry.
+4. Record installed version, exact ebuild/patches and runtime smoke evidence:
+   child process exit/timing, filesystem traversal/threading, rendering etc.
+5. Keep compiler/ABI findings distinct from package-specific fixes.
+
+Status and limits
+-----------------
+The shared helper has now built Dust and Bat natively on the ES40, both with
+runtime smoke checks. Its preflight caught Bat's raw Linux dependency before
+compilation; the corresponding versioned fix was added and validated. Earlier
+successful packages retain their individually validated recipes; migration is
+incremental. The maintenance SDK bundles the tested IEEE flag and CRT workaround.
+A proper GCC CRT rebuild, IEEE std rebuild and broad compiler/ABI validation
+remain future work. No full test-suite claim is made.
+
+Known-issue preflight (updated after Dust)
+-----------------------------------------
+alpha-rust_configure now runs check-dependencies.py on Cargo metadata filtered
+for alphaev6-unknown-linux-gnu. It walks normal/build dependencies, excluding
+dev-only edges, and stops BEFORE compilation for known affected dependencies
+unless their manifests point at the private patched copies. Requires python3
+(available on the native Portage host). This catches recurrence, not every
+possible SDK bug; unknown crate versions still need review.
+
+Known versions / symptom / action:
+* nix0.30.1 with fs: signed statfs block getters. Use patch key nix_030.
+* nix0.31.3 with fs/resource/mman: signed statfs, resource enum and missing
+  MAP_SYNC. Use patch key nix_031. Never invent an Alpha MAP_SYNC constant.
+* sysinfo0.27.8/0.29.11/0.39.5: rlimit argument types and signed statvfs
+  counters. Use the matching versioned patch, keeping each version's semantics.
+* terminal_size0.2.6: pulls rustix0.37 and linux-raw-sys0.3.8 despite the global
+  libc cfg. Private patch uses libc isatty/ioctl and removes that rustix edge.
+  ES40 probe verified exact PTY123x41 and invalid-descriptor handling.
+* Active linux-raw-sys in any normal/build path: stop and inspect reverse
+  dependencies. RUSTFLAGS alone does not remove Cargo dependency edges.
+* Missing __dso_handle at link: private native GCC CRT workaround in eclass.
+* SIGFPE on NaN/Inf: -mieee in eclass; std/default compiler remains a backlog.
+* CARGO_OPTIONAL with missing vendors: explicit cargo_src_unpack is mandatory.
+
+Dust's src_prepare now registers terminal_size0.2.6, sysinfo0.27.8, and
+nix0.30.1. These patches and the checker are part of the shared eclass bank.
+Register patches before alpha-rust_finish_prepare; use SDK source paths for
+nix overrides and ECARGO_VENDOR for the other crates. Keep aliases exact.
+
+Validation: checker exercises patched/unpatched nix, unaffected features,
+dev-only exclusions and raw build dependencies. Native preflight integration passed during the subsequent Bat build.
+
+Bat preflight found terminal_size0.4.1 -> rustix0.38.43 -> linux-raw-sys0.4.15
+through clap's normal/build dependency graph. Added terminal_size0.4.1 libc
+patch preserving its AsFd API and stdout/stderr/stdin fallback order. The
+preflight now requires this version's private patch too. This was caught during
+configure, before compiling crates. No raw syscall ABI was invented.
+
+Bat also exposed sysinfo0.33.1 rlimit argument and signed statvfs conversions.
+This version now has a private patch and preflight registration, just like the
+previously tested sysinfo versions. Unknown versions are not assumed compatible.
