@@ -1,0 +1,5 @@
+checking file src/sys/statfs.rs
+patching file src/sys/statfs.rs
+{"$message_type":"unused_extern","lint_level":"force-warn","unused_extern_names":[]}
+{"$message_type":"artifact","artifact":"/root/rust-alpha-overnight-20261111/nix-028-probe-output/libnix-e8ac79668b3d4898.rmeta","emit":"metadata"}
+nix 0.28.0 native failing-invocation metadata replay: PASS

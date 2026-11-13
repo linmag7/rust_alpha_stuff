@@ -1,0 +1,10 @@
+sk 5.6.6
+exact filtering: PASS
+fuzzy ranking: PASS
+Unicode filtering: PASS
+streamed records: PASS
+no-match status: PASS
+terminal preview and selection: PASS
+terminal cancellation: PASS
+Skim runtime smoke: PASS; fixture /root/rust-alpha-overnight-20261111/skim-smoke-ndrkbx55
+CLI only; image/frizbee/listen disabled. No full-suite claim.

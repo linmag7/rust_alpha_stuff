@@ -1,0 +1,5 @@
+checking file src/signal.rs
+patching file src/signal.rs
+{"$message_type":"unused_extern","lint_level":"force-warn","unused_extern_names":[]}
+{"$message_type":"artifact","artifact":"/root/rust-alpha-overnight-20261111/rustix-115-probe-output/librustix-96f6d8e5df30e7a1.rmeta","emit":"metadata"}
+rustix 1.1.5 native failing-invocation metadata replay: PASS

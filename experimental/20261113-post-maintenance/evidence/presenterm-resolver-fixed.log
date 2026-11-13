@@ -1,0 +1,25 @@
+warning: patch `rustix v1.1.4 (/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/rustix)` was not used in the crate graph
+  |
+  = help: perhaps you meant one of the following:
+          	/var/tmp/portage/app-misc/presenterm-0.15.1-r1/work/alpha-rustix-1.1.5
+warning: patch `nix v0.30.1 (/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/nix-0.30.1)` was not used in the crate graph
+warning: patch `nix v0.31.3 (/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/nix-0.31.3)` was not used in the crate graph
+warning: patch `openssl-src v300.6.1+3.6.3 (/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/openssl-src)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+     Locking 174 packages to highest compatible versions
+warning: patch `rustix v1.1.4 (/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/rustix)` was not used in the crate graph
+  |
+  = help: perhaps you meant one of the following:
+          	/var/tmp/portage/app-misc/presenterm-0.15.1-r1/work/alpha-rustix-1.1.5
+warning: patch `nix v0.30.1 (/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/nix-0.30.1)` was not used in the crate graph
+warning: patch `nix v0.31.3 (/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/nix-0.31.3)` was not used in the crate graph
+warning: patch `openssl-src v300.6.1+3.6.3 (/opt/rust-alpha-experimental/share/rust-alpha-experimental/support/openssl-src)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+Known Alpha dependency preflight: PASS (not a full ABI validation)
+Offline resolver with linux-raw-sys0.12.1 available: PASS

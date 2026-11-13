@@ -1,0 +1,50 @@
+--- a/src/signal.rs
++++ b/src/signal.rs
+@@ -99,6 +99,7 @@
+         all(
+             linux_kernel,
+             any(
++                target_arch = "alpha",
+                 target_arch = "mips",
+                 target_arch = "mips32r6",
+                 target_arch = "mips64",
+@@ -173,6 +174,7 @@
+         all(
+             linux_kernel,
+             any(
++                target_arch = "alpha",
+                 target_arch = "mips",
+                 target_arch = "mips32r6",
+                 target_arch = "mips64",
+@@ -320,6 +322,7 @@
+                 all(
+                     linux_kernel,
+                     any(
++                        target_arch = "alpha",
+                         target_arch = "mips",
+                         target_arch = "mips32r6",
+                         target_arch = "mips64",
+@@ -373,6 +376,7 @@
+                 all(
+                     linux_kernel,
+                     any(
++                        target_arch = "alpha",
+                         target_arch = "mips",
+                         target_arch = "mips32r6",
+                         target_arch = "mips64",
+@@ -428,6 +432,7 @@
+                 all(
+                     linux_kernel,
+                     any(
++                        target_arch = "alpha",
+                         target_arch = "mips",
+                         target_arch = "mips32r6",
+                         target_arch = "mips64",
+@@ -481,6 +486,7 @@
+                 all(
+                     linux_kernel,
+                     any(
++                        target_arch = "alpha",
+                         target_arch = "mips",
+                         target_arch = "mips32r6",
+                         target_arch = "mips64",

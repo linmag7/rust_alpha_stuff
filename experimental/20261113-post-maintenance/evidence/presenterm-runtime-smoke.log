@@ -1,0 +1,7 @@
+presenterm 0.15.1
+Markdown and Unicode rendering: PASS
+Next slide and highlighted Rust snippet: PASS
+Previous slide: PASS
+Clean quit: PASS
+Presenterm runtime smoke: PASS; fixture /root/rust-alpha-overnight-20261111/presenterm-smoke-hxakb71a
+No snippet execution, external renderers, image protocol or full-suite validation.
