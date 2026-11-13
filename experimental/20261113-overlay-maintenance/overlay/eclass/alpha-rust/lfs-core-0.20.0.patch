@@ -1,0 +1,17 @@
+--- a/src/linux/mod.rs
++++ b/src/linux/mod.rs
+@@ -102,8 +102,11 @@
+                 // blocks info
+                 let bsize = statvfs.f_bsize;
+-                let blocks = statvfs.f_blocks;
+-                let bfree = statvfs.f_bfree;
+-                let bavail = statvfs.f_bavail;
++                let blocks = u64::try_from(statvfs.f_blocks)
++                    .map_err(|_| StatsError::Unconsistent)?;
++                let bfree = u64::try_from(statvfs.f_bfree)
++                    .map_err(|_| StatsError::Unconsistent)?;
++                let bavail = u64::try_from(statvfs.f_bavail)
++                    .map_err(|_| StatsError::Unconsistent)?;
+                 if bsize == 0 || blocks == 0 || bfree > blocks || bavail > blocks {
+                     // unconsistent or void data
+                     return Err(StatsError::Unconsistent);

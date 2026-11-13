@@ -1,0 +1,10 @@
+Broot navigation/search/text-preview/clean-quit smoke: PASS
+Native filesystem reference: Filesystem        1B-blocks         Used    Available Use% Mounted on
+/dev/root      288863674368 124243296256 149872091136  46% /
+
+Filesystem screen: New Configuration files written in "/root/rust-alpha-overnight-20261111/broot-smoke-3gkde7yf/config/broot".
+You should have a look at them: their comments will help you configure broot.
+You should especially set up your favourite editor in verbs.hjson.
+]11;?^[[0n /root/rust-alpha-overnight-20261111/broot-smoke-3gkde7yf/fixture  /dev/root HDD 139G/289G ████▍     48%                                      ├──nested-alpha                                                                                                                             │  └──needle-alpha.txt                                                                                                                      └──other.txt                                                                                                  
+Fixture and captures: /root/rust-alpha-overnight-20261111/broot-smoke-3gkde7yf
+Filesystem display PASS: 139G/289G; native total=288863674368, total-minus-available=138991587328. Uses available, including reserved blocks as unavailable; differs from df Used.

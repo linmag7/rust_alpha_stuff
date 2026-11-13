@@ -1,0 +1,25 @@
+{
+  "applications": [
+    "sys-apps/ripgrep-15.2.0-r1",
+    "sys-apps/fd-10.5.0-r1",
+    "app-shells/zoxide-0.10.0-r1",
+    "app-shells/fish-4.9.3-r2",
+    "app-editors/helix-25.07.1-r1",
+    "sys-process/bottom-0.14.6-r1",
+    "dev-util/git-delta-0.19.2-r1",
+    "app-benchmarks/hyperfine-1.21.0-r1",
+    "sys-block/dust-1.2.3-r1",
+    "sys-apps/bat-0.26.1-r2",
+    "dev-vcs/git-2.56.1-r1",
+    "dev-build/just-1.59.0-r1",
+    "sys-apps/eza-0.23.5-r1",
+    "dev-vcs/gitui-0.28.1-r1",
+    "app-misc/broot-1.61.0-r1",
+    "app-text/mdbook-0.5.4-r2",
+    "app-misc/jaq-3.1.2-r1"
+  ],
+  "validation": "Alpha builds and ES40 install/application smoke checks; recent Fish-through-Bat built natively; initial ripgrep/fd/zoxide packaging via QEMU; not full suites",
+  "compiler": "dev-lang/rust-alpha-bin-1.102.0_pre20261111-r2",
+  "compiler_binaries": "Native GCC backend rebuilt with commit 7cb1ce39972c1fce610e00dbd49768caed92c0a4; compiler driver, std, Cargo, GCC and binutils retained",
+  "maintenance": "20261113 overlay only; installed SDK r2 binaries unchanged"
+}

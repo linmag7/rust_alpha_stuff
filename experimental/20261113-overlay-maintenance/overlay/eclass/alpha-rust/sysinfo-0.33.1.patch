@@ -1,0 +1,40 @@
+--- a/src/unix/linux/disk.rs
++++ b/src/unix/linux/disk.rs
+@@ -30,7 +30,7 @@
+ 
+ macro_rules! cast {
+     ($x:expr) => {
+-        u64::from($x)
++        <u64 as std::convert::TryFrom<_>>::try_from($x).unwrap_or(0)
+     };
+ }
+ 
+--- a/src/unix/linux/system.rs
++++ b/src/unix/linux/system.rs
+@@ -29,7 +29,7 @@
+             rlim_cur: 0,
+             rlim_max: 0,
+         };
+-        if libc::getrlimit(libc::RLIMIT_NOFILE, &mut limits) != 0 {
++        if libc::getrlimit(libc::RLIMIT_NOFILE as _, &mut limits) != 0 {
+             // Most Linux system now defaults to 1024.
+             return AtomicIsize::new(1024 / 2);
+         }
+@@ -40,7 +40,7 @@
+         limits.rlim_cur = limits.rlim_max;
+         // In this part, we leave minimum 50% of the available file descriptors to the process
+         // using sysinfo.
+-        AtomicIsize::new(if libc::setrlimit(libc::RLIMIT_NOFILE, &limits) == 0 {
++        AtomicIsize::new(if libc::setrlimit(libc::RLIMIT_NOFILE as _, &limits) == 0 {
+             limits.rlim_cur / 2
+         } else {
+             current / 2
+@@ -95,7 +95,7 @@
+             rlim_cur: 0,
+             rlim_max: 0,
+         };
+-        if libc::getrlimit(libc::RLIMIT_NOFILE, &mut limits) != 0 {
++        if libc::getrlimit(libc::RLIMIT_NOFILE as _, &mut limits) != 0 {
+             // Most Linux system now defaults to 1024.
+             1024 / 2
+         } else {

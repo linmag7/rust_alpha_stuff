@@ -1,0 +1,54 @@
+--- a/src/sys/statfs.rs
++++ b/src/sys/statfs.rs
+@@ -510,7 +510,7 @@
+     /// Total data blocks in filesystem
+     #[cfg(any(
+         apple_targets,
+-        linux_android,
++        all(linux_android, not(target_arch = "alpha")),
+         target_os = "freebsd",
+         target_os = "fuchsia",
+         target_os = "openbsd",
+@@ -520,7 +520,7 @@
+     }
+ 
+     /// Total data blocks in filesystem
+-    #[cfg(any(target_os = "dragonfly", target_os = "cygwin"))]
++    #[cfg(any(target_arch = "alpha", target_os = "dragonfly", target_os = "cygwin"))]
+     pub fn blocks(&self) -> libc::c_long {
+         self.0.f_blocks
+     }
+@@ -534,7 +534,7 @@
+     /// Free blocks in filesystem
+     #[cfg(any(
+         apple_targets,
+-        linux_android,
++        all(linux_android, not(target_arch = "alpha")),
+         target_os = "freebsd",
+         target_os = "fuchsia",
+         target_os = "openbsd",
+@@ -544,7 +544,7 @@
+     }
+ 
+     /// Free blocks in filesystem
+-    #[cfg(any(target_os = "dragonfly", target_os = "cygwin"))]
++    #[cfg(any(target_arch = "alpha", target_os = "dragonfly", target_os = "cygwin"))]
+     pub fn blocks_free(&self) -> libc::c_long {
+         self.0.f_bfree
+     }
+@@ -556,13 +556,13 @@
+     }
+ 
+     /// Free blocks available to unprivileged user
+-    #[cfg(any(apple_targets, linux_android, target_os = "fuchsia"))]
++    #[cfg(any(apple_targets, all(linux_android, not(target_arch = "alpha")), target_os = "fuchsia"))]
+     pub fn blocks_available(&self) -> u64 {
+         self.0.f_bavail
+     }
+ 
+     /// Free blocks available to unprivileged user
+-    #[cfg(any(target_os = "dragonfly", target_os = "cygwin"))]
++    #[cfg(any(target_arch = "alpha", target_os = "dragonfly", target_os = "cygwin"))]
+     pub fn blocks_available(&self) -> libc::c_long {
+         self.0.f_bavail
+     }

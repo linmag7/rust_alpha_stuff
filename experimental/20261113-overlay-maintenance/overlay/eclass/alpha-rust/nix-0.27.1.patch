@@ -1,0 +1,152 @@
+--- a/src/sys/signal.rs
++++ b/src/sys/signal.rs
+@@ -65,7 +65,7 @@
+         /// Stack fault (obsolete)
+         #[cfg(all(any(target_os = "android", target_os = "emscripten",
+                       target_os = "fuchsia", target_os = "linux"),
+-                  not(any(target_arch = "mips", target_arch = "mips64",
++                  not(any(target_arch = "alpha", target_arch = "mips", target_arch = "mips64",
+                           target_arch = "sparc64"))))]
+         SIGSTKFLT,
+         /// To parent on child stop or exit
+@@ -104,9 +104,9 @@
+         SIGPWR,
+         /// Bad system call
+         SIGSYS,
+-        #[cfg(not(any(target_os = "android", target_os = "emscripten",
++        #[cfg(any(target_arch = "alpha", not(any(target_os = "android", target_os = "emscripten",
+                       target_os = "fuchsia", target_os = "linux",
+-                      target_os = "redox", target_os = "haiku")))]
++                      target_os = "redox", target_os = "haiku"))))]
+         #[cfg_attr(docsrs, doc(cfg(all())))]
+         /// Emulator trap
+         SIGEMT,
+@@ -148,7 +148,7 @@
+                     target_os = "fuchsia",
+                     target_os = "linux"
+                 ),
+-                not(any(
++                not(any(target_arch = "alpha",
+                     target_arch = "mips",
+                     target_arch = "mips64",
+                     target_arch = "sparc64"
+@@ -177,14 +177,14 @@
+             ))]
+             "SIGPWR" => Signal::SIGPWR,
+             "SIGSYS" => Signal::SIGSYS,
+-            #[cfg(not(any(
++            #[cfg(any(target_arch = "alpha", not(any(
+                 target_os = "android",
+                 target_os = "emscripten",
+                 target_os = "fuchsia",
+                 target_os = "linux",
+                 target_os = "redox",
+                 target_os = "haiku"
+-            )))]
++            ))))]
+             "SIGEMT" => Signal::SIGEMT,
+             #[cfg(not(any(
+                 target_os = "android",
+@@ -232,7 +232,7 @@
+                     target_os = "fuchsia",
+                     target_os = "linux"
+                 ),
+-                not(any(
++                not(any(target_arch = "alpha",
+                     target_arch = "mips",
+                     target_arch = "mips64",
+                     target_arch = "sparc64"
+@@ -262,14 +262,14 @@
+             ))]
+             Signal::SIGPWR => "SIGPWR",
+             Signal::SIGSYS => "SIGSYS",
+-            #[cfg(not(any(
++            #[cfg(any(target_arch = "alpha", not(any(
+                 target_os = "android",
+                 target_os = "emscripten",
+                 target_os = "fuchsia",
+                 target_os = "linux",
+                 target_os = "redox",
+                 target_os = "haiku"
+-            )))]
++            ))))]
+             Signal::SIGEMT => "SIGEMT",
+             #[cfg(not(any(
+                 target_os = "android",
+@@ -325,7 +325,7 @@
+         target_os = "emscripten",
+         target_os = "fuchsia"
+     ),
+-    not(any(
++    not(any(target_arch = "alpha",
+         target_arch = "mips",
+         target_arch = "mips64",
+         target_arch = "sparc64"
+@@ -1555,3 +1555,11 @@
+         }
+     }
+ }
++
++#[cfg(all(target_os = "linux", target_arch = "alpha", feature = "signal"))]
++const SIGNALS: [Signal; 31] = [
++    SIGHUP, SIGINT, SIGQUIT, SIGILL, SIGTRAP, SIGABRT, SIGBUS, SIGFPE, SIGKILL,
++    SIGUSR1, SIGSEGV, SIGUSR2, SIGPIPE, SIGALRM, SIGTERM, SIGEMT, SIGCHLD,
++    SIGCONT, SIGSTOP, SIGTSTP, SIGTTIN, SIGTTOU, SIGURG, SIGXCPU, SIGXFSZ,
++    SIGVTALRM, SIGPROF, SIGWINCH, SIGIO, SIGPWR, SIGSYS,
++];
+--- a/src/sys/statfs.rs
++++ b/src/sys/statfs.rs
+@@ -534,7 +534,7 @@
+         target_os = "freebsd",
+         target_os = "fuchsia",
+         target_os = "openbsd",
+-        target_os = "linux",
++        all(target_os = "linux", not(target_arch = "alpha")),
+     ))]
+     #[cfg_attr(docsrs, doc(cfg(all())))]
+     pub fn blocks(&self) -> u64 {
+@@ -542,7 +542,7 @@
+     }
+ 
+     /// Total data blocks in filesystem
+-    #[cfg(target_os = "dragonfly")]
++    #[cfg(any(target_os = "dragonfly", target_arch = "alpha"))]
+     #[cfg_attr(docsrs, doc(cfg(all())))]
+     pub fn blocks(&self) -> libc::c_long {
+         self.0.f_blocks
+@@ -563,7 +563,7 @@
+         target_os = "freebsd",
+         target_os = "fuchsia",
+         target_os = "openbsd",
+-        target_os = "linux",
++        all(target_os = "linux", not(target_arch = "alpha")),
+     ))]
+     #[cfg_attr(docsrs, doc(cfg(all())))]
+     pub fn blocks_free(&self) -> u64 {
+@@ -571,7 +571,7 @@
+     }
+ 
+     /// Free blocks in filesystem
+-    #[cfg(target_os = "dragonfly")]
++    #[cfg(any(target_os = "dragonfly", target_arch = "alpha"))]
+     #[cfg_attr(docsrs, doc(cfg(all())))]
+     pub fn blocks_free(&self) -> libc::c_long {
+         self.0.f_bfree
+@@ -590,7 +590,7 @@
+         target_os = "macos",
+         target_os = "android",
+         target_os = "fuchsia",
+-        target_os = "linux",
++        all(target_os = "linux", not(target_arch = "alpha")),
+     ))]
+     #[cfg_attr(docsrs, doc(cfg(all())))]
+     pub fn blocks_available(&self) -> u64 {
+@@ -598,7 +598,7 @@
+     }
+ 
+     /// Free blocks available to unprivileged user
+-    #[cfg(target_os = "dragonfly")]
++    #[cfg(any(target_os = "dragonfly", target_arch = "alpha"))]
+     #[cfg_attr(docsrs, doc(cfg(all())))]
+     pub fn blocks_available(&self) -> libc::c_long {
+         self.0.f_bavail

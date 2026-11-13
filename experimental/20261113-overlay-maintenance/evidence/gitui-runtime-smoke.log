@@ -1,0 +1,5 @@
+Terminal status view: modified/untracked filenames PASS
+History navigation and commit display: PASS
+Clean quit and fixture preservation: PASS
+GitUI runtime smoke: PASS (not full suite)
+Fixture: /root/rust-alpha-overnight-20261111/gitui-smoke-mi7v5jtj/repo

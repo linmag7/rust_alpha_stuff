@@ -1,0 +1,19 @@
+Maintenance validation — 2026-11-13
+=================================
+GitUI 0.28.1-r1: modified/untracked Git fixture files, history navigation, quit.
+Broot 1.61.0-r1: directory focus/search/text preview/quit; filesystem display
+compared with native statvfs (reserved blocks count as unavailable).
+mdBook 0.5.4-r2: HTML formatting/link output, search index and file-watch rebuild.
+jaq 3.1.2-r1: JSON filter/map/reduce, Unicode, integer boundaries, floating-point
+arithmetic, streamed documents, file input and invalid JSON nonzero status.
+
+Each was built and installed natively through Portage with experimental SDK r2.
+Private nix0.27.1 patch also passed the exact formerly failing compiler invocation
+as a native metadata replay. All maintenance ebuild/eclass shell syntax checked.
+See evidence/ for smoke output. Full suites were not run; these checks do not
+establish general ABI, signal-handler, floating-point or unwinding correctness.
+Broot image/sixel/clipboard paths and mdBook server remain untested.
+
+Patch provenance: the eclass/alpha-rust exact-version patches are local Alpha
+adaptations of the corresponding vendored crate releases; Gentoo manifests
+retain upstream archive hashes. Frozen SDK r1/r2 files are not modified.

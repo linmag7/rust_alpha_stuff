@@ -1,0 +1,11 @@
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -49,7 +49,7 @@
+ optional = true
+ 
+ [dependencies.rustix]
+-version = "0.38.10"
++version = "1.1.5"
+ features = [
+     "fs",
+     "std",

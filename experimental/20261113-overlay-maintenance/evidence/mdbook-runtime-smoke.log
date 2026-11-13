@@ -1,0 +1,8 @@
+mdbook v0.5.4
+ INFO Book building has started
+ INFO Running the html backend
+ INFO HTML book written to `/root/rust-alpha-overnight-20261111/mdbook-smoke-vk7_upq1/book`
+HTML rendering/local link/search index: PASS
+Filesystem watch and HTML rebuild: PASS
+mdBook runtime smoke: PASS (not full suite; no server started)
+Fixture: /root/rust-alpha-overnight-20261111/mdbook-smoke-vk7_upq1

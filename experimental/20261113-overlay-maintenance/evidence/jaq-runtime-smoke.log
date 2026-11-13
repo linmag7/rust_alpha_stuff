@@ -1,0 +1,11 @@
+jaq 3.1.2
+filter and map: PASS
+reduction: PASS
+Unicode round trip: PASS
+integer boundary round trip: PASS
+floating arithmetic: PASS
+streamed documents: PASS
+file input: PASS
+invalid input nonzero status: PASS
+jaq runtime smoke: PASS; fixture /root/rust-alpha-overnight-20261111/jaq-smoke-9p12ij9z
+No full test-suite or exhaustive floating-point/ABI validation.

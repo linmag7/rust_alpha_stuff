@@ -1,0 +1,80 @@
+--- a/src/sys/mman.rs
++++ b/src/sys/mman.rs
+@@ -149,7 +149,7 @@
+         MAP_STACK;
+         /// Do not write through the page caches, write directly to the file. Used for Direct Access (DAX) enabled file systems.
+         // Available on Linux glibc and musl, MIPS* target excluded.
+-        #[cfg(all(target_os = "linux", not(any(target_arch = "mips", target_arch = "mips64", target_arch = "mips32r6", target_arch = "mips64r6")), not(target_env = "uclibc")))]
++        #[cfg(all(target_os = "linux", not(any(target_arch = "alpha", target_arch = "mips", target_arch = "mips64", target_arch = "mips32r6", target_arch = "mips64r6")), not(target_env = "uclibc")))]
+         MAP_SYNC;
+         /// Pages in this mapping are not retained in the kernel's memory cache.
+         #[cfg(apple_targets)]
+--- a/src/sys/resource.rs
++++ b/src/sys/resource.rs
+@@ -44,10 +44,11 @@
+     // https://gcc.gnu.org/legacy-ml/gcc/2015-08/msg00441.html
+     // https://github.com/rust-lang/libc/blob/master/src/unix/linux_like/linux/gnu/mod.rs
+     #[cfg_attr(any(
+-            all(target_os = "linux", any(target_env = "gnu", target_env = "uclibc")),
++            all(target_os = "linux", not(target_arch = "alpha"), any(target_env = "gnu", target_env = "uclibc")),
+             target_os = "hurd"
+         ), repr(u32))]
+     #[cfg_attr(any(
++            target_arch = "alpha",
+             bsd,
+             target_os = "android",
+             target_os = "aix",
+--- a/src/sys/statfs.rs
++++ b/src/sys/statfs.rs
+@@ -510,7 +510,7 @@
+     /// Total data blocks in filesystem
+     #[cfg(any(
+         apple_targets,
+-        linux_android,
++        all(linux_android, not(target_arch = "alpha")),
+         target_os = "freebsd",
+         target_os = "fuchsia",
+         target_os = "openbsd",
+@@ -520,7 +520,7 @@
+     }
+ 
+     /// Total data blocks in filesystem
+-    #[cfg(any(target_os = "dragonfly", target_os = "cygwin"))]
++    #[cfg(any(target_arch = "alpha", target_os = "dragonfly", target_os = "cygwin"))]
+     pub fn blocks(&self) -> libc::c_long {
+         self.0.f_blocks
+     }
+@@ -534,7 +534,7 @@
+     /// Free blocks in filesystem
+     #[cfg(any(
+         apple_targets,
+-        linux_android,
++        all(linux_android, not(target_arch = "alpha")),
+         target_os = "freebsd",
+         target_os = "fuchsia",
+         target_os = "openbsd",
+@@ -544,7 +544,7 @@
+     }
+ 
+     /// Free blocks in filesystem
+-    #[cfg(any(target_os = "dragonfly", target_os = "cygwin"))]
++    #[cfg(any(target_arch = "alpha", target_os = "dragonfly", target_os = "cygwin"))]
+     pub fn blocks_free(&self) -> libc::c_long {
+         self.0.f_bfree
+     }
+@@ -556,13 +556,13 @@
+     }
+ 
+     /// Free blocks available to unprivileged user
+-    #[cfg(any(apple_targets, linux_android, target_os = "fuchsia"))]
++    #[cfg(any(apple_targets, all(linux_android, not(target_arch = "alpha")), target_os = "fuchsia"))]
+     pub fn blocks_available(&self) -> u64 {
+         self.0.f_bavail
+     }
+ 
+     /// Free blocks available to unprivileged user
+-    #[cfg(any(target_os = "dragonfly", target_os = "cygwin"))]
++    #[cfg(any(target_arch = "alpha", target_os = "dragonfly", target_os = "cygwin"))]
+     pub fn blocks_available(&self) -> libc::c_long {
+         self.0.f_bavail
+     }

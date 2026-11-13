@@ -1,0 +1,45 @@
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -42,9 +42,8 @@
+ name = "get_size"
+ path = "examples/get_size.rs"
+ 
+-[target."cfg(unix)".dependencies.rustix]
+-version = "0.38.0"
+-features = ["termios"]
++[target."cfg(unix)".dependencies.libc]
++version = "0.2"
+ 
+ [target."cfg(windows)".dependencies.windows-sys]
+ version = "0.59.0"
+--- a/src/unix.rs
++++ b/src/unix.rs
+@@ -1,5 +1,5 @@
+ use super::{Height, Width};
+-use std::os::unix::io::{AsFd, BorrowedFd, RawFd};
++use std::os::unix::io::{AsFd, AsRawFd, BorrowedFd, RawFd};
+ 
+ /// Returns the size of the terminal.
+ ///
+@@ -22,13 +22,16 @@
+ ///
+ /// If the given file descriptor is not a tty, returns `None`
+ pub fn terminal_size_of<Fd: AsFd>(fd: Fd) -> Option<(Width, Height)> {
+-    use rustix::termios::{isatty, tcgetwinsize};
+-
+-    if !isatty(&fd) {
++    let fd = fd.as_fd();
++    let raw = fd.as_raw_fd();
++    if unsafe { libc::isatty(raw) } != 1 {
+         return None;
+     }
+-
+-    let winsize = tcgetwinsize(&fd).ok()?;
++    let mut winsize = std::mem::MaybeUninit::<libc::winsize>::uninit();
++    if unsafe { libc::ioctl(raw, libc::TIOCGWINSZ as _, winsize.as_mut_ptr()) } != 0 {
++        return None;
++    }
++    let winsize = unsafe { winsize.assume_init() };
+ 
+     let rows = winsize.ws_row;
+     let cols = winsize.ws_col;
